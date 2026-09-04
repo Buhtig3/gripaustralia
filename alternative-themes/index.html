@@ -8,18 +8,17 @@
   <!-- Google Fonts for all 5 Theme Archetypes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow+Condensed:wght@600;700;800&family=Bebas+Neue&family=Chakra+Petch:wght@600;700&family=Cinzel:wght@600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Outfit:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Bebas+Neue&family=Cinzel:wght@600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================================================
        CSS VARIABLES & THEME DEFINITIONS
        ========================================================================== */
     :root {
-      /* Shared utilities */
       --transition-smooth: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* THEME 01: Raw Iron & Mag Chalk */
+    /* THEME 01: Raw Iron & Mag Chalk (Dark / Heavy Foundry) */
     body[data-theme="theme-1"] {
       --bg-base: #0e1013;
       --bg-surface: #16191f;
@@ -45,7 +44,7 @@
       --hero-overlay: radial-gradient(circle at 50% 0%, rgba(255, 85, 0, 0.1) 0%, transparent 60%);
     }
 
-    /* THEME 02: Outback Ochre & Terra */
+    /* THEME 02: Outback Ochre & Terra (Warm Dark / Australian Earth) */
     body[data-theme="theme-2"] {
       --bg-base: #141110;
       --bg-surface: #1e1917;
@@ -71,34 +70,33 @@
       --hero-overlay: radial-gradient(circle at 50% -10%, rgba(224, 90, 43, 0.18) 0%, transparent 60%);
     }
 
-    /* THEME 03: Cyber Grip Telemetry */
+    /* THEME 03: Sandstone & Coastal Iron (LIGHT / Australian Coast & Outdoor Strength) */
     body[data-theme="theme-3"] {
-      --bg-base: #08090d;
-      --bg-surface: #0f121a;
-      --bg-elevated: #161c28;
-      --border-color: #1e293b;
-      --accent: #00f0ff;
-      --accent-hover: #33f3ff;
-      --accent-text: #05070a;
-      --text-main: #ffffff;
-      --text-muted: #64748b;
-      --font-display: 'Chakra Petch', sans-serif;
-      --font-accent: 'JetBrains Mono', monospace;
-      --font-body: 'Inter', sans-serif;
-      --btn-radius: 2px;
-      --card-radius: 4px;
-      --box-shadow: 0 8px 30px rgba(0, 240, 255, 0.05), inset 0 0 0 1px var(--border-color);
-      --btn-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
-      --bg-pattern: linear-gradient(to right, rgba(0, 240, 255, 0.03) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
-      --bg-pattern-size: 28px 28px;
-      --badge-bg: rgba(0, 240, 255, 0.1);
-      --badge-border: rgba(0, 240, 255, 0.3);
-      --badge-text: #00f0ff;
-      --hero-overlay: radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.15) 0%, transparent 65%);
+      --bg-base: #f7f4ed;
+      --bg-surface: #ffffff;
+      --bg-elevated: #ede8dc;
+      --border-color: #dfd7c5;
+      --accent: #d97706;
+      --accent-hover: #b45309;
+      --accent-text: #ffffff;
+      --text-main: #0f2942;
+      --text-muted: #5c6f84;
+      --font-display: 'Outfit', sans-serif;
+      --font-accent: 'Barlow Condensed', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --btn-radius: 6px;
+      --card-radius: 8px;
+      --box-shadow: 0 10px 30px -10px rgba(15, 41, 66, 0.08), 0 0 1px 1px var(--border-color);
+      --btn-shadow: 0 6px 20px rgba(217, 119, 6, 0.28);
+      --bg-pattern: radial-gradient(rgba(217, 119, 6, 0.04) 1px, transparent 1px);
+      --bg-pattern-size: 24px 24px;
+      --badge-bg: rgba(217, 119, 6, 0.1);
+      --badge-border: rgba(217, 119, 6, 0.3);
+      --badge-text: #d97706;
+      --hero-overlay: radial-gradient(circle at 85% 0%, rgba(217, 119, 6, 0.08) 0%, transparent 60%);
     }
 
-    /* THEME 04: Heritage Gold & Athletic Club */
+    /* THEME 04: Heritage Gold & Athletic Club (Dark Prestige / Championship Federation) */
     body[data-theme="theme-4"] {
       --bg-base: #08130f;
       --bg-surface: #0f221b;
@@ -124,30 +122,30 @@
       --hero-overlay: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.14) 0%, transparent 60%);
     }
 
-    /* THEME 05: Brutalist Mono-Grit */
+    /* THEME 05: Vintage Archival Gazette (LIGHT / Championship Broadsheet & Ivory Vellum) */
     body[data-theme="theme-5"] {
-      --bg-base: #000000;
-      --bg-surface: #111111;
-      --bg-elevated: #1a1a1a;
-      --border-color: #ffffff;
-      --accent: #ffe600;
-      --accent-hover: #fff033;
-      --accent-text: #000000;
-      --text-main: #ffffff;
-      --text-muted: #a1a1aa;
-      --font-display: 'Archivo Black', sans-serif;
-      --font-accent: 'Space Mono', monospace;
-      --font-body: 'IBM Plex Sans', sans-serif;
-      --btn-radius: 0px;
-      --card-radius: 0px;
-      --box-shadow: 5px 5px 0px 0px #ffe600;
-      --btn-shadow: 4px 4px 0px #ffffff;
-      --bg-pattern: radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px);
-      --bg-pattern-size: 16px 16px;
-      --badge-bg: #ffe600;
-      --badge-border: #ffe600;
-      --badge-text: #000000;
-      --hero-overlay: repeating-linear-gradient(-45deg, rgba(255, 230, 0, 0.03), rgba(255, 230, 0, 0.03) 10px, transparent 10px, transparent 20px);
+      --bg-base: #faf6ee;
+      --bg-surface: #ffffff;
+      --bg-elevated: #f1ebe0;
+      --border-color: #dcd2be;
+      --accent: #b4832c;
+      --accent-hover: #946a20;
+      --accent-text: #ffffff;
+      --text-main: #1c1a17;
+      --text-muted: #635e55;
+      --font-display: 'Cinzel', serif;
+      --font-accent: 'Cinzel', serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --btn-radius: 4px;
+      --card-radius: 6px;
+      --box-shadow: 0 10px 30px -8px rgba(28, 26, 23, 0.08), 0 0 1px 1px var(--border-color);
+      --btn-shadow: 0 6px 24px rgba(180, 131, 44, 0.25);
+      --bg-pattern: radial-gradient(rgba(180, 131, 44, 0.04) 1px, transparent 1px);
+      --bg-pattern-size: 20px 20px;
+      --badge-bg: rgba(180, 131, 44, 0.12);
+      --badge-border: rgba(180, 131, 44, 0.3);
+      --badge-text: #b4832c;
+      --hero-overlay: radial-gradient(circle at 50% 0%, rgba(180, 131, 44, 0.08) 0%, transparent 60%);
     }
 
     /* ==========================================================================
@@ -169,7 +167,7 @@
       transition: background-color 0.3s ease, color 0.3s ease;
       overflow-x: hidden;
       min-height: 100vh;
-      padding-bottom: 110px; /* Space for theme inspector bar */
+      padding-bottom: 110px; /* Space for theme inspector dock */
     }
 
     a {
@@ -184,7 +182,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(10, 10, 12, 0.92);
+      background: rgba(10, 10, 12, 0.94);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.12);
       padding: 10px 16px;
@@ -228,7 +226,7 @@
       background: #181920;
       color: #8f96a3;
       border: 1px solid #282a36;
-      padding: 6px 14px;
+      padding: 6px 13px;
       border-radius: 6px;
       font-size: 12px;
       font-weight: 600;
@@ -250,6 +248,17 @@
       border-color: #ff5500;
       background: #252836;
       box-shadow: 0 0 12px rgba(255, 85, 0, 0.3);
+    }
+
+    .theme-tag-light {
+      background: #38bdf8;
+      color: #031c29;
+      font-size: 9px;
+      font-weight: 800;
+      padding: 1px 5px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      margin-left: 2px;
     }
 
     .theme-color-dot {
@@ -441,7 +450,7 @@
       background: rgba(0, 0, 0, 0.7);
       backdrop-filter: blur(8px);
       border: 1px solid var(--border-color);
-      color: var(--text-muted);
+      color: #ffffff;
       font-family: var(--font-accent);
       font-size: 11px;
       text-transform: uppercase;
@@ -806,7 +815,7 @@
     }
 
     /* ==========================================================================
-       BOTTOM FIXED THEME INSPECTOR / PALETTE BAR
+       BOTTOM FIXED THEME INSPECTOR / PALETTE DOCK
        ========================================================================== */
     .theme-inspector-dock {
       position: fixed;
@@ -976,23 +985,23 @@
     <div class="theme-nav-buttons">
       <button class="theme-btn active" onclick="switchTheme('theme-1', this)">
         <span class="theme-color-dot" style="background:#ff5500;"></span>
-        01. Raw Iron & Chalk
+        01. Raw Iron
       </button>
       <button class="theme-btn" onclick="switchTheme('theme-2', this)">
         <span class="theme-color-dot" style="background:#e05a2b;"></span>
-        02. Outback Ochre
+        02. Outback Ochre ⭐
       </button>
       <button class="theme-btn" onclick="switchTheme('theme-3', this)">
-        <span class="theme-color-dot" style="background:#00f0ff;"></span>
-        03. Cyber Telemetry
+        <span class="theme-color-dot" style="background:#d97706;"></span>
+        03. Sandstone & Coast <span class="theme-tag-light">LIGHT</span>
       </button>
       <button class="theme-btn" onclick="switchTheme('theme-4', this)">
         <span class="theme-color-dot" style="background:#d4af37;"></span>
-        04. Heritage Gold
+        04. Heritage Gold ⭐
       </button>
       <button class="theme-btn" onclick="switchTheme('theme-5', this)">
-        <span class="theme-color-dot" style="background:#ffe600;"></span>
-        05. Brutalist Mono
+        <span class="theme-color-dot" style="background:#b4832c;"></span>
+        05. Archival Gazette <span class="theme-tag-light">LIGHT</span>
       </button>
     </div>
 
@@ -1160,7 +1169,7 @@
     </section>
 
     <!-- National Championships Archive -->
-    <section class="content-section" style="background: rgba(0,0,0,0.15);">
+    <section class="content-section" style="background: rgba(0,0,0,0.03);">
       <div class="site-wrapper">
         <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; margin-bottom: 24px; gap: 16px;">
           <div>
@@ -1191,7 +1200,7 @@
               <span class="card-badge">National Championship</span>
               <h3 class="card-title">2025 Nationals</h3>
               <p class="card-desc">
-                Multi-discipline showdown featuring the 2.25" Crusher, Napalm Nightmare, and Little Big Horn benchmark lifts.
+                Held in Brisbane, Henry Mullett won Men's Champion, Sarah Rainbow Women's Champion, and Isaac Pitt reclaimed pound-for-pound.
               </p>
             </div>
             <a href="#" class="card-link">See Results & Photos &rarr;</a>
@@ -1203,7 +1212,7 @@
               <span class="card-badge">Inaugural Event</span>
               <h3 class="card-title">2024 Nationals</h3>
               <p class="card-desc">
-                Benchmark events with national records set across men's and women's classes in Sydney.
+                Held in Sydney, Luke Reynolds was the Men's Champion and Isaac Pitt won pound-for-pound.
               </p>
             </div>
             <a href="#" class="card-link">See Results & Photos &rarr;</a>
@@ -1237,8 +1246,8 @@
 
           <div class="guide-card">
             <div>
-              <h4 class="guide-title">Gyms & Equipment</h4>
-              <p class="card-desc" style="margin-bottom: 12px;">Directory of Australian strength facilities equipped with specialized grip apparatus.</p>
+              <h4 class="guide-title">Australian Grip Feats</h4>
+              <p class="card-desc" style="margin-bottom: 12px;">Benchmark records for the Thomas Inch dumbbell, Blob50, and national lift leaderboards.</p>
             </div>
             <a href="#" class="card-link">Read Article &rarr;</a>
           </div>
@@ -1287,13 +1296,13 @@
        VIEW 2: SNAPSHOT GALLERY (ALL 5 THEMES SIDE-BY-SIDE)
        ========================================================================== -->
   <section id="gallery-view" class="site-wrapper">
-    <div style="text-align: center; max-width: 700px; margin: 0 auto 30px auto;">
+    <div style="text-align: center; max-width: 720px; margin: 0 auto 30px auto;">
       <div class="section-eyebrow">Design Showcase Matrix</div>
       <h2 style="font-size: 32px; font-weight: 900; text-transform: uppercase; color: #fff; margin-bottom: 8px;">
         Top 5 Theme Archetype Snapshots
       </h2>
       <p style="font-size: 14px; color: #9da5b4;">
-        Compare all five alternative directions side-by-side. Click "Apply Theme" on any card to test it full-screen in live mode.
+        Featuring the top dark/heritage options alongside our two brand-new light themes with lighter backgrounds. Click "Apply Theme" to test full-screen in live mode.
       </p>
     </div>
 
@@ -1301,7 +1310,7 @@
       <!-- 01: Raw Iron & Mag Chalk -->
       <div class="gallery-card" style="background:#0e1013; border: 1px solid #2a2f3a;">
         <div class="gallery-card-header">
-          <strong style="color: #f4f4f6; font-family:'Syne', sans-serif; font-size: 14px;">01. Raw Iron & Chalk</strong>
+          <strong style="color: #f4f4f6; font-family:'Syne', sans-serif; font-size: 14px;">01. Raw Iron & Chalk (Dark)</strong>
           <button class="theme-btn" onclick="applyAndSwitch('theme-1')">Apply &rarr;</button>
         </div>
         <div class="gallery-preview-frame">
@@ -1311,7 +1320,7 @@
               FORGING AUSTRALIAN <span style="color:#ff5500;">GRIP POWER</span>
             </h3>
             <p style="font-size: 12px; color: #9da5b4; font-family: 'Plus Jakarta Sans', sans-serif;">
-              Obsidian plate charcoal, knurled bar textures, and chalk white powder contrasts.
+              Obsidian plate charcoal, knurled bar micro-grid, and chalk white powder contrasts.
             </p>
           </div>
           <div style="margin-top: 20px;">
@@ -1325,7 +1334,7 @@
       <!-- 02: Outback Ochre & Terra -->
       <div class="gallery-card" style="background:#141110; border: 1px solid #3d332f;">
         <div class="gallery-card-header">
-          <strong style="color: #faf5ee; font-family:'Bebas Neue', cursive; font-size: 17px; letter-spacing: 0.05em;">02. Outback Ochre & Terra</strong>
+          <strong style="color: #faf5ee; font-family:'Bebas Neue', cursive; font-size: 17px; letter-spacing: 0.05em;">02. Outback Ochre & Terra ⭐</strong>
           <button class="theme-btn" onclick="applyAndSwitch('theme-2')">Apply &rarr;</button>
         </div>
         <div class="gallery-preview-frame">
@@ -1335,7 +1344,7 @@
               FORGING AUSTRALIAN <span style="color:#e05a2b;">GRIP STRENGTH</span>
             </h3>
             <p style="font-size: 12px; color: #ad9e96; font-family: 'DM Sans', sans-serif;">
-              Red centre clay, sunbaked sandstone gold, and charred timber tones.
+              Red centre clay, sunbaked sandstone gold, and charred ironbark tones. Highly rated alternative.
             </p>
           </div>
           <div style="margin-top: 20px;">
@@ -1346,25 +1355,25 @@
         </div>
       </div>
 
-      <!-- 03: Cyber Grip Telemetry -->
-      <div class="gallery-card" style="background:#08090d; border: 1px solid #1e293b;">
-        <div class="gallery-card-header">
-          <strong style="color: #00f0ff; font-family:'Chakra Petch', sans-serif; font-size: 13px;">03. Cyber Telemetry</strong>
-          <button class="theme-btn" onclick="applyAndSwitch('theme-3')">Apply &rarr;</button>
+      <!-- 03: Sandstone & Coastal Iron (NEW LIGHT OPTION) -->
+      <div class="gallery-card" style="background:#f7f4ed; border: 1px solid #dfd7c5;">
+        <div class="gallery-card-header" style="background:#ffffff; border-bottom: 1px solid #dfd7c5;">
+          <strong style="color: #0f2942; font-family:'Outfit', sans-serif; font-size: 14px; font-weight:800;">03. Sandstone & Coast (Light) ☀️</strong>
+          <button class="theme-btn" style="background:#0f2942; color:#fff;" onclick="applyAndSwitch('theme-3')">Apply &rarr;</button>
         </div>
         <div class="gallery-preview-frame">
           <div>
-            <span style="background: rgba(0,240,255,0.12); color: #00f0ff; font-family:'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 2px; text-transform: uppercase;">BIOMETRICS // HUD</span>
-            <h3 style="font-family: 'Chakra Petch', sans-serif; font-size: 20px; color: #ffffff; margin: 10px 0 6px 0; text-transform: uppercase;">
-              FORGING AUSTRALIAN <span style="color:#00f0ff;">LOAD CAPACITY</span>
+            <span style="background: rgba(217,119,6,0.14); color: #d97706; font-family:'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 4px; text-transform: uppercase;">Sunlit Coastal Strength</span>
+            <h3 style="font-family: 'Outfit', sans-serif; font-size: 22px; color: #0f2942; margin: 10px 0 6px 0; font-weight: 800; text-transform: uppercase;">
+              FORGING AUSTRALIAN <span style="color:#d97706;">GRIP STRENGTH</span>
             </h3>
-            <p style="font-size: 12px; color: #64748b; font-family: 'Inter', sans-serif;">
-              RGC digital load-cell calibration, laser cyan HUD accents, and precision telemetry.
+            <p style="font-size: 12px; color: #5c6f84; font-family: 'Plus Jakarta Sans', sans-serif;">
+              Sun-bleached sandstone linen, pure white card surfaces, ocean cobalt ink, and golden coast amber.
             </p>
           </div>
           <div style="margin-top: 20px;">
-            <button style="width: 100%; background:#00f0ff; color:#05070a; border:none; padding:10px; font-family:'JetBrains Mono',monospace; font-weight:800; font-size:12px; text-transform:uppercase; border-radius:2px; box-shadow: 0 0 20px rgba(0,240,255,0.4); cursor:pointer;">
-              Strongfest IV // RUN
+            <button style="width: 100%; background:#d97706; color:#ffffff; border:none; padding:11px; font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:13px; text-transform:uppercase; border-radius:6px; box-shadow: 0 4px 16px rgba(217,119,6,0.3); cursor:pointer;">
+              Strongfest IV Sign-up
             </button>
           </div>
         </div>
@@ -1373,7 +1382,7 @@
       <!-- 04: Heritage Gold & Athletic Club -->
       <div class="gallery-card" style="background:#08130f; border: 1px solid #254a3c;">
         <div class="gallery-card-header">
-          <strong style="color: #d4af37; font-family:'Cinzel', serif; font-size: 13px;">04. Heritage Gold</strong>
+          <strong style="color: #d4af37; font-family:'Cinzel', serif; font-size: 13px;">04. Heritage Gold & Club ⭐</strong>
           <button class="theme-btn" onclick="applyAndSwitch('theme-4')">Apply &rarr;</button>
         </div>
         <div class="gallery-preview-frame">
@@ -1383,7 +1392,7 @@
               FORGING AUSTRALIAN <span style="color:#d4af37;">HERITAGE STRENGTH</span>
             </h3>
             <p style="font-size: 12px; color: #a3b5ab; font-family: 'Plus Jakarta Sans', sans-serif;">
-              Midnight evergreen velvet, vintage trophy gold leaf, and Apollon era prestige.
+              Midnight evergreen velvet, vintage trophy gold leaf, and Thomas Inch pedigree. Highly rated alternative.
             </p>
           </div>
           <div style="margin-top: 20px;">
@@ -1394,25 +1403,25 @@
         </div>
       </div>
 
-      <!-- 05: Brutalist Mono-Grit -->
-      <div class="gallery-card" style="background:#000000; border: 2px solid #ffffff; box-shadow: 6px 6px 0px #ffe600;">
-        <div class="gallery-card-header" style="background: #000; border-bottom: 2px solid #fff;">
-          <strong style="color: #ffe600; font-family:'Archivo Black', sans-serif; font-size: 13px;">05. Brutalist Mono</strong>
-          <button class="theme-btn" style="border: 2px solid #fff; color:#fff;" onclick="applyAndSwitch('theme-5')">Apply &rarr;</button>
+      <!-- 05: Vintage Archival Gazette (NEW LIGHT OPTION) -->
+      <div class="gallery-card" style="background:#faf6ee; border: 1px solid #dcd2be;">
+        <div class="gallery-card-header" style="background:#ffffff; border-bottom: 1px solid #dcd2be;">
+          <strong style="color: #1c1a17; font-family:'Cinzel', serif; font-size: 13px; font-weight:800;">05. Archival Gazette (Light) 📜</strong>
+          <button class="theme-btn" style="background:#1c1a17; color:#ffffff;" onclick="applyAndSwitch('theme-5')">Apply &rarr;</button>
         </div>
         <div class="gallery-preview-frame">
           <div>
-            <span style="background: #ffe600; color: #000; font-family:'Space Mono', monospace; font-size: 10px; font-weight: 800; padding: 2px 6px; text-transform: uppercase;">[HAZARD_STRENGTH]</span>
-            <h3 style="font-family: 'Archivo Black', sans-serif; font-size: 20px; color: #ffffff; margin: 10px 0 6px 0; text-transform: uppercase;">
-              FORGING AUSTRALIAN <span style="color:#ffe600;">RAW IRON</span>
+            <span style="background: rgba(180,131,44,0.15); color: #b4832c; font-family:'Cinzel', serif; font-size: 10px; font-weight: 800; padding: 2px 6px; text-transform: uppercase;">Official Broadsheet</span>
+            <h3 style="font-family: 'Cinzel', serif; font-size: 20px; color: #1c1a17; margin: 10px 0 6px 0; text-transform: uppercase;">
+              FORGING AUSTRALIAN <span style="color:#b4832c;">RECORD FEATS</span>
             </h3>
-            <p style="font-size: 12px; color: #a1a1aa; font-family: 'IBM Plex Sans', sans-serif;">
-              Stark high-contrast pitch and bone, caution yellow accents, and zero-blur offset shadows.
+            <p style="font-size: 12px; color: #635e55; font-family: 'Plus Jakarta Sans', sans-serif;">
+              Archival ivory cotton parchment, letterpress ink, antique brass hairline rules, and gold foil seals.
             </p>
           </div>
           <div style="margin-top: 20px;">
-            <button style="width: 100%; background:#ffe600; color:#000; border:2px solid #fff; padding:10px; font-family:'Space Mono',monospace; font-weight:800; font-size:12px; text-transform:uppercase; box-shadow: 4px 4px 0px #fff; cursor:pointer;">
-              STRONGFEST // ENTER
+            <button style="width: 100%; background:#b4832c; color:#ffffff; border:1px solid #946a20; padding:10px; font-family:'Cinzel',serif; font-weight:900; font-size:12px; text-transform:uppercase; box-shadow: 0 4px 18px rgba(180,131,44,0.25); cursor:pointer;">
+              Enter Nationals
             </button>
           </div>
         </div>
@@ -1421,8 +1430,8 @@
   </section>
 
   <!-- ==========================================================================
-       BOTTOM FIXED THEME INSPECTOR / PALETTE BAR
-       ========================================================================== */
+       BOTTOM FIXED THEME INSPECTOR / PALETTE DOCK
+       ========================================================================== -->
   <aside class="theme-inspector-dock" aria-label="Theme Palette Inspector">
     <div class="inspector-inner">
       <div class="inspector-meta">
@@ -1451,7 +1460,7 @@
   <script>
     const themeData = {
       'theme-1': {
-        name: 'Theme 01: Raw Iron & Mag Chalk',
+        name: 'Theme 01: Raw Iron & Mag Chalk (Dark)',
         vibe: 'Heavy Foundry • Obsidian Slate • Forge Amber • Mag Chalk Mist',
         dotColor: '#ff5500',
         fonts: ['Display: Syne', 'Accent: Barlow Condensed', 'Body: Plus Jakarta Sans'],
@@ -1464,8 +1473,8 @@
         ]
       },
       'theme-2': {
-        name: 'Theme 02: Outback Ochre & Terra',
-        vibe: 'Australian Bush Iron • Red Centre Ochre • Sunbaked Sandstone',
+        name: 'Theme 02: Outback Ochre & Terra (Warm Dark) ⭐',
+        vibe: 'Australian Bush Iron • Red Centre Ochre • Sunbaked Sandstone • Spinifex',
         dotColor: '#e05a2b',
         fonts: ['Display: Bebas Neue', 'Accent: Space Grotesk', 'Body: DM Sans'],
         swatches: [
@@ -1477,20 +1486,20 @@
         ]
       },
       'theme-3': {
-        name: 'Theme 03: Cyber Grip Telemetry',
-        vibe: 'High-Performance Sports Science • Precision RGC Load Cells • Neon HUD',
-        dotColor: '#00f0ff',
-        fonts: ['Display: Chakra Petch', 'Data: JetBrains Mono', 'Body: Inter'],
+        name: 'Theme 03: Sandstone & Coastal Iron (Light) ☀️',
+        vibe: 'Sunlit Australian Coast • Ocean Cobalt Ink • Coastal Gold • Warm Sandstone Linen',
+        dotColor: '#d97706',
+        fonts: ['Display: Outfit', 'Accent: Barlow Condensed', 'Body: Plus Jakarta Sans'],
         swatches: [
-          { name: 'Void Black', hex: '#08090d' },
-          { name: 'HUD Console', hex: '#0f121a' },
-          { name: 'Laser Cyan', hex: '#00f0ff' },
-          { name: 'Kinetic Volt', hex: '#ccff00' },
-          { name: 'Wire Edge', hex: '#1e293b' }
+          { name: 'Sandstone Canvas', hex: '#f7f4ed' },
+          { name: 'Pure Vellum', hex: '#ffffff' },
+          { name: 'Pacific Navy', hex: '#0f2942' },
+          { name: 'Coastal Gold', hex: '#d97706' },
+          { name: 'Limestone Edge', hex: '#dfd7c5' }
         ]
       },
       'theme-4': {
-        name: 'Theme 04: Heritage Gold & Athletic Club',
+        name: 'Theme 04: Heritage Gold & Athletic Club (Dark Prestige) ⭐',
         vibe: 'Historic Strongman Pedigree • Midnight Evergreen • Trophy Gold Leaf',
         dotColor: '#d4af37',
         fonts: ['Display: Cinzel', 'Accent: Outfit', 'Body: Plus Jakarta Sans'],
@@ -1503,16 +1512,16 @@
         ]
       },
       'theme-5': {
-        name: 'Theme 05: Brutalist Mono-Grit',
-        vibe: 'Underground Powerhouse • 2px Hard Borders • Offset Shadows • Caution Yellow',
-        dotColor: '#ffe600',
-        fonts: ['Display: Archivo Black', 'Code: Space Mono', 'Body: IBM Plex Sans'],
+        name: 'Theme 05: Vintage Archival Gazette (Light) 📜',
+        vibe: 'Championship Sporting Broadsheet • Ivory Paper • Letterpress Ink • Antique Gold Seal',
+        dotColor: '#b4832c',
+        fonts: ['Display: Cinzel', 'Accent: Cinzel Decorative', 'Body: Plus Jakarta Sans'],
         swatches: [
-          { name: 'Pitch Black', hex: '#000000' },
-          { name: 'Hazard Yellow', hex: '#ffe600' },
-          { name: 'Stark White', hex: '#ffffff' },
-          { name: 'Concrete Dark', hex: '#111111' },
-          { name: 'Zinc 400', hex: '#a1a1aa' }
+          { name: 'Archival Ivory', hex: '#faf6ee' },
+          { name: 'Crisp Surface', hex: '#ffffff' },
+          { name: 'Foundry Ink', hex: '#1c1a17' },
+          { name: 'Medal Gold', hex: '#b4832c' },
+          { name: 'Antique Rule', hex: '#dcd2be' }
         ]
       }
     };
