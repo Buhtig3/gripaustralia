@@ -4,7 +4,6 @@ import { getUrl } from '../utils/url';
 import { getCollection } from 'astro:content';
 
 const articles = await getCollection('articles');
-const gyms = await getCollection('gyms');
 
 // Filter articles
 const featuredGuides = articles.filter(a => ['what-is-grip-sport', 'mulletts-mandrel', 'gripper-rating-service', 'australian-grip-feats'].includes(a.slug));
@@ -12,7 +11,7 @@ const featuredGuides = articles.filter(a => ['what-is-grip-sport', 'mulletts-man
 
 <BaseLayout
   title="Grip Australia — Hand, Wrist & Forearm Strength Athletics"
-  description="The home of Grip Sport in Australia. Strongfest sign-up, 2026 Nationals results, rules, equipment directories, Australian records, and competition calendar."
+  description="The home of Grip Sport in Australia. Strongfest sign-up, 2026 Nationals results, rules, Australian records, and competition calendar."
 >
   <!-- Hero Video Section (100% Screen Width) -->
   <section class="relative w-full bg-black border-b border-slate-800 overflow-hidden">
@@ -79,16 +78,16 @@ const featuredGuides = articles.filter(a => ['what-is-grip-sport', 'mulletts-man
             What is Grip Sport?
           </a>
           <a
-            href={getUrl('/equipment-and-gyms')}
+            href={getUrl('/competition-calendar')}
             class="px-5 py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 hover:border-slate-600 font-semibold text-sm transition-all"
           >
-            Find a Grip Gym ({gyms.length} Listed)
+            Upcoming Events
           </a>
           <a
-            href={getUrl('/competition-calendar')}
+            href={getUrl('/australian-grip-feats')}
             class="px-5 py-2.5 rounded-lg bg-slate-900/60 hover:bg-slate-800 text-orange-400 border border-orange-500/30 font-semibold text-sm transition-all"
           >
-            Upcoming Events
+            Australian Grip Feats
           </a>
         </div>
       </div>
@@ -121,20 +120,20 @@ const featuredGuides = articles.filter(a => ['what-is-grip-sport', 'mulletts-man
         </span>
       </a>
 
-      <a href={getUrl('/equipment-and-gyms')} class="group bg-slate-900/70 border border-slate-800 hover:border-orange-500/50 p-6 rounded-xl transition-all hover:shadow-lg hover:shadow-orange-500/5 flex flex-col justify-between">
+      <a href={getUrl('/competition-calendar')} class="group bg-slate-900/70 border border-slate-800 hover:border-orange-500/50 p-6 rounded-xl transition-all hover:shadow-lg hover:shadow-orange-500/5 flex flex-col justify-between">
         <div>
           <div class="w-12 h-12 rounded-lg bg-orange-500/10 border border-orange-500/20 text-orange-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-white group-hover:text-orange-400 mb-2 transition-colors">Equipment & Gym Directory</h3>
+          <h3 class="text-xl font-bold text-white group-hover:text-orange-400 mb-2 transition-colors">Competition Calendar</h3>
           <p class="text-sm text-slate-400 leading-relaxed">
-            Locate specialised gyms equipped with loading pins, Napalm Nightmare handles, IronMind Little Big Horns, and Rogue Anvils.
+            Explore the national calendar: upcoming GSI-sanctioned events, Strongfest, and state championships across Australia.
           </p>
         </div>
         <span class="mt-6 text-xs font-semibold text-orange-400 group-hover:underline inline-flex items-center gap-1">
-          Browse Directory &rarr;
+          View Calendar &rarr;
         </span>
       </a>
 
