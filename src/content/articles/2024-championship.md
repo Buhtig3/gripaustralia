@@ -1,8 +1,8 @@
 ---
 title: 2024 Australian Grip Sport Championship
 description: >-
-  Join the 2024 Australian Grip Championship, the premier Grip Sport event in
-  Australia! Compete and connect with enthusiasts. Sign up now!
+  The 2024 Australian Grip Championship, held in Sydney, was the inaugural 'Grip Nationals' for 
+  Australia. Luke Reynolds was the Men's Champion and Isaac Pitt won pound-for-pound.
 originalUrl: https://gripaustralia.com/2024-championship
 migratedAt: '2026-09-04T04:22:32.273Z'
 author: Grip Australia
