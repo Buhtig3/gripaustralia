@@ -1,6 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getUrl } from '../utils/url';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles');
@@ -29,7 +30,7 @@ const { Content } = await entry.render();
     
     <!-- Breadcrumb -->
     <nav class="flex items-center space-x-2 text-xs text-slate-400 mb-6 font-mono" aria-label="Breadcrumb">
-      <a href="/" class="hover:text-orange-400 transition-colors">Home</a>
+      <a href={getUrl('/')} class="hover:text-orange-400 transition-colors">Home</a>
       <span>/</span>
       <span class="text-slate-200 truncate">{entry.data.title}</span>
     </nav>
@@ -75,7 +76,7 @@ const { Content } = await entry.render();
     <!-- Article Footer / Navigation -->
     <footer class="mt-16 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
       <a
-        href="/"
+        href={getUrl('/')}
         class="inline-flex items-center gap-1.5 text-orange-400 hover:text-orange-300 font-medium"
       >
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

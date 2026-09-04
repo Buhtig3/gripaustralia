@@ -1,4 +1,6 @@
 ---
+import { getUrl } from '../utils/url';
+
 const currentYear = new Date().getFullYear();
 ---
 
@@ -32,12 +34,12 @@ const currentYear = new Date().getFullYear();
       <div>
         <h3 class="text-xs font-semibold uppercase tracking-wider text-orange-400 mb-4">Competitions & Feats</h3>
         <ul class="space-y-2 text-sm text-slate-300">
-          <li><a href="/competition-calendar" class="hover:text-white transition-colors">Competition Calendar</a></li>
-          <li><a href="/2026-championship" class="hover:text-white transition-colors">2026 Championship</a></li>
-          <li><a href="/2025-championship" class="hover:text-white transition-colors">2025 Championship</a></li>
-          <li><a href="/2024-championship" class="hover:text-white transition-colors">2024 Championship</a></li>
-          <li><a href="/australian-grip-feats" class="hover:text-white transition-colors">Australian Records & Feats</a></li>
-          <li><a href="/mulletts-mandrel" class="hover:text-white transition-colors">Mullett's Mandrel Records</a></li>
+          <li><a href={getUrl('/competition-calendar')} class="hover:text-white transition-colors">Competition Calendar</a></li>
+          <li><a href={getUrl('/2026-championship')} class="hover:text-white transition-colors">2026 Championship</a></li>
+          <li><a href={getUrl('/2025-championship')} class="hover:text-white transition-colors">2025 Championship</a></li>
+          <li><a href={getUrl('/2024-championship')} class="hover:text-white transition-colors">2024 Championship</a></li>
+          <li><a href={getUrl('/australian-grip-feats')} class="hover:text-white transition-colors">Australian Records & Feats</a></li>
+          <li><a href={getUrl('/mulletts-mandrel')} class="hover:text-white transition-colors">Mullett's Mandrel Records</a></li>
         </ul>
       </div>
 
@@ -45,11 +47,11 @@ const currentYear = new Date().getFullYear();
       <div>
         <h3 class="text-xs font-semibold uppercase tracking-wider text-orange-400 mb-4">Community & Tools</h3>
         <ul class="space-y-2 text-sm text-slate-300">
-          <li><a href="/equipment-and-gyms" class="hover:text-white transition-colors">Gyms & Equipment Directory</a></li>
-          <li><a href="/what-is-grip-sport" class="hover:text-white transition-colors">What is Grip Sport?</a></li>
-          <li><a href="/get-involved" class="hover:text-white transition-colors">Get Involved</a></li>
-          <li><a href="/gripper-rating-service" class="hover:text-white transition-colors">Gripper Rating Service</a></li>
-          <li><a href="/media" class="hover:text-white transition-colors">Interviews & Media</a></li>
+          <li><a href={getUrl('/equipment-and-gyms')} class="hover:text-white transition-colors">Gyms & Equipment Directory</a></li>
+          <li><a href={getUrl('/what-is-grip-sport')} class="hover:text-white transition-colors">What is Grip Sport?</a></li>
+          <li><a href={getUrl('/get-involved')} class="hover:text-white transition-colors">Get Involved</a></li>
+          <li><a href={getUrl('/gripper-rating-service')} class="hover:text-white transition-colors">Gripper Rating Service</a></li>
+          <li><a href={getUrl('/media')} class="hover:text-white transition-colors">Interviews & Media</a></li>
           <li><a href="http://www.gripsport.org" target="_blank" rel="noopener" class="hover:text-white transition-colors flex items-center gap-1">
             <span>Grip Sport International</span>
             <svg class="w-3 h-3 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -66,7 +68,7 @@ const currentYear = new Date().getFullYear();
       </div>
       <div class="flex items-center space-x-6">
         <span>Hosted statically on GitHub Pages</span>
-        <a href="/sitemap-index.xml" class="hover:text-slate-400">Sitemap</a>
+        <a href={getUrl('/sitemap-index.xml')} class="hover:text-slate-400">Sitemap</a>
       </div>
     </div>
   </div>

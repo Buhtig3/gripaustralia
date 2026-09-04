@@ -1,4 +1,6 @@
 ---
+import { getUrl } from '../utils/url';
+
 interface Props {
   currentPath?: string;
 }
@@ -6,13 +8,13 @@ interface Props {
 const { currentPath = '' } = Astro.props;
 
 const navLinks = [
-  { href: '/what-is-grip-sport', label: 'What is Grip Sport?' },
-  { href: '/equipment-and-gyms', label: 'Equipment & Gyms' },
-  { href: '/competition-calendar', label: 'Calendar' },
-  { href: '/2026-championship', label: 'Championships' },
-  { href: '/australian-grip-feats', label: 'Grip Feats' },
-  { href: '/mulletts-mandrel', label: "Mullett's Mandrel" },
-  { href: '/get-involved', label: 'Get Involved' },
+  { href: getUrl('/what-is-grip-sport'), label: 'What is Grip Sport?' },
+  { href: getUrl('/equipment-and-gyms'), label: 'Equipment & Gyms' },
+  { href: getUrl('/competition-calendar'), label: 'Calendar' },
+  { href: getUrl('/2026-championship'), label: 'Championships' },
+  { href: getUrl('/australian-grip-feats'), label: 'Grip Feats' },
+  { href: getUrl('/mulletts-mandrel'), label: "Mullett's Mandrel" },
+  { href: getUrl('/get-involved'), label: 'Get Involved' },
 ];
 ---
 
@@ -21,7 +23,7 @@ const navLinks = [
     <div class="flex items-center justify-between h-16">
       
       <!-- Brand Logo -->
-      <a href="/" class="flex items-center space-x-3 group focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-lg p-1">
+      <a href={getUrl('/')} class="flex items-center space-x-3 group focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-lg p-1">
         <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center shadow-lg shadow-orange-500/20 group-hover:scale-105 transition-transform">
           <svg class="w-6 h-6 text-white" viewBox="0 0 100 100" fill="none">
             <circle cx="50" cy="32" r="16" stroke="white" stroke-width="8"/>
@@ -40,7 +42,7 @@ const navLinks = [
       <!-- Desktop Navigation -->
       <nav class="hidden lg:flex items-center space-x-1" aria-label="Main Navigation">
         {navLinks.map(link => {
-          const isActive = currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href));
+          const isActive = currentPath === link.href || (link.href !== getUrl('/') && currentPath.startsWith(link.href));
           return (
             <a
               href={link.href}
@@ -99,8 +101,8 @@ const navLinks = [
       </a>
     ))}
     <div class="pt-2 border-t border-slate-800/80">
-      <a href="/media" class="block px-3 py-2 rounded-md text-sm text-slate-400 hover:text-white">Interviews & Media</a>
-      <a href="/gripper-rating-service" class="block px-3 py-2 rounded-md text-sm text-slate-400 hover:text-white">Gripper Rating Service</a>
+      <a href={getUrl('/media')} class="block px-3 py-2 rounded-md text-sm text-slate-400 hover:text-white">Interviews & Media</a>
+      <a href={getUrl('/gripper-rating-service')} class="block px-3 py-2 rounded-md text-sm text-slate-400 hover:text-white">Gripper Rating Service</a>
     </div>
   </div>
 </header>

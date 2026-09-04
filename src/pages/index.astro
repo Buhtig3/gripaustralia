@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getUrl } from '../utils/url';
 import { getCollection } from 'astro:content';
 
 const articles = await getCollection('articles');
@@ -42,7 +43,7 @@ const featuredGuides = articles.filter(a => ['what-is-grip-sport', 'mulletts-man
       </a>
 
       <a
-        href="/2026-championship"
+        href={getUrl('/2026-championship')}
         class="w-full text-center py-4 px-6 rounded-lg bg-zinc-700 hover:bg-orange-600 text-white font-black text-sm sm:text-base uppercase tracking-widest transition-all duration-200 shadow-lg hover:shadow-orange-600/30 transform hover:-translate-y-0.5 flex items-center justify-center gap-2 group"
       >
         <span>2026 Nationals Results</span>
@@ -72,19 +73,19 @@ const featuredGuides = articles.filter(a => ['what-is-grip-sport', 'mulletts-man
 
         <div class="mt-8 flex flex-wrap gap-4 justify-center sm:justify-start">
           <a
-            href="/what-is-grip-sport"
+            href={getUrl('/what-is-grip-sport')}
             class="px-5 py-2.5 rounded-lg bg-orange-600 hover:bg-orange-500 text-white font-bold text-sm shadow-lg shadow-orange-600/30 transition-all transform hover:-translate-y-0.5"
           >
             What is Grip Sport?
           </a>
           <a
-            href="/equipment-and-gyms"
+            href={getUrl('/equipment-and-gyms')}
             class="px-5 py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 hover:border-slate-600 font-semibold text-sm transition-all"
           >
             Find a Grip Gym ({gyms.length} Listed)
           </a>
           <a
-            href="/competition-calendar"
+            href={getUrl('/competition-calendar')}
             class="px-5 py-2.5 rounded-lg bg-slate-900/60 hover:bg-slate-800 text-orange-400 border border-orange-500/30 font-semibold text-sm transition-all"
           >
             Upcoming Events
@@ -103,7 +104,7 @@ const featuredGuides = articles.filter(a => ['what-is-grip-sport', 'mulletts-man
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       
-      <a href="/what-is-grip-sport" class="group bg-slate-900/70 border border-slate-800 hover:border-orange-500/50 p-6 rounded-xl transition-all hover:shadow-lg hover:shadow-orange-500/5 flex flex-col justify-between">
+      <a href={getUrl('/what-is-grip-sport')} class="group bg-slate-900/70 border border-slate-800 hover:border-orange-500/50 p-6 rounded-xl transition-all hover:shadow-lg hover:shadow-orange-500/5 flex flex-col justify-between">
         <div>
           <div class="w-12 h-12 rounded-lg bg-orange-500/10 border border-orange-500/20 text-orange-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -120,7 +121,7 @@ const featuredGuides = articles.filter(a => ['what-is-grip-sport', 'mulletts-man
         </span>
       </a>
 
-      <a href="/equipment-and-gyms" class="group bg-slate-900/70 border border-slate-800 hover:border-orange-500/50 p-6 rounded-xl transition-all hover:shadow-lg hover:shadow-orange-500/5 flex flex-col justify-between">
+      <a href={getUrl('/equipment-and-gyms')} class="group bg-slate-900/70 border border-slate-800 hover:border-orange-500/50 p-6 rounded-xl transition-all hover:shadow-lg hover:shadow-orange-500/5 flex flex-col justify-between">
         <div>
           <div class="w-12 h-12 rounded-lg bg-orange-500/10 border border-orange-500/20 text-orange-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -137,7 +138,7 @@ const featuredGuides = articles.filter(a => ['what-is-grip-sport', 'mulletts-man
         </span>
       </a>
 
-      <a href="/australian-grip-feats" class="group bg-slate-900/70 border border-slate-800 hover:border-orange-500/50 p-6 rounded-xl transition-all hover:shadow-lg hover:shadow-orange-500/5 flex flex-col justify-between">
+      <a href={getUrl('/australian-grip-feats')} class="group bg-slate-900/70 border border-slate-800 hover:border-orange-500/50 p-6 rounded-xl transition-all hover:shadow-lg hover:shadow-orange-500/5 flex flex-col justify-between">
         <div>
           <div class="w-12 h-12 rounded-lg bg-orange-500/10 border border-orange-500/20 text-orange-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -171,7 +172,7 @@ const featuredGuides = articles.filter(a => ['what-is-grip-sport', 'mulletts-man
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <a href="/2026-championship" class="bg-slate-900 border border-slate-800 hover:border-orange-500/50 p-6 rounded-xl transition-all">
+        <a href={getUrl('/2026-championship')} class="bg-slate-900 border border-slate-800 hover:border-orange-500/50 p-6 rounded-xl transition-all">
           <div class="text-xs font-semibold text-orange-400 uppercase tracking-wider mb-2">Latest Championship</div>
           <h3 class="text-xl font-bold text-white mb-2">2026 Nationals</h3>
           <p class="text-sm text-slate-400">
@@ -180,7 +181,7 @@ const featuredGuides = articles.filter(a => ['what-is-grip-sport', 'mulletts-man
           <span class="mt-4 text-xs font-semibold text-orange-400 inline-block">See Results & Photos &rarr;</span>
         </a>
 
-        <a href="/2025-championship" class="bg-slate-900 border border-slate-800 hover:border-orange-500/50 p-6 rounded-xl transition-all">
+        <a href={getUrl('/2025-championship')} class="bg-slate-900 border border-slate-800 hover:border-orange-500/50 p-6 rounded-xl transition-all">
           <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">National Championship</div>
           <h3 class="text-xl font-bold text-white mb-2">2025 Nationals</h3>
           <p class="text-sm text-slate-400">
@@ -189,7 +190,7 @@ const featuredGuides = articles.filter(a => ['what-is-grip-sport', 'mulletts-man
           <span class="mt-4 text-xs font-semibold text-orange-400 inline-block">See Results & Photos &rarr;</span>
         </a>
 
-        <a href="/2024-championship" class="bg-slate-900 border border-slate-800 hover:border-orange-500/50 p-6 rounded-xl transition-all">
+        <a href={getUrl('/2024-championship')} class="bg-slate-900 border border-slate-800 hover:border-orange-500/50 p-6 rounded-xl transition-all">
           <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">National Championship</div>
           <h3 class="text-xl font-bold text-white mb-2">2024 Nationals</h3>
           <p class="text-sm text-slate-400">
@@ -211,7 +212,7 @@ const featuredGuides = articles.filter(a => ['what-is-grip-sport', 'mulletts-man
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {featuredGuides.map(item => (
         <a
-          href={`/${item.slug}`}
+          href={getUrl(`/${item.slug}`)}
           class="bg-slate-900/60 border border-slate-800 hover:border-slate-700 p-5 rounded-lg flex flex-col justify-between transition-colors hover:bg-slate-900"
         >
           <div>

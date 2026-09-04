@@ -35,8 +35,12 @@ function verifyLink(link, sourceFile) {
   }
 
   // Internal route check
-  // E.g. /what-is-grip-sport -> dist/what-is-grip-sport/index.html or dist/what-is-grip-sport
-  let rel = clean.replace(/^\/+/, '');
+  // Strip optional base prefix like /grip-australia-alpha
+  let stripped = clean.replace(/^\/grip-australia-alpha\/?/, '/');
+  if (!stripped || stripped === '/') {
+    return { ok: fs.existsSync(path.join(DIST_DIR, 'index.html')) };
+  }
+  let rel = stripped.replace(/^\/+/, '');
   const candidate1 = path.join(DIST_DIR, rel, 'index.html');
   const candidate2 = path.join(DIST_DIR, rel);
   const candidate3 = path.join(DIST_DIR, `${rel}.html`);

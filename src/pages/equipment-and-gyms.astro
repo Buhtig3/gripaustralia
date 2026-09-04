@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import GymCard from '../components/GymCard.astro';
+import { getUrl } from '../utils/url';
 import { getCollection } from 'astro:content';
 
 const gyms = await getCollection('gyms');
@@ -102,7 +103,7 @@ const states = ['All', 'ACT', 'NSW', 'NT', 'QLD', 'SA', 'TAS', 'VIC', 'WA'];
         </p>
       </div>
       <a
-        href="/get-involved"
+        href={getUrl('/get-involved')}
         class="px-5 py-2.5 rounded-lg bg-orange-600 hover:bg-orange-500 text-white font-semibold text-xs uppercase tracking-wider whitespace-nowrap transition-colors"
       >
         Submit a Gym Listing

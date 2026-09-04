@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { getUrl } from '../utils/url';
 import '../styles/global.css';
 
 interface Props {
@@ -13,11 +14,12 @@ interface Props {
 const {
   title = 'Grip Australia — Strength Athletics & Competitions',
   description = 'Australia’s home for grip strength athletics, competitions, equipment guides, national championships, and athlete records.',
-  image = '/favicon.svg',
+  image = getUrl('/favicon.svg'),
   canonicalUrl = Astro.url.href,
 } = Astro.props;
 
 const siteTitle = title.includes('Grip Australia') ? title : `${title} | Grip Australia`;
+const basePrefix = import.meta.env.BASE_URL ? import.meta.env.BASE_URL.replace(/\/+$/, '') : '';
 ---
 
 <!doctype html>
@@ -25,7 +27,7 @@ const siteTitle = title.includes('Grip Australia') ? title : `${title} | Grip Au
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={getUrl('/favicon.svg')} />
     <meta name="generator" content={Astro.generator} />
 
     <!-- Primary Meta Tags -->
@@ -47,7 +49,6 @@ const siteTitle = title.includes('Grip Australia') ? title : `${title} | Grip Au
     <meta property="twitter:title" content={siteTitle} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, Astro.site || 'https://gripaustralia.com')} />
-
   </head>
   <body class="bg-slate-950 text-slate-100 flex flex-col min-h-screen">
     <Header currentPath={Astro.url.pathname} />
@@ -91,7 +92,7 @@ const siteTitle = title.includes('Grip Australia') ? title : `${title} | Grip Au
       </div>
     </div>
 
-    <script is:inline>
+    <script define:vars={{ basePrefix }}>
       let pagefindInitialized = false;
       let pagefindLoading = false;
 
@@ -104,14 +105,14 @@ const siteTitle = title.includes('Grip Australia') ? title : `${title} | Grip Au
           if (!document.querySelector('link[href*="pagefind-ui.css"]')) {
             const link = document.createElement('link');
             link.rel = 'stylesheet';
-            link.href = '/pagefind/pagefind-ui.css';
+            link.href = `${basePrefix}/pagefind/pagefind-ui.css`;
             document.head.appendChild(link);
           }
 
           if (typeof PagefindUI === 'undefined') {
             await new Promise((resolve, reject) => {
               const script = document.createElement('script');
-              script.src = '/pagefind/pagefind-ui.js';
+              script.src = `${basePrefix}/pagefind/pagefind-ui.js`;
               script.onload = resolve;
               script.onerror = reject;
               document.head.appendChild(script);
@@ -123,6 +124,7 @@ const siteTitle = title.includes('Grip Australia') ? title : `${title} | Grip Au
 
           new PagefindUI({
             element: '#pagefind-container',
+            bundlePath: `${basePrefix}/pagefind/`,
             showSubResults: true,
             showImages: true,
             resetStyles: false,
