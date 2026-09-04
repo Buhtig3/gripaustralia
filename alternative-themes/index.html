@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grip Australia — Alternative Themes Snapshot & Interactive Showcase</title>
+
+  <!-- Google Fonts for all 5 Theme Archetypes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow+Condensed:wght@600;700;800&family=Bebas+Neue&family=Chakra+Petch:wght@600;700&family=Cinzel:wght@600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Outfit:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & THEME DEFINITIONS
+       ========================================================================== */
+    :root {
+      /* Shared utilities */
+      --transition-smooth: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* THEME 01: Raw Iron & Mag Chalk */
+    body[data-theme="theme-1"] {
+      --bg-base: #0e1013;
+      --bg-surface: #16191f;
+      --bg-elevated: #1f232b;
+      --border-color: #2a2f3a;
+      --accent: #ff5500;
+      --accent-hover: #ff7733;
+      --accent-text: #ffffff;
+      --text-main: #f4f4f6;
+      --text-muted: #9da5b4;
+      --font-display: 'Syne', sans-serif;
+      --font-accent: 'Barlow Condensed', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --btn-radius: 4px;
+      --card-radius: 8px;
+      --box-shadow: 0 10px 30px -10px rgba(0,0,0,0.7), 0 0 1px 1px var(--border-color);
+      --btn-shadow: 0 6px 20px rgba(255, 85, 0, 0.35);
+      --bg-pattern: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+      --bg-pattern-size: 18px 18px;
+      --badge-bg: rgba(255, 85, 0, 0.12);
+      --badge-border: rgba(255, 85, 0, 0.3);
+      --badge-text: #ff7733;
+      --hero-overlay: radial-gradient(circle at 50% 0%, rgba(255, 85, 0, 0.1) 0%, transparent 60%);
+    }
+
+    /* THEME 02: Outback Ochre & Terra */
+    body[data-theme="theme-2"] {
+      --bg-base: #141110;
+      --bg-surface: #1e1917;
+      --bg-elevated: #29221f;
+      --border-color: #3d332f;
+      --accent: #e05a2b;
+      --accent-hover: #f06a3b;
+      --accent-text: #ffffff;
+      --text-main: #faf5ee;
+      --text-muted: #ad9e96;
+      --font-display: 'Bebas Neue', cursive;
+      --font-accent: 'Space Grotesk', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --btn-radius: 6px;
+      --card-radius: 10px;
+      --box-shadow: 0 12px 32px -8px rgba(20, 10, 5, 0.8), 0 0 1px 1px var(--border-color);
+      --btn-shadow: 0 6px 22px rgba(224, 90, 43, 0.35);
+      --bg-pattern: radial-gradient(rgba(224, 90, 43, 0.05) 1px, transparent 1px);
+      --bg-pattern-size: 24px 24px;
+      --badge-bg: rgba(224, 90, 43, 0.14);
+      --badge-border: rgba(224, 90, 43, 0.35);
+      --badge-text: #e59b3c;
+      --hero-overlay: radial-gradient(circle at 50% -10%, rgba(224, 90, 43, 0.18) 0%, transparent 60%);
+    }
+
+    /* THEME 03: Cyber Grip Telemetry */
+    body[data-theme="theme-3"] {
+      --bg-base: #08090d;
+      --bg-surface: #0f121a;
+      --bg-elevated: #161c28;
+      --border-color: #1e293b;
+      --accent: #00f0ff;
+      --accent-hover: #33f3ff;
+      --accent-text: #05070a;
+      --text-main: #ffffff;
+      --text-muted: #64748b;
+      --font-display: 'Chakra Petch', sans-serif;
+      --font-accent: 'JetBrains Mono', monospace;
+      --font-body: 'Inter', sans-serif;
+      --btn-radius: 2px;
+      --card-radius: 4px;
+      --box-shadow: 0 8px 30px rgba(0, 240, 255, 0.05), inset 0 0 0 1px var(--border-color);
+      --btn-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
+      --bg-pattern: linear-gradient(to right, rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+      --bg-pattern-size: 28px 28px;
+      --badge-bg: rgba(0, 240, 255, 0.1);
+      --badge-border: rgba(0, 240, 255, 0.3);
+      --badge-text: #00f0ff;
+      --hero-overlay: radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.15) 0%, transparent 65%);
+    }
+
+    /* THEME 04: Heritage Gold & Athletic Club */
+    body[data-theme="theme-4"] {
+      --bg-base: #08130f;
+      --bg-surface: #0f221b;
+      --bg-elevated: #162f26;
+      --border-color: #254a3c;
+      --accent: #d4af37;
+      --accent-hover: #e5bf45;
+      --accent-text: #08130f;
+      --text-main: #fcf9f2;
+      --text-muted: #a3b5ab;
+      --font-display: 'Cinzel', serif;
+      --font-accent: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --btn-radius: 4px;
+      --card-radius: 6px;
+      --box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), inset 0 0 0 1px var(--border-color);
+      --btn-shadow: 0 6px 25px rgba(212, 175, 55, 0.28);
+      --bg-pattern: radial-gradient(rgba(212, 175, 55, 0.04) 1px, transparent 1px);
+      --bg-pattern-size: 20px 20px;
+      --badge-bg: rgba(212, 175, 55, 0.12);
+      --badge-border: rgba(212, 175, 55, 0.3);
+      --badge-text: #d4af37;
+      --hero-overlay: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.14) 0%, transparent 60%);
+    }
+
+    /* THEME 05: Brutalist Mono-Grit */
+    body[data-theme="theme-5"] {
+      --bg-base: #000000;
+      --bg-surface: #111111;
+      --bg-elevated: #1a1a1a;
+      --border-color: #ffffff;
+      --accent: #ffe600;
+      --accent-hover: #fff033;
+      --accent-text: #000000;
+      --text-main: #ffffff;
+      --text-muted: #a1a1aa;
+      --font-display: 'Archivo Black', sans-serif;
+      --font-accent: 'Space Mono', monospace;
+      --font-body: 'IBM Plex Sans', sans-serif;
+      --btn-radius: 0px;
+      --card-radius: 0px;
+      --box-shadow: 5px 5px 0px 0px #ffe600;
+      --btn-shadow: 4px 4px 0px #ffffff;
+      --bg-pattern: radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px);
+      --bg-pattern-size: 16px 16px;
+      --badge-bg: #ffe600;
+      --badge-border: #ffe600;
+      --badge-text: #000000;
+      --hero-overlay: repeating-linear-gradient(-45deg, rgba(255, 230, 0, 0.03), rgba(255, 230, 0, 0.03) 10px, transparent 10px, transparent 20px);
+    }
+
+    /* ==========================================================================
+       GLOBAL BASE RESETS
+       ========================================================================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      background-image: var(--bg-pattern);
+      background-size: var(--bg-pattern-size);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      overflow-x: hidden;
+      min-height: 100vh;
+      padding-bottom: 110px; /* Space for theme inspector bar */
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ==========================================================================
+       FLOATING CONTROLLER / THEME SWITCHER
+       ========================================================================== */
+    .theme-controller-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 10, 12, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 10px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    }
+
+    .controller-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .controller-pill {
+      background: #ff5500;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .theme-nav-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .theme-btn {
+      background: #181920;
+      color: #8f96a3;
+      border: 1px solid #282a36;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      transition: var(--transition-smooth);
+    }
+
+    .theme-btn:hover {
+      color: #fff;
+      border-color: #4a4d60;
+      background: #22242e;
+    }
+
+    .theme-btn.active {
+      color: #fff;
+      border-color: #ff5500;
+      background: #252836;
+      box-shadow: 0 0 12px rgba(255, 85, 0, 0.3);
+    }
+
+    .theme-color-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .view-mode-toggle {
+      display: flex;
+      background: #14151a;
+      border: 1px solid #282a36;
+      border-radius: 6px;
+      padding: 3px;
+    }
+
+    .mode-btn {
+      background: transparent;
+      border: none;
+      color: #888;
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .mode-btn.active {
+      background: #2c2f3d;
+      color: #fff;
+    }
+
+    /* ==========================================================================
+       SITE CONTAINER & HEADER
+       ========================================================================== */
+    .site-wrapper {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .site-header {
+      border-bottom: 1px solid var(--border-color);
+      background: var(--bg-surface);
+      position: sticky;
+      top: 57px;
+      z-index: 50;
+      transition: var(--transition-smooth);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--btn-radius);
+      background: var(--accent);
+      color: var(--accent-text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--btn-shadow);
+      transition: var(--transition-smooth);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      line-height: 1.1;
+      color: var(--text-main);
+    }
+
+    .brand-title span {
+      color: var(--accent);
+    }
+
+    .brand-motto {
+      font-family: var(--font-accent);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-link {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: var(--btn-radius);
+      transition: var(--transition-smooth);
+    }
+
+    .nav-link:hover {
+      color: var(--text-main);
+      background: var(--bg-elevated);
+    }
+
+    .nav-link.active {
+      color: var(--accent);
+      background: var(--badge-bg);
+      border: 1px solid var(--badge-border);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-btn {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: var(--btn-radius);
+      font-size: 12px;
+      font-family: var(--font-accent);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .search-btn:hover {
+      color: var(--text-main);
+      border-color: var(--accent);
+    }
+
+    /* ==========================================================================
+       HERO VIDEO & ACTION BUTTONS
+       ========================================================================== */
+    .hero-media-wrapper {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      background: #000;
+      border-bottom: 1px solid var(--border-color);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-bg-poster {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.85) 100%),
+                  radial-gradient(circle at 50% 50%, rgba(255,85,0,0.15) 0%, #050608 80%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-media-badge {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-family: var(--font-accent);
+      font-size: 11px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: var(--btn-radius);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.4; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.1); }
+      100% { opacity: 0.4; transform: scale(0.9); }
+    }
+
+    .hero-center-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 700px;
+      padding: 0 20px;
+    }
+
+    .hero-play-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--accent-text);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      box-shadow: var(--btn-shadow);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .hero-play-icon:hover {
+      transform: scale(1.08);
+    }
+
+    /* Dual Hero CTA Buttons */
+    .hero-action-strip {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      padding: 30px 20px;
+      transition: var(--transition-smooth);
+    }
+
+    .hero-action-grid {
+      max-width: 640px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--accent-text);
+      font-family: var(--font-accent);
+      font-size: 15px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 16px 22px;
+      border-radius: var(--btn-radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid transparent;
+      box-shadow: var(--btn-shadow);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      text-align: center;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: var(--bg-elevated);
+      color: var(--text-main);
+      font-family: var(--font-accent);
+      font-size: 15px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 16px 22px;
+      border-radius: var(--btn-radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid var(--border-color);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      text-align: center;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       MISSION STATEMENT
+       ========================================================================== */
+    .mission-section {
+      padding: 60px 0;
+      border-bottom: 1px solid var(--border-color);
+      background: var(--hero-overlay);
+      position: relative;
+    }
+
+    .mission-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      background: var(--badge-bg);
+      border: 1px solid var(--badge-border);
+      color: var(--badge-text);
+      font-family: var(--font-accent);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 18px;
+    }
+
+    .mission-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4.5vw, 54px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: var(--text-main);
+      max-width: 820px;
+      margin-bottom: 18px;
+    }
+
+    .mission-title .highlight {
+      color: var(--accent);
+    }
+
+    .mission-lead {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 680px;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .mission-quicklinks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .quicklink-btn {
+      padding: 9px 18px;
+      border-radius: var(--btn-radius);
+      font-size: 13px;
+      font-weight: 700;
+      font-family: var(--font-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: var(--transition-smooth);
+    }
+
+    .quicklink-solid {
+      background: var(--accent);
+      color: var(--accent-text);
+      box-shadow: var(--btn-shadow);
+    }
+
+    .quicklink-outline {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+    }
+
+    .quicklink-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ==========================================================================
+       SECTION HEADERS & GRIDS
+       ========================================================================== */
+    .content-section {
+      padding: 60px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-accent);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: var(--text-main);
+      margin-bottom: 30px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    /* CARDS */
+    .feature-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--card-radius);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition-smooth);
+      box-shadow: var(--box-shadow);
+    }
+
+    .feature-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .card-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--btn-radius);
+      background: var(--badge-bg);
+      border: 1px solid var(--badge-border);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 20px;
+    }
+
+    .card-badge {
+      display: inline-block;
+      font-family: var(--font-accent);
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--text-main);
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .card-link {
+      font-family: var(--font-accent);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .card-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Mini Guide Card */
+    .guide-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--card-radius);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition-smooth);
+    }
+
+    .guide-card:hover {
+      background: var(--bg-elevated);
+      border-color: var(--accent);
+    }
+
+    .guide-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-color);
+      padding: 40px 0 20px 0;
+      margin-top: 40px;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       BOTTOM FIXED THEME INSPECTOR / PALETTE BAR
+       ========================================================================== */
+    .theme-inspector-dock {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 99;
+      background: rgba(14, 16, 22, 0.95);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 12px 24px;
+      box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.7);
+    }
+
+    .inspector-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .inspector-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .inspector-theme-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .inspector-vibe {
+      font-size: 11px;
+      color: #9da5b4;
+    }
+
+    .palette-swatches {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .swatch-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #1a1c24;
+      border: 1px solid #2e3240;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      color: #cfd6e4;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .swatch-item:hover {
+      border-color: #ff5500;
+      background: #252936;
+    }
+
+    .swatch-color-box {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .font-stack-pills {
+      display: flex;
+      gap: 6px;
+      font-size: 11px;
+      color: #9da5b4;
+    }
+
+    .font-pill {
+      background: #1e222e;
+      border: 1px solid #32384a;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    /* ==========================================================================
+       SNAPSHOT GALLERY VIEW (SIDE-BY-SIDE VIEW)
+       ========================================================================== */
+    #gallery-view {
+      display: none;
+      padding: 40px 0;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .gallery-card {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #333;
+      background: #111;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transition: transform 0.2s;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .gallery-card-header {
+      padding: 12px 16px;
+      background: #1a1a1a;
+      border-bottom: 1px solid #2a2a2a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .gallery-preview-frame {
+      padding: 20px;
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-action-grid {
+        grid-template-columns: 1fr;
+      }
+      .site-nav {
+        display: none;
+      }
+      .inspector-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body data-theme="theme-1">
+
+  <!-- ==========================================================================
+       TOP FLOATING CONTROLLER / THEME SWITCHER
+       ========================================================================== -->
+  <header class="theme-controller-bar">
+    <div class="controller-title">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff5500" stroke-width="2.5">
+        <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
+      </svg>
+      <span>Grip Australia Alternative Themes</span>
+      <span class="controller-pill">5 PROFILES</span>
+    </div>
+
+    <div class="theme-nav-buttons">
+      <button class="theme-btn active" onclick="switchTheme('theme-1', this)">
+        <span class="theme-color-dot" style="background:#ff5500;"></span>
+        01. Raw Iron & Chalk
+      </button>
+      <button class="theme-btn" onclick="switchTheme('theme-2', this)">
+        <span class="theme-color-dot" style="background:#e05a2b;"></span>
+        02. Outback Ochre
+      </button>
+      <button class="theme-btn" onclick="switchTheme('theme-3', this)">
+        <span class="theme-color-dot" style="background:#00f0ff;"></span>
+        03. Cyber Telemetry
+      </button>
+      <button class="theme-btn" onclick="switchTheme('theme-4', this)">
+        <span class="theme-color-dot" style="background:#d4af37;"></span>
+        04. Heritage Gold
+      </button>
+      <button class="theme-btn" onclick="switchTheme('theme-5', this)">
+        <span class="theme-color-dot" style="background:#ffe600;"></span>
+        05. Brutalist Mono
+      </button>
+    </div>
+
+    <div class="view-mode-toggle">
+      <button id="btn-mode-live" class="mode-btn active" onclick="setViewMode('live')">Live Interactive</button>
+      <button id="btn-mode-gallery" class="mode-btn" onclick="setViewMode('gallery')">Snapshot Gallery</button>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       VIEW 1: LIVE INTERACTIVE SITE SIMULATION
+       ========================================================================== -->
+  <main id="live-view">
+
+    <!-- Sticky Simulated Site Header -->
+    <div class="site-header">
+      <div class="site-wrapper">
+        <div class="header-inner">
+          <a href="#" class="brand-logo">
+            <div class="brand-icon">
+              <!-- Gripper Icon SVG -->
+              <svg width="22" height="22" viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="32" r="16" stroke="currentColor" stroke-width="8"/>
+                <path d="M38 36 L24 82" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+                <path d="M62 36 L76 82" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <div class="brand-title">Grip<span>Australia</span></div>
+              <div class="brand-motto">Just Grip It</div>
+            </div>
+          </a>
+
+          <nav class="site-nav">
+            <a href="#" class="nav-link">What is Grip Sport?</a>
+            <a href="#" class="nav-link">Calendar</a>
+            <a href="#" class="nav-link active">Championships</a>
+            <a href="#" class="nav-link">Grip Feats</a>
+            <a href="#" class="nav-link">Mullett's Mandrel</a>
+            <a href="#" class="nav-link">Get Involved</a>
+          </nav>
+
+          <div class="header-actions">
+            <button class="search-btn">
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+              <span>Search</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Media Section (Full Width) -->
+    <section class="hero-media-wrapper">
+      <div class="hero-bg-poster"></div>
+      <div class="hero-center-content">
+        <div class="hero-play-icon">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </div>
+        <div style="font-family: var(--font-display); font-size: 22px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color:#fff;">
+          Official Grip Sport Australia Action Reel
+        </div>
+        <div style="font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 4px;">
+          High-definition competition footage from the Australian National Championships
+        </div>
+      </div>
+
+      <div class="hero-media-badge">
+        <span class="pulse-dot"></span>
+        <span>Vimeo Stream // 1080p 60fps</span>
+      </div>
+    </section>
+
+    <!-- Prominent Hero Action Buttons -->
+    <section class="hero-action-strip">
+      <div class="hero-action-grid">
+        <button class="btn-primary">
+          <span>Strongfest IV Sign-up</span>
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </button>
+
+        <button class="btn-secondary">
+          <span>2026 Nationals Results</span>
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Mission Statement Section -->
+    <section class="mission-section">
+      <div class="site-wrapper">
+        <div class="mission-badge">
+          <span class="pulse-dot"></span>
+          <span>Sanctioned Grip Sport International (GSI) Rules</span>
+        </div>
+
+        <h1 class="mission-title">
+          Forging Australian <span class="highlight">Grip Strength</span>
+        </h1>
+
+        <p class="mission-lead">
+          Welcome to Grip Australia. We support athletes, gym venues, and contest organizers across the nation in tests of crushing, pinching, and thick-bar power.
+        </p>
+
+        <div class="mission-quicklinks">
+          <a href="#" class="quicklink-btn quicklink-solid">What is Grip Sport?</a>
+          <a href="#" class="quicklink-btn quicklink-outline">Upcoming Events</a>
+          <a href="#" class="quicklink-btn quicklink-outline">Australian Grip Feats</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pillars Grid Section -->
+    <section class="content-section">
+      <div class="site-wrapper">
+        <div class="section-eyebrow">Pillars of the Sport</div>
+        <h2 class="section-heading">Explore the Disciplines & Community</h2>
+
+        <div class="grid-3">
+          <!-- Card 1 -->
+          <div class="feature-card">
+            <div>
+              <div class="card-icon-box">⚡</div>
+              <h3 class="card-title">Understanding Grip Sport</h3>
+              <p class="card-desc">
+                Learn the core contest dimensions: crushing grippers, pinch blocks, rolling thick handles, and vertical lift implements.
+              </p>
+            </div>
+            <a href="#" class="card-link">Read Guide &rarr;</a>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="feature-card">
+            <div>
+              <div class="card-icon-box">📅</div>
+              <h3 class="card-title">Competition Calendar</h3>
+              <p class="card-desc">
+                Explore the national calendar: upcoming GSI-sanctioned events, Strongfest, and state championships across Australia.
+              </p>
+            </div>
+            <a href="#" class="card-link">View Calendar &rarr;</a>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="feature-card">
+            <div>
+              <div class="card-icon-box">🏆</div>
+              <h3 class="card-title">Australian Records & Feats</h3>
+              <p class="card-desc">
+                Track official records, Inch dumbbell lifts, Blob lifts, and historic Australian strength performances.
+              </p>
+            </div>
+            <a href="#" class="card-link">View Feats &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- National Championships Archive -->
+    <section class="content-section" style="background: rgba(0,0,0,0.15);">
+      <div class="site-wrapper">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; margin-bottom: 24px; gap: 16px;">
+          <div>
+            <div class="section-eyebrow">Championship History</div>
+            <h2 class="section-heading" style="margin-bottom: 0;">Australian Grip Sport Championships</h2>
+          </div>
+          <p style="font-size: 13px; color: var(--text-muted); max-width: 420px;">
+            Official scoresheets, podium lists, and pound-for-pound champion listings from past national meets.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <!-- Championship 2026 -->
+          <div class="feature-card">
+            <div>
+              <span class="card-badge">Latest Championship</span>
+              <h3 class="card-title">2026 Nationals</h3>
+              <p class="card-desc">
+                Podium honors for Megan Galvin, Declan Wright, Sarah Rodwell, and Isaac Pitt. Full official score breakdown.
+              </p>
+            </div>
+            <a href="#" class="card-link">See Results & Photos &rarr;</a>
+          </div>
+
+          <!-- Championship 2025 -->
+          <div class="feature-card">
+            <div>
+              <span class="card-badge">National Championship</span>
+              <h3 class="card-title">2025 Nationals</h3>
+              <p class="card-desc">
+                Multi-discipline showdown featuring the 2.25" Crusher, Napalm Nightmare, and Little Big Horn benchmark lifts.
+              </p>
+            </div>
+            <a href="#" class="card-link">See Results & Photos &rarr;</a>
+          </div>
+
+          <!-- Championship 2024 -->
+          <div class="feature-card">
+            <div>
+              <span class="card-badge">Inaugural Event</span>
+              <h3 class="card-title">2024 Nationals</h3>
+              <p class="card-desc">
+                Benchmark events with national records set across men's and women's classes in Sydney.
+              </p>
+            </div>
+            <a href="#" class="card-link">See Results & Photos &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guides & Tools -->
+    <section class="content-section">
+      <div class="site-wrapper">
+        <div class="section-eyebrow">Knowledge Base</div>
+        <h2 class="section-heading">Guides, Implements & Resources</h2>
+
+        <div class="grid-4">
+          <div class="guide-card">
+            <div>
+              <h4 class="guide-title">Mullett's Mandrel</h4>
+              <p class="card-desc" style="margin-bottom: 12px;">Calibration mandrel guide, ratings, and step-by-step gripper measurement instructions.</p>
+            </div>
+            <a href="#" class="card-link">Read Article &rarr;</a>
+          </div>
+
+          <div class="guide-card">
+            <div>
+              <h4 class="guide-title">Gripper Rating Service</h4>
+              <p class="card-desc" style="margin-bottom: 12px;">Have your torsion spring grippers accurately calibrated using certified RGC test protocol.</p>
+            </div>
+            <a href="#" class="card-link">Read Article &rarr;</a>
+          </div>
+
+          <div class="guide-card">
+            <div>
+              <h4 class="guide-title">Gyms & Equipment</h4>
+              <p class="card-desc" style="margin-bottom: 12px;">Directory of Australian strength facilities equipped with specialized grip apparatus.</p>
+            </div>
+            <a href="#" class="card-link">Read Article &rarr;</a>
+          </div>
+
+          <div class="guide-card">
+            <div>
+              <h4 class="guide-title">Get Involved</h4>
+              <p class="card-desc" style="margin-bottom: 12px;">Host a sanctioned grip contest in your local club, register as a referee, or join a local squad.</p>
+            </div>
+            <a href="#" class="card-link">Read Article &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="site-wrapper">
+        <div class="footer-content">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <div class="brand-icon" style="width: 28px; height: 28px;">
+              <svg width="16" height="16" viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="32" r="16" stroke="currentColor" stroke-width="8"/>
+                <path d="M38 36 L24 82" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+                <path d="M62 36 L76 82" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span style="font-family: var(--font-display); font-weight: 800; font-size: 15px; color: var(--text-main);">
+              GRIP AUSTRALIA
+            </span>
+            <span style="font-size: 12px; margin-left: 8px;">&copy; 2026 Grip Australia. All rights reserved.</span>
+          </div>
+
+          <div style="display: flex; gap: 16px; font-size: 12px;">
+            <a href="#" style="color: var(--text-muted);">Sanctioning Rules</a>
+            <a href="#" style="color: var(--text-muted);">GSI Records</a>
+            <a href="#" style="color: var(--text-muted);">Privacy & Legal</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- ==========================================================================
+       VIEW 2: SNAPSHOT GALLERY (ALL 5 THEMES SIDE-BY-SIDE)
+       ========================================================================== -->
+  <section id="gallery-view" class="site-wrapper">
+    <div style="text-align: center; max-width: 700px; margin: 0 auto 30px auto;">
+      <div class="section-eyebrow">Design Showcase Matrix</div>
+      <h2 style="font-size: 32px; font-weight: 900; text-transform: uppercase; color: #fff; margin-bottom: 8px;">
+        Top 5 Theme Archetype Snapshots
+      </h2>
+      <p style="font-size: 14px; color: #9da5b4;">
+        Compare all five alternative directions side-by-side. Click "Apply Theme" on any card to test it full-screen in live mode.
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+      <!-- 01: Raw Iron & Mag Chalk -->
+      <div class="gallery-card" style="background:#0e1013; border: 1px solid #2a2f3a;">
+        <div class="gallery-card-header">
+          <strong style="color: #f4f4f6; font-family:'Syne', sans-serif; font-size: 14px;">01. Raw Iron & Chalk</strong>
+          <button class="theme-btn" onclick="applyAndSwitch('theme-1')">Apply &rarr;</button>
+        </div>
+        <div class="gallery-preview-frame">
+          <div>
+            <span style="background: rgba(255,85,0,0.15); color: #ff7733; font-family:'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase;">Heavy Foundry</span>
+            <h3 style="font-family: 'Syne', sans-serif; font-size: 22px; color: #f4f4f6; margin: 10px 0 6px 0; text-transform: uppercase;">
+              FORGING AUSTRALIAN <span style="color:#ff5500;">GRIP POWER</span>
+            </h3>
+            <p style="font-size: 12px; color: #9da5b4; font-family: 'Plus Jakarta Sans', sans-serif;">
+              Obsidian plate charcoal, knurled bar textures, and chalk white powder contrasts.
+            </p>
+          </div>
+          <div style="margin-top: 20px;">
+            <button style="width: 100%; background:#ff5500; color:#fff; border:none; padding:10px; font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:13px; text-transform:uppercase; border-radius:4px; box-shadow: 0 4px 15px rgba(255,85,0,0.4); cursor:pointer;">
+              Strongfest IV Sign-up
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02: Outback Ochre & Terra -->
+      <div class="gallery-card" style="background:#141110; border: 1px solid #3d332f;">
+        <div class="gallery-card-header">
+          <strong style="color: #faf5ee; font-family:'Bebas Neue', cursive; font-size: 17px; letter-spacing: 0.05em;">02. Outback Ochre & Terra</strong>
+          <button class="theme-btn" onclick="applyAndSwitch('theme-2')">Apply &rarr;</button>
+        </div>
+        <div class="gallery-preview-frame">
+          <div>
+            <span style="background: rgba(224,90,43,0.15); color: #e59b3c; font-family:'Space Grotesk', sans-serif; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase;">Rugged Bush Iron</span>
+            <h3 style="font-family: 'Bebas Neue', cursive; font-size: 28px; color: #faf5ee; margin: 8px 0 4px 0; letter-spacing: 0.04em;">
+              FORGING AUSTRALIAN <span style="color:#e05a2b;">GRIP STRENGTH</span>
+            </h3>
+            <p style="font-size: 12px; color: #ad9e96; font-family: 'DM Sans', sans-serif;">
+              Red centre clay, sunbaked sandstone gold, and charred timber tones.
+            </p>
+          </div>
+          <div style="margin-top: 20px;">
+            <button style="width: 100%; background:#e05a2b; color:#fff; border:none; padding:10px; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:13px; text-transform:uppercase; border-radius:6px; box-shadow: 0 4px 15px rgba(224,90,43,0.35); cursor:pointer;">
+              Strongfest IV Sign-up
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03: Cyber Grip Telemetry -->
+      <div class="gallery-card" style="background:#08090d; border: 1px solid #1e293b;">
+        <div class="gallery-card-header">
+          <strong style="color: #00f0ff; font-family:'Chakra Petch', sans-serif; font-size: 13px;">03. Cyber Telemetry</strong>
+          <button class="theme-btn" onclick="applyAndSwitch('theme-3')">Apply &rarr;</button>
+        </div>
+        <div class="gallery-preview-frame">
+          <div>
+            <span style="background: rgba(0,240,255,0.12); color: #00f0ff; font-family:'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 2px; text-transform: uppercase;">BIOMETRICS // HUD</span>
+            <h3 style="font-family: 'Chakra Petch', sans-serif; font-size: 20px; color: #ffffff; margin: 10px 0 6px 0; text-transform: uppercase;">
+              FORGING AUSTRALIAN <span style="color:#00f0ff;">LOAD CAPACITY</span>
+            </h3>
+            <p style="font-size: 12px; color: #64748b; font-family: 'Inter', sans-serif;">
+              RGC digital load-cell calibration, laser cyan HUD accents, and precision telemetry.
+            </p>
+          </div>
+          <div style="margin-top: 20px;">
+            <button style="width: 100%; background:#00f0ff; color:#05070a; border:none; padding:10px; font-family:'JetBrains Mono',monospace; font-weight:800; font-size:12px; text-transform:uppercase; border-radius:2px; box-shadow: 0 0 20px rgba(0,240,255,0.4); cursor:pointer;">
+              Strongfest IV // RUN
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04: Heritage Gold & Athletic Club -->
+      <div class="gallery-card" style="background:#08130f; border: 1px solid #254a3c;">
+        <div class="gallery-card-header">
+          <strong style="color: #d4af37; font-family:'Cinzel', serif; font-size: 13px;">04. Heritage Gold</strong>
+          <button class="theme-btn" onclick="applyAndSwitch('theme-4')">Apply &rarr;</button>
+        </div>
+        <div class="gallery-preview-frame">
+          <div>
+            <span style="background: rgba(212,175,55,0.15); color: #d4af37; font-family:'Outfit', sans-serif; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase;">CHAMPIONSHIP FEDERATION</span>
+            <h3 style="font-family: 'Cinzel', serif; font-size: 20px; color: #fcf9f2; margin: 10px 0 6px 0;">
+              FORGING AUSTRALIAN <span style="color:#d4af37;">HERITAGE STRENGTH</span>
+            </h3>
+            <p style="font-size: 12px; color: #a3b5ab; font-family: 'Plus Jakarta Sans', sans-serif;">
+              Midnight evergreen velvet, vintage trophy gold leaf, and Apollon era prestige.
+            </p>
+          </div>
+          <div style="margin-top: 20px;">
+            <button style="width: 100%; background:#d4af37; color:#08130f; border:1px solid #f3cf5f; padding:10px; font-family:'Cinzel',serif; font-weight:900; font-size:12px; text-transform:uppercase; border-radius:4px; box-shadow: 0 4px 18px rgba(212,175,55,0.3); cursor:pointer;">
+              Strongfest IV Entry
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05: Brutalist Mono-Grit -->
+      <div class="gallery-card" style="background:#000000; border: 2px solid #ffffff; box-shadow: 6px 6px 0px #ffe600;">
+        <div class="gallery-card-header" style="background: #000; border-bottom: 2px solid #fff;">
+          <strong style="color: #ffe600; font-family:'Archivo Black', sans-serif; font-size: 13px;">05. Brutalist Mono</strong>
+          <button class="theme-btn" style="border: 2px solid #fff; color:#fff;" onclick="applyAndSwitch('theme-5')">Apply &rarr;</button>
+        </div>
+        <div class="gallery-preview-frame">
+          <div>
+            <span style="background: #ffe600; color: #000; font-family:'Space Mono', monospace; font-size: 10px; font-weight: 800; padding: 2px 6px; text-transform: uppercase;">[HAZARD_STRENGTH]</span>
+            <h3 style="font-family: 'Archivo Black', sans-serif; font-size: 20px; color: #ffffff; margin: 10px 0 6px 0; text-transform: uppercase;">
+              FORGING AUSTRALIAN <span style="color:#ffe600;">RAW IRON</span>
+            </h3>
+            <p style="font-size: 12px; color: #a1a1aa; font-family: 'IBM Plex Sans', sans-serif;">
+              Stark high-contrast pitch and bone, caution yellow accents, and zero-blur offset shadows.
+            </p>
+          </div>
+          <div style="margin-top: 20px;">
+            <button style="width: 100%; background:#ffe600; color:#000; border:2px solid #fff; padding:10px; font-family:'Space Mono',monospace; font-weight:800; font-size:12px; text-transform:uppercase; box-shadow: 4px 4px 0px #fff; cursor:pointer;">
+              STRONGFEST // ENTER
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       BOTTOM FIXED THEME INSPECTOR / PALETTE BAR
+       ========================================================================== */
+  <aside class="theme-inspector-dock" aria-label="Theme Palette Inspector">
+    <div class="inspector-inner">
+      <div class="inspector-meta">
+        <div class="inspector-theme-name" id="meta-theme-name">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: #ff5500;"></span>
+          <span>Theme 01: Raw Iron & Mag Chalk</span>
+        </div>
+        <div class="inspector-vibe" id="meta-theme-vibe">
+          Heavy Foundry • Obsidian Slate • Forge Amber • Mag Chalk Mist
+        </div>
+      </div>
+
+      <div class="palette-swatches" id="palette-swatches">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="font-stack-pills" id="font-stack-pills">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       INTERACTIVE JAVASCRIPT CONTROLLER
+       ========================================================================== -->
+  <script>
+    const themeData = {
+      'theme-1': {
+        name: 'Theme 01: Raw Iron & Mag Chalk',
+        vibe: 'Heavy Foundry • Obsidian Slate • Forge Amber • Mag Chalk Mist',
+        dotColor: '#ff5500',
+        fonts: ['Display: Syne', 'Accent: Barlow Condensed', 'Body: Plus Jakarta Sans'],
+        swatches: [
+          { name: 'Base', hex: '#0e1013' },
+          { name: 'Surface', hex: '#16191f' },
+          { name: 'Border', hex: '#2a2f3a' },
+          { name: 'Forge Orange', hex: '#ff5500' },
+          { name: 'Chalk White', hex: '#f4f4f6' }
+        ]
+      },
+      'theme-2': {
+        name: 'Theme 02: Outback Ochre & Terra',
+        vibe: 'Australian Bush Iron • Red Centre Ochre • Sunbaked Sandstone',
+        dotColor: '#e05a2b',
+        fonts: ['Display: Bebas Neue', 'Accent: Space Grotesk', 'Body: DM Sans'],
+        swatches: [
+          { name: 'Charred Iron', hex: '#141110' },
+          { name: 'Bush Slate', hex: '#1e1917' },
+          { name: 'Ochre Red', hex: '#e05a2b' },
+          { name: 'Gold Sand', hex: '#e59b3c' },
+          { name: 'Spinifex', hex: '#5d7a68' }
+        ]
+      },
+      'theme-3': {
+        name: 'Theme 03: Cyber Grip Telemetry',
+        vibe: 'High-Performance Sports Science • Precision RGC Load Cells • Neon HUD',
+        dotColor: '#00f0ff',
+        fonts: ['Display: Chakra Petch', 'Data: JetBrains Mono', 'Body: Inter'],
+        swatches: [
+          { name: 'Void Black', hex: '#08090d' },
+          { name: 'HUD Console', hex: '#0f121a' },
+          { name: 'Laser Cyan', hex: '#00f0ff' },
+          { name: 'Kinetic Volt', hex: '#ccff00' },
+          { name: 'Wire Edge', hex: '#1e293b' }
+        ]
+      },
+      'theme-4': {
+        name: 'Theme 04: Heritage Gold & Athletic Club',
+        vibe: 'Historic Strongman Pedigree • Midnight Evergreen • Trophy Gold Leaf',
+        dotColor: '#d4af37',
+        fonts: ['Display: Cinzel', 'Accent: Outfit', 'Body: Plus Jakarta Sans'],
+        swatches: [
+          { name: 'Midnight Green', hex: '#08130f' },
+          { name: 'Federation Slate', hex: '#0f221b' },
+          { name: 'Trophy Gold', hex: '#d4af37' },
+          { name: 'Archival White', hex: '#fcf9f2' },
+          { name: 'Laurel Green', hex: '#254a3c' }
+        ]
+      },
+      'theme-5': {
+        name: 'Theme 05: Brutalist Mono-Grit',
+        vibe: 'Underground Powerhouse • 2px Hard Borders • Offset Shadows • Caution Yellow',
+        dotColor: '#ffe600',
+        fonts: ['Display: Archivo Black', 'Code: Space Mono', 'Body: IBM Plex Sans'],
+        swatches: [
+          { name: 'Pitch Black', hex: '#000000' },
+          { name: 'Hazard Yellow', hex: '#ffe600' },
+          { name: 'Stark White', hex: '#ffffff' },
+          { name: 'Concrete Dark', hex: '#111111' },
+          { name: 'Zinc 400', hex: '#a1a1aa' }
+        ]
+      }
+    };
+
+    function switchTheme(themeKey, btnElement) {
+      document.body.setAttribute('data-theme', themeKey);
+      
+      // Update button active states
+      document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active'));
+      if (btnElement) btnElement.classList.add('active');
+
+      // Update Inspector Panel
+      updateInspector(themeKey);
+    }
+
+    function applyAndSwitch(themeKey) {
+      const targetBtn = Array.from(document.querySelectorAll('.theme-nav-buttons .theme-btn'))
+        .find(btn => btn.getAttribute('onclick')?.includes(themeKey));
+      switchTheme(themeKey, targetBtn);
+      setViewMode('live');
+    }
+
+    function setViewMode(mode) {
+      const liveView = document.getElementById('live-view');
+      const galleryView = document.getElementById('gallery-view');
+      const btnLive = document.getElementById('btn-mode-live');
+      const btnGallery = document.getElementById('btn-mode-gallery');
+
+      if (mode === 'live') {
+        liveView.style.display = 'block';
+        galleryView.style.display = 'none';
+        btnLive.classList.add('active');
+        btnGallery.classList.remove('active');
+      } else {
+        liveView.style.display = 'none';
+        galleryView.style.display = 'block';
+        btnLive.classList.remove('active');
+        btnGallery.classList.add('active');
+      }
+    }
+
+    function updateInspector(themeKey) {
+      const data = themeData[themeKey];
+      if (!data) return;
+
+      const nameEl = document.getElementById('meta-theme-name');
+      nameEl.innerHTML = `<span style="width: 8px; height: 8px; border-radius: 50%; background: ${data.dotColor};"></span><span>${data.name}</span>`;
+
+      const vibeEl = document.getElementById('meta-theme-vibe');
+      vibeEl.textContent = data.vibe;
+
+      // Swatches
+      const swatchesEl = document.getElementById('palette-swatches');
+      swatchesEl.innerHTML = data.swatches.map(s => `
+        <div class="swatch-item" title="Click to copy ${s.hex}" onclick="copyHex('${s.hex}')">
+          <span class="swatch-color-box" style="background: ${s.hex};"></span>
+          <span>${s.name}: ${s.hex}</span>
+        </div>
+      `).join('');
+
+      // Font pills
+      const fontsEl = document.getElementById('font-stack-pills');
+      fontsEl.innerHTML = data.fonts.map(f => `
+        <span class="font-pill">${f}</span>
+      `).join('');
+    }
+
+    function copyHex(hex) {
+      navigator.clipboard.writeText(hex).then(() => {
+        alert('Copied ' + hex + ' to clipboard!');
+      }).catch(() => {});
+    }
+
+    // Initialize with Theme 1
+    updateInspector('theme-1');
+  </script>
+</body>
+</html>
