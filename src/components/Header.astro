@@ -1,0 +1,117 @@
+---
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '' } = Astro.props;
+
+const navLinks = [
+  { href: '/what-is-grip-sport', label: 'What is Grip Sport?' },
+  { href: '/equipment-and-gyms', label: 'Equipment & Gyms' },
+  { href: '/competition-calendar', label: 'Calendar' },
+  { href: '/2026-championship', label: 'Championships' },
+  { href: '/australian-grip-feats', label: 'Grip Feats' },
+  { href: '/mulletts-mandrel', label: "Mullett's Mandrel" },
+  { href: '/get-involved', label: 'Get Involved' },
+];
+---
+
+<header class="sticky top-0 z-40 w-full border-b border-slate-800 bg-slate-950/90 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      
+      <!-- Brand Logo -->
+      <a href="/" class="flex items-center space-x-3 group focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-lg p-1">
+        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center shadow-lg shadow-orange-500/20 group-hover:scale-105 transition-transform">
+          <svg class="w-6 h-6 text-white" viewBox="0 0 100 100" fill="none">
+            <circle cx="50" cy="32" r="16" stroke="white" stroke-width="8"/>
+            <path d="M38 36 L24 82" stroke="white" stroke-width="9" stroke-linecap="round"/>
+            <path d="M62 36 L76 82" stroke="white" stroke-width="9" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <span class="font-black text-xl tracking-wider text-white uppercase block leading-tight">
+            Grip<span class="text-orange-500">Australia</span>
+          </span>
+          <span class="text-[10px] tracking-widest text-slate-400 font-semibold uppercase block">Strength Athletics</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center space-x-1" aria-label="Main Navigation">
+        {navLinks.map(link => {
+          const isActive = currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href));
+          return (
+            <a
+              href={link.href}
+              class:list={[
+                "px-3 py-2 rounded-md text-sm font-medium transition-colors",
+                isActive 
+                  ? "bg-orange-500/10 text-orange-400 border border-orange-500/20" 
+                  : "text-slate-300 hover:text-white hover:bg-slate-900"
+              ]}
+            >
+              {link.label}
+            </a>
+          );
+        })}
+      </nav>
+
+      <!-- Search Trigger & Mobile Menu Button -->
+      <div class="flex items-center space-x-2">
+        <button
+          id="search-toggle-btn"
+          type="button"
+          aria-label="Search website"
+          class="p-2 text-slate-300 hover:text-white hover:bg-slate-900 rounded-lg border border-slate-800 transition-colors flex items-center space-x-2 text-sm"
+        >
+          <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+          <span class="hidden sm:inline text-xs text-slate-400 font-mono">Search</span>
+        </button>
+
+        <!-- Mobile menu toggle button -->
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          aria-expanded="false"
+          aria-label="Toggle mobile menu"
+          class="lg:hidden p-2 text-slate-400 hover:text-white hover:bg-slate-900 rounded-lg border border-slate-800"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu" class="hidden lg:hidden border-b border-slate-800 bg-slate-950 px-4 pt-2 pb-6 space-y-1">
+    {navLinks.map(link => (
+      <a
+        href={link.href}
+        class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:text-white hover:bg-slate-900"
+      >
+        {link.label}
+      </a>
+    ))}
+    <div class="pt-2 border-t border-slate-800/80">
+      <a href="/media" class="block px-3 py-2 rounded-md text-sm text-slate-400 hover:text-white">Interviews & Media</a>
+      <a href="/gripper-rating-service" class="block px-3 py-2 rounded-md text-sm text-slate-400 hover:text-white">Gripper Rating Service</a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileBtn?.addEventListener('click', () => {
+    const isExpanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+    mobileBtn.setAttribute('aria-expanded', (!isExpanded).toString());
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>

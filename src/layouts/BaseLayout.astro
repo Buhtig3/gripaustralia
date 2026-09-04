@@ -1,0 +1,151 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalUrl?: string;
+}
+
+const {
+  title = 'Grip Australia — Strength Athletics & Competitions',
+  description = 'Australia’s home for grip strength athletics, competitions, equipment guides, national championships, and athlete records.',
+  image = '/favicon.svg',
+  canonicalUrl = Astro.url.href,
+} = Astro.props;
+
+const siteTitle = title.includes('Grip Australia') ? title : `${title} | Grip Australia`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{siteTitle}</title>
+    <meta name="title" content={siteTitle} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.site || 'https://gripaustralia.com')} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalUrl} />
+    <meta property="twitter:title" content={siteTitle} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.site || 'https://gripaustralia.com')} />
+
+    <!-- Pagefind Assets (Loaded in production) -->
+    <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+    <script src="/pagefind/pagefind-ui.js" is:inline></script>
+  </head>
+  <body class="bg-slate-950 text-slate-100 flex flex-col min-h-screen">
+    <Header currentPath={Astro.url.pathname} />
+
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <!-- Pagefind Search Modal -->
+    <div
+      id="search-modal"
+      class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-start justify-center pt-20 px-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="search-modal-title"
+    >
+      <div class="relative w-full max-w-2xl bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl p-6 overflow-hidden">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+          <h2 id="search-modal-title" class="text-lg font-bold text-white flex items-center gap-2">
+            <span class="text-orange-500">Grip Australia</span> Search
+          </h2>
+          <button
+            id="close-search-btn"
+            type="button"
+            class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800"
+            aria-label="Close search"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+        <div id="pagefind-container" class="mt-4"></div>
+      </div>
+    </div>
+
+    <script is:inline>
+      let pagefindInitialized = false;
+
+      function initSearch() {
+        const modal = document.getElementById('search-modal');
+        const openBtn = document.getElementById('search-toggle-btn');
+        const closeBtn = document.getElementById('close-search-btn');
+
+        function openModal() {
+          modal.classList.remove('hidden');
+          if (!pagefindInitialized && typeof PagefindUI !== 'undefined') {
+            new PagefindUI({
+              element: '#pagefind-container',
+              showSubResults: true,
+              showImages: true,
+              resetStyles: false,
+            });
+            pagefindInitialized = true;
+          }
+          setTimeout(() => {
+            const input = document.querySelector('#pagefind-container input');
+            if (input) input.focus();
+          }, 100);
+        }
+
+        function closeModal() {
+          modal.classList.add('hidden');
+        }
+
+        openBtn?.addEventListener('click', openModal);
+        closeBtn?.addEventListener('click', closeModal);
+
+        modal?.addEventListener('click', (e) => {
+          if (e.target === modal) closeModal();
+        });
+
+        window.addEventListener('keydown', (e) => {
+          if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+            e.preventDefault();
+            if (modal.classList.contains('hidden')) {
+              openModal();
+            } else {
+              closeModal();
+            }
+          }
+          if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+            closeModal();
+          }
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initSearch);
+      } else {
+        initSearch();
+      }
+    </script>
+  </body>
+</html>

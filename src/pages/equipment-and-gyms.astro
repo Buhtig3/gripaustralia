@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GymCard from '../components/GymCard.astro';
+import { getCollection } from 'astro:content';
+
+const gyms = await getCollection('gyms');
+
+const states = ['All', 'ACT', 'NSW', 'NT', 'QLD', 'SA', 'TAS', 'VIC', 'WA'];
+---
+
+<BaseLayout
+  title="Grip Equipment & Gyms Directory — Australia"
+  description="Discover Australian gym venues equipped with specialised grip sport implements: loading pins, pinch blocks, rolling handles, and anvils."
+>
+  <!-- Directory Header -->
+  <section class="border-b border-slate-800 bg-gradient-to-b from-slate-900 to-slate-950 py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-semibold uppercase tracking-wider mb-4">
+          National Directory
+        </div>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight">
+          Equipment & Supporting Gyms
+        </h1>
+        <p class="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
+          Specialised grip equipment is rarely found in commercial big-box gyms. This directory highlights Australian training venues and clubs that provide members access to authentic grip sport implements.
+        </p>
+      </div>
+
+      <!-- Minimum Venue Requirements Alert -->
+      <div class="mt-8 p-4 rounded-xl bg-slate-900/90 border border-slate-800 flex items-start gap-3 max-w-2xl">
+        <div class="p-2 rounded-lg bg-orange-500/10 text-orange-400 shrink-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <div class="text-xs text-slate-300 leading-relaxed">
+          <strong class="text-white block font-semibold mb-0.5">Directory Inclusion Standard</strong>
+          Featured venues maintain a minimum equipment baseline: a loading pin, a pinch implement (block or hub), and a thick bar or rolling handle. Stocking GSI tracked contest handles is strongly encouraged.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter & Listings Section -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    
+    <!-- State Filter Tabs -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8 border-b border-slate-800">
+      <div>
+        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2">Filter by State / Territory</span>
+        <div class="flex flex-wrap gap-2" id="filter-buttons">
+          {states.map((state, i) => (
+            <button
+              type="button"
+              data-filter={state}
+              class:list={[
+                "state-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold transition-colors border focus:outline-none focus:ring-2 focus:ring-orange-500",
+                i === 0
+                  ? "bg-orange-600 text-white border-orange-500"
+                  : "bg-slate-900 text-slate-400 hover:text-white border-slate-800 hover:border-slate-700"
+              ]}
+            >
+              {state}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div class="text-xs font-mono text-slate-400">
+        Showing <span id="visible-count" class="font-bold text-orange-400">{gyms.length}</span> venues
+      </div>
+    </div>
+
+    <!-- Gym Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8" id="gyms-grid">
+      {gyms.map(gym => (
+        <GymCard
+          name={gym.data.name}
+          state={gym.data.state}
+          suburb={gym.data.suburb}
+          equipment={gym.data.equipment}
+          description={gym.data.description}
+          website={gym.data.website}
+          featured={gym.data.featured}
+        />
+      ))}
+    </div>
+
+    <!-- Empty State -->
+    <div id="no-results" class="hidden text-center py-16">
+      <p class="text-base text-slate-400">No grip venues currently listed in this state.</p>
+      <p class="text-xs text-slate-500 mt-2">Know a gym that stocks grip gear? Submit details below!</p>
+    </div>
+
+    <!-- Venue Submission CTA -->
+    <div class="mt-16 p-8 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-900 to-slate-950 border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <h3 class="text-xl font-bold text-white">Does your gym support Grip Sport?</h3>
+        <p class="text-sm text-slate-400 mt-1 max-w-xl">
+          Help athletes find quality equipment. If your facility stocks loading pins, pinch blocks, or rolling handles, submit your details to be featured in the directory.
+        </p>
+      </div>
+      <a
+        href="/get-involved"
+        class="px-5 py-2.5 rounded-lg bg-orange-600 hover:bg-orange-500 text-white font-semibold text-xs uppercase tracking-wider whitespace-nowrap transition-colors"
+      >
+        Submit a Gym Listing
+      </a>
+    </div>
+
+  </section>
+</BaseLayout>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.state-filter-btn');
+  const cards = document.querySelectorAll<HTMLElement>('.gym-card');
+  const visibleCountEl = document.getElementById('visible-count');
+  const noResultsEl = document.getElementById('no-results');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetState = btn.getAttribute('data-filter');
+
+      // Update button visual styles
+      buttons.forEach(b => {
+        b.classList.remove('bg-orange-600', 'text-white', 'border-orange-500');
+        b.classList.add('bg-slate-900', 'text-slate-400', 'border-slate-800');
+      });
+      btn.classList.remove('bg-slate-900', 'text-slate-400', 'border-slate-800');
+      btn.classList.add('bg-orange-600', 'text-white', 'border-orange-500');
+
+      let visible = 0;
+      cards.forEach(card => {
+        const cardState = card.getAttribute('data-state');
+        if (targetState === 'All' || cardState === targetState) {
+          card.classList.remove('hidden');
+          visible++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      if (visibleCountEl) visibleCountEl.textContent = visible.toString();
+
+      if (noResultsEl) {
+        if (visible === 0) {
+          noResultsEl.classList.remove('hidden');
+        } else {
+          noResultsEl.classList.add('hidden');
+        }
+      }
+    });
+  });
+</script>

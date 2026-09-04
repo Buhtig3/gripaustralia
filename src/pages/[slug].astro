@@ -1,0 +1,95 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles');
+  // index is handled by pages/index.astro, and equipment-and-gyms is handled by pages/equipment-and-gyms.astro
+  return articles
+    .filter(entry => entry.slug !== 'index' && entry.slug !== 'equipment-and-gyms')
+    .map(entry => ({
+      params: { slug: entry.slug },
+      props: { entry },
+    }));
+}
+
+interface Props {
+  entry: CollectionEntry<'articles'>;
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<BaseLayout
+  title={entry.data.title}
+  description={entry.data.description}
+>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    
+    <!-- Breadcrumb -->
+    <nav class="flex items-center space-x-2 text-xs text-slate-400 mb-6 font-mono" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-orange-400 transition-colors">Home</a>
+      <span>/</span>
+      <span class="text-slate-200 truncate">{entry.data.title}</span>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="pb-8 mb-8 border-b border-slate-800">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
+        {entry.data.title}
+      </h1>
+
+      {entry.data.description && (
+        <p class="mt-4 text-lg text-slate-300 leading-relaxed">
+          {entry.data.description}
+        </p>
+      )}
+
+      <!-- Metadata & Tags Bar -->
+      <div class="mt-6 flex flex-wrap items-center gap-4 text-xs text-slate-400 pt-4 border-t border-slate-800/60">
+        <div class="flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+          </svg>
+          <span class="font-medium text-slate-200">{entry.data.author}</span>
+        </div>
+
+        {entry.data.tags.length > 0 && (
+          <div class="flex flex-wrap items-center gap-1.5 ml-auto">
+            {entry.data.tags.map(tag => (
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[11px] border border-slate-700/50">
+                #{tag}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+    </header>
+
+    <!-- Markdown Content Body -->
+    <div class="prose-grip">
+      <Content />
+    </div>
+
+    <!-- Article Footer / Navigation -->
+    <footer class="mt-16 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+      <a
+        href="/"
+        class="inline-flex items-center gap-1.5 text-orange-400 hover:text-orange-300 font-medium"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        <span>Back to Homepage</span>
+      </a>
+
+      {entry.data.originalUrl && (
+        <span class="text-slate-500 text-[11px]">
+          Migrated from <a href={entry.data.originalUrl} target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-400">legacy source</a>
+        </span>
+      )}
+    </footer>
+
+  </article>
+</BaseLayout>

@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-slate-950 text-slate-100 antialiased min-h-screen flex flex-col font-sans;
+  }
+}
+
+/* Custom styles for article content */
+.prose-grip {
+  @apply text-slate-300 leading-relaxed max-w-none;
+}
+.prose-grip h1 {
+  @apply text-3xl md:text-4xl font-black text-white tracking-tight mt-8 mb-4 border-b border-slate-800 pb-3;
+}
+.prose-grip h2 {
+  @apply text-2xl md:text-3xl font-bold text-orange-500 tracking-tight mt-8 mb-3 border-b border-slate-800/80 pb-2;
+}
+.prose-grip h3 {
+  @apply text-xl md:text-2xl font-semibold text-slate-100 mt-6 mb-2;
+}
+.prose-grip h4 {
+  @apply text-lg font-semibold text-orange-400 mt-4 mb-2;
+}
+.prose-grip p {
+  @apply mb-4 leading-relaxed;
+}
+.prose-grip strong {
+  @apply text-slate-100 font-semibold;
+}
+.prose-grip a {
+  @apply text-orange-400 hover:text-orange-300 underline underline-offset-4 transition-colors;
+}
+.prose-grip ul {
+  @apply list-disc list-inside mb-4 space-y-1 text-slate-300;
+}
+.prose-grip ol {
+  @apply list-decimal list-inside mb-4 space-y-1 text-slate-300;
+}
+.prose-grip img {
+  @apply rounded-xl shadow-xl my-6 border border-slate-800 max-w-full h-auto mx-auto;
+}
+.prose-grip table {
+  @apply w-full my-6 text-left border-collapse rounded-lg overflow-hidden border border-slate-800 text-sm;
+}
+.prose-grip th {
+  @apply bg-slate-900 px-4 py-3 font-semibold text-orange-400 border-b border-slate-800;
+}
+.prose-grip td {
+  @apply px-4 py-3 border-b border-slate-800/60 bg-slate-950/40;
+}
+.prose-grip tr:hover td {
+  @apply bg-slate-900/60;
+}
+
+/* Pagefind search customization */
+:root {
+  --pagefind-ui-scale: 0.9;
+  --pagefind-ui-primary: #ea580c;
+  --pagefind-ui-text: #f1f5f9;
+  --pagefind-ui-background: #0f172a;
+  --pagefind-ui-border: #334155;
+  --pagefind-ui-tag: #ea580c;
+  --pagefind-ui-border-width: 1px;
+  --pagefind-ui-border-radius: 8px;
+  --pagefind-ui-image-border-radius: 8px;
+  --pagefind-ui-image-box-ratio: 3 / 2;
+  --pagefind-ui-font: inherit;
+}

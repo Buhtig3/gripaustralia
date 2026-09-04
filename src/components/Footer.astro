@@ -1,0 +1,73 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="mt-auto border-t border-slate-800 bg-slate-900/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      
+      <!-- Brand & Mission -->
+      <div class="md:col-span-2 space-y-4">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 rounded-md bg-orange-600 flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" viewBox="0 0 100 100" fill="none">
+              <circle cx="50" cy="32" r="16" stroke="white" stroke-width="8"/>
+              <path d="M38 36 L24 82" stroke="white" stroke-width="9" stroke-linecap="round"/>
+              <path d="M62 36 L76 82" stroke="white" stroke-width="9" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="font-bold text-lg text-white uppercase tracking-wider">
+            Grip<span class="text-orange-500">Australia</span>
+          </span>
+        </div>
+        <p class="text-sm text-slate-400 max-w-md leading-relaxed">
+          The premier community and resource hub for Grip Sport athletics in Australia. Supporting competitors, gym venues, record tracking, and national championships under Grip Sport International (GSI) standards.
+        </p>
+        <p class="text-xs text-slate-500">
+          Special thanks to Eric Roussin (<a href="https://www.canadagripsport.com" target="_blank" rel="noopener" class="underline hover:text-slate-300">Canada Grip Sport</a>) for foundational contributions.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-orange-400 mb-4">Competitions & Feats</h3>
+        <ul class="space-y-2 text-sm text-slate-300">
+          <li><a href="/competition-calendar" class="hover:text-white transition-colors">Competition Calendar</a></li>
+          <li><a href="/2026-championship" class="hover:text-white transition-colors">2026 Championship</a></li>
+          <li><a href="/2025-championship" class="hover:text-white transition-colors">2025 Championship</a></li>
+          <li><a href="/2024-championship" class="hover:text-white transition-colors">2024 Championship</a></li>
+          <li><a href="/australian-grip-feats" class="hover:text-white transition-colors">Australian Records & Feats</a></li>
+          <li><a href="/mulletts-mandrel" class="hover:text-white transition-colors">Mullett's Mandrel Records</a></li>
+        </ul>
+      </div>
+
+      <!-- Resources & Directory -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-orange-400 mb-4">Community & Tools</h3>
+        <ul class="space-y-2 text-sm text-slate-300">
+          <li><a href="/equipment-and-gyms" class="hover:text-white transition-colors">Gyms & Equipment Directory</a></li>
+          <li><a href="/what-is-grip-sport" class="hover:text-white transition-colors">What is Grip Sport?</a></li>
+          <li><a href="/get-involved" class="hover:text-white transition-colors">Get Involved</a></li>
+          <li><a href="/gripper-rating-service" class="hover:text-white transition-colors">Gripper Rating Service</a></li>
+          <li><a href="/media" class="hover:text-white transition-colors">Interviews & Media</a></li>
+          <li><a href="http://www.gripsport.org" target="_blank" rel="noopener" class="hover:text-white transition-colors flex items-center gap-1">
+            <span>Grip Sport International</span>
+            <svg class="w-3 h-3 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 space-y-4 sm:space-y-0">
+      <div>
+        &copy; {currentYear} Grip Australia. All Rights Reserved.
+      </div>
+      <div class="flex items-center space-x-6">
+        <span>Hosted statically on GitHub Pages</span>
+        <a href="/sitemap-index.xml" class="hover:text-slate-400">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
