@@ -189,10 +189,25 @@ const basePrefix = import.meta.env.BASE_URL ? import.meta.env.BASE_URL.replace(/
         });
       }
 
+      function normalizeLinks() {
+        if (basePrefix && basePrefix !== '') {
+          document.querySelectorAll('a[href^="/"]').forEach((a) => {
+            const href = a.getAttribute('href');
+            if (href && !href.startsWith(basePrefix) && !href.startsWith('//')) {
+              a.setAttribute('href', `${basePrefix}${href}`);
+            }
+          });
+        }
+      }
+
       if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initSearch);
+        document.addEventListener('DOMContentLoaded', () => {
+          initSearch();
+          normalizeLinks();
+        });
       } else {
         initSearch();
+        normalizeLinks();
       }
     </script>
   </body>
