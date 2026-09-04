@@ -1,8 +1,8 @@
 ---
 title: 2025 Australian Grip Sport Championship
 description: >-
-  Join us at the 2025 Australian Grip Sport Championship for exciting
-  performances, results, and community engagement in grip sports!
+  Held in Brisbane, the 2025 Australian Grip Sport Championship saw Henry Mullett 
+  win Men's Champion, Sarah Rainbow Women's Champion and Isaac Pitt reclaim pound-for-pound.
 originalUrl: https://gripaustralia.com/2025-championship
 migratedAt: '2026-09-04T04:22:33.083Z'
 author: Grip Australia
