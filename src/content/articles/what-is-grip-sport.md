@@ -1,8 +1,8 @@
 ---
 title: What is Grip Sport?
 description: >-
-  Discover Grip Sport, a unique strength competition focused on grip and hand
-  strength, adhering to rules set by Grip Sport International.
+  Discover Grip Sport, a hobby and sport focused on grip and hand
+  strength with a supportive global community.
 originalUrl: https://gripaustralia.com/what-is-grip-sport%3F
 migratedAt: '2026-09-04T04:22:27.479Z'
 author: Grip Australia
