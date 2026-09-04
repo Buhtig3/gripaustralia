@@ -48,9 +48,6 @@ const siteTitle = title.includes('Grip Australia') ? title : `${title} | Grip Au
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, Astro.site || 'https://gripaustralia.com')} />
 
-    <!-- Pagefind Assets (Loaded in production) -->
-    <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
-    <script src="/pagefind/pagefind-ui.js" is:inline></script>
   </head>
   <body class="bg-slate-950 text-slate-100 flex flex-col min-h-screen">
     <Header currentPath={Astro.url.pathname} />
@@ -86,29 +83,78 @@ const siteTitle = title.includes('Grip Australia') ? title : `${title} | Grip Au
           </button>
         </div>
 
-        <div id="pagefind-container" class="mt-4"></div>
+        <div id="pagefind-container" class="mt-4">
+          <div id="pagefind-loading" class="text-center py-6 text-slate-400 text-xs font-mono">
+            Loading search index...
+          </div>
+        </div>
       </div>
     </div>
 
     <script is:inline>
       let pagefindInitialized = false;
+      let pagefindLoading = false;
+
+      async function loadPagefind() {
+        if (pagefindInitialized) return true;
+        if (pagefindLoading) return false;
+        pagefindLoading = true;
+
+        try {
+          if (!document.querySelector('link[href*="pagefind-ui.css"]')) {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = '/pagefind/pagefind-ui.css';
+            document.head.appendChild(link);
+          }
+
+          if (typeof PagefindUI === 'undefined') {
+            await new Promise((resolve, reject) => {
+              const script = document.createElement('script');
+              script.src = '/pagefind/pagefind-ui.js';
+              script.onload = resolve;
+              script.onerror = reject;
+              document.head.appendChild(script);
+            });
+          }
+
+          const loadingEl = document.getElementById('pagefind-loading');
+          if (loadingEl) loadingEl.remove();
+
+          new PagefindUI({
+            element: '#pagefind-container',
+            showSubResults: true,
+            showImages: true,
+            resetStyles: false,
+          });
+          pagefindInitialized = true;
+          pagefindLoading = false;
+          return true;
+        } catch (err) {
+          pagefindLoading = false;
+          const container = document.getElementById('pagefind-container');
+          if (container) {
+            container.innerHTML = `
+              <div class="text-center py-6 text-slate-400 text-sm">
+                <p class="font-semibold text-white mb-2">Search index available in production build</p>
+                <p class="text-xs text-slate-500 max-w-md mx-auto">
+                  Pagefind indexes static assets post-build. Run <code class="bg-slate-800 px-1.5 py-0.5 rounded text-orange-400 font-mono">npm run build</code> to generate the index, or test using <code class="bg-slate-800 px-1.5 py-0.5 rounded text-orange-400 font-mono">npm run preview</code>.
+                </p>
+              </div>
+            `;
+          }
+          return false;
+        }
+      }
 
       function initSearch() {
         const modal = document.getElementById('search-modal');
         const openBtn = document.getElementById('search-toggle-btn');
         const closeBtn = document.getElementById('close-search-btn');
 
-        function openModal() {
+        async function openModal() {
           modal.classList.remove('hidden');
-          if (!pagefindInitialized && typeof PagefindUI !== 'undefined') {
-            new PagefindUI({
-              element: '#pagefind-container',
-              showSubResults: true,
-              showImages: true,
-              resetStyles: false,
-            });
-            pagefindInitialized = true;
-          }
+          await loadPagefind();
           setTimeout(() => {
             const input = document.querySelector('#pagefind-container input');
             if (input) input.focus();
@@ -126,11 +172,11 @@ const siteTitle = title.includes('Grip Australia') ? title : `${title} | Grip Au
           if (e.target === modal) closeModal();
         });
 
-        window.addEventListener('keydown', (e) => {
+        window.addEventListener('keydown', async (e) => {
           if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
             e.preventDefault();
             if (modal.classList.contains('hidden')) {
-              openModal();
+              await openModal();
             } else {
               closeModal();
             }

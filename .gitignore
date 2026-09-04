@@ -1,6 +1,9 @@
 # build output
 dist/
 
+# local pagefind dev cache
+public/pagefind/
+
 # generated types
 .astro/
 
