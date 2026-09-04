@@ -47,8 +47,24 @@ Competitors - 17 Men and 7 Women
 
 #### Inch Run - Isaac Pitt
 
+<div class="video-wrapper">
+  <iframe src="https://player.vimeo.com/video/1205744468?title=0&byline=0&portrait=0" title="Inch Run - Isaac Pitt" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+</div>
+
 #### Inch Run - Martin Zhang
+
+<div class="video-wrapper">
+  <iframe src="https://player.vimeo.com/video/1205744469?title=0&byline=0&portrait=0" title="Inch Run - Martin Zhang" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 #### Inch Run - Megan Galvin
 
+<div class="video-wrapper">
+  <iframe src="https://player.vimeo.com/video/1205748123?title=0&byline=0&portrait=0" title="Inch Run - Megan Galvin" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+</div>
+
 #### Declan Wright - top Vertical Cannon lift 143.3kg
+
+<div class="video-wrapper">
+  <iframe src="https://player.vimeo.com/video/1205744467?title=0&byline=0&portrait=0" title="Declan Wright - top Vertical Cannon lift 143.3kg" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+</div>

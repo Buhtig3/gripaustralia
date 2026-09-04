@@ -23,4 +23,8 @@ The Mullett's Mandrel is an Australian made grip tool by Henry Mullett, fashione
 
 Henry Mullett's current 133.55kg record 
 
+<div class="video-wrapper">
+  <iframe src="https://player.vimeo.com/video/1113586899?title=0&byline=0&portrait=0" title="Henry Mullett's current 133.55kg record" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+</div>
+
 ![](../../assets/images/mulletts-mandrel-7a22dd0d.jpg)

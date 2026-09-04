@@ -57,6 +57,12 @@
 .prose-grip tr:hover td {
   @apply bg-slate-900/60;
 }
+.prose-grip .video-wrapper {
+  @apply relative w-full aspect-video my-6 rounded-xl overflow-hidden border border-slate-800 shadow-xl bg-slate-950;
+}
+.prose-grip .video-wrapper iframe {
+  @apply absolute inset-0 w-full h-full border-0;
+}
 
 /* Pagefind search customization */
 :root {

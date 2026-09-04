@@ -15,6 +15,10 @@ tags:
 
 # Sarah Rodwell with new class record set at GSI Grip Challenge Canberra
 
+<div class="video-wrapper">
+  <iframe src="https://player.vimeo.com/video/861903100?h=fb9fae452a&title=0&byline=0&portrait=0" title="Sarah Rodwell with new class record set at GSI Grip Challenge Canberra" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+</div>
+
 ## Events
 
 ---

@@ -57,7 +57,15 @@ Christopher Meredith (78kg Holle)
 
 ---
 
+<div class="video-wrapper">
+  <iframe src="https://www.youtube.com/embed/Eqri9qfQvWA" title="What is the blob?" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
 #### Australians who have lifted a blob 50lb or more
+
+<div class="video-wrapper">
+  <iframe src="https://player.vimeo.com/video/862273051?h=06c8ffd409&title=0&byline=0&portrait=0" title="William Fuggle - 24kg Holle Blob Lift" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 Glen Krutli (Hodgson Blob, 24kg Holle)
 
