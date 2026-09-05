@@ -18,7 +18,7 @@ tags:
 
 ![Hand grip strengtheners with numbered tags laid out on a surface.](../../assets/images/gripper-rating-service-6c1d6506.jpg)
 
-### Artie's Grip Gym — Australian Gripper Rating Service
+### Artie's Grip Gym: Australian Gripper Rating Service
 
 If you're serious about hand strength and crushing power, you've almost certainly heard of **RGC (Rating Gripper Calibration)** ratings for torsion-spring grippers.
 

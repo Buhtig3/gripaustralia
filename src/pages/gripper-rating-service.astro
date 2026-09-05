@@ -5,7 +5,7 @@ import { getUrl } from '../utils/url';
 import imgAllGrippers from '../assets/images/gripper-rating-service-6c1d6506.jpg';
 import imgDetailGrippers from '../assets/images/gripper-rating-service-8e9aa502.jpg';
 
-const pageTitle = "Australian Gripper Rating Service — Artie's Grip Gym";
+const pageTitle = "Australian Gripper Rating Service: Artie's Grip Gym";
 const pageDescription = "Accurate RGC calibration for torsion-spring hand grippers in Australia. Tested against Cannon PowerWorks standards with durable color-coded tags. Save on international shipping with fast local turnaround.";
 
 // Standard RGC Reference Data for popular grippers
@@ -56,7 +56,7 @@ const faqs = [
   },
   {
     q: "What is the typical turnaround time?",
-    a: "Turnaround is fast — typically 2 to 4 business days from the moment your grippers arrive at Artie's workshop. You will be notified when they are tested and lodged back with Australia Post."
+    a: "Turnaround is fast, typically 2 to 4 business days from the moment your grippers arrive at Artie's workshop. You will be notified when they are tested and lodged back with Australia Post."
   },
   {
     q: "How do I make payment?",
@@ -944,7 +944,7 @@ Loading manifest...
     const fee = calculateFee(qty);
     const satchel = getSatchelInfo(qty);
 
-    return `=== ARTIE'S GRIP GYM — RATING SERVICE REQUEST ===
+    return `=== ARTIE'S GRIP GYM: RATING SERVICE REQUEST ===
 Date: ${new Date().toLocaleDateString('en-AU')}
 Name: ${name}
 Email: ${email}
@@ -984,7 +984,7 @@ ${notes}
     e.preventDefault();
     const name = formName?.value.trim() || 'Athlete';
     const bodyText = generateManifestText();
-    const subject = encodeURIComponent(`Gripper Rating Service Request — ${name}`);
+    const subject = encodeURIComponent(`Gripper Rating Service Request: ${name}`);
     const body = encodeURIComponent(bodyText);
     const mailtoUrl = `mailto:artiesgripgym@gripaustralia.com?cc=info@gripaustralia.com&subject=${subject}&body=${body}`;
     window.location.href = mailtoUrl;

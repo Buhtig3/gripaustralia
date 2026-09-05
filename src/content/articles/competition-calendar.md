@@ -144,7 +144,7 @@ Hobart Hoist 2027
 <span>Featured Record Lift</span>
 </div>
 <h2 class="text-xl sm:text-2xl font-black text-[var(--text-main)] m-0 tracking-tight">
-Sarah Rodwell — Class Record at GSI Grip Challenge Canberra
+Sarah Rodwell: Class Record at GSI Grip Challenge Canberra
 </h2>
 <p class="text-[var(--text-muted)] text-sm mt-2 mb-4 leading-relaxed">
 Watch Sarah Rodwell set an Australian class record at the GSI Grip Challenge Canberra, demonstrating exceptional hand, finger, and wrist power.

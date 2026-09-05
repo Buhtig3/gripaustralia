@@ -1,7 +1,7 @@
 ---
 title: Beginner's Equipment Guide
 description: >-
-  The essential starter gear for Grip Sport athletics in Australia — from IronMind IM Tug
+  The essential starter gear for Grip Sport athletics in Australia, from IronMind IM Tug
   grippers and loading pins to magnesium carbonate chalk and pinch block weights.
 author: Grip Australia
 tags:

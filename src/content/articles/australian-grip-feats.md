@@ -1,6 +1,6 @@
 ---
 title: Australian Grip Feats
-description: The official honour roll and registry of Australian strength athletes conquering historic grip feats — including the Thomas Inch Dumbbell, York Blobs, Captains of Crush #3 certifications, and the IronMind Crushed-to-Dust Challenge.
+description: The official honour roll and registry of Australian strength athletes conquering historic grip feats, including the Thomas Inch Dumbbell, York Blobs, Captains of Crush #3 certifications, and the IronMind Crushed-to-Dust Challenge.
 originalUrl: https://gripaustralia.com/australian-grip-feats
 migratedAt: '2026-09-04T04:22:28.792Z'
 author: Grip Australia
@@ -29,7 +29,7 @@ This page serves as the official Australian honour roll, chronicling the Austral
 
 * 📊 [Official Australian Grip Records Registry](/records)
 * 🏋️‍♂️ [The Thomas Inch Dumbbell & Heavy Replicas](#the-thomas-inch-dumbbell)
-* 🪨 [The York Blob & Heavy Block Weights](#the-york-blob)
+* 🪨 [What is the blob & Heavy Block Weights](#what-is-the-blob)
 * 🗜️ [Captains of Crush #3 Certification](#captains-of-crush-grippers)
 * ⚡ [IronMind Crushed-to-Dust! Challenge](#crushed-to-dust-challenge)
 * 📋 [Submission & Verification Standards](#submitting-a-feat)
@@ -79,7 +79,8 @@ The following Australian athletes have officially deadlifted the Thomas Inch Dum
 
 ---
 
-## The York Blob
+<a id="the-york-blob"></a>
+## What is the blob
 
 <div class="video-wrapper">
   <iframe src="https://www.youtube.com/embed/Eqri9qfQvWA" title="What is the blob?" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -89,7 +90,7 @@ In 1992, legendary strength pioneer Richard Sorin sawed the head off a broken vi
 
 ### The Challenge of the Blob
 
-Unlike a flat pinch block, the Blob features steeply sloping, rounded, convex cast-iron faces. To lift it by the slick top and sloping sides requires immense open-hand thumb clamp pressure. There is no lip, ridge, or corner to catch — the weight must be hoisted purely by the frictional opposing pressure of the thumb against the opposing four fingers.
+Unlike a flat pinch block, the Blob features steeply sloping, rounded, convex cast-iron faces. To lift it by the slick top and sloping sides requires immense open-hand thumb clamp pressure. There is no lip, ridge, or corner to catch; the weight must be hoisted purely by the frictional opposing pressure of the thumb against the opposing four fingers.
 
 ### Blob Variations Conquered in Australia
 

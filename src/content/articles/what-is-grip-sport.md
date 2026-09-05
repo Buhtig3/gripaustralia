@@ -19,7 +19,7 @@ tags:
 
 **Grip Sport** is a sport which tests competitors’ grip strength, or more widely, hand, wrist, and forearm strength. While casual gym-goers often equate grip simply with squeezing a rubber ring or holding a standard barbell, competitive grip sport evaluates the hand along distinct biomechanical dimensions, from crushing raw torsion springs to clamping frictionless steel blocks and lifting thick-handled rotating bars.
 
-Originating from 19th and early 20th-century strongman challenges such as Thomas Inch dumbbell lifts, anvil horn hoists, and weight plate pinching — modern grip sport has matured into a precision-measured, weight-class-divided sport governed by international standards.
+Originating from 19th and early 20th-century strongman challenges such as Thomas Inch dumbbell lifts, anvil horn hoists, and weight plate pinching, modern grip sport has matured into a precision-measured, weight-class-divided sport governed by international standards.
 
 ---
 
@@ -35,7 +35,7 @@ In competition and structured training, grip strength is divided into four disti
 | **Wrist & Levering** | Control across flexion, extension, deviation, and rotational torque | [Mullett's Mandrel](/mulletts-mandrel) (wrist wrench), sledgehammer levering | Extensor carpi radialis/ulnaris, pronator teres |
 
 ### 1. Crushing Grip
-Crushing grip evaluates the concentric force exerted by the four fingers as they curl toward the palm. The quintessential contest implement is the calibrated **torsion-spring hand gripper**. Because manufacturing variations can cause factory spring ratings to deviate significantly, competition grippers are rated using the **RGC (Relative Grip Calibration)** system — measuring the exact weight required to close the handles at the midpoint of the handle bevels.
+Crushing grip evaluates the concentric force exerted by the four fingers as they curl toward the palm. The quintessential contest implement is the calibrated **torsion-spring hand gripper**. Because manufacturing variations can cause factory spring ratings to deviate significantly, competition grippers are rated using the **RGC (Relative Grip Calibration)** system, measuring the exact weight required to close the handles at the midpoint of the handle bevels.
 
 > [!TIP]
 > **Need Your Grippers Calibrated?**
@@ -182,7 +182,7 @@ You do not need an entire warehouse of expensive apparatus to start building for
 > ### 📖 Explore the Beginner's Equipment Guide
 > Looking for exact specifications, brand recommendations, and setup advice? Check out our dedicated guide:
 > 
-> **👉 [Read the Beginner's Equipment Guide](/equipment-guide)** — Covering IM Tug grippers, loading pins, carabiners, magnesium carbonate chalk, and pinch blocks.
+> **👉 [Read the Beginner's Equipment Guide](/equipment-guide)**: Covering IM Tug grippers, loading pins, carabiners, magnesium carbonate chalk, and pinch blocks.
 
 ### The Starter Checklist
 1. **IronMind IM Tug Grippers:** Focus on digit isolation and building the pinky-to-ring finger drive often neglected by standard grippers.

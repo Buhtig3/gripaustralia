@@ -15,8 +15,8 @@ tags:
 
 > [!IMPORTANT]
 > **2026 Australian Pound-for-Pound Champions**
-> * 🏆 **Sarah Rodwell** — Women's Pound-for-Pound Champion (2nd Overall Women)
-> * 🏆 **Isaac Pitt** — Men's Pound-for-Pound Champion (2nd Overall Men)
+> * 🏆 **Sarah Rodwell**: Women's Pound-for-Pound Champion (2nd Overall Women)
+> * 🏆 **Isaac Pitt**: Men's Pound-for-Pound Champion (2nd Overall Men)
 >
 > 🌐 **Official Grip Sport International (GSI) Benchmark:** View verified sanction data, athlete profiles, and international rankings on [GripSport.org (Contest #483)](https://www.gripsport.org/contest/483).
 
@@ -93,7 +93,7 @@ A huge thank you to the sponsors and partners who made the 2026 Australian Grip 
 
 * **Australian Sponsor:** [@club_strong](https://www.instagram.com/club_strong/)
 * **International Sponsors:** [@armassassinstrengthshop](https://www.instagram.com/armassassinstrengthshop/), [@nemesisgrips](https://www.instagram.com/nemesisgrips/), and **The Grip Show**
-* **Host Venue:** [@ironrevolutiongym](https://www.instagram.com/ironrevolutiongym/) (Iron Revolution Gym, Melbourne) — one of the best equipped strongman and powerlifting facilities in Australia.
+* **Host Venue:** [@ironrevolutiongym](https://www.instagram.com/ironrevolutiongym/) (Iron Revolution Gym, Melbourne), one of the best equipped strongman and powerlifting facilities in Australia.
 
 ## Video
 
