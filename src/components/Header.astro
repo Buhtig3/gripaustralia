@@ -43,19 +43,7 @@ const navLinks = [
           <a href={getUrl('/')} class="font-display font-black text-xl tracking-wider uppercase block leading-tight hover:opacity-90 transition-opacity">
             <span class="text-[var(--text-main)]">Grip</span><span class="text-[var(--accent-gold)]">Australia</span>
           </a>
-          <div class="flex items-center gap-2">
-            <span class="text-[10px] tracking-widest text-[var(--text-muted)] font-semibold uppercase block">Just Grip It</span>
-            <button
-              id="header-theme-badge"
-              type="button"
-              class="inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded transition-all cursor-pointer hover:opacity-80 active:scale-95"
-              style="background: var(--badge-bg); border: 1px solid var(--badge-border); color: var(--badge-text);"
-              title="Click to toggle Light (Calibrated) / Dark (Outback)"
-            >
-              <span id="header-theme-icon">☀️</span>
-              <span id="header-theme-label">LIGHT</span>
-            </button>
-          </div>
+          <span class="text-[10px] tracking-widest text-[var(--text-muted)] font-semibold uppercase block">Just Grip It</span>
         </div>
       </div>
 
@@ -140,17 +128,11 @@ const navLinks = [
 
   // Interactive Hand Gripper Mode Switcher logic
   function updateThemeUI(theme: string) {
-    const iconEl = document.getElementById('header-theme-icon');
-    const labelEl = document.getElementById('header-theme-label');
     const toggleBtn = document.getElementById('header-grip-logo-toggle');
 
     if (theme === 'outback') {
-      if (iconEl) iconEl.textContent = '🌙';
-      if (labelEl) labelEl.textContent = 'DARK (OUTBACK)';
       if (toggleBtn) toggleBtn.setAttribute('title', '🌙 Dark Mode (Outback) • Click gripper to crush into Calibrated Light');
     } else {
-      if (iconEl) iconEl.textContent = '☀️';
-      if (labelEl) labelEl.textContent = 'LIGHT (CALIBRATED)';
       if (toggleBtn) toggleBtn.setAttribute('title', '☀️ Light Mode (Calibrated) • Click gripper to crush into Outback Dark');
     }
   }
@@ -176,9 +158,7 @@ const navLinks = [
   }
 
   const toggleBtn = document.getElementById('header-grip-logo-toggle');
-  const badgeBtn = document.getElementById('header-theme-badge');
   toggleBtn?.addEventListener('click', toggleTheme);
-  badgeBtn?.addEventListener('click', toggleTheme);
 
   // Sync with current theme on page load
   const initialTheme = document.documentElement.getAttribute('data-theme') || 'calibrated';
