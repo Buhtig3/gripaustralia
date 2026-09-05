@@ -48,9 +48,32 @@ const basePrefix = import.meta.env.BASE_URL ? import.meta.env.BASE_URL.replace(/
     <meta property="twitter:url" content={canonicalUrl} />
     <meta property="twitter:title" content={siteTitle} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={new URL(image, Astro.site || 'https://gripaustralia.com')} />
+    <!-- Google Fonts for Calibrated Minimalism & Outback Ochre -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Anti-FOUC Theme Script -->
+    <script is:inline>
+      (function() {
+        try {
+          const savedTheme = localStorage.getItem('ga-theme') || localStorage.getItem('ga-preferred-mode');
+          let activeTheme = 'calibrated';
+          if (savedTheme === 'outback' || savedTheme === 'theme-2') {
+            activeTheme = 'outback';
+          } else if (savedTheme === 'legacy-slate' || savedTheme === 'theme-0') {
+            activeTheme = 'legacy-slate';
+          } else {
+            activeTheme = 'calibrated';
+          }
+          document.documentElement.setAttribute('data-theme', activeTheme);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'calibrated');
+        }
+      })();
+    </script>
   </head>
-  <body class="bg-slate-950 text-slate-100 flex flex-col min-h-screen">
+  <body class="flex flex-col min-h-screen">
     <Header currentPath={Astro.url.pathname} />
 
     <main class="flex-grow">
@@ -62,20 +85,20 @@ const basePrefix = import.meta.env.BASE_URL ? import.meta.env.BASE_URL.replace(/
     <!-- Pagefind Search Modal -->
     <div
       id="search-modal"
-      class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-start justify-center pt-20 px-4"
+      class="hidden fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-start justify-center pt-20 px-4"
       role="dialog"
       aria-modal="true"
       aria-labelledby="search-modal-title"
     >
-      <div class="relative w-full max-w-2xl bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl p-6 overflow-hidden">
-        <div class="flex items-center justify-between pb-4 border-b border-slate-800">
-          <h2 id="search-modal-title" class="text-lg font-bold text-white flex items-center gap-2">
-            <span class="text-orange-500">Grip Australia</span> Search
+      <div class="relative w-full max-w-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-2xl shadow-2xl p-6 overflow-hidden text-[var(--text-main)]">
+        <div class="flex items-center justify-between pb-4 border-b border-[var(--border-color)]">
+          <h2 id="search-modal-title" class="text-lg font-bold text-[var(--text-main)] font-[var(--font-display)] tracking-wider uppercase flex items-center gap-2">
+            <span class="text-[var(--accent-gold)]">Grip Australia</span> Search
           </h2>
           <button
             id="close-search-btn"
             type="button"
-            class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800"
+            class="text-[var(--text-muted)] hover:text-[var(--text-main)] p-1 rounded-lg hover:bg-[var(--bg-elevated)] transition-colors"
             aria-label="Close search"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -85,7 +108,7 @@ const basePrefix = import.meta.env.BASE_URL ? import.meta.env.BASE_URL.replace(/
         </div>
 
         <div id="pagefind-container" class="mt-4">
-          <div id="pagefind-loading" class="text-center py-6 text-slate-400 text-xs font-mono">
+          <div id="pagefind-loading" class="text-center py-6 text-[var(--text-muted)] text-xs font-mono">
             Loading search index...
           </div>
         </div>

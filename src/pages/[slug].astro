@@ -29,37 +29,37 @@ const { Content } = await entry.render();
   <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     
     <!-- Breadcrumb -->
-    <nav class="flex items-center space-x-2 text-xs text-slate-400 mb-6 font-mono" aria-label="Breadcrumb">
-      <a href={getUrl('/')} class="hover:text-orange-400 transition-colors">Home</a>
+    <nav class="flex items-center space-x-2 text-xs text-[var(--text-muted)] mb-6 font-mono" aria-label="Breadcrumb">
+      <a href={getUrl('/')} class="hover:text-[var(--accent-gold)] transition-colors">Home</a>
       <span>/</span>
-      <span class="text-slate-200 truncate">{entry.data.title}</span>
+      <span class="text-[var(--text-main)] truncate font-semibold">{entry.data.title}</span>
     </nav>
 
     <!-- Article Header -->
-    <header class="pb-8 mb-8 border-b border-slate-800">
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
+    <header class="pb-8 mb-8 border-b border-[var(--border-color)]">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-[var(--text-main)] font-display uppercase tracking-tight leading-tight">
         {entry.data.title}
       </h1>
 
       {entry.data.description && (
-        <p class="mt-4 text-lg text-slate-300 leading-relaxed">
+        <p class="mt-4 text-lg text-[var(--text-muted)] leading-relaxed">
           {entry.data.description}
         </p>
       )}
 
       <!-- Metadata & Tags Bar -->
-      <div class="mt-6 flex flex-wrap items-center gap-4 text-xs text-slate-400 pt-4 border-t border-slate-800/60">
+      <div class="mt-6 flex flex-wrap items-center gap-4 text-xs text-[var(--text-muted)] pt-4 border-t border-[var(--border-color)]">
         <div class="flex items-center gap-1.5">
-          <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-4 h-4 text-[var(--accent-gold)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
           </svg>
-          <span class="font-medium text-slate-200">{entry.data.author}</span>
+          <span class="font-medium text-[var(--text-main)]">{entry.data.author}</span>
         </div>
 
         {entry.data.tags.length > 0 && (
           <div class="flex flex-wrap items-center gap-1.5 ml-auto">
             {entry.data.tags.map(tag => (
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[11px] border border-slate-700/50">
+              <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[var(--text-muted)] font-mono text-[11px] border border-[var(--border-color)]">
                 #{tag}
               </span>
             ))}
@@ -74,10 +74,10 @@ const { Content } = await entry.render();
     </div>
 
     <!-- Article Footer / Navigation -->
-    <footer class="mt-16 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+    <footer class="mt-16 pt-8 border-t border-[var(--border-color)] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--text-muted)]">
       <a
         href={getUrl('/')}
-        class="inline-flex items-center gap-1.5 text-orange-400 hover:text-orange-300 font-medium"
+        class="inline-flex items-center gap-1.5 text-[var(--accent-gold)] hover:underline font-accent uppercase tracking-wider font-semibold"
       >
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
@@ -86,8 +86,8 @@ const { Content } = await entry.render();
       </a>
 
       {entry.data.originalUrl && (
-        <span class="text-slate-500 text-[11px]">
-          Migrated from <a href={entry.data.originalUrl} target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-400">legacy source</a>
+        <span class="text-[var(--text-subtle)] text-[11px]">
+          Migrated from <a href={entry.data.originalUrl} target="_blank" rel="noopener noreferrer" class="underline hover:text-[var(--text-muted)]">legacy source</a>
         </span>
       )}
     </footer>

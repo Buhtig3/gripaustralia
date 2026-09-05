@@ -17,26 +17,47 @@ const navLinks = [
 ];
 ---
 
-<header class="sticky top-0 z-40 w-full border-b border-slate-800 bg-slate-950/90 backdrop-blur-md">
+<header class="sticky top-0 z-40 w-full border-b border-[var(--border-color)] bg-[var(--bg-base)]/95 backdrop-blur-md transition-colors duration-250">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       
-      <!-- Brand Logo -->
-      <a href={getUrl('/')} class="flex items-center space-x-3 group focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-lg p-1">
-        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center shadow-lg shadow-orange-500/20 group-hover:scale-105 transition-transform">
-          <svg class="w-6 h-6 text-white" viewBox="0 0 100 100" fill="none">
-            <circle cx="50" cy="32" r="16" stroke="white" stroke-width="8"/>
-            <path d="M38 36 L24 82" stroke="white" stroke-width="9" stroke-linecap="round"/>
-            <path d="M62 36 L76 82" stroke="white" stroke-width="9" stroke-linecap="round"/>
+      <!-- Brand Logo & Interactive Gripper Theme Toggle -->
+      <div class="flex items-center space-x-3">
+        <!-- Interactive Small Grip Logo Button -->
+        <button
+          id="header-grip-logo-toggle"
+          type="button"
+          class="brand-icon-toggle group relative w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-200 cursor-pointer shadow-md hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[var(--accent-gold)]"
+          style="background: linear-gradient(135deg, var(--logo-bg-from), var(--logo-bg-to)); border: 1px solid var(--logo-border); color: var(--logo-icon-color);"
+          title="Click gripper to toggle: Calibrated (Light) ↔ Outback (Dark)"
+          aria-label="Toggle between Calibrated Minimalism light mode and Outback Ochre dark mode"
+        >
+          <svg class="gripper-svg w-6 h-6" viewBox="0 0 100 100" fill="none">
+            <circle class="gripper-coil" cx="50" cy="32" r="16" stroke="currentColor" stroke-width="8"/>
+            <path class="gripper-handle-left" d="M38 36 L24 82" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+            <path class="gripper-handle-right" d="M62 36 L76 82" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
           </svg>
-        </div>
+        </button>
+
         <div>
-          <span class="font-black text-xl tracking-wider text-white uppercase block leading-tight">
-            Grip<span class="text-orange-500">Australia</span>
-          </span>
-          <span class="text-[10px] tracking-widest text-slate-400 font-semibold uppercase block">Just Grip It</span>
+          <a href={getUrl('/')} class="font-display font-black text-xl tracking-wider uppercase block leading-tight hover:opacity-90 transition-opacity">
+            <span class="text-[var(--text-main)]">Grip</span><span class="text-[var(--accent-gold)]">Australia</span>
+          </a>
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] tracking-widest text-[var(--text-muted)] font-semibold uppercase block">Just Grip It</span>
+            <button
+              id="header-theme-badge"
+              type="button"
+              class="inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded transition-all cursor-pointer hover:opacity-80 active:scale-95"
+              style="background: var(--badge-bg); border: 1px solid var(--badge-border); color: var(--badge-text);"
+              title="Click to toggle Light (Calibrated) / Dark (Outback)"
+            >
+              <span id="header-theme-icon">☀️</span>
+              <span id="header-theme-label">LIGHT</span>
+            </button>
+          </div>
         </div>
-      </a>
+      </div>
 
       <!-- Desktop Navigation -->
       <nav class="hidden lg:flex items-center space-x-1" aria-label="Main Navigation">
@@ -48,8 +69,8 @@ const navLinks = [
               class:list={[
                 "px-3 py-2 rounded-md text-sm font-medium transition-colors",
                 isActive 
-                  ? "bg-orange-500/10 text-orange-400 border border-orange-500/20" 
-                  : "text-slate-300 hover:text-white hover:bg-slate-900"
+                  ? "bg-[var(--bg-elevated)] text-[var(--text-main)] border border-[var(--border-color)] font-semibold" 
+                  : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
               ]}
             >
               {link.label}
@@ -64,12 +85,12 @@ const navLinks = [
           id="search-toggle-btn"
           type="button"
           aria-label="Search website"
-          class="p-2 text-slate-300 hover:text-white hover:bg-slate-900 rounded-lg border border-slate-800 transition-colors flex items-center space-x-2 text-sm"
+          class="p-2 text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)] rounded-lg border border-[var(--border-color)] transition-colors flex items-center space-x-2 text-sm"
         >
-          <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-4 h-4 text-[var(--accent-gold)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
           </svg>
-          <span class="hidden sm:inline text-xs text-slate-400 font-mono">Search</span>
+          <span class="hidden sm:inline text-xs text-[var(--text-muted)] font-mono">Search</span>
         </button>
 
         <!-- Mobile menu toggle button -->
@@ -78,7 +99,7 @@ const navLinks = [
           type="button"
           aria-expanded="false"
           aria-label="Toggle mobile menu"
-          class="lg:hidden p-2 text-slate-400 hover:text-white hover:bg-slate-900 rounded-lg border border-slate-800"
+          class="lg:hidden p-2 text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)] rounded-lg border border-[var(--border-color)]"
         >
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
@@ -90,23 +111,24 @@ const navLinks = [
   </div>
 
   <!-- Mobile Drawer -->
-  <div id="mobile-menu" class="hidden lg:hidden border-b border-slate-800 bg-slate-950 px-4 pt-2 pb-6 space-y-1">
+  <div id="mobile-menu" class="hidden lg:hidden border-b border-[var(--border-color)] bg-[var(--bg-surface)] px-4 pt-2 pb-6 space-y-1">
     {navLinks.map(link => (
       <a
         href={link.href}
-        class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:text-white hover:bg-slate-900"
+        class="block px-3 py-2 rounded-md text-base font-medium text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
       >
         {link.label}
       </a>
     ))}
-    <div class="pt-2 border-t border-slate-800/80">
-      <a href={getUrl('/media')} class="block px-3 py-2 rounded-md text-sm text-slate-400 hover:text-white">Interviews & Media</a>
-      <a href={getUrl('/gripper-rating-service')} class="block px-3 py-2 rounded-md text-sm text-slate-400 hover:text-white">Gripper Rating Service</a>
+    <div class="pt-2 border-t border-[var(--border-color)]">
+      <a href={getUrl('/media')} class="block px-3 py-2 rounded-md text-sm text-[var(--text-muted)] hover:text-[var(--text-main)]">Interviews & Media</a>
+      <a href={getUrl('/gripper-rating-service')} class="block px-3 py-2 rounded-md text-sm text-[var(--text-muted)] hover:text-[var(--text-main)]">Gripper Rating Service</a>
     </div>
   </div>
 </header>
 
 <script>
+  // Mobile drawer logic
   const mobileBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
 
@@ -115,4 +137,50 @@ const navLinks = [
     mobileBtn.setAttribute('aria-expanded', (!isExpanded).toString());
     mobileMenu?.classList.toggle('hidden');
   });
+
+  // Interactive Hand Gripper Mode Switcher logic
+  function updateThemeUI(theme: string) {
+    const iconEl = document.getElementById('header-theme-icon');
+    const labelEl = document.getElementById('header-theme-label');
+    const toggleBtn = document.getElementById('header-grip-logo-toggle');
+
+    if (theme === 'outback') {
+      if (iconEl) iconEl.textContent = '🌙';
+      if (labelEl) labelEl.textContent = 'DARK (OUTBACK)';
+      if (toggleBtn) toggleBtn.setAttribute('title', '🌙 Dark Mode (Outback) • Click gripper to crush into Calibrated Light');
+    } else {
+      if (iconEl) iconEl.textContent = '☀️';
+      if (labelEl) labelEl.textContent = 'LIGHT (CALIBRATED)';
+      if (toggleBtn) toggleBtn.setAttribute('title', '☀️ Light Mode (Calibrated) • Click gripper to crush into Outback Dark');
+    }
+  }
+
+  function toggleTheme(e?: Event) {
+    if (e) e.preventDefault();
+    const toggleBtn = document.getElementById('header-grip-logo-toggle');
+    if (toggleBtn) {
+      toggleBtn.classList.add('crushing');
+      setTimeout(() => toggleBtn.classList.remove('crushing'), 350);
+    }
+
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'calibrated';
+    const newTheme = (currentTheme === 'calibrated') ? 'outback' : 'calibrated';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    try {
+      localStorage.setItem('ga-theme', newTheme);
+      localStorage.setItem('ga-preferred-mode', newTheme === 'outback' ? 'theme-2' : 'theme-6');
+    } catch (err) {}
+
+    updateThemeUI(newTheme);
+  }
+
+  const toggleBtn = document.getElementById('header-grip-logo-toggle');
+  const badgeBtn = document.getElementById('header-theme-badge');
+  toggleBtn?.addEventListener('click', toggleTheme);
+  badgeBtn?.addEventListener('click', toggleTheme);
+
+  // Sync with current theme on page load
+  const initialTheme = document.documentElement.getAttribute('data-theme') || 'calibrated';
+  updateThemeUI(initialTheme);
 </script>

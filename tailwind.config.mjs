@@ -19,10 +19,25 @@ export default {
           800: '#1e293b',
           900: '#0f172a',
           950: '#020617',
+        },
+        theme: {
+          base: 'var(--bg-base)',
+          surface: 'var(--bg-surface)',
+          elevated: 'var(--bg-elevated)',
+          border: 'var(--border-color)',
+          accent: 'var(--accent)',
+          'accent-hover': 'var(--accent-hover)',
+          gold: 'var(--accent-gold)',
+          main: 'var(--text-main)',
+          muted: 'var(--text-muted)',
+          subtle: 'var(--text-subtle)',
         }
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        display: ['var(--font-display)', 'Barlow Condensed', 'Bebas Neue', 'sans-serif'],
+        accent: ['var(--font-accent)', 'Space Grotesk', 'Barlow Condensed', 'sans-serif'],
+        body: ['var(--font-body)', 'Inter', 'DM Sans', 'sans-serif'],
       }
     },
   },

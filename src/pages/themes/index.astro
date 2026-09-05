@@ -178,6 +178,33 @@
       --hero-overlay: radial-gradient(circle at 50% 0%, rgba(20, 48, 36, 0.05) 0%, transparent 65%);
     }
 
+    /* THEME 00: Classic Slate & Forge Orange (Original Launch Theme) */
+    body[data-theme="theme-0"] {
+      --bg-base: #020617;
+      --bg-surface: #0f172a;
+      --bg-elevated: #1e293b;
+      --border-color: #1e293b;
+      --accent: #ea580c;
+      --accent-hover: #f97316;
+      --accent-text: #ffffff;
+      --accent-gold: #f59e0b;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --font-display: 'Inter', sans-serif;
+      --font-accent: 'Inter', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --btn-radius: 6px;
+      --card-radius: 8px;
+      --box-shadow: 0 10px 30px -10px rgba(0,0,0,0.7), 0 0 1px 1px var(--border-color);
+      --btn-shadow: 0 6px 20px rgba(249, 115, 22, 0.35);
+      --bg-pattern: radial-gradient(rgba(249, 115, 22, 0.04) 1px, transparent 1px);
+      --bg-pattern-size: 20px 20px;
+      --badge-bg: rgba(249, 115, 22, 0.15);
+      --badge-border: rgba(249, 115, 22, 0.3);
+      --badge-text: #f97316;
+      --hero-overlay: radial-gradient(circle at 50% 0%, rgba(249, 115, 22, 0.1) 0%, transparent 60%);
+    }
+
     /* ==========================================================================
        GLOBAL BASE RESETS
        ========================================================================== */
@@ -1280,6 +1307,10 @@
         <span class="theme-color-dot" style="background:#ff5500;"></span>
         01. Raw Iron
       </button>
+      <button class="theme-btn" onclick="switchTheme('theme-0', this)">
+        <span class="theme-color-dot" style="background:#ea580c;"></span>
+        00. Classic Slate (Archived)
+      </button>
     </div>
 
     <div class="view-mode-toggle">
@@ -1858,6 +1889,19 @@
           { name: 'Border', hex: '#2a2f3a' },
           { name: 'Forge Orange', hex: '#ff5500' },
           { name: 'Chalk White', hex: '#f4f4f6' }
+        ]
+      },
+      'theme-0': {
+        name: 'Theme 00: Classic Slate & Forge Orange (Archived Launch Theme)',
+        vibe: 'Heavy Dark Slate Gym • Industrial Safety Orange • Powerlifting Iron',
+        dotColor: '#ea580c',
+        fonts: ['Display: Inter', 'Accent: Inter', 'Body: Inter'],
+        swatches: [
+          { name: 'Slate 950', hex: '#020617' },
+          { name: 'Slate 900', hex: '#0f172a' },
+          { name: 'Slate 800', hex: '#1e293b' },
+          { name: 'Forge Orange', hex: '#ea580c' },
+          { name: 'Slate 100', hex: '#f1f5f9' }
         ]
       }
     };
