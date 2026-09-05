@@ -42,6 +42,19 @@ const categoryCounts = {
   'historical-feat': records.filter(r => r.category === 'historical-feat').length,
 };
 
+// Extract unique weight classes sorted logically
+const rawWeightClasses = Array.from(new Set(records.map(r => r.weightClass || 'Open')));
+const sortedWeightClasses = rawWeightClasses.sort((a, b) => {
+  if (a === 'Open') return 1;
+  if (b === 'Open') return -1;
+  if (a === 'Heavyweight') return 1;
+  if (b === 'Heavyweight') return -1;
+  const numA = parseInt(a, 10) || 0;
+  const numB = parseInt(b, 10) || 0;
+  if (numA !== numB) return numA - numB;
+  return a.localeCompare(b);
+});
+
 const serializedRecords = JSON.stringify(records);
 ---
 
@@ -133,31 +146,50 @@ const serializedRecords = JSON.stringify(records);
       </button>
     </div>
 
-    <!-- Filters Row: Gender, Search & Counter -->
+    <!-- Filters Row: Gender, Weight Class, Search & Counter -->
     <div class="mt-4 pt-4 border-t border-[var(--border-color)] flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
-      <!-- Gender Segmented Control -->
-      <div class="flex items-center gap-1.5 bg-[var(--bg-surface)] p-1 rounded-xl border border-[var(--border-color)] self-start">
-        <button
-          type="button"
-          class="gender-btn active px-3 py-1 rounded-lg text-xs font-bold transition-all bg-[var(--accent-gold)] text-black shadow-sm"
-          data-gender="all"
-        >
-          All
-        </button>
-        <button
-          type="button"
-          class="gender-btn px-3 py-1 rounded-lg text-xs font-medium text-[var(--text-muted)] hover:text-[var(--text-main)] transition-all"
-          data-gender="men"
-        >
-          Men
-        </button>
-        <button
-          type="button"
-          class="gender-btn px-3 py-1 rounded-lg text-xs font-medium text-[var(--text-muted)] hover:text-[var(--text-main)] transition-all"
-          data-gender="women"
-        >
-          Women
-        </button>
+      <!-- Gender & Weight Class Group -->
+      <div class="flex flex-wrap items-center gap-2.5">
+        <!-- Gender Segmented Control -->
+        <div class="flex items-center gap-1.5 bg-[var(--bg-surface)] p-1 rounded-xl border border-[var(--border-color)] self-start">
+          <button
+            type="button"
+            class="gender-btn active px-3 py-1 rounded-lg text-xs font-bold transition-all bg-[var(--accent-gold)] text-black shadow-sm"
+            data-gender="all"
+          >
+            All
+          </button>
+          <button
+            type="button"
+            class="gender-btn px-3 py-1 rounded-lg text-xs font-medium text-[var(--text-muted)] hover:text-[var(--text-main)] transition-all"
+            data-gender="men"
+          >
+            Men
+          </button>
+          <button
+            type="button"
+            class="gender-btn px-3 py-1 rounded-lg text-xs font-medium text-[var(--text-muted)] hover:text-[var(--text-main)] transition-all"
+            data-gender="women"
+          >
+            Women
+          </button>
+        </div>
+
+        <!-- Weight Class Dropdown Filter -->
+        <div class="flex items-center gap-1.5 bg-[var(--bg-surface)] px-3 py-1 rounded-xl border border-[var(--border-color)] self-start">
+          <label for="records-weight-class-select" class="text-[11px] font-mono font-bold uppercase text-[var(--text-muted)] tracking-wider whitespace-nowrap">
+            Class:
+          </label>
+          <select
+            id="records-weight-class-select"
+            class="bg-transparent text-xs font-semibold text-[var(--text-main)] focus:outline-none cursor-pointer pr-1"
+          >
+            <option value="all" class="bg-[var(--bg-surface)] text-[var(--text-main)]">All Classes</option>
+            {sortedWeightClasses.map(wc => (
+              <option value={wc} class="bg-[var(--bg-surface)] text-[var(--text-main)]">{wc}</option>
+            ))}
+          </select>
+        </div>
       </div>
 
       <!-- Search Input -->
@@ -278,6 +310,7 @@ const serializedRecords = JSON.stringify(records);
     // State
     let currentCategory = 'all';
     let currentGender = 'all';
+    let currentWeightClass = 'all';
     let currentUnit = 'kg';
     let searchQuery = '';
     let sortColumn = 'weightKg';
@@ -294,6 +327,7 @@ const serializedRecords = JSON.stringify(records);
     const unitLbsBtn = document.getElementById('unit-lbs-btn');
     const categoryTabs = document.querySelectorAll('.category-tab');
     const genderBtns = document.querySelectorAll('.gender-btn');
+    const weightClassSelect = document.getElementById('records-weight-class-select');
     const headerSorts = document.querySelectorAll('th[data-sort]');
 
     function formatWeight(record, unit) {
@@ -330,6 +364,10 @@ const serializedRecords = JSON.stringify(records);
         }
         // Gender filter
         if (currentGender !== 'all' && r.gender !== currentGender) {
+          return false;
+        }
+        // Weight Class filter
+        if (currentWeightClass !== 'all' && (r.weightClass || 'Open') !== currentWeightClass) {
           return false;
         }
         // Search filter
@@ -374,7 +412,7 @@ const serializedRecords = JSON.stringify(records);
 
       // Update counters
       countBadge.textContent = `Showing ${filtered.length} of ${records.length} records`;
-      const isFiltered = currentCategory !== 'all' || currentGender !== 'all' || searchQuery.trim().length > 0;
+      const isFiltered = currentCategory !== 'all' || currentGender !== 'all' || currentWeightClass !== 'all' || searchQuery.trim().length > 0;
       if (resetFiltersBtn) {
         resetFiltersBtn.classList.toggle('hidden', !isFiltered);
       }
@@ -417,6 +455,8 @@ const serializedRecords = JSON.stringify(records);
           ? `<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-500/15 text-amber-400 border border-amber-500/30">${r.sanctioningBody || 'GSI'}</span>`
           : `<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono bg-[var(--bg-surface)] text-[var(--text-muted)] border border-[var(--border-color)]">${r.sanctioningBody || 'Open'}</span>`;
 
+        const rowWc = r.weightClass || 'Open';
+
         return `
           <tr class="hover:bg-[var(--bg-surface)]/60 transition-colors">
             <td class="py-3 px-4">
@@ -434,7 +474,11 @@ const serializedRecords = JSON.stringify(records);
               <div class="text-[10px] font-mono text-[var(--text-subtle)]" title="Alternative unit">${altWeightFormatted}</div>
             </td>
             <td class="py-3 px-4 whitespace-nowrap font-mono text-xs text-[var(--text-muted)]">
-              <div>${r.weightClass || 'Open'}</div>
+              <div>
+                <button type="button" class="weight-class-filter-btn hover:text-[var(--accent-gold)] hover:underline text-left cursor-pointer transition-colors" data-weight-class="${rowWc}" title="Filter by ${rowWc}">
+                  ${rowWc}
+                </button>
+              </div>
               ${r.division && r.division !== 'Open' ? `<div class="text-[10px] text-[var(--text-subtle)]">${r.division}</div>` : ''}
             </td>
             <td class="py-3 px-4 whitespace-nowrap font-mono text-xs text-[var(--text-muted)] hidden md:table-cell">
@@ -522,6 +566,8 @@ const serializedRecords = JSON.stringify(records);
     function resetAllFilters() {
       currentCategory = 'all';
       currentGender = 'all';
+      currentWeightClass = 'all';
+      if (weightClassSelect) weightClassSelect.value = 'all';
       searchQuery = '';
       searchInput.value = '';
       clearSearchBtn.classList.add('hidden');
@@ -555,6 +601,27 @@ const serializedRecords = JSON.stringify(records);
 
     if (resetFiltersBtn) resetFiltersBtn.addEventListener('click', resetAllFilters);
     if (emptyResetBtn) emptyResetBtn.addEventListener('click', resetAllFilters);
+
+    // Weight class dropdown change
+    if (weightClassSelect) {
+      weightClassSelect.addEventListener('change', (e) => {
+        currentWeightClass = e.target.value;
+        renderRows();
+      });
+    }
+
+    // Weight class click from table cell
+    tbody.addEventListener('click', (e) => {
+      const target = e.target.closest('.weight-class-filter-btn');
+      if (target) {
+        const wc = target.getAttribute('data-weight-class');
+        if (wc && weightClassSelect) {
+          weightClassSelect.value = wc;
+          currentWeightClass = wc;
+          renderRows();
+        }
+      }
+    });
 
     // Header Sort
     headerSorts.forEach(th => {

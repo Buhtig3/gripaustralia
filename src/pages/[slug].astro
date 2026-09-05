@@ -5,8 +5,8 @@ import { getUrl } from '../utils/url';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles');
-  // Dedicated pages handle index, gripper-rating-service, get-involved, and 2024/2025/2026 championships
-  const customPages = ['index', 'gripper-rating-service', 'get-involved', '2024-championship', '2025-championship', '2026-championship'];
+  // Dedicated pages handle index, gripper-rating-service, get-involved, 2024/2025/2026 championships, and mulletts-mandrel
+  const customPages = ['index', 'gripper-rating-service', 'get-involved', '2024-championship', '2025-championship', '2026-championship', 'mulletts-mandrel'];
   return articles
     .filter(entry => !customPages.includes(entry.slug))
     .map(entry => ({

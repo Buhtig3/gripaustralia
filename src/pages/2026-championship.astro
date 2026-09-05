@@ -11,34 +11,37 @@ import action2Img from '../assets/images/2026-championship-f8ffc2a5.jpg';
 import action3Img from '../assets/images/2026-championship-0529fa77.jpg';
 
 const womensResults = [
-  { rank: 1, name: 'Megan Galvin', division: 'Womens 100k+', nn: '105.40 kg', pinch: '63.50 kg', cannon: '77.30 kg', totalScore: '4.75', p4p: '1.98', honor: '🥇 Overall Champion', p4pRank: null },
-  { rank: 2, name: 'Sarah Rodwell', division: 'Womens 72k', nn: '100.40 kg', pinch: '58.50 kg', cannon: '57.30 kg', totalScore: '4.27', p4p: '2.78', honor: '🥈 2nd Overall', p4pRank: '1st P4P' },
-  { rank: 3, name: 'Alison Dann', division: 'Womens 100k (M50-59)', nn: '92.90 kg', pinch: '56.00 kg', cannon: '57.30 kg', totalScore: '4.15', p4p: '2.19', honor: '🥉 3rd Overall', p4pRank: null },
-  { rank: 4, name: 'Erin Specht', division: 'Womens 72k', nn: '75.40 kg', pinch: '46.00 kg', cannon: '47.30 kg', totalScore: '3.60', p4p: '2.33', honor: '4th', p4pRank: '3rd P4P' },
-  { rank: 5, name: 'Kiri Jenkinson', division: 'Womens 100k+', nn: '72.90 kg', pinch: '41.00 kg', cannon: '47.30 kg', totalScore: '3.50', p4p: '1.44', honor: '5th', p4pRank: null },
-  { rank: 6, name: 'Katie Barron', division: 'Womens 63k', nn: '65.40 kg', pinch: '36.00 kg', cannon: '52.30 kg', totalScore: '3.41', p4p: '2.45', honor: '6th', p4pRank: '2nd P4P' },
-  { rank: 7, name: 'Cressida Liu', division: 'Womens 63k', nn: '50.40 kg', pinch: '31.00 kg', cannon: '37.30 kg', totalScore: '2.80', p4p: '2.02', honor: '7th', p4pRank: null },
+  { rank: 1, athleteId: 2778, name: 'Megan Galvin', division: 'Womens 100k+', nn: '105.40 kg', pinch: '63.50 kg', cannon: '77.30 kg', totalScore: '4.75', p4p: '1.98', honor: '🥇 Overall Champion', p4pRank: null },
+  { rank: 2, athleteId: 2078, name: 'Sarah Rodwell', division: 'Womens 72k', nn: '100.40 kg', pinch: '58.50 kg', cannon: '57.30 kg', totalScore: '4.27', p4p: '2.78', honor: '🥈 2nd Overall', p4pRank: '1st P4P' },
+  { rank: 3, athleteId: 2666, name: 'Alison Dann', division: 'Womens 100k (M50-59)', nn: '92.90 kg', pinch: '56.00 kg', cannon: '57.30 kg', totalScore: '4.15', p4p: '2.19', honor: '🥉 3rd Overall', p4pRank: null },
+  { rank: 4, athleteId: 3385, name: 'Erin Specht', division: 'Womens 72k', nn: '75.40 kg', pinch: '46.00 kg', cannon: '47.30 kg', totalScore: '3.60', p4p: '2.33', honor: '4th', p4pRank: '3rd P4P' },
+  { rank: 5, athleteId: 3107, name: 'Kiri Jenkinson', division: 'Womens 100k+', nn: '72.90 kg', pinch: '41.00 kg', cannon: '47.30 kg', totalScore: '3.50', p4p: '1.44', honor: '5th', p4pRank: null },
+  { rank: 6, athleteId: 3267, name: 'Katie Barron', division: 'Womens 63k', nn: '65.40 kg', pinch: '36.00 kg', cannon: '52.30 kg', totalScore: '3.41', p4p: '2.45', honor: '6th', p4pRank: '2nd P4P' },
+  { rank: 7, athleteId: 3386, name: 'Cressida Liu', division: 'Womens 63k', nn: '50.40 kg', pinch: '31.00 kg', cannon: '37.30 kg', totalScore: '2.80', p4p: '2.02', honor: '7th', p4pRank: null },
 ];
 
 const mensResults = [
-  { rank: 1, name: 'Declan Wright', division: 'Mens 120k+', nn: '201.20 kg', pinch: '122.00 kg', cannon: '143.30 kg', totalScore: '5.00', p4p: '2.64', honor: '🥇 Overall Champion', p4pRank: null },
-  { rank: 2, name: 'Isaac Pitt', division: 'Mens 83k', nn: '181.20 kg', pinch: '107.00 kg', cannon: '133.30 kg', totalScore: '4.56', p4p: '5.12', honor: '🥈 2nd Overall', p4pRank: '1st P4P' },
-  { rank: 3, name: 'Lachlan Simms', division: 'Mens 120k+', nn: '196.20 kg', pinch: '122.00 kg', cannon: '103.30 kg', totalScore: '4.55', p4p: '2.68', honor: '🥉 3rd Overall', p4pRank: null },
-  { rank: 4, name: 'Joseph Hodgson', division: 'Mens 105k', nn: '176.20 kg', pinch: '122.00 kg', cannon: '103.30 kg', totalScore: '4.45', p4p: '3.83', honor: '4th', p4pRank: null },
-  { rank: 5, name: 'Christo Swart', division: 'Mens 105k', nn: '181.20 kg', pinch: '107.00 kg', cannon: '103.30 kg', totalScore: '4.30', p4p: '3.73', honor: '5th', p4pRank: null },
-  { rank: 6, name: 'Glen Krutli', division: 'Mens 120k', nn: '151.20 kg', pinch: '107.00 kg', cannon: '93.30 kg', totalScore: '4.23', p4p: '2.95', honor: '6th', p4pRank: null },
-  { rank: 7, name: 'Martin Zhang', division: 'Mens 83k', nn: '171.20 kg', pinch: '97.00 kg', cannon: '103.30 kg', totalScore: '4.12', p4p: '4.49', honor: '7th', p4pRank: '2nd P4P' },
-  { rank: 8, name: 'Mathew Wayling', division: 'Mens 120k+', nn: '151.20 kg', pinch: '102.00 kg', cannon: '93.30 kg', totalScore: '3.89', p4p: '2.40', honor: '8th', p4pRank: null },
-  { rank: 9, name: 'Jayden Osmialowski', division: 'Mens 83k', nn: '141.20 kg', pinch: '97.00 kg', cannon: '93.30 kg', totalScore: '3.75', p4p: '4.34', honor: '9th', p4pRank: '3rd P4P' },
-  { rank: 10, name: 'Jackson Willows', division: 'Mens 105k', nn: '141.20 kg', pinch: '97.00 kg', cannon: '83.30 kg', totalScore: '3.58', p4p: '3.34', honor: '10th', p4pRank: null },
-  { rank: 11, name: 'Glenn Hunter', division: 'Mens 120k+', nn: '131.20 kg', pinch: '92.00 kg', cannon: '93.30 kg', totalScore: '3.51', p4p: '2.45', honor: '11th', p4pRank: null },
-  { rank: 12, name: 'Benjamin Kleinberg', division: 'Mens 105k', nn: '125.20 kg', pinch: '77.00 kg', cannon: '83.30 kg', totalScore: '3.28', p4p: '2.88', honor: '12th', p4pRank: null },
-  { rank: 13, name: 'Dylan Thomson', division: 'Mens 120k+', nn: '125.20 kg', pinch: '82.00 kg', cannon: '73.30 kg', totalScore: '3.21', p4p: '1.72', honor: '13th', p4pRank: null },
-  { rank: 14, name: 'Robert Sabbage', division: 'Mens 93k', nn: '110.20 kg', pinch: '82.00 kg', cannon: '73.30 kg', totalScore: '3.13', p4p: '3.12', honor: '14th', p4pRank: null },
-  { rank: 15, name: 'Mark Boylin', division: 'Mens 105k', nn: '120.20 kg', pinch: '72.00 kg', cannon: '63.30 kg', totalScore: '2.98', p4p: '2.59', honor: '15th', p4pRank: null },
-  { rank: 16, name: 'Matthew Shaw', division: 'Mens 74k', nn: '110.20 kg', pinch: '67.00 kg', cannon: '73.30 kg', totalScore: '2.91', p4p: '3.60', honor: '16th', p4pRank: null },
-  { rank: 17, name: 'Frazer Gayapersad', division: 'Mens 120k+', nn: '151.20 kg', pinch: '77.00 kg', cannon: '-', totalScore: '2.83', p4p: '1.64', honor: '17th', p4pRank: null },
+  { rank: 1, athleteId: 3200, name: 'Declan Wright', division: 'Mens 120k+', nn: '201.20 kg', pinch: '122.00 kg', cannon: '143.30 kg', totalScore: '5.00', p4p: '2.64', honor: '🥇 Overall Champion', p4pRank: null },
+  { rank: 2, athleteId: 2083, name: 'Isaac Pitt', division: 'Mens 83k', nn: '181.20 kg', pinch: '107.00 kg', cannon: '133.30 kg', totalScore: '4.56', p4p: '5.12', honor: '🥈 2nd Overall', p4pRank: '1st P4P' },
+  { rank: 3, athleteId: 2423, name: 'Lachlan Simms', division: 'Mens 120k+', nn: '196.20 kg', pinch: '122.00 kg', cannon: '103.30 kg', totalScore: '4.55', p4p: '2.68', honor: '🥉 3rd Overall', p4pRank: null },
+  { rank: 4, athleteId: 1570, name: 'Joseph Hodgson', division: 'Mens 105k', nn: '176.20 kg', pinch: '122.00 kg', cannon: '103.30 kg', totalScore: '4.45', p4p: '3.83', honor: '4th', p4pRank: null },
+  { rank: 5, athleteId: 3263, name: 'Christo Swart', division: 'Mens 105k', nn: '181.20 kg', pinch: '107.00 kg', cannon: '103.30 kg', totalScore: '4.30', p4p: '3.73', honor: '5th', p4pRank: null },
+  { rank: 6, athleteId: 1463, name: 'Glen Krutli', division: 'Mens 120k', nn: '151.20 kg', pinch: '107.00 kg', cannon: '93.30 kg', totalScore: '4.23', p4p: '2.95', honor: '6th', p4pRank: null },
+  { rank: 7, athleteId: 3380, name: 'Martin Zhang', division: 'Mens 83k', nn: '171.20 kg', pinch: '97.00 kg', cannon: '103.30 kg', totalScore: '4.12', p4p: '4.49', honor: '7th', p4pRank: '2nd P4P' },
+  { rank: 8, athleteId: 2425, name: 'Mathew Wayling', division: 'Mens 120k+', nn: '151.20 kg', pinch: '102.00 kg', cannon: '93.30 kg', totalScore: '3.89', p4p: '2.40', honor: '8th', p4pRank: null },
+  { rank: 9, athleteId: 2786, name: 'Jayden Osmialowski', division: 'Mens 83k', nn: '141.20 kg', pinch: '97.00 kg', cannon: '93.30 kg', totalScore: '3.75', p4p: '4.34', honor: '9th', p4pRank: '3rd P4P' },
+  { rank: 10, athleteId: 3261, name: 'Jackson Willows', division: 'Mens 105k', nn: '141.20 kg', pinch: '97.00 kg', cannon: '83.30 kg', totalScore: '3.58', p4p: '3.34', honor: '10th', p4pRank: null },
+  { rank: 11, athleteId: 1464, name: 'Glenn Hunter', division: 'Mens 120k+', nn: '131.20 kg', pinch: '92.00 kg', cannon: '93.30 kg', totalScore: '3.51', p4p: '2.45', honor: '11th', p4pRank: null },
+  { rank: 12, athleteId: 3381, name: 'Benjamin Kleinberg', division: 'Mens 105k', nn: '125.20 kg', pinch: '77.00 kg', cannon: '83.30 kg', totalScore: '3.28', p4p: '2.88', honor: '12th', p4pRank: null },
+  { rank: 13, athleteId: 3382, name: 'Dylan Thomson', division: 'Mens 120k+', nn: '125.20 kg', pinch: '82.00 kg', cannon: '73.30 kg', totalScore: '3.21', p4p: '1.72', honor: '13th', p4pRank: null },
+  { rank: 14, athleteId: 3383, name: 'Robert Sabbage', division: 'Mens 93k', nn: '110.20 kg', pinch: '82.00 kg', cannon: '73.30 kg', totalScore: '3.13', p4p: '3.12', honor: '14th', p4pRank: null },
+  { rank: 15, athleteId: 2079, name: 'Mark Boylin', division: 'Mens 105k', nn: '120.20 kg', pinch: '72.00 kg', cannon: '63.30 kg', totalScore: '2.98', p4p: '2.59', honor: '15th', p4pRank: null },
+  { rank: 16, athleteId: 2330, name: 'Matthew Shaw', division: 'Mens 74k', nn: '110.20 kg', pinch: '67.00 kg', cannon: '73.30 kg', totalScore: '2.91', p4p: '3.60', honor: '16th', p4pRank: null },
+  { rank: 17, athleteId: 3384, name: 'Frazer Gayapersad', division: 'Mens 120k+', nn: '151.20 kg', pinch: '77.00 kg', cannon: '-', totalScore: '2.83', p4p: '1.64', honor: '17th', p4pRank: null },
 ];
+
+const allWeightClasses = Array.from(new Set([...womensResults, ...mensResults].map(r => r.division)));
+const totalCompetitors = womensResults.length + mensResults.length;
 ---
 
 <BaseLayout
@@ -183,11 +186,53 @@ const mensResults = [
         </div>
       </div>
 
+      <!-- Class Filter Bar -->
+      <div class="mb-6 p-3 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 not-prose">
+        <div class="flex flex-wrap items-center gap-1.5" id="champ-class-buttons">
+          <span class="text-xs font-mono font-bold uppercase text-[var(--text-muted)] mr-1">Filter Class:</span>
+          <button
+            type="button"
+            class="champ-class-btn active px-3 py-1 rounded-lg text-xs font-bold transition-all bg-[var(--accent-gold)] text-black shadow-sm cursor-pointer"
+            data-class="all"
+          >
+            All Classes ({totalCompetitors})
+          </button>
+          <button
+            type="button"
+            class="champ-class-btn px-3 py-1 rounded-lg text-xs font-medium text-[var(--text-muted)] hover:text-[var(--text-main)] bg-[var(--bg-elevated)] border border-[var(--border-color)] transition-all cursor-pointer"
+            data-class="gender:women"
+          >
+            Women ({womensResults.length})
+          </button>
+          <button
+            type="button"
+            class="champ-class-btn px-3 py-1 rounded-lg text-xs font-medium text-[var(--text-muted)] hover:text-[var(--text-main)] bg-[var(--bg-elevated)] border border-[var(--border-color)] transition-all cursor-pointer"
+            data-class="gender:men"
+          >
+            Men ({mensResults.length})
+          </button>
+          {allWeightClasses.map(wc => {
+            const count = [...womensResults, ...mensResults].filter(r => r.division === wc).length;
+            return (
+              <button
+                type="button"
+                class="champ-class-btn px-3 py-1 rounded-lg text-xs font-medium text-[var(--text-muted)] hover:text-[var(--text-main)] bg-[var(--bg-elevated)] border border-[var(--border-color)] transition-all cursor-pointer"
+                data-class={wc}
+              >
+                {wc} <span class="font-mono text-[10px] opacity-75">({count})</span>
+              </button>
+            );
+          })}
+        </div>
+        <div class="text-xs font-mono text-[var(--text-muted)] shrink-0" id="champ-results-count">
+          Showing {totalCompetitors} of {totalCompetitors} competitors
+        </div>
+      </div>
+
       <!-- Women's Results Table -->
-      <div class="mb-10">
+      <div class="mb-10" id="womens-results-section">
         <h3 class="font-display font-bold text-lg uppercase tracking-wide text-[var(--accent-gold)] mb-3 flex items-center gap-2">
           <span>Women's Championship</span>
-          <span class="text-xs font-mono text-[var(--text-muted)] font-normal">(7 Competitors)</span>
         </h3>
         
         <div class="overflow-x-auto rounded-xl border border-[var(--border-color)] bg-[var(--bg-surface)] shadow-sm">
@@ -207,10 +252,32 @@ const mensResults = [
             </thead>
             <tbody class="divide-y divide-[var(--border-color)]/50">
               {womensResults.map(row => (
-                <tr class="hover:bg-[var(--bg-elevated)]/60 transition-colors">
+                <tr class="hover:bg-[var(--bg-elevated)]/60 transition-colors" data-division={row.division} data-gender="women">
                   <td class="py-3 px-3 font-mono font-bold text-center text-[var(--text-muted)]">{row.rank}</td>
-                  <td class="py-3 px-3 font-bold text-[var(--text-main)]">{row.name}</td>
-                  <td class="py-3 px-3 text-[var(--text-muted)] font-mono text-xs">{row.division}</td>
+                  <td class="py-3 px-3 whitespace-nowrap">
+                    <a
+                      href={`https://www.gripsport.org/athlete/${row.athleteId}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="font-bold text-[var(--accent-gold)] hover:underline inline-flex items-center gap-1 group"
+                      title={`View ${row.name}'s official GSI athlete profile (#${row.athleteId})`}
+                    >
+                      <span>{row.name}</span>
+                      <svg class="w-3 h-3 opacity-60 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                      </svg>
+                    </a>
+                  </td>
+                  <td class="py-3 px-3 text-[var(--text-muted)] font-mono text-xs whitespace-nowrap">
+                    <button
+                      type="button"
+                      class="champ-row-class-btn hover:text-[var(--accent-gold)] hover:underline cursor-pointer transition-colors text-left"
+                      data-class={row.division}
+                      title={`Filter by ${row.division}`}
+                    >
+                      {row.division}
+                    </button>
+                  </td>
                   <td class="py-3 px-3 text-right font-mono font-semibold">{row.nn}</td>
                   <td class="py-3 px-3 text-right font-mono font-semibold">{row.pinch}</td>
                   <td class="py-3 px-3 text-right font-mono font-semibold">{row.cannon}</td>
@@ -240,10 +307,9 @@ const mensResults = [
       </div>
 
       <!-- Men's Results Table -->
-      <div class="mb-10">
+      <div class="mb-10" id="mens-results-section">
         <h3 class="font-display font-bold text-lg uppercase tracking-wide text-[var(--accent-gold)] mb-3 flex items-center gap-2">
           <span>Men's Championship</span>
-          <span class="text-xs font-mono text-[var(--text-muted)] font-normal">(17 Competitors)</span>
         </h3>
         
         <div class="overflow-x-auto rounded-xl border border-[var(--border-color)] bg-[var(--bg-surface)] shadow-sm">
@@ -263,10 +329,32 @@ const mensResults = [
             </thead>
             <tbody class="divide-y divide-[var(--border-color)]/50">
               {mensResults.map(row => (
-                <tr class="hover:bg-[var(--bg-elevated)]/60 transition-colors">
+                <tr class="hover:bg-[var(--bg-elevated)]/60 transition-colors" data-division={row.division} data-gender="men">
                   <td class="py-3 px-3 font-mono font-bold text-center text-[var(--text-muted)]">{row.rank}</td>
-                  <td class="py-3 px-3 font-bold text-[var(--text-main)]">{row.name}</td>
-                  <td class="py-3 px-3 text-[var(--text-muted)] font-mono text-xs">{row.division}</td>
+                  <td class="py-3 px-3 whitespace-nowrap">
+                    <a
+                      href={`https://www.gripsport.org/athlete/${row.athleteId}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="font-bold text-[var(--accent-gold)] hover:underline inline-flex items-center gap-1 group"
+                      title={`View ${row.name}'s official GSI athlete profile (#${row.athleteId})`}
+                    >
+                      <span>{row.name}</span>
+                      <svg class="w-3 h-3 opacity-60 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                      </svg>
+                    </a>
+                  </td>
+                  <td class="py-3 px-3 text-[var(--text-muted)] font-mono text-xs whitespace-nowrap">
+                    <button
+                      type="button"
+                      class="champ-row-class-btn hover:text-[var(--accent-gold)] hover:underline cursor-pointer transition-colors text-left"
+                      data-class={row.division}
+                      title={`Filter by ${row.division}`}
+                    >
+                      {row.division}
+                    </button>
+                  </td>
                   <td class="py-3 px-3 text-right font-mono font-semibold">{row.nn}</td>
                   <td class="py-3 px-3 text-right font-mono font-semibold">{row.pinch}</td>
                   <td class="py-3 px-3 text-right font-mono font-semibold">{row.cannon}</td>
@@ -296,6 +384,88 @@ const mensResults = [
       </div>
 
     </section>
+
+    <script is:inline>
+      (function() {
+        const buttons = document.querySelectorAll('.champ-class-btn');
+        const rows = document.querySelectorAll('tr[data-division]');
+        const womensSection = document.getElementById('womens-results-section');
+        const mensSection = document.getElementById('mens-results-section');
+        const countBadge = document.getElementById('champ-results-count');
+        const totalCount = rows.length;
+
+        function setClassFilter(selectedClass) {
+          let visibleCount = 0;
+          let visibleWomen = 0;
+          let visibleMen = 0;
+
+          rows.forEach(r => {
+            const div = r.getAttribute('data-division');
+            const gender = r.getAttribute('data-gender');
+            let show = false;
+
+            if (selectedClass === 'all') {
+              show = true;
+            } else if (selectedClass === 'gender:women') {
+              show = gender === 'women';
+            } else if (selectedClass === 'gender:men') {
+              show = gender === 'men';
+            } else {
+              show = div === selectedClass;
+            }
+
+            r.style.display = show ? '' : 'none';
+            if (show) {
+              visibleCount++;
+              if (gender === 'women') visibleWomen++;
+              if (gender === 'men') visibleMen++;
+            }
+          });
+
+          if (womensSection) {
+            womensSection.style.display = visibleWomen > 0 ? '' : 'none';
+          }
+          if (mensSection) {
+            mensSection.style.display = visibleMen > 0 ? '' : 'none';
+          }
+
+          buttons.forEach(btn => {
+            const isMatch = btn.getAttribute('data-class') === selectedClass;
+            btn.classList.toggle('active', isMatch);
+            btn.classList.toggle('bg-[var(--accent-gold)]', isMatch);
+            btn.classList.toggle('text-black', isMatch);
+            btn.classList.toggle('font-bold', isMatch);
+            btn.classList.toggle('shadow-sm', isMatch);
+            btn.classList.toggle('bg-[var(--bg-elevated)]', !isMatch);
+            btn.classList.toggle('text-[var(--text-muted)]', !isMatch);
+            btn.classList.toggle('font-medium', !isMatch);
+          });
+
+          if (countBadge) {
+            countBadge.textContent = selectedClass === 'all'
+              ? `Showing ${totalCount} of ${totalCount} competitors`
+              : `Showing ${visibleCount} of ${totalCount} competitors in ${selectedClass.replace('gender:', '')}`;
+          }
+        }
+
+        buttons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const selectedClass = btn.getAttribute('data-class');
+            setClassFilter(selectedClass);
+          });
+        });
+
+        document.addEventListener('click', (e) => {
+          const rowBtn = e.target.closest('.champ-row-class-btn');
+          if (rowBtn) {
+            const targetClass = rowBtn.getAttribute('data-class');
+            if (targetClass) {
+              setClassFilter(targetClass);
+            }
+          }
+        });
+      })();
+    </script>
 
     <!-- Action Photos Gallery (Preserved from Original Site) -->
     <section class="my-12">

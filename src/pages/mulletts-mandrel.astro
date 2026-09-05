@@ -1,0 +1,659 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import { getUrl } from '../utils/url';
+import rawMandrelRecords from '../data/mandrel_records.json';
+import mandrelImg1 from '../assets/images/mulletts-mandrel-7a22dd0d.jpg';
+import mandrelImg2 from '../assets/images/mulletts-mandrel-600ceb8b.png';
+
+interface MandrelEntry {
+  rank?: number;
+  athleteId: number;
+  name: string;
+  gender: 'men' | 'women';
+  weightKg: number;
+  weightLbs: number;
+  isRecord: boolean;
+  gsiAthleteUrl: string;
+  aliases?: string[];
+}
+
+// Robust deduplication engine across all recorded events and attempts:
+// If an athlete has multiple attempts or appearances across competitions or aliases,
+// group by their unique GSI athleteId, keep their highest weightKg, canonical name, and merge aliases.
+function deduplicateAthletes(entries: MandrelEntry[]): { men: MandrelEntry[]; women: MandrelEntry[] } {
+  const map = new Map<number, MandrelEntry>();
+
+  for (const entry of entries) {
+    const existing = map.get(entry.athleteId);
+    if (!existing) {
+      map.set(entry.athleteId, {
+        ...entry,
+        aliases: entry.aliases ? [...entry.aliases] : [],
+      });
+    } else {
+      // Merge aliases if new alias detected
+      if (entry.name !== existing.name && !existing.aliases?.includes(entry.name)) {
+        existing.aliases = existing.aliases || [];
+        existing.aliases.push(entry.name);
+      }
+      if (entry.aliases) {
+        for (const a of entry.aliases) {
+          if (a !== existing.name && !existing.aliases?.includes(a)) {
+            existing.aliases = existing.aliases || [];
+            existing.aliases.push(a);
+          }
+        }
+      }
+      // If the new attempt is higher, update the best lift
+      if (entry.weightKg > existing.weightKg) {
+        existing.weightKg = entry.weightKg;
+        existing.weightLbs = entry.weightLbs;
+        existing.isRecord = existing.isRecord || entry.isRecord;
+      }
+    }
+  }
+
+  const allDeduplicated = Array.from(map.values());
+
+  const men = allDeduplicated
+    .filter(e => e.gender === 'men')
+    .sort((a, b) => b.weightKg - a.weightKg)
+    .map((e, idx) => ({ ...e, rank: idx + 1 }));
+
+  const women = allDeduplicated
+    .filter(e => e.gender === 'women')
+    .sort((a, b) => b.weightKg - a.weightKg)
+    .map((e, idx) => ({ ...e, rank: idx + 1 }));
+
+  return { men, women };
+}
+
+const { men: mensRankings, women: womensRankings } = deduplicateAthletes(rawMandrelRecords as MandrelEntry[]);
+const totalAthletes = mensRankings.length + womensRankings.length;
+const mensRecord = mensRankings[0];
+const womensRecord = womensRankings[0];
+---
+
+<BaseLayout
+  title="Mullett's Mandrel Records & Specifications | Grip Australia"
+  description="Official leaderboard, Australian records, implement specifications, and history of Mullett's Mandrel, the handcrafted Australian grip challenge implement by Henry Mullett."
+>
+  <article class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    
+    <!-- Breadcrumb -->
+    <nav class="flex items-center space-x-2 text-xs text-[var(--text-muted)] mb-6 font-mono" aria-label="Breadcrumb">
+      <a href={getUrl('/')} class="hover:text-[var(--accent-gold)] transition-colors">Home</a>
+      <span>/</span>
+      <a href={getUrl('/records')} class="hover:text-[var(--accent-gold)] transition-colors">Records</a>
+      <span>/</span>
+      <span class="text-[var(--text-main)] truncate font-semibold">Mullett's Mandrel</span>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="text-center pb-8 mb-8 border-b border-[var(--border-color)]">
+      <div class="flex flex-wrap items-center justify-center gap-2 mb-3">
+        <span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-[var(--accent-gold)]/15 text-[var(--accent-gold)] border border-[var(--accent-gold)]/30">
+          Official Challenge Implement
+        </span>
+        <span class="px-2.5 py-0.5 rounded-full text-xs font-mono text-[var(--text-muted)] bg-[var(--bg-elevated)] border border-[var(--border-color)]">
+          Handcrafted in Australia
+        </span>
+        <span class="px-2.5 py-0.5 rounded-full text-xs font-mono text-[var(--text-muted)] bg-[var(--bg-elevated)] border border-[var(--border-color)]">
+          GSI Verified Athletes
+        </span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-[var(--text-main)] font-display uppercase tracking-tight leading-tight">
+        Mullett's Mandrel Records
+      </h1>
+
+      <p class="mt-4 text-base sm:text-lg text-[var(--text-muted)] max-w-2xl mx-auto leading-relaxed">
+        The ultimate test of open-hand friction and taper pinch strength. Designed and crafted in Australia by Henry Mullett, inspired by the blacksmith's shaping mandrel.
+      </p>
+
+      <!-- Record Highlights Banner -->
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto text-left">
+        <!-- Men's Record Card -->
+        <div class="p-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--accent-gold)]/40 shadow-sm relative overflow-hidden">
+          <div class="text-[10px] font-mono uppercase tracking-widest text-[var(--accent-gold)] font-bold mb-1">
+            Men's Australian Record
+          </div>
+          <div class="flex items-baseline justify-between">
+            <span class="text-2xl sm:text-3xl font-black font-display text-[var(--text-main)]">
+              {mensRecord ? `${mensRecord.weightKg} kg` : '133.55 kg'}
+            </span>
+            <span class="text-xs font-mono text-[var(--text-muted)]">
+              {mensRecord ? `(${mensRecord.weightLbs} lbs)` : '(294.4 lbs)'}
+            </span>
+          </div>
+          <div class="mt-2 text-sm font-semibold text-[var(--text-main)] flex items-center gap-1.5">
+            <span>🏆</span>
+            <a
+              href={`https://www.gripsport.org/athlete/${mensRecord?.athleteId}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-[var(--accent-gold)] hover:underline inline-flex items-center gap-1"
+            >
+              <span>{mensRecord?.name}</span>
+              <svg class="w-3 h-3 text-[var(--accent-gold)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Women's Record Card -->
+        <div class="p-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--accent-gold)]/40 shadow-sm relative overflow-hidden">
+          <div class="text-[10px] font-mono uppercase tracking-widest text-[var(--accent-gold)] font-bold mb-1">
+            Women's Australian Record
+          </div>
+          <div class="flex items-baseline justify-between">
+            <span class="text-2xl sm:text-3xl font-black font-display text-[var(--text-main)]">
+              {womensRecord ? `${womensRecord.weightKg} kg` : '53.80 kg'}
+            </span>
+            <span class="text-xs font-mono text-[var(--text-muted)]">
+              {womensRecord ? `(${womensRecord.weightLbs} lbs)` : '(118.6 lbs)'}
+            </span>
+          </div>
+          <div class="mt-2 text-sm font-semibold text-[var(--text-main)] flex items-center gap-1.5">
+            <span>🏆</span>
+            <a
+              href={`https://www.gripsport.org/athlete/${womensRecord?.athleteId}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-[var(--accent-gold)] hover:underline inline-flex items-center gap-1"
+            >
+              <span>{womensRecord?.name}</span>
+              <svg class="w-3 h-3 text-[var(--accent-gold)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Leaderboard Controls: Search, Division Filter & Unit Toggle -->
+    <section class="mb-10">
+      <div class="p-4 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] shadow-sm space-y-3">
+        <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+          
+          <!-- Search Input -->
+          <div class="relative flex-1 min-w-[200px]">
+            <svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <input
+              type="text"
+              id="mandrel-search"
+              placeholder="Search athlete name, alias, or GSI ID..."
+              class="w-full pl-9 pr-3 py-2 rounded-lg bg-[var(--bg-elevated)] border border-[var(--border-color)] text-xs text-[var(--text-main)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--accent-gold)] transition-colors"
+            />
+          </div>
+
+          <!-- Filter & Unit Buttons -->
+          <div class="flex flex-wrap items-center gap-2">
+            <!-- Division Filter Buttons -->
+            <div class="inline-flex rounded-lg p-1 bg-[var(--bg-elevated)] border border-[var(--border-color)]" id="mandrel-gender-group">
+              <button
+                type="button"
+                data-gender="all"
+                class="mandrel-gender-btn active px-3 py-1 text-xs font-bold rounded-md transition-all bg-[var(--accent-gold)] text-black cursor-pointer"
+              >
+                All ({totalAthletes})
+              </button>
+              <button
+                type="button"
+                data-gender="men"
+                class="mandrel-gender-btn px-3 py-1 text-xs font-medium text-[var(--text-muted)] hover:text-[var(--text-main)] rounded-md transition-all cursor-pointer"
+              >
+                Men ({mensRankings.length})
+              </button>
+              <button
+                type="button"
+                data-gender="women"
+                class="mandrel-gender-btn px-3 py-1 text-xs font-medium text-[var(--text-muted)] hover:text-[var(--text-main)] rounded-md transition-all cursor-pointer"
+              >
+                Women ({womensRankings.length})
+              </button>
+            </div>
+
+            <!-- Unit Toggle (KG / LBS) -->
+            <div class="inline-flex items-center rounded-lg p-1 bg-[var(--bg-elevated)] border border-[var(--border-color)] text-xs">
+              <span class="text-[10px] font-mono text-[var(--text-muted)] px-2 uppercase font-bold">Unit:</span>
+              <button
+                type="button"
+                id="unit-kg-btn"
+                class="unit-btn active px-2.5 py-1 text-xs font-bold rounded-md bg-[var(--accent-gold)] text-black transition-all cursor-pointer"
+              >
+                KG
+              </button>
+              <button
+                type="button"
+                id="unit-lbs-btn"
+                class="unit-btn px-2.5 py-1 text-xs font-medium text-[var(--text-muted)] hover:text-[var(--text-main)] rounded-md transition-all cursor-pointer"
+              >
+                LBS
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Counter & Info Notice -->
+        <div class="flex items-center justify-between text-xs text-[var(--text-muted)] pt-2 border-t border-[var(--border-color)]/60 font-mono">
+          <span id="mandrel-results-count">
+            Showing {totalAthletes} unique verified athletes (deduplicated across events)
+          </span>
+          <span class="text-[10px] text-[var(--text-subtle)] hidden sm:inline">
+            Official GSI Profiles Attached
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Men's Leaderboard -->
+    <section class="mb-12 mandrel-section" id="mandrel-mens-section">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="font-display font-black text-xl sm:text-2xl uppercase tracking-tight text-[var(--accent-gold)] flex items-center gap-2">
+          <span>Men's Mandrel Rankings</span>
+          <span class="text-xs font-mono text-[var(--text-muted)] font-normal">({mensRankings.length} Competitors)</span>
+        </h2>
+      </div>
+
+      <div class="overflow-x-auto rounded-xl border border-[var(--border-color)] bg-[var(--bg-surface)] shadow-sm">
+        <table class="w-full text-left text-xs sm:text-sm border-collapse">
+          <thead>
+            <tr class="bg-[var(--bg-elevated)] text-[var(--text-main)] font-mono text-[11px] uppercase tracking-wider border-b border-[var(--border-color)]">
+              <th class="py-3 px-3 w-16 text-center">Rank</th>
+              <th class="py-3 px-3">Athlete &amp; Profile</th>
+              <th class="py-3 px-3 text-right">Best Lift</th>
+              <th class="py-3 px-3 text-center">Status</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[var(--border-color)]/50">
+            {mensRankings.map(row => (
+              <tr
+                class="mandrel-row hover:bg-[var(--bg-elevated)]/60 transition-colors"
+                data-gender="men"
+                data-name={row.name.toLowerCase()}
+                data-athlete-id={row.athleteId}
+                data-aliases={row.aliases?.join(' ').toLowerCase() || ''}
+              >
+                <td class="py-3.5 px-3 font-mono font-bold text-center text-[var(--text-muted)]">
+                  {row.rank === 1 ? '🥇 1' : row.rank === 2 ? '🥈 2' : row.rank === 3 ? '🥉 3' : row.rank}
+                </td>
+                <td class="py-3.5 px-3">
+                  <div class="flex flex-wrap items-center gap-2">
+                    <a
+                      href={`https://www.gripsport.org/athlete/${row.athleteId}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="font-bold text-[var(--text-main)] hover:text-[var(--accent-gold)] hover:underline inline-flex items-center gap-1 group"
+                      title={`View ${row.name}'s official GSI athlete profile (#${row.athleteId})`}
+                    >
+                      <span class="group-hover:text-[var(--accent-gold)]">{row.name}</span>
+                      <svg class="w-3 h-3 text-[var(--accent-gold)] opacity-60 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                      </svg>
+                    </a>
+                    <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-[var(--bg-elevated)] border border-[var(--border-color)] text-[var(--text-muted)]">
+                      GSI #{row.athleteId}
+                    </span>
+                    {row.aliases && row.aliases.length > 0 && (
+                      <span class="text-[11px] text-[var(--text-subtle)] italic">
+                        (aka {row.aliases.join(', ')})
+                      </span>
+                    )}
+                  </div>
+                </td>
+                <td class="py-3.5 px-3 text-right font-mono font-bold text-[var(--accent-gold)] whitespace-nowrap">
+                  <span class="weight-display" data-kg={row.weightKg} data-lbs={row.weightLbs}>
+                    {row.weightKg.toFixed(2)} kg
+                  </span>
+                  <span class="weight-alt text-[10px] text-[var(--text-muted)] block font-normal">
+                    ({row.weightLbs.toFixed(1)} lbs)
+                  </span>
+                </td>
+                <td class="py-3.5 px-3 text-center whitespace-nowrap">
+                  {row.isRecord ? (
+                    <span class="px-2.5 py-1 rounded-full text-xs font-bold font-accent uppercase tracking-wider bg-amber-400/15 text-amber-500 border border-amber-400/30">
+                      🏆 Current Record
+                    </span>
+                  ) : (
+                    <span class="px-2 py-0.5 rounded text-[11px] font-mono text-[var(--text-muted)] bg-[var(--bg-elevated)]">
+                      Official Lift
+                    </span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Women's Leaderboard -->
+    <section class="mb-12 mandrel-section" id="mandrel-womens-section">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="font-display font-black text-xl sm:text-2xl uppercase tracking-tight text-[var(--accent-gold)] flex items-center gap-2">
+          <span>Women's Mandrel Rankings</span>
+          <span class="text-xs font-mono text-[var(--text-muted)] font-normal">({womensRankings.length} Competitors)</span>
+        </h2>
+      </div>
+
+      <div class="overflow-x-auto rounded-xl border border-[var(--border-color)] bg-[var(--bg-surface)] shadow-sm">
+        <table class="w-full text-left text-xs sm:text-sm border-collapse">
+          <thead>
+            <tr class="bg-[var(--bg-elevated)] text-[var(--text-main)] font-mono text-[11px] uppercase tracking-wider border-b border-[var(--border-color)]">
+              <th class="py-3 px-3 w-16 text-center">Rank</th>
+              <th class="py-3 px-3">Athlete &amp; Profile</th>
+              <th class="py-3 px-3 text-right">Best Lift</th>
+              <th class="py-3 px-3 text-center">Status</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[var(--border-color)]/50">
+            {womensRankings.map(row => (
+              <tr
+                class="mandrel-row hover:bg-[var(--bg-elevated)]/60 transition-colors"
+                data-gender="women"
+                data-name={row.name.toLowerCase()}
+                data-athlete-id={row.athleteId}
+                data-aliases={row.aliases?.join(' ').toLowerCase() || ''}
+              >
+                <td class="py-3.5 px-3 font-mono font-bold text-center text-[var(--text-muted)]">
+                  {row.rank === 1 ? '🥇 1' : row.rank === 2 ? '🥈 2' : row.rank === 3 ? '🥉 3' : row.rank}
+                </td>
+                <td class="py-3.5 px-3">
+                  <div class="flex flex-wrap items-center gap-2">
+                    <a
+                      href={`https://www.gripsport.org/athlete/${row.athleteId}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="font-bold text-[var(--text-main)] hover:text-[var(--accent-gold)] hover:underline inline-flex items-center gap-1 group"
+                      title={`View ${row.name}'s official GSI athlete profile (#${row.athleteId})`}
+                    >
+                      <span class="group-hover:text-[var(--accent-gold)]">{row.name}</span>
+                      <svg class="w-3 h-3 text-[var(--accent-gold)] opacity-60 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                      </svg>
+                    </a>
+                    <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-[var(--bg-elevated)] border border-[var(--border-color)] text-[var(--text-muted)]">
+                      GSI #{row.athleteId}
+                    </span>
+                    {row.aliases && row.aliases.length > 0 && (
+                      <span class="text-[11px] text-[var(--text-subtle)] italic">
+                        (aka {row.aliases.join(', ')})
+                      </span>
+                    )}
+                  </div>
+                </td>
+                <td class="py-3.5 px-3 text-right font-mono font-bold text-[var(--accent-gold)] whitespace-nowrap">
+                  <span class="weight-display" data-kg={row.weightKg} data-lbs={row.weightLbs}>
+                    {row.weightKg.toFixed(2)} kg
+                  </span>
+                  <span class="weight-alt text-[10px] text-[var(--text-muted)] block font-normal">
+                    ({row.weightLbs.toFixed(1)} lbs)
+                  </span>
+                </td>
+                <td class="py-3.5 px-3 text-center whitespace-nowrap">
+                  {row.isRecord ? (
+                    <span class="px-2.5 py-1 rounded-full text-xs font-bold font-accent uppercase tracking-wider bg-amber-400/15 text-amber-500 border border-amber-400/30">
+                      🏆 Current Record
+                    </span>
+                  ) : (
+                    <span class="px-2 py-0.5 rounded text-[11px] font-mono text-[var(--text-muted)] bg-[var(--bg-elevated)]">
+                      Official Lift
+                    </span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- About Mullett's Mandrel Section -->
+    <section class="my-16 pt-12 border-t border-[var(--border-color)]">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Text & Specs (Left) -->
+        <div class="lg:col-span-7 space-y-6">
+          <div>
+            <div class="text-xs font-mono uppercase tracking-widest text-[var(--accent-gold)] font-bold mb-1">
+              Engineering &amp; Heritage
+            </div>
+            <h2 class="font-display font-black text-2xl sm:text-3xl uppercase tracking-tight text-[var(--text-main)]">
+              About Mullett's Mandrel
+            </h2>
+          </div>
+
+          <p class="text-sm sm:text-base text-[var(--text-muted)] leading-relaxed">
+            The <strong>Mullett's Mandrel</strong> is an Australian-made grip sport challenge tool created by national competitor and craftsman <strong>Henry Mullett</strong>. Fashioned after the traditional blacksmith's mandrel—a heavy, tapered steel cone used for forging, stretching, and shaping iron rings and curved pieces—this implement introduces a unique biomechanical challenge to grip athletics.
+          </p>
+
+          <p class="text-sm text-[var(--text-muted)] leading-relaxed">
+            Unlike standard cylindrical handles or flat pinch blocks, the mandrel features a continuous conical taper with no shelf, lip, or catch. Athletes must rely purely on vertical clamping friction, thumb pad compression, and wrist radial stability to prevent the cone from slipping through their grasp as the weight breaks the floor.
+          </p>
+
+          <!-- Specs Card -->
+          <div class="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] shadow-sm space-y-3">
+            <h3 class="font-display font-bold text-base uppercase text-[var(--text-main)] flex items-center gap-2">
+              <svg class="w-4 h-4 text-[var(--accent-gold)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+              <span>Implement Specifications</span>
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div class="p-3 rounded-lg bg-[var(--bg-elevated)] border border-[var(--border-color)]">
+                <div class="text-[var(--text-muted)] font-mono uppercase text-[10px]">Origin</div>
+                <div class="font-bold text-[var(--text-main)] mt-0.5">Handcrafted in Australia</div>
+              </div>
+              <div class="p-3 rounded-lg bg-[var(--bg-elevated)] border border-[var(--border-color)]">
+                <div class="text-[var(--text-muted)] font-mono uppercase text-[10px]">Material</div>
+                <div class="font-bold text-[var(--text-main)] mt-0.5">Turned High-Grade Solid Steel</div>
+              </div>
+              <div class="p-3 rounded-lg bg-[var(--bg-elevated)] border border-[var(--border-color)]">
+                <div class="text-[var(--text-muted)] font-mono uppercase text-[10px]">Attachment</div>
+                <div class="font-bold text-[var(--text-main)] mt-0.5">Vertical Eyelet Loading Pin</div>
+              </div>
+              <div class="p-3 rounded-lg bg-[var(--bg-elevated)] border border-[var(--border-color)]">
+                <div class="text-[var(--text-muted)] font-mono uppercase text-[10px]">Lifting Discipline</div>
+                <div class="font-bold text-[var(--text-main)] mt-0.5">One-Hand Taper Pinch</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video & Photo (Right) -->
+        <div class="lg:col-span-5 space-y-6">
+          <!-- Video Card -->
+          <div class="rounded-2xl overflow-hidden border border-[var(--border-color)] bg-[var(--bg-surface)] shadow-md">
+            <div class="p-3 bg-[var(--bg-elevated)] border-b border-[var(--border-color)] flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                <span class="text-xs font-mono font-bold text-[var(--text-main)]">133.55 kg National Record</span>
+              </div>
+              <span class="text-[10px] font-mono text-[var(--accent-gold)]">Henry Mullett</span>
+            </div>
+            
+            <div class="aspect-video w-full bg-black">
+              <iframe
+                src="https://player.vimeo.com/video/1113586899?title=0&byline=0&portrait=0"
+                title="Henry Mullett's current 133.55kg record"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowfullscreen
+                class="w-full h-full border-0"
+              ></iframe>
+            </div>
+            
+            <div class="p-3 text-[11px] text-[var(--text-muted)] leading-relaxed">
+              Official video run of Henry Mullett setting the all-time Australian Mandrel Record with a 133.55 kg (294.4 lbs) lift.
+            </div>
+          </div>
+
+          <!-- Implement Image -->
+          <div class="rounded-2xl overflow-hidden border border-[var(--border-color)] bg-[var(--bg-surface)] shadow-md">
+            <Image
+              src={mandrelImg1}
+              alt="Mullett's Mandrel challenge implement"
+              class="w-full h-auto object-cover"
+            />
+            <div class="p-3 text-[11px] text-[var(--text-muted)] flex items-center justify-between">
+              <span>Turned steel mandrel on competition loading setup</span>
+              <span class="font-mono text-[10px] text-[var(--accent-gold)]">Melbourne, Australia</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Page Footer / Navigation -->
+    <footer class="mt-16 pt-8 border-t border-[var(--border-color)] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--text-muted)]">
+      <a
+        href={getUrl('/records')}
+        class="inline-flex items-center gap-1.5 text-[var(--accent-gold)] hover:underline font-accent uppercase tracking-wider font-semibold"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        <span>Back to Australian Grip Records</span>
+      </a>
+
+      <span class="text-[var(--text-subtle)] text-[11px] font-mono">
+        Official Grip Sport International verified profiles
+      </span>
+    </footer>
+
+  </article>
+
+  <!-- Client-side Interactive Filter, Deduplication Counter, and Unit Switcher Script -->
+  <script is:inline>
+    (function() {
+      const searchInput = document.getElementById('mandrel-search');
+      const genderButtons = document.querySelectorAll('.mandrel-gender-btn');
+      const unitKgBtn = document.getElementById('unit-kg-btn');
+      const unitLbsBtn = document.getElementById('unit-lbs-btn');
+      const rows = document.querySelectorAll('.mandrel-row');
+      const mensSection = document.getElementById('mandrel-mens-section');
+      const womensSection = document.getElementById('mandrel-womens-section');
+      const countBadge = document.getElementById('mandrel-results-count');
+
+      let currentGender = 'all';
+      let currentQuery = '';
+      let currentUnit = 'kg'; // 'kg' or 'lbs'
+      const totalAthletesCount = rows.length;
+
+      function updateTable() {
+        let visibleCount = 0;
+        let visibleMen = 0;
+        let visibleWomen = 0;
+
+        rows.forEach(row => {
+          const gender = row.getAttribute('data-gender');
+          const name = row.getAttribute('data-name') || '';
+          const athleteId = row.getAttribute('data-athlete-id') || '';
+          const aliases = row.getAttribute('data-aliases') || '';
+
+          const matchesGender = (currentGender === 'all') || (gender === currentGender);
+          const matchesSearch = !currentQuery ||
+            name.includes(currentQuery) ||
+            athleteId.includes(currentQuery) ||
+            aliases.includes(currentQuery);
+
+          const show = matchesGender && matchesSearch;
+          row.style.display = show ? '' : 'none';
+
+          if (show) {
+            visibleCount++;
+            if (gender === 'men') visibleMen++;
+            if (gender === 'women') visibleWomen++;
+          }
+        });
+
+        if (mensSection) {
+          mensSection.style.display = (visibleMen > 0 || (currentGender === 'men' && visibleMen === 0)) ? '' : 'none';
+        }
+        if (womensSection) {
+          womensSection.style.display = (visibleWomen > 0 || (currentGender === 'women' && visibleWomen === 0)) ? '' : 'none';
+        }
+
+        if (countBadge) {
+          countBadge.textContent = visibleCount === totalAthletesCount
+            ? `Showing ${totalAthletesCount} unique verified athletes (deduplicated across events)`
+            : `Showing ${visibleCount} of ${totalAthletesCount} athletes`;
+        }
+      }
+
+      function updateUnits(unit) {
+        currentUnit = unit;
+        const weightDisplays = document.querySelectorAll('.weight-display');
+        const weightAlts = document.querySelectorAll('.weight-alt');
+
+        weightDisplays.forEach((el, index) => {
+          const kg = parseFloat(el.getAttribute('data-kg'));
+          const lbs = parseFloat(el.getAttribute('data-lbs'));
+          const altEl = weightAlts[index];
+
+          if (unit === 'lbs') {
+            el.textContent = `${lbs.toFixed(1)} lbs`;
+            if (altEl) altEl.textContent = `(${kg.toFixed(2)} kg)`;
+          } else {
+            el.textContent = `${kg.toFixed(2)} kg`;
+            if (altEl) altEl.textContent = `(${lbs.toFixed(1)} lbs)`;
+          }
+        });
+
+        if (unitKgBtn && unitLbsBtn) {
+          const isKg = unit === 'kg';
+          unitKgBtn.classList.toggle('active', isKg);
+          unitKgBtn.classList.toggle('bg-[var(--accent-gold)]', isKg);
+          unitKgBtn.classList.toggle('text-black', isKg);
+          unitKgBtn.classList.toggle('font-bold', isKg);
+          unitKgBtn.classList.toggle('text-[var(--text-muted)]', !isKg);
+          unitKgBtn.classList.toggle('font-medium', !isKg);
+
+          unitLbsBtn.classList.toggle('active', !isKg);
+          unitLbsBtn.classList.toggle('bg-[var(--accent-gold)]', !isKg);
+          unitLbsBtn.classList.toggle('text-black', !isKg);
+          unitLbsBtn.classList.toggle('font-bold', !isKg);
+          unitLbsBtn.classList.toggle('text-[var(--text-muted)]', isKg);
+          unitLbsBtn.classList.toggle('font-medium', isKg);
+        }
+      }
+
+      // Gender button clicks
+      genderButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          currentGender = btn.getAttribute('data-gender');
+          genderButtons.forEach(b => {
+            const isMatch = b.getAttribute('data-gender') === currentGender;
+            b.classList.toggle('active', isMatch);
+            b.classList.toggle('bg-[var(--accent-gold)]', isMatch);
+            b.classList.toggle('text-black', isMatch);
+            b.classList.toggle('font-bold', isMatch);
+            b.classList.toggle('text-[var(--text-muted)]', !isMatch);
+            b.classList.toggle('font-medium', !isMatch);
+          });
+          updateTable();
+        });
+      });
+
+      // Unit switch clicks
+      if (unitKgBtn) {
+        unitKgBtn.addEventListener('click', () => updateUnits('kg'));
+      }
+      if (unitLbsBtn) {
+        unitLbsBtn.addEventListener('click', () => updateUnits('lbs'));
+      }
+
+      // Search input
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          currentQuery = e.target.value.trim().toLowerCase();
+          updateTable();
+        });
+      }
+    })();
+  </script>
+</BaseLayout>
