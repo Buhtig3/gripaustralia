@@ -8,7 +8,7 @@
 ## 1. Brand Identity & Visual Positioning
 
 - **Core Essence:** Industrial, precise, grassroots strength, and authoritative record-keeping.
-- **Design Philosophy:** Avoid overly stylized, aggressive "hardcore gym" tropes (e.g., grungy distressed fonts, neon green accents). Instead, lean toward **calibrated athletic minimalism**—mirroring competition-grade steel plates, knurled bars, and technical scoreboards.
+- **Design Philosophy:** Avoid overly stylized, aggressive "hardcore gym" tropes (e.g., grungy distressed fonts, neon green accents). Instead, lean toward **calibrated athletic minimalism**, mirroring competition-grade steel plates, knurled bars, and technical scoreboards.
 
 ---
 

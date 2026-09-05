@@ -7,7 +7,7 @@
 
 ## 1. Design Concept & Philosophy
 
-Australia’s outdoor strength tradition is famous worldwide—training by the sea, ocean-front pull-up bars, sun-bleached sandstone cliffs, and open-air lifting clubs under bright southern skies. **Sandstone & Coastal Iron** brings Grip Australia into the daylight with an organic, sun-warmed light aesthetic.
+Australia’s outdoor strength tradition is famous worldwide, defined by training by the sea, ocean-front pull-up bars, sun-bleached sandstone cliffs, and open-air lifting clubs under bright southern skies. **Sandstone & Coastal Iron** brings Grip Australia into the daylight with an organic, sun-warmed light aesthetic.
 
 Instead of gloomy gym basements or dark digital screens, this theme utilizes warm limestone and sun-bleached linen backgrounds, crisp white floating surface cards, deep Pacific navy ink for high-contrast legibility, sunlit golden ochre CTA accents, and subtle eucalyptus green indicators.
 

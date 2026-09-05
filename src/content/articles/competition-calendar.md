@@ -16,17 +16,17 @@ tags:
 <div class="space-y-10 my-6">
 
 <div>
-<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6 pb-3 border-b border-slate-800">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6 pb-3 border-b border-[var(--border-color)]">
 <div>
-<h2 class="text-2xl font-black text-white m-0 tracking-tight flex items-center gap-2">
+<h2 class="text-2xl font-black text-[var(--text-main)] m-0 tracking-tight flex items-center gap-2">
 <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
 </svg>
 Upcoming Competitions
 </h2>
-<p class="text-sm text-slate-400 mt-1 mb-0">Official Australian Grip Sport International (GSI) and partner events.</p>
+<p class="text-sm text-[var(--text-muted)] mt-1 mb-0">Official Australian Grip Sport International (GSI) and partner events.</p>
 </div>
-<span class="inline-flex items-center self-start sm:self-auto px-3 py-1 rounded-full text-xs font-semibold bg-orange-500/10 text-orange-400 border border-orange-500/20">
+<span class="inline-flex items-center self-start sm:self-auto px-3 py-1 rounded-full text-xs font-semibold bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20">
 2026 - 2027 Season
 </span>
 </div>
@@ -34,36 +34,36 @@ Upcoming Competitions
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
 <!-- Event 1: StrongFest IV -->
-<div class="bg-slate-900/80 border border-slate-800 hover:border-orange-500/50 rounded-2xl p-6 transition-all duration-200 flex flex-col justify-between shadow-lg relative overflow-hidden group">
+<div class="bg-[var(--bg-surface)] border border-[var(--border-color)] hover:border-orange-500/50 rounded-2xl p-6 transition-all duration-200 flex flex-col justify-between shadow-lg relative overflow-hidden group">
 <div class="absolute top-0 right-0 w-24 h-24 bg-orange-500/5 rounded-bl-full pointer-events-none"></div>
 <div>
 <div class="flex items-center justify-between gap-2 mb-4">
-<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-orange-500/20 text-orange-400 border border-orange-500/30">
-<span class="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse"></span>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></span>
 Registration Open
 </span>
-<span class="text-xs font-mono text-slate-400">Canberra, ACT</span>
+<span class="text-xs font-mono text-[var(--text-muted)]">Canberra, ACT</span>
 </div>
 
-<h3 class="text-2xl font-black text-white m-0 tracking-tight group-hover:text-orange-400 transition-colors">
+<h3 class="text-2xl font-black text-[var(--text-main)] m-0 tracking-tight group-hover:text-orange-500 transition-colors">
 StrongFest IV
 </h3>
 
 <div class="mt-5 space-y-2.5 text-sm">
-<div class="flex items-center gap-2.5 text-slate-200">
+<div class="flex items-center gap-2.5 text-[var(--text-main)]">
 <svg class="w-4 h-4 text-orange-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
 </svg>
-<span class="font-semibold text-white">Saturday, 22 August 2026</span>
+<span class="font-semibold text-[var(--text-main)]">Saturday, 22 August 2026</span>
 </div>
-<div class="flex items-center gap-2.5 text-slate-400">
-<svg class="w-4 h-4 text-slate-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<div class="flex items-center gap-2.5 text-[var(--text-muted)]">
+<svg class="w-4 h-4 text-[var(--text-subtle)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
 </svg>
 <span>10:00 AM – 3:00 PM AEST</span>
 </div>
-<div class="flex items-center gap-2.5 text-slate-400">
-<svg class="w-4 h-4 text-slate-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<div class="flex items-center gap-2.5 text-[var(--text-muted)]">
+<svg class="w-4 h-4 text-[var(--text-subtle)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
 </svg>
@@ -72,7 +72,7 @@ StrongFest IV
 </div>
 </div>
 
-<div class="mt-6 pt-4 border-t border-slate-800/80">
+<div class="mt-6 pt-4 border-t border-[var(--border-color)]">
 <a
 href="https://www.eventbrite.com.au/e/strongfest-iv-tickets-1990312708890"
 target="_blank"
@@ -88,35 +88,35 @@ class="no-underline w-full py-3 px-4 rounded-xl bg-gradient-to-r from-orange-600
 </div>
 
 <!-- Event 2: Hobart Hoist 2027 (De-duplicated single event card) -->
-<div class="bg-slate-900/80 border border-slate-800 hover:border-slate-700 rounded-2xl p-6 transition-all duration-200 flex flex-col justify-between shadow-lg relative overflow-hidden group">
-<div class="absolute top-0 right-0 w-24 h-24 bg-slate-800/20 rounded-bl-full pointer-events-none"></div>
+<div class="bg-[var(--bg-surface)] border border-[var(--border-color)] hover:border-orange-500/50 rounded-2xl p-6 transition-all duration-200 flex flex-col justify-between shadow-lg relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-orange-500/5 rounded-bl-full pointer-events-none"></div>
 <div>
 <div class="flex items-center justify-between gap-2 mb-4">
-<span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-slate-800 text-slate-300 border border-slate-700">
+<span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-[var(--bg-elevated)] text-[var(--text-muted)] border border-[var(--border-color)]">
 Scheduled
 </span>
-<span class="text-xs font-mono text-slate-400">Hobart, TAS</span>
+<span class="text-xs font-mono text-[var(--text-muted)]">Hobart, TAS</span>
 </div>
 
-<h3 class="text-2xl font-black text-white m-0 tracking-tight group-hover:text-slate-100 transition-colors">
+<h3 class="text-2xl font-black text-[var(--text-main)] m-0 tracking-tight group-hover:text-orange-500 transition-colors">
 Hobart Hoist 2027
 </h3>
 
 <div class="mt-5 space-y-2.5 text-sm">
-<div class="flex items-center gap-2.5 text-slate-200">
+<div class="flex items-center gap-2.5 text-[var(--text-main)]">
 <svg class="w-4 h-4 text-orange-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
 </svg>
-<span class="font-semibold text-white">Saturday, 30 January 2027</span>
+<span class="font-semibold text-[var(--text-main)]">Saturday, 30 January 2027</span>
 </div>
-<div class="flex items-center gap-2.5 text-slate-400">
-<svg class="w-4 h-4 text-slate-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<div class="flex items-center gap-2.5 text-[var(--text-muted)]">
+<svg class="w-4 h-4 text-[var(--text-subtle)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
 </svg>
 <span>10:00 AM – 2:00 PM AEDT</span>
 </div>
-<div class="flex items-center gap-2.5 text-slate-400">
-<svg class="w-4 h-4 text-slate-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<div class="flex items-center gap-2.5 text-[var(--text-muted)]">
+<svg class="w-4 h-4 text-[var(--text-subtle)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
 </svg>
@@ -125,8 +125,8 @@ Hobart Hoist 2027
 </div>
 </div>
 
-<div class="mt-6 pt-4 border-t border-slate-800/80">
-<div class="w-full py-3 px-4 rounded-xl bg-slate-800/60 border border-slate-700/60 text-slate-400 font-semibold text-sm tracking-wider uppercase flex items-center justify-center gap-2 cursor-default">
+<div class="mt-6 pt-4 border-t border-[var(--border-color)]">
+<div class="w-full py-3 px-4 rounded-xl bg-[var(--bg-elevated)] border border-[var(--border-color)] text-[var(--text-muted)] font-semibold text-sm tracking-wider uppercase flex items-center justify-center gap-2 cursor-default">
 <span>Entry Details Coming Soon</span>
 </div>
 </div>
@@ -136,17 +136,17 @@ Hobart Hoist 2027
 </div>
 
 <!-- Featured Record Lift Highlight -->
-<div class="bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl">
+<div class="bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-2xl p-6 sm:p-8 shadow-xl">
 <div class="flex items-center gap-2 text-xs font-bold text-orange-500 tracking-wider uppercase mb-2">
 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
 </svg>
 <span>Featured Record Lift</span>
 </div>
-<h2 class="text-xl sm:text-2xl font-black text-white m-0 tracking-tight">
+<h2 class="text-xl sm:text-2xl font-black text-[var(--text-main)] m-0 tracking-tight">
 Sarah Rodwell — Class Record at GSI Grip Challenge Canberra
 </h2>
-<p class="text-slate-300 text-sm mt-2 mb-4 leading-relaxed">
+<p class="text-[var(--text-muted)] text-sm mt-2 mb-4 leading-relaxed">
 Watch Sarah Rodwell set an Australian class record at the GSI Grip Challenge Canberra, demonstrating exceptional hand, finger, and wrist power.
 </p>
 
@@ -156,10 +156,10 @@ Watch Sarah Rodwell set an Australian class record at the GSI Grip Challenge Can
 </div>
 
 <!-- Call to Action / Hosting Banner -->
-<div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-lg">
+<div class="bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-lg">
 <div>
-<h3 class="text-lg font-bold text-white m-0">Hosting a Grip Sport Event in Your State?</h3>
-<p class="text-sm text-slate-400 m-0 mt-1">Get your competition or club challenge sanctioned and listed on the national Grip Australia calendar.</p>
+<h3 class="text-lg font-bold text-[var(--text-main)] m-0">Hosting a Grip Sport Event in Your State?</h3>
+<p class="text-sm text-[var(--text-muted)] m-0 mt-1">Get your competition or club challenge sanctioned and listed on the national Grip Australia calendar.</p>
 </div>
 <a
 href="/get-involved"

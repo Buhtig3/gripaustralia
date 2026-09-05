@@ -7,7 +7,7 @@
 
 ## 1. Design Concept & Philosophy
 
-Strength athletics has a legendary written history—the vintage broadsides and sporting gazettes that covered early 20th-century strongmen, gold-inscribed championship certificates, and official federation record ledgers.
+Strength athletics has a legendary written history captured in vintage broadsides and sporting gazettes that covered early 20th-century strongmen, gold-inscribed championship certificates, and official federation record ledgers.
 
 **Vintage Archival Gazette** is the light-mode counterpart to *Heritage Gold & Athletic Club*. It brings the rich historical gravity of Australian strength feats into a bright, warm editorial canvas. Built on warm archival ivory parchment, deep letterpress ink, antique gold accents, and crimson seal stamps, it feels like opening an official national hall-of-fame register in daylight.
 

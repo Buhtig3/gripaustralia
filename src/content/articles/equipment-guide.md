@@ -46,7 +46,7 @@ The **loading pin** is the undisputed backbone of vertical lift grip athletics. 
 
 ## 3. Magnesium Carbonate Chalk
 
-No single piece of equipment improves your grip performance faster than pure **gymnastic magnesium carbonate ($MgCO_3$)**.
+No single piece of equipment improves your grip performance faster than pure **gymnastic magnesium carbonate (MgCO₃)**.
 
 ```
 Sweat + Smooth Steel = Zero Friction

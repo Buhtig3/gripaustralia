@@ -7,7 +7,7 @@
 
 ## 1. Design Concept & Philosophy
 
-Australia's strength culture is inseparable from its landscape—sun-drenched red dirt, weathered eucalyptus, rusted corrugated iron, and relentless heat. **Outback Ochre & Sunbaked Terra** gives Grip Australia a proudly distinct national identity that separates it from generic American or European powerlifting sites.
+Australia's strength culture is inseparable from its landscape, shaped by sun-drenched red dirt, weathered eucalyptus, rusted corrugated iron, and relentless heat. **Outback Ochre & Sunbaked Terra** gives Grip Australia a proudly distinct national identity that separates it from generic American or European powerlifting sites.
 
 Instead of cold corporate grays or sterile blues, this theme leverages warm charred ironbark tones, mineral-rich ochre clay, golden sandstone, and subtle hints of spinifex sage.
 

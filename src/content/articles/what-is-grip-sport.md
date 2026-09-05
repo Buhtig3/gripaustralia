@@ -159,7 +159,7 @@ Every lift must satisfy strict judging criteria before the head referee awards a
 * **Lockout:** The competitor must lift the implement until knees and hips are locked, the torso is erect, and the implement is held motionless.
 * **Down Signal:** The athlete must hold the weight under full control until the referee signals "DOWN". Dropping, releasing, or dumping the implement before the signal results in a red light (no lift).
 * **Clean Lifting:** No part of the implement or loading chain may touch the athlete's legs, belt, or body (no "hitching").
-* **Chalk Only:** Only pure dry **magnesium carbonate ($MgCO_3$)** chalk is permitted. Tacky, resin, straps, or adhesive sprays are strictly banned.
+* **Chalk Only:** Only pure dry **magnesium carbonate (MgCO₃)** chalk is permitted. Tacky, resin, straps, or adhesive sprays are strictly banned.
 
 ---
 

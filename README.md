@@ -1,4 +1,4 @@
-# Grip Australia — Static Site Migration & Architecture
+# Grip Australia: Static Site Migration & Architecture
 
 This repository contains the source code, content collections, and CI/CD deployment pipeline for the **Grip Australia** website, migrated from a legacy dynamic/hosted CMS to a high-performance, static site powered by [Astro](https://astro.build) and hosted on [GitHub Pages](https://pages.github.com).
 

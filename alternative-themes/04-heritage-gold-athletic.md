@@ -7,7 +7,7 @@
 
 ## 1. Design Concept & Philosophy
 
-Grip strength is one of the oldest feats of human athletics—dating back to 19th-century strongmen like Thomas Inch, Apollon, Louis Cyr, and Australian pioneer strength champions. **Heritage Gold & Athletic Club** frames Grip Australia as a storied, prestigious athletic institution.
+Grip strength is one of the oldest feats of human athletics, dating back to 19th-century strongmen like Thomas Inch, Apollon, Louis Cyr, and Australian pioneer strength champions. **Heritage Gold & Athletic Club** frames Grip Australia as a storied, prestigious athletic institution.
 
 Instead of modern neon or stark grays, this theme channels deep Australian racing green and midnight navy velvet, antique championship gold leaf, warm bone parchment, and refined serif typography. It feels like an Olympic hall of fame or an exclusive federation clubhouse.
 
