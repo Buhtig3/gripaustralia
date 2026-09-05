@@ -14,30 +14,6 @@ const basePath = isProjectPage ? `/${repoName}` : '/';
 export default defineConfig({
   site: siteUrl,
   base: basePath,
-  vite: {
-    plugins: [
-      {
-        name: 'dev-root-redirect',
-        configureServer(server) {
-          server.middlewares.use((req, res, next) => {
-            if (basePath !== '/' && req.url && !req.url.startsWith(basePath)) {
-              if (req.url === '/themes' || req.url === '/themes/') {
-                res.writeHead(302, { Location: `${basePath}/themes/` });
-                res.end();
-                return;
-              }
-              if (req.url === '/' || req.url === '') {
-                res.writeHead(302, { Location: `${basePath}/` });
-                res.end();
-                return;
-              }
-            }
-            next();
-          });
-        }
-      }
-    ]
-  },
   integrations: [
     tailwind({
       applyBaseStyles: false,
