@@ -1,0 +1,364 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import { getUrl } from '../utils/url';
+
+import podiumImg from '../assets/images/2024-championship-23416406.jpg';
+import scorecardImg from '../assets/images/2024-championship-85a84485.jpg';
+import action1Img from '../assets/images/2024-championship-074a0f2e.jpg';
+import action2Img from '../assets/images/2024-championship-7a1e4426.jpg';
+import action3Img from '../assets/images/2024-championship-c45ffc37.jpg';
+import action4Img from '../assets/images/2024-championship-65a2d9c5.jpg';
+import action5Img from '../assets/images/2024-championship-d89db2c1.jpg';
+import action6Img from '../assets/images/2024-championship-04907fe7.jpg';
+
+const mensResults = [
+  { rank: 1, name: 'Luke Reynolds', division: 'Mens 120k+', nn: '199.80 kg', pinch: '126.70 kg', lbh: '90.30 kg', inch: '50.30 kg', overallRank: 1, p4pRank: null, honor: '🥇 Overall Champion' },
+  { rank: 2, name: 'Henry Mullett', division: 'Mens 120k+', nn: '185.30 kg', pinch: '121.70 kg', lbh: '85.30 kg', inch: '50.30 kg', overallRank: 2, p4pRank: null, honor: '🥈 2nd Overall' },
+  { rank: 3, name: 'Will Fuggle', division: 'Mens 83k', nn: '160.30 kg', pinch: '106.70 kg', lbh: '90.30 kg', inch: '47.80 kg', overallRank: 3, p4pRank: '2nd P4P', honor: '🥉 3rd Overall' },
+  { rank: 4, name: 'Isaac Pitt', division: 'Mens 83k', nn: '165.30 kg', pinch: '96.50 kg', lbh: '95.30 kg', inch: '42.80 kg', overallRank: 4, p4pRank: '1st P4P', honor: '🏆 Pound-for-Pound Champion' },
+  { rank: 5, name: 'Mal Bone', division: 'Mens 120k+', nn: '165.30 kg', pinch: '106.70 kg', lbh: '80.30 kg', inch: '42.80 kg', overallRank: 5, p4pRank: null, honor: '5th' },
+  { rank: 6, name: 'Mathew Wayling', division: 'Mens 120k+', nn: '140.30 kg', pinch: '91.50 kg', lbh: '80.30 kg', inch: '50.30 kg', overallRank: 6, p4pRank: null, honor: '6th' },
+  { rank: 7, name: 'Jermiah Merciconah', division: 'Mens 120k+', nn: '165.30 kg', pinch: '101.50 kg', lbh: '65.30 kg', inch: '35.30 kg', overallRank: 7, p4pRank: null, honor: '7th' },
+  { rank: 8, name: 'Tom Denmeade', division: 'Mens 74k', nn: '140.30 kg', pinch: '86.50 kg', lbh: '80.30 kg', inch: '37.80 kg', overallRank: 8, p4pRank: '3rd P4P', honor: '8th' },
+  { rank: 9, name: 'Glenn Hunter', division: 'Mens 120k+', nn: '130.30 kg', pinch: '86.50 kg', lbh: '80.30 kg', inch: '40.30 kg', overallRank: 9, p4pRank: null, honor: '9th' },
+  { rank: 10, name: 'Dominic Awad', division: 'Mens 120k', nn: '150.30 kg', pinch: '86.50 kg', lbh: '70.30 kg', inch: '40.30 kg', overallRank: 10, p4pRank: null, honor: '10th' },
+  { rank: 11, name: 'Mark Boylin', division: 'Mens 93k', nn: '115.30 kg', pinch: '71.50 kg', lbh: '67.80 kg', inch: '40.30 kg', overallRank: 11, p4pRank: null, honor: '11th' },
+  { rank: 12, name: 'Aaron Liu', division: 'Mens 59k (M50-59)', nn: '117.80 kg', pinch: '71.50 kg', lbh: '55.30 kg', inch: '35.30 kg', overallRank: 12, p4pRank: null, honor: '12th' },
+  { rank: 13, name: 'Matthew Shaw', division: 'Mens 83k', nn: '90.30 kg', pinch: '64.00 kg', lbh: '52.80 kg', inch: '25.30 kg', overallRank: 13, p4pRank: null, honor: '13th' },
+];
+---
+
+<BaseLayout
+  title="2024 Australian Grip Sport Championship | Grip Australia"
+  description="Official results, photos, and historical records from the inaugural 2024 Australian Grip Sport Championship held in Sydney, NSW."
+>
+  <article class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    
+    <!-- Breadcrumb -->
+    <nav class="flex items-center space-x-2 text-xs text-[var(--text-muted)] mb-6 font-mono" aria-label="Breadcrumb">
+      <a href={getUrl('/')} class="hover:text-[var(--accent-gold)] transition-colors">Home</a>
+      <span>/</span>
+      <a href={getUrl('/championships')} class="hover:text-[var(--accent-gold)] transition-colors">National Championships</a>
+      <span>/</span>
+      <span class="text-[var(--text-main)] truncate font-semibold">2024 Championship</span>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="text-center pb-8 mb-8 border-b border-[var(--border-color)]">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-[var(--text-main)] font-display uppercase tracking-tight leading-tight">
+        2024 Australian Grip Sport Championship
+      </h1>
+      <p class="mt-3 text-base sm:text-lg text-[var(--text-muted)] max-w-2xl mx-auto leading-relaxed">
+        June 1, 2024 • Sydney, NSW • The Inaugural Australian Grip Nationals • GSI Sanctioned
+      </p>
+      
+      <div class="mt-4 flex flex-wrap justify-center items-center gap-2">
+        <span class="px-2.5 py-0.5 rounded bg-[var(--bg-elevated)] text-[var(--accent-gold)] font-mono text-xs font-semibold border border-[var(--accent-gold)]/30">
+          #grip sport
+        </span>
+        <span class="px-2.5 py-0.5 rounded bg-[var(--bg-elevated)] text-[var(--text-muted)] font-mono text-xs border border-[var(--border-color)]">
+          #australia
+        </span>
+        <span class="px-2.5 py-0.5 rounded bg-[var(--bg-elevated)] text-[var(--text-muted)] font-mono text-xs border border-[var(--border-color)]">
+          #championship
+        </span>
+        <span class="px-2.5 py-0.5 rounded bg-[var(--bg-elevated)] text-[var(--text-muted)] font-mono text-xs border border-[var(--border-color)]">
+          #inaugural
+        </span>
+      </div>
+    </header>
+
+    <!-- Podium & Feature Visual Grid (Matching 2026 Layout) -->
+    <section class="my-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-3xl mx-auto text-center">
+        
+        <!-- Men's Podium (Left) -->
+        <div class="flex flex-col items-center">
+          <div class="w-full max-w-[340px] aspect-4/3 rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] mb-4">
+            <Image
+              src={podiumImg}
+              alt="Men's Podium - 2024 Australian Grip Sport Championship"
+              class="w-full h-full object-cover"
+              loading="eager"
+            />
+          </div>
+          <h3 class="font-display font-black text-xl uppercase tracking-wide text-[var(--accent-gold)] mb-1">
+            Men's Podium
+          </h3>
+          <p class="text-xs text-[var(--text-muted)] leading-relaxed max-w-[280px]">
+            Henry Mullett (2nd), Will Fuggle (3rd) &amp; Australian Champion Luke Reynolds (1st)
+          </p>
+        </div>
+
+        <!-- Official Scorecard Visual (Right - Circular Frame) -->
+        <div class="flex flex-col items-center">
+          <div class="w-64 h-64 sm:w-72 sm:h-72 rounded-full overflow-hidden shadow-xl border-4 border-[var(--accent-gold)] bg-[var(--bg-surface)] mb-4 p-1">
+            <Image
+              src={scorecardImg}
+              alt="Official 2024 Championship Scorecard"
+              class="w-full h-full object-cover rounded-full"
+              loading="eager"
+            />
+          </div>
+          <h3 class="font-display font-black text-xl uppercase tracking-wide text-[var(--text-main)] mb-1">
+            Official Placements
+          </h3>
+          <p class="text-xs text-[var(--text-muted)] leading-relaxed max-w-[280px]">
+            Luke Reynolds taking Overall Champion &amp; Isaac Pitt winning the Proportional Force Award (P4P)
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Pound-for-Pound & GSI Sanctioning Callout -->
+    <div class="my-8 p-5 rounded-xl border border-[var(--accent-gold)]/40 bg-[var(--bg-surface)] shadow-md">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <div class="text-[11px] font-mono uppercase tracking-widest text-[var(--accent-gold)] font-bold mb-1">
+            Inaugural Nationals • Proportional Force
+          </div>
+          <h2 class="font-display font-black text-lg text-[var(--text-main)] uppercase tracking-wide">
+            2024 Inaugural Champions &amp; Honors
+          </h2>
+          <div class="mt-2 flex flex-wrap gap-x-6 gap-y-1 text-sm text-[var(--text-main)]">
+            <div>🏆 <span class="font-bold">Luke Reynolds</span> <span class="text-xs text-[var(--text-muted)]">(Inaugural Australian Champion — 1st Overall)</span></div>
+            <div>🏆 <span class="font-bold">Isaac Pitt</span> <span class="text-xs text-[var(--text-muted)]">(Pound-for-Pound Champion — 1st P4P)</span></div>
+          </div>
+        </div>
+
+        <a
+          href="https://www.gripsport.org/contest/395"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="shrink-0 px-4 py-2.5 rounded-lg bg-[var(--bg-elevated)] border border-[var(--accent-gold)]/50 hover:border-[var(--accent-gold)] text-[var(--accent-gold)] text-xs font-accent font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm hover:bg-[var(--accent-gold)] hover:text-black"
+        >
+          <span>View GSI Contest #395</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Official Results Section -->
+    <section class="my-12">
+      <div class="flex items-center justify-between pb-3 mb-6 border-b border-[var(--border-color)]">
+        <div>
+          <h2 class="font-display font-black text-2xl uppercase tracking-tight text-[var(--text-main)]">
+            Official Championship Results
+          </h2>
+          <p class="text-xs text-[var(--text-muted)] mt-0.5">
+            13 competitors contested across 4 events under Grip Sport International sanctioning
+          </p>
+        </div>
+      </div>
+
+      <!-- Men's Results Table -->
+      <div class="mb-10">
+        <div class="overflow-x-auto rounded-xl border border-[var(--border-color)] bg-[var(--bg-surface)] shadow-sm">
+          <table class="w-full text-left text-xs sm:text-sm border-collapse">
+            <thead>
+              <tr class="bg-[var(--bg-elevated)] text-[var(--text-main)] font-mono text-[11px] uppercase tracking-wider border-b border-[var(--border-color)]">
+                <th class="py-3 px-3 w-12 text-center">Rank</th>
+                <th class="py-3 px-3">Athlete</th>
+                <th class="py-3 px-3">Division</th>
+                <th class="py-3 px-3 text-right">Napalm's 2.375"</th>
+                <th class="py-3 px-3 text-right">2-Hand Pinch</th>
+                <th class="py-3 px-3 text-right">Little Big Horn</th>
+                <th class="py-3 px-3 text-right">Double Inch Pinch</th>
+                <th class="py-3 px-3 text-right font-bold text-[var(--accent-gold)]">P4P Rank</th>
+                <th class="py-3 px-3 text-center">Honors</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[var(--border-color)]/50">
+              {mensResults.map(row => (
+                <tr class="hover:bg-[var(--bg-elevated)]/60 transition-colors">
+                  <td class="py-3 px-3 font-mono font-bold text-center text-[var(--text-muted)]">{row.rank}</td>
+                  <td class="py-3 px-3 font-bold text-[var(--text-main)]">{row.name}</td>
+                  <td class="py-3 px-3 text-[var(--text-muted)] font-mono text-xs">{row.division}</td>
+                  <td class="py-3 px-3 text-right font-mono font-semibold">{row.nn}</td>
+                  <td class="py-3 px-3 text-right font-mono font-semibold">{row.pinch}</td>
+                  <td class="py-3 px-3 text-right font-mono font-semibold">{row.lbh}</td>
+                  <td class="py-3 px-3 text-right font-mono font-semibold">{row.inch}</td>
+                  <td class="py-3 px-3 text-right font-mono">
+                    <span class:list={[
+                      "px-2 py-0.5 rounded",
+                      row.p4pRank === '1st P4P' ? "bg-amber-400/20 text-amber-500 font-bold border border-amber-400/40" :
+                      row.p4pRank === '2nd P4P' ? "bg-slate-300/20 text-slate-300 font-bold border border-slate-300/30" :
+                      row.p4pRank === '3rd P4P' ? "bg-amber-700/20 text-amber-700 font-bold border border-amber-700/30" :
+                      "text-[var(--text-muted)]"
+                    ]}>
+                      {row.p4pRank ? row.p4pRank : '-'}
+                    </span>
+                  </td>
+                  <td class="py-3 px-3 text-center font-accent font-semibold text-xs">
+                    {row.honor}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Action Photos Gallery (6 Historic Photos) -->
+    <section class="my-12">
+      <div class="pb-3 mb-6 border-b border-[var(--border-color)]">
+        <h2 class="font-display font-black text-2xl uppercase tracking-tight text-[var(--text-main)]">
+          Inaugural Event Gallery
+        </h2>
+        <p class="text-xs text-[var(--text-muted)] mt-0.5">
+          Action shots from the 2024 Championship: Napalm's Nightmare, Little Big Horn, and pinch implement tests
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] flex flex-col">
+          <div class="aspect-4/3 w-full overflow-hidden">
+            <Image
+              src={action1Img}
+              alt="2024 Championship competitor lift"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          <p class="p-3 text-xs text-[var(--text-muted)] text-center font-medium">
+            Napalm's Nightmare axle lift attempt
+          </p>
+        </div>
+
+        <div class="rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] flex flex-col">
+          <div class="aspect-4/3 w-full overflow-hidden">
+            <Image
+              src={action2Img}
+              alt="Competitor lifting Little Big Horn"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          <p class="p-3 text-xs text-[var(--text-muted)] text-center font-medium">
+            Little Big Horn anvil-horn lift
+          </p>
+        </div>
+
+        <div class="rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] flex flex-col">
+          <div class="aspect-4/3 w-full overflow-hidden">
+            <Image
+              src={action3Img}
+              alt="2-Hand pinch block competition"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          <p class="p-3 text-xs text-[var(--text-muted)] text-center font-medium">
+            2-Hand Pinch (3" block) competition
+          </p>
+        </div>
+
+        <div class="rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] flex flex-col">
+          <div class="aspect-4/3 w-full overflow-hidden">
+            <Image
+              src={action4Img}
+              alt="Double shallow inch pinch test"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          <p class="p-3 text-xs text-[var(--text-muted)] text-center font-medium">
+            Double Shallow Inch Pinch challenge
+          </p>
+        </div>
+
+        <div class="rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] flex flex-col">
+          <div class="aspect-4/3 w-full overflow-hidden">
+            <Image
+              src={action5Img}
+              alt="Athletes and loading team in Sydney"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          <p class="p-3 text-xs text-[var(--text-muted)] text-center font-medium">
+            Sydney competition arena &amp; loading crew
+          </p>
+        </div>
+
+        <div class="rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] flex flex-col">
+          <div class="aspect-4/3 w-full overflow-hidden">
+            <Image
+              src={action6Img}
+              alt="Inaugural Australian Championship competitors"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          <p class="p-3 text-xs text-[var(--text-muted)] text-center font-medium">
+            Competitor preparation and chalk area
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tournament Sponsors & Host Venue Section -->
+    <section class="my-12 p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-surface)] shadow-md">
+      <div class="max-w-3xl">
+        <div class="text-[11px] font-mono uppercase tracking-widest text-[var(--accent-gold)] font-bold mb-1">
+          Official Recognition
+        </div>
+        <h2 class="font-display font-black text-2xl uppercase tracking-tight text-[var(--text-main)] mb-3">
+          Foundational Sponsors &amp; Host Venue
+        </h2>
+        <p class="text-sm text-[var(--text-muted)] leading-relaxed mb-6">
+          Special thanks to the foundational sponsors and supporters who made Australia's inaugural National Grip Championship possible:
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-[var(--bg-elevated)] border border-[var(--border-color)]">
+            <div class="text-xs font-mono text-[var(--accent-gold)] uppercase font-bold mb-1">Host Venue</div>
+            <div class="font-bold text-[var(--text-main)]">Sydney, New South Wales</div>
+            <p class="text-xs text-[var(--text-muted)] mt-1">Inaugural Grip Nationals host city</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-[var(--bg-elevated)] border border-[var(--border-color)]">
+            <div class="text-xs font-mono text-[var(--accent-gold)] uppercase font-bold mb-1">Sanctioning Body</div>
+            <a
+              href="https://www.gripsport.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-bold text-[var(--text-main)] hover:text-[var(--accent-gold)] flex items-center gap-1 transition-colors"
+            >
+              <span>Grip Sport International (GSI)</span>
+              <svg class="w-3.5 h-3.5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+            <p class="text-xs text-[var(--text-muted)] mt-1">Inaugural Contest #395 sanction</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-[var(--bg-elevated)] border border-[var(--border-color)] sm:col-span-2">
+            <div class="text-xs font-mono text-[var(--accent-gold)] uppercase font-bold mb-1">Foundational Equipment Sponsors</div>
+            <div class="flex flex-wrap items-center gap-4 mt-1">
+              <span class="font-bold text-[var(--text-main)]">Climbing Anchors</span>
+              <span class="text-[var(--border-color)]">•</span>
+              <span class="font-bold text-[var(--text-main)]">Arm Assassin Strength Shop</span>
+              <span class="text-[var(--border-color)]">•</span>
+              <span class="font-bold text-[var(--text-main)]">Nemesis Grips</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Page Footer / Navigation -->
+    <footer class="mt-16 pt-8 border-t border-[var(--border-color)] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--text-muted)]">
+      <a
+        href={getUrl('/championships')}
+        class="inline-flex items-center gap-1.5 text-[var(--accent-gold)] hover:underline font-accent uppercase tracking-wider font-semibold"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        <span>Back to National Championships Hub</span>
+      </a>
+
+      <span class="text-[var(--text-subtle)] text-[11px]">
+        Official record archived under Grip Sport International #395
+      </span>
+    </footer>
+
+  </article>
+</BaseLayout>

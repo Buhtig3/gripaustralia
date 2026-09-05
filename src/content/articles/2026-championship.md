@@ -20,33 +20,22 @@ tags:
 >
 > 🌐 **Official Grip Sport International (GSI) Benchmark:** View verified sanction data, athlete profiles, and international rankings on [GripSport.org (Contest #483)](https://www.gripsport.org/contest/483).
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8 text-center">
-  <div class="bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl p-4 flex flex-col justify-between shadow-sm">
-    <img src="../../assets/images/2026-championship-24c10421.jpg" alt="Women's Podium" class="rounded-lg w-full aspect-4/3 object-cover mb-3" />
-    <div>
-      <h4 class="font-display font-bold text-base uppercase text-[var(--text-main)] mb-1">Women's Podium</h4>
-      <p class="text-xs text-[var(--text-muted)]">Alison Dann (3rd), Megan Galvin (Champion) & Sarah Rodwell (2nd & Pound-for-Pound Champion)</p>
-    </div>
-  </div>
+![](../../assets/images/2026-championship-24c10421.jpg)
 
-  <div class="bg-[var(--bg-surface)] border border-[var(--accent-gold)]/50 rounded-xl p-4 flex flex-col justify-between shadow-sm">
-    <img src="../../assets/images/2026-championship-4803541f.jpg" alt="Men's Podium" class="rounded-lg w-full aspect-4/3 object-cover mb-3" />
-    <div>
-      <h4 class="font-display font-bold text-base uppercase text-[var(--accent-gold)] mb-1">Men's Podium</h4>
-      <p class="text-xs text-[var(--text-muted)]">Lachie Simms (3rd), Declan Wright (Champion) & Isaac Pitt (2nd & Pound-for-Pound Champion)</p>
-    </div>
-  </div>
+#### Women's Podium
+Alison Dann (3rd), Megan Galvin (Champion) & Sarah Rodwell (2nd & Pound-for-Pound Champion)
 
-  <div class="bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl p-4 flex flex-col justify-between shadow-sm">
-    <img src="../../assets/images/2026-championship-5ef03799.jpg" alt="Competitors" class="rounded-lg w-full aspect-4/3 object-cover mb-3" />
-    <div>
-      <h4 class="font-display font-bold text-base uppercase text-[var(--text-main)] mb-1">Competitors</h4>
-      <p class="text-xs text-[var(--text-muted)]">17 Men and 7 Women (24 total competitors) at Iron Revolution Gym, Melbourne</p>
-    </div>
-  </div>
-</div>
+![](../../assets/images/2026-championship-4803541f.jpg)
 
----
+#### Men's Podium
+Lachie Simms (3rd), Declan Wright (Champion) & Isaac Pitt (2nd & Pound-for-Pound Champion)
+
+![](../../assets/images/2026-championship-5ef03799.jpg)
+
+#### Competitors
+17 Men and 7 Women (24 total competitors) at Iron Revolution Gym, Melbourne
+
+***
 
 ### Official Championship Results
 
@@ -86,7 +75,17 @@ Data extracted from official Grip Sport International records ([GSI Contest #483
 | **Matthew Shaw** | Mens 74k | **110.20 kg** | **67.00 kg** | **73.30 kg** | 16th |
 | **Robert Sabbage** | Mens 93k | **110.20 kg** | **82.00 kg** | **73.30 kg** | 17th |
 
----
+***
+
+### Event Gallery & Heavy Implements
+
+![](../../assets/images/2026-championship-dd112841.jpg)
+
+![](../../assets/images/2026-championship-f8ffc2a5.jpg)
+
+![](../../assets/images/2026-championship-0529fa77.jpg)
+
+***
 
 ### Tournament Sponsors & Host Venue
 
@@ -98,7 +97,7 @@ A huge thank you to the sponsors and partners who made the 2026 Australian Grip 
 
 ## Video
 
----
+***
 
 #### Inch Run - Isaac Pitt
 

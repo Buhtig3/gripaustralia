@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
+import { rehypeCallouts } from './src/utils/rehype-callouts.mjs';
 
 const isGitHubActions = !!process.env.GITHUB_REPOSITORY;
 const repoName = process.env.GITHUB_REPOSITORY ? process.env.GITHUB_REPOSITORY.split('/')[1] : 'grip-australia-alpha';
@@ -14,6 +15,9 @@ const basePath = isProjectPage ? `/${repoName}` : '/';
 export default defineConfig({
   site: siteUrl,
   base: basePath,
+  markdown: {
+    rehypePlugins: [rehypeCallouts],
+  },
   integrations: [
     tailwind({
       applyBaseStyles: false,

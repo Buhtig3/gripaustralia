@@ -5,9 +5,10 @@ import { getUrl } from '../utils/url';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles');
-  // index is handled by pages/index.astro; gripper-rating-service is handled by pages/gripper-rating-service.astro; 2026-championship is handled by pages/2026-championship.astro
+  // Dedicated pages handle index, gripper-rating-service, and 2024/2025/2026 championships
+  const customPages = ['index', 'gripper-rating-service', '2024-championship', '2025-championship', '2026-championship'];
   return articles
-    .filter(entry => entry.slug !== 'index' && entry.slug !== 'gripper-rating-service' && entry.slug !== '2026-championship')
+    .filter(entry => !customPages.includes(entry.slug))
     .map(entry => ({
       params: { slug: entry.slug },
       props: { entry },

@@ -13,8 +13,6 @@ tags:
   - competition
 ---
 
----
-
 ![](../../assets/images/2024-championship-23416406.jpg)
 
 Henry Mullett (2nd) Will Fuggle (3rd) and Australian Grip Sport Champion Luke Reynolds
