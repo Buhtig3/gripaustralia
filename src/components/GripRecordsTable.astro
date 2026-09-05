@@ -1,0 +1,591 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface RecordItem {
+  id: string;
+  event: string;
+  category: string;
+  gender: 'men' | 'women';
+  division: string;
+  weightClass: string;
+  weightKg: number | null;
+  unit?: string;
+  holder: string;
+  athleteId?: number | null;
+  gsiAthleteUrl?: string | null;
+  date: string;
+  year?: number;
+  contest: string;
+  contestId?: number | null;
+  contestUrl?: string | null;
+  location: string;
+  sanctioned: boolean;
+  sanctioningBody: string;
+  verificationUrl?: string | null;
+  status: string;
+  notes?: string | null;
+}
+
+interface Props {
+  records: RecordItem[];
+}
+
+const { records } = Astro.props;
+
+// Precompute counts for category tabs
+const categoryCounts = {
+  all: records.length,
+  pinch: records.filter(r => r.category === 'pinch').length,
+  'thick-bar': records.filter(r => r.category === 'thick-bar').length,
+  'vertical-lift': records.filter(r => r.category === 'vertical-lift').length,
+  crush: records.filter(r => r.category === 'crush').length,
+  'historical-feat': records.filter(r => r.category === 'historical-feat').length,
+};
+
+const serializedRecords = JSON.stringify(records);
+---
+
+<div class="grip-records-widget my-8 not-prose" id="official-records">
+  <!-- Header Bar with Stats & Controls -->
+  <div class="rounded-2xl border border-[var(--border-color)] bg-[var(--bg-elevated)] p-5 sm:p-6 shadow-sm mb-6">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-[var(--border-color)]">
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="inline-flex items-center justify-center p-1.5 rounded-lg bg-[var(--accent-gold)]/15 text-[var(--accent-gold)]">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+            </svg>
+          </span>
+          <h2 class="text-xl sm:text-2xl font-bold font-display uppercase tracking-tight text-[var(--text-main)]">
+            Official Australian Grip Records
+          </h2>
+        </div>
+        <p class="text-xs sm:text-sm text-[var(--text-muted)] mt-1">
+          Sanctioned Grip Sport International (GSI) national records, Mullet's Mandrel benchmarks, and historical odd-implement feats.
+        </p>
+      </div>
+
+      <!-- Unit Switcher (KG / LBS) -->
+      <div class="flex items-center gap-2 self-start md:self-auto bg-[var(--bg-surface)] p-1 rounded-xl border border-[var(--border-color)]">
+        <span class="text-xs font-semibold px-2 text-[var(--text-muted)] uppercase tracking-wider">Unit:</span>
+        <button
+          type="button"
+          id="unit-kg-btn"
+          class="unit-btn active px-3 py-1 rounded-lg text-xs font-bold transition-all bg-[var(--accent-gold)] text-black shadow-sm"
+          data-unit="kg"
+        >
+          KG
+        </button>
+        <button
+          type="button"
+          id="unit-lbs-btn"
+          class="unit-btn px-3 py-1 rounded-lg text-xs font-semibold text-[var(--text-muted)] hover:text-[var(--text-main)] transition-all"
+          data-unit="lbs"
+        >
+          LBS
+        </button>
+      </div>
+    </div>
+
+    <!-- Discipline Tabs -->
+    <div class="mt-5 flex flex-wrap gap-2">
+      <button
+        type="button"
+        class="category-tab active px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all border border-[var(--accent-gold)] bg-[var(--accent-gold)]/10 text-[var(--accent-gold)]"
+        data-category="all"
+      >
+        All Records <span class="ml-1 opacity-75 font-mono text-[11px]">({categoryCounts.all})</span>
+      </button>
+      <button
+        type="button"
+        class="category-tab px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all border border-[var(--border-color)] bg-[var(--bg-surface)] text-[var(--text-muted)] hover:text-[var(--text-main)] hover:border-[var(--text-muted)]"
+        data-category="pinch"
+      >
+        🤏 Pinch <span class="ml-1 opacity-75 font-mono text-[11px]">({categoryCounts.pinch})</span>
+      </button>
+      <button
+        type="button"
+        class="category-tab px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all border border-[var(--border-color)] bg-[var(--bg-surface)] text-[var(--text-muted)] hover:text-[var(--text-main)] hover:border-[var(--text-muted)]"
+        data-category="thick-bar"
+      >
+        🪵 Thick Bar <span class="ml-1 opacity-75 font-mono text-[11px]">({categoryCounts['thick-bar']})</span>
+      </button>
+      <button
+        type="button"
+        class="category-tab px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all border border-[var(--border-color)] bg-[var(--bg-surface)] text-[var(--text-muted)] hover:text-[var(--text-main)] hover:border-[var(--text-muted)]"
+        data-category="vertical-lift"
+      >
+        📐 Vertical Lift <span class="ml-1 opacity-75 font-mono text-[11px]">({categoryCounts['vertical-lift']})</span>
+      </button>
+      <button
+        type="button"
+        class="category-tab px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all border border-[var(--border-color)] bg-[var(--bg-surface)] text-[var(--text-muted)] hover:text-[var(--text-main)] hover:border-[var(--text-muted)]"
+        data-category="crush"
+      >
+        🗜️ Crush <span class="ml-1 opacity-75 font-mono text-[11px]">({categoryCounts.crush})</span>
+      </button>
+      <button
+        type="button"
+        class="category-tab px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all border border-[var(--border-color)] bg-[var(--bg-surface)] text-[var(--text-muted)] hover:text-[var(--text-main)] hover:border-[var(--text-muted)]"
+        data-category="historical-feat"
+      >
+        🏛️ Historical Feats <span class="ml-1 opacity-75 font-mono text-[11px]">({categoryCounts['historical-feat']})</span>
+      </button>
+    </div>
+
+    <!-- Filters Row: Gender, Search & Counter -->
+    <div class="mt-4 pt-4 border-t border-[var(--border-color)] flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+      <!-- Gender Segmented Control -->
+      <div class="flex items-center gap-1.5 bg-[var(--bg-surface)] p-1 rounded-xl border border-[var(--border-color)] self-start">
+        <button
+          type="button"
+          class="gender-btn active px-3 py-1 rounded-lg text-xs font-bold transition-all bg-[var(--accent-gold)] text-black shadow-sm"
+          data-gender="all"
+        >
+          All
+        </button>
+        <button
+          type="button"
+          class="gender-btn px-3 py-1 rounded-lg text-xs font-medium text-[var(--text-muted)] hover:text-[var(--text-main)] transition-all"
+          data-gender="men"
+        >
+          Men
+        </button>
+        <button
+          type="button"
+          class="gender-btn px-3 py-1 rounded-lg text-xs font-medium text-[var(--text-muted)] hover:text-[var(--text-main)] transition-all"
+          data-gender="women"
+        >
+          Women
+        </button>
+      </div>
+
+      <!-- Search Input -->
+      <div class="relative flex-grow max-w-md">
+        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-[var(--text-muted)]">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </div>
+        <input
+          type="text"
+          id="records-search-input"
+          placeholder="Filter by event, athlete, contest, weight class..."
+          class="w-full pl-9 pr-8 py-2 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] text-xs sm:text-sm text-[var(--text-main)] placeholder-[var(--text-subtle)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-gold)] focus:border-transparent transition-all"
+        />
+        <button
+          type="button"
+          id="clear-search-btn"
+          class="hidden absolute inset-y-0 right-0 pr-3 flex items-center text-[var(--text-muted)] hover:text-[var(--text-main)]"
+          title="Clear search"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Results Count & Reset -->
+      <div class="flex items-center justify-between md:justify-end gap-3 text-xs text-[var(--text-muted)] font-mono">
+        <span id="records-count-badge">Showing {records.length} records</span>
+        <button
+          type="button"
+          id="reset-filters-btn"
+          class="hidden text-[var(--accent-gold)] hover:underline font-semibold"
+        >
+          Reset Filters
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Table Container -->
+  <div class="rounded-2xl border border-[var(--border-color)] bg-[var(--bg-elevated)] overflow-hidden shadow-sm">
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-collapse text-xs sm:text-sm" id="records-table-element">
+        <thead>
+          <tr class="border-b border-[var(--border-color)] bg-[var(--bg-surface)] text-[var(--text-muted)] font-mono text-[11px] uppercase tracking-wider select-none">
+            <th class="py-3.5 px-4 font-semibold cursor-pointer hover:text-[var(--text-main)] transition-colors" data-sort="event">
+              <div class="flex items-center gap-1.5">
+                <span>Event / Implement</span>
+                <span class="sort-indicator opacity-40">↕</span>
+              </div>
+            </th>
+            <th class="py-3.5 px-4 font-semibold cursor-pointer hover:text-[var(--text-main)] transition-colors" data-sort="holder">
+              <div class="flex items-center gap-1.5">
+                <span>Record Holder</span>
+                <span class="sort-indicator opacity-40">↕</span>
+              </div>
+            </th>
+            <th class="py-3.5 px-4 font-semibold cursor-pointer hover:text-[var(--text-main)] transition-colors text-right" data-sort="weightKg">
+              <div class="flex items-center justify-end gap-1.5">
+                <span>Record Lift</span>
+                <span class="sort-indicator opacity-40">↕</span>
+              </div>
+            </th>
+            <th class="py-3.5 px-4 font-semibold cursor-pointer hover:text-[var(--text-main)] transition-colors" data-sort="weightClass">
+              <div class="flex items-center gap-1.5">
+                <span>Class / Div</span>
+                <span class="sort-indicator opacity-40">↕</span>
+              </div>
+            </th>
+            <th class="py-3.5 px-4 font-semibold cursor-pointer hover:text-[var(--text-main)] transition-colors hidden md:table-cell" data-sort="date">
+              <div class="flex items-center gap-1.5">
+                <span>Date</span>
+                <span class="sort-indicator opacity-40">↕</span>
+              </div>
+            </th>
+            <th class="py-3.5 px-4 font-semibold hidden lg:table-cell">
+              <span>Contest / Venue</span>
+            </th>
+            <th class="py-3.5 px-4 font-semibold text-center">
+              <span>Sanction</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody id="records-table-tbody" class="divide-y divide-[var(--border-color)] text-[var(--text-main)]">
+          <!-- Rows will be injected and sorted via JavaScript -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Empty State -->
+    <div id="no-records-state" class="hidden py-16 px-4 text-center">
+      <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[var(--bg-surface)] text-[var(--text-muted)] mb-3 border border-[var(--border-color)]">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+      </div>
+      <h3 class="text-base font-bold text-[var(--text-main)]">No records matched your search</h3>
+      <p class="text-xs text-[var(--text-muted)] mt-1 max-w-sm mx-auto">
+        Try adjusting your discipline category tab, gender filter, or search query.
+      </p>
+      <button
+        type="button"
+        id="empty-reset-btn"
+        class="mt-4 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold bg-[var(--accent-gold)] text-black hover:opacity-90 transition-opacity"
+      >
+        Clear All Filters
+      </button>
+    </div>
+  </div>
+</div>
+
+<script is:inline define:vars={{ serializedRecords }}>
+  (function() {
+    const records = JSON.parse(serializedRecords);
+
+    // State
+    let currentCategory = 'all';
+    let currentGender = 'all';
+    let currentUnit = 'kg';
+    let searchQuery = '';
+    let sortColumn = 'weightKg';
+    let sortDirection = 'desc';
+
+    const tbody = document.getElementById('records-table-tbody');
+    const emptyState = document.getElementById('no-records-state');
+    const countBadge = document.getElementById('records-count-badge');
+    const searchInput = document.getElementById('records-search-input');
+    const clearSearchBtn = document.getElementById('clear-search-btn');
+    const resetFiltersBtn = document.getElementById('reset-filters-btn');
+    const emptyResetBtn = document.getElementById('empty-reset-btn');
+    const unitKgBtn = document.getElementById('unit-kg-btn');
+    const unitLbsBtn = document.getElementById('unit-lbs-btn');
+    const categoryTabs = document.querySelectorAll('.category-tab');
+    const genderBtns = document.querySelectorAll('.gender-btn');
+    const headerSorts = document.querySelectorAll('th[data-sort]');
+
+    function formatWeight(record, unit) {
+      if (record.unit === 'sec') {
+        return `${Number(record.weightKg).toFixed(2)}s`;
+      }
+      if (record.weightKg === null || record.weightKg === undefined) {
+        return '—';
+      }
+      if (unit === 'lbs') {
+        const lbs = (record.weightKg * 2.20462).toFixed(1);
+        return `${lbs} lbs`;
+      }
+      return `${Number(record.weightKg).toFixed(2)} kg`;
+    }
+
+    function getCategoryBadge(cat) {
+      const map = {
+        'pinch': { label: 'Pinch', bg: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' },
+        'thick-bar': { label: 'Thick Bar', bg: 'bg-amber-500/10 text-amber-500 border-amber-500/20' },
+        'vertical-lift': { label: 'Vertical Lift', bg: 'bg-sky-500/10 text-sky-500 border-sky-500/20' },
+        'crush': { label: 'Crush', bg: 'bg-rose-500/10 text-rose-500 border-rose-500/20' },
+        'historical-feat': { label: 'Historic Feat', bg: 'bg-purple-500/10 text-purple-400 border-purple-500/20' },
+      };
+      const c = map[cat] || { label: cat, bg: 'bg-neutral-500/10 text-neutral-400 border-neutral-500/20' };
+      return `<span class="inline-block text-[10px] px-2 py-0.5 rounded-md border font-mono font-medium ${c.bg}">${c.label}</span>`;
+    }
+
+    function renderRows() {
+      let filtered = records.filter(r => {
+        // Category filter
+        if (currentCategory !== 'all' && r.category !== currentCategory) {
+          return false;
+        }
+        // Gender filter
+        if (currentGender !== 'all' && r.gender !== currentGender) {
+          return false;
+        }
+        // Search filter
+        if (searchQuery.trim()) {
+          const q = searchQuery.toLowerCase().trim();
+          const target = [
+            r.event,
+            r.holder,
+            r.contest,
+            r.weightClass,
+            r.location,
+            r.division,
+            r.sanctioningBody,
+          ].filter(Boolean).join(' ').toLowerCase();
+          if (!target.includes(q)) {
+            return false;
+          }
+        }
+        return true;
+      });
+
+      // Sort
+      filtered.sort((a, b) => {
+        let valA = a[sortColumn];
+        let valB = b[sortColumn];
+
+        if (sortColumn === 'weightKg') {
+          valA = valA === null || valA === undefined ? -1 : Number(valA);
+          valB = valB === null || valB === undefined ? -1 : Number(valB);
+        } else if (sortColumn === 'date') {
+          valA = valA || '';
+          valB = valB || '';
+        } else {
+          valA = (valA || '').toString().toLowerCase();
+          valB = (valB || '').toString().toLowerCase();
+        }
+
+        if (valA < valB) return sortDirection === 'asc' ? -1 : 1;
+        if (valA > valB) return sortDirection === 'asc' ? 1 : -1;
+        return 0;
+      });
+
+      // Update counters
+      countBadge.textContent = `Showing ${filtered.length} of ${records.length} records`;
+      const isFiltered = currentCategory !== 'all' || currentGender !== 'all' || searchQuery.trim().length > 0;
+      if (resetFiltersBtn) {
+        resetFiltersBtn.classList.toggle('hidden', !isFiltered);
+      }
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+
+      const html = filtered.map(r => {
+        const weightFormatted = formatWeight(r, currentUnit);
+        const altWeightFormatted = formatWeight(r, currentUnit === 'kg' ? 'lbs' : 'kg');
+
+        let holderHtml = `<span class="font-semibold text-[var(--text-main)]">${r.holder}</span>`;
+        if (r.gsiAthleteUrl) {
+          holderHtml = `
+            <a href="${r.gsiAthleteUrl}" target="_blank" rel="noopener noreferrer" class="font-semibold text-[var(--accent-gold)] hover:underline inline-flex items-center gap-1 group">
+              <span>${r.holder}</span>
+              <svg class="w-3 h-3 opacity-60 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </a>
+          `;
+        }
+
+        let contestHtml = `<span class="text-[var(--text-main)]">${r.contest}</span>`;
+        if (r.contestUrl) {
+          contestHtml = `
+            <a href="${r.contestUrl}" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--accent-gold)] hover:underline">
+              ${r.contest}
+            </a>
+          `;
+        }
+
+        const dateStr = r.date && r.date.length >= 4 ? r.date : (r.year || '—');
+        const sanctionBadge = r.sanctioned
+          ? `<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-500/15 text-amber-400 border border-amber-500/30">${r.sanctioningBody || 'GSI'}</span>`
+          : `<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono bg-[var(--bg-surface)] text-[var(--text-muted)] border border-[var(--border-color)]">${r.sanctioningBody || 'Open'}</span>`;
+
+        return `
+          <tr class="hover:bg-[var(--bg-surface)]/60 transition-colors">
+            <td class="py-3 px-4">
+              <div class="font-bold text-[var(--text-main)]">${r.event}</div>
+              <div class="mt-1 flex items-center gap-1.5 flex-wrap">
+                ${getCategoryBadge(r.category)}
+                ${r.gender === 'women' ? '<span class="text-[10px] px-1.5 py-0.2 rounded bg-pink-500/15 text-pink-400 font-mono font-medium">Women</span>' : ''}
+              </div>
+            </td>
+            <td class="py-3 px-4 whitespace-nowrap">
+              ${holderHtml}
+            </td>
+            <td class="py-3 px-4 text-right whitespace-nowrap">
+              <span class="font-mono font-bold text-sm text-[var(--accent-gold)]">${weightFormatted}</span>
+              <div class="text-[10px] font-mono text-[var(--text-subtle)]" title="Alternative unit">${altWeightFormatted}</div>
+            </td>
+            <td class="py-3 px-4 whitespace-nowrap font-mono text-xs text-[var(--text-muted)]">
+              <div>${r.weightClass || 'Open'}</div>
+              ${r.division && r.division !== 'Open' ? `<div class="text-[10px] text-[var(--text-subtle)]">${r.division}</div>` : ''}
+            </td>
+            <td class="py-3 px-4 whitespace-nowrap font-mono text-xs text-[var(--text-muted)] hidden md:table-cell">
+              ${dateStr}
+            </td>
+            <td class="py-3 px-4 text-xs text-[var(--text-muted)] hidden lg:table-cell max-w-xs truncate">
+              <div class="truncate">${contestHtml}</div>
+              <div class="text-[10px] text-[var(--text-subtle)] truncate">${r.location || ''}</div>
+            </td>
+            <td class="py-3 px-4 text-center whitespace-nowrap">
+              ${sanctionBadge}
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      tbody.innerHTML = html;
+    }
+
+    // Category Tabs click handling
+    categoryTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        categoryTabs.forEach(t => {
+          t.classList.remove('active', 'border-[var(--accent-gold)]', 'bg-[var(--accent-gold)]/10', 'text-[var(--accent-gold)]', 'font-bold');
+          t.classList.add('border-[var(--border-color)]', 'bg-[var(--bg-surface)]', 'text-[var(--text-muted)]', 'font-medium');
+        });
+        tab.classList.add('active', 'border-[var(--accent-gold)]', 'bg-[var(--accent-gold)]/10', 'text-[var(--accent-gold)]', 'font-bold');
+        tab.classList.remove('border-[var(--border-color)]', 'bg-[var(--bg-surface)]', 'text-[var(--text-muted)]', 'font-medium');
+
+        currentCategory = tab.getAttribute('data-category');
+        renderRows();
+      });
+    });
+
+    // Gender Switcher click handling
+    genderBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        genderBtns.forEach(b => {
+          b.classList.remove('active', 'bg-[var(--accent-gold)]', 'text-black', 'font-bold', 'shadow-sm');
+          b.classList.add('text-[var(--text-muted)]', 'font-medium');
+        });
+        btn.classList.add('active', 'bg-[var(--accent-gold)]', 'text-black', 'font-bold', 'shadow-sm');
+        btn.classList.remove('text-[var(--text-muted)]', 'font-medium');
+
+        currentGender = btn.getAttribute('data-gender');
+        renderRows();
+      });
+    });
+
+    // Unit Switcher (KG / LBS)
+    function setUnit(unit) {
+      currentUnit = unit;
+      if (unit === 'kg') {
+        unitKgBtn.classList.add('active', 'bg-[var(--accent-gold)]', 'text-black', 'font-bold', 'shadow-sm');
+        unitKgBtn.classList.remove('text-[var(--text-muted)]', 'font-semibold');
+        unitLbsBtn.classList.remove('active', 'bg-[var(--accent-gold)]', 'text-black', 'font-bold', 'shadow-sm');
+        unitLbsBtn.classList.add('text-[var(--text-muted)]', 'font-semibold');
+      } else {
+        unitLbsBtn.classList.add('active', 'bg-[var(--accent-gold)]', 'text-black', 'font-bold', 'shadow-sm');
+        unitLbsBtn.classList.remove('text-[var(--text-muted)]', 'font-semibold');
+        unitKgBtn.classList.remove('active', 'bg-[var(--accent-gold)]', 'text-black', 'font-bold', 'shadow-sm');
+        unitKgBtn.classList.add('text-[var(--text-muted)]', 'font-semibold');
+      }
+      renderRows();
+    }
+
+    unitKgBtn.addEventListener('click', () => setUnit('kg'));
+    unitLbsBtn.addEventListener('click', () => setUnit('lbs'));
+
+    // Search
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      clearSearchBtn.classList.toggle('hidden', searchQuery.length === 0);
+      renderRows();
+    });
+
+    clearSearchBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      searchQuery = '';
+      clearSearchBtn.classList.add('hidden');
+      renderRows();
+    });
+
+    // Reset Filters
+    function resetAllFilters() {
+      currentCategory = 'all';
+      currentGender = 'all';
+      searchQuery = '';
+      searchInput.value = '';
+      clearSearchBtn.classList.add('hidden');
+
+      categoryTabs.forEach(t => {
+        const isAll = t.getAttribute('data-category') === 'all';
+        t.classList.toggle('active', isAll);
+        t.classList.toggle('border-[var(--accent-gold)]', isAll);
+        t.classList.toggle('bg-[var(--accent-gold)]/10', isAll);
+        t.classList.toggle('text-[var(--accent-gold)]', isAll);
+        t.classList.toggle('font-bold', isAll);
+        t.classList.toggle('border-[var(--border-color)]', !isAll);
+        t.classList.toggle('bg-[var(--bg-surface)]', !isAll);
+        t.classList.toggle('text-[var(--text-muted)]', !isAll);
+        t.classList.toggle('font-medium', !isAll);
+      });
+
+      genderBtns.forEach(b => {
+        const isAll = b.getAttribute('data-gender') === 'all';
+        b.classList.toggle('active', isAll);
+        b.classList.toggle('bg-[var(--accent-gold)]', isAll);
+        b.classList.toggle('text-black', isAll);
+        b.classList.toggle('font-bold', isAll);
+        b.classList.toggle('shadow-sm', isAll);
+        b.classList.toggle('text-[var(--text-muted)]', !isAll);
+        b.classList.toggle('font-medium', !isAll);
+      });
+
+      renderRows();
+    }
+
+    if (resetFiltersBtn) resetFiltersBtn.addEventListener('click', resetAllFilters);
+    if (emptyResetBtn) emptyResetBtn.addEventListener('click', resetAllFilters);
+
+    // Header Sort
+    headerSorts.forEach(th => {
+      th.addEventListener('click', () => {
+        const col = th.getAttribute('data-sort');
+        if (sortColumn === col) {
+          sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+        } else {
+          sortColumn = col;
+          sortDirection = (col === 'weightKg' || col === 'date') ? 'desc' : 'asc';
+        }
+
+        // Update indicator icons
+        headerSorts.forEach(h => {
+          const indicator = h.querySelector('.sort-indicator');
+          if (h === th) {
+            indicator.textContent = sortDirection === 'asc' ? '▲' : '▼';
+            indicator.classList.remove('opacity-40');
+            indicator.classList.add('text-[var(--accent-gold)]');
+          } else {
+            indicator.textContent = '↕';
+            indicator.classList.add('opacity-40');
+            indicator.classList.remove('text-[var(--accent-gold)]');
+          }
+        });
+
+        renderRows();
+      });
+    });
+
+    // Initial render
+    renderRows();
+  })();
+</script>

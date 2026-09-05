@@ -1,0 +1,22 @@
+project:
+  type: default
+
+format:
+  html:
+    theme:
+      light: [cosmo, theme-calibrated.scss]
+    toc: true
+    toc-depth: 3
+    toc-title: "Contents"
+    number-sections: false
+    code-fold: true
+    code-tools: true
+    code-summary: "Show Code"
+    self-contained: true
+    grid:
+      body-width: 1000px
+      margin-width: 280px
+execute:
+  echo: true
+  warning: false
+  message: false

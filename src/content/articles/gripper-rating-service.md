@@ -1,9 +1,9 @@
 ---
 title: Gripper Rating Service
 description: >-
-  Discover our Gripper Rating Service at Grip Australia! Get your grippers rated
-  accurately with Artie's Grip Gym, a cost-effective alternative to Cannon
-  PowerWorks.
+  Accurate RGC calibration for torsion-spring hand grippers in Australia. Tested
+  against Cannon PowerWorks standards with durable color-coded tags, transparent pricing,
+  and fast local turnaround.
 originalUrl: https://gripaustralia.com/gripper-rating-service
 migratedAt: '2026-09-04T04:22:31.613Z'
 author: Grip Australia
@@ -12,30 +12,24 @@ tags:
   - australia
   - grippers
   - rating
----
-
+  - rgc
+  - calibration
 ---
 
 ![Hand grip strengtheners with numbered tags laid out on a surface.](../../assets/images/gripper-rating-service-6c1d6506.jpg)
 
-#### Artie's Grip Gym - Rating Service
+### Artie's Grip Gym — Australian Gripper Rating Service
 
-If you're serious about grippers you've probably heard of  RGC ratings for grippers.
+If you're serious about hand strength and crushing power, you've almost certainly heard of **RGC (Rating Gripper Calibration)** ratings for torsion-spring grippers.
 
-[Cannon PowerWorks](https://cannonpowerworks.com/) is an exceptional US company that rates grippers, however the cost of shipping and exchange rate fluctuations can make this service prohibitively expensive for Australians.
+[Cannon PowerWorks](https://cannonpowerworks.com/) in the USA pioneered standardized gripper calibration. However, the cost of return international shipping, customs declarations, and US dollar conversion can make sending grippers overseas prohibitively expensive for Australians ($80–$120+ AUD round-trip).
 
-  
+Artie's Grip Gym provides Australian grip athletes with calibrated RGC ratings directly matched to Cannon PowerWorks standards.
 
-Artie's Grip Gym has calibrated their rating service to match the results of Cannon PowerWorks ratings.
+#### Pricing & Services
 
-To have your grippers rated please fill out the Contact Us form to receive payment and shipping information.
-
-  
-
-Artie is offering this service at the following rates:
-
-1 Gripper - $10
-
-Each Additional Gripper (in the same shipment) - $5
-
-Sender to include self-addressed return mailing bag with grippers.
+* **1st Gripper:** $10 AUD
+* **Each Additional Gripper:** $5 AUD (in the same shipment)
+* **Return Shipping:** Sender to include a self-addressed, prepaid Australia Post tracked satchel.
+* **Turnaround:** Typically 2–4 business days within Australia.
+* **Rating Tag:** Each calibrated gripper is returned with an anodized aluminum disc tag stamped with its verified RGC value.

@@ -21,10 +21,11 @@ from bs4 import BeautifulSoup
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
+from utils import BASE_URL, DEFAULT_DB_PATH, clean_text, get_http_session
+
 # --- Configuration & Paths ---
-BASE_URL = "https://www.gripsport.org"
 SCRIPT_DIR = Path(__file__).resolve().parent
-DB_PATH = SCRIPT_DIR / "gripsport.duckdb" if (SCRIPT_DIR / "gripsport.duckdb").exists() else Path("gripsport.duckdb")
+DB_PATH = DEFAULT_DB_PATH if DEFAULT_DB_PATH.exists() else Path("gripsport.duckdb")
 CSV_EXPORT_PATH = SCRIPT_DIR / "athlete_first_placements.csv" if (SCRIPT_DIR / "athlete_first_placements.csv").exists() else Path("athlete_first_placements.csv")
 DEBUG_DIR = SCRIPT_DIR / "debug_html"
 DEBUG_DIR.mkdir(exist_ok=True)
@@ -36,21 +37,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger("gripsport")
 
-session = requests.Session()
-retries = Retry(
-    total=3,
-    backoff_factor=1.5,
-    status_forcelist=[500, 502, 503, 504],
-    raise_on_status=False,
-)
-session.mount("https://", adapter=HTTPAdapter(max_retries=retries))
-session.mount("http://", adapter=HTTPAdapter(max_retries=retries))
-session.headers.update(
-    {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) GripSportResearch/1.0",
-        "Accept": "text/html,application/xhtml+xml,application/xml",
-    }
-)
+session = get_http_session()
 
 
 def init_db(con: duckdb.DuckDBPyConnection):

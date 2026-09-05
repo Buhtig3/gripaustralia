@@ -19,10 +19,15 @@ While modern grip sport contests utilise calibrated loading pins and revolving h
 
 This page serves as the official Australian honour roll, chronicling the Australian athletes who have conquered the most prestigious benchmarks in grip history.
 
+> [!TIP]
+> **Looking for National Competition Records?**
+> Explore the full, sortable, and filterable [Official Australian Grip Records Registry](/records) for all sanctioned Grip Sport International (GSI) implements, national marks, and weight classes.
+
 ---
 
 ### Quick Jump Navigation
 
+* 📊 [Official Australian Grip Records Registry](/records)
 * 🏋️‍♂️ [The Thomas Inch Dumbbell & Heavy Replicas](#the-thomas-inch-dumbbell)
 * 🪨 [The York Blob & Heavy Block Weights](#the-york-blob)
 * 🗜️ [Captains of Crush #3 Certification](#captains-of-crush-grippers)

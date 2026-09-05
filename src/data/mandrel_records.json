@@ -1,0 +1,178 @@
+[
+  {
+    "rank": 1,
+    "name": "Henry Mullett",
+    "gender": "men",
+    "weightKg": 133.55,
+    "isRecord": true,
+    "weightLbs": 294.4
+  },
+  {
+    "rank": 2,
+    "name": "Isaac Pitt",
+    "gender": "men",
+    "weightKg": 113.55,
+    "isRecord": false,
+    "weightLbs": 250.3
+  },
+  {
+    "rank": 3,
+    "name": "Glenn Hunter",
+    "gender": "men",
+    "weightKg": 93.55,
+    "isRecord": false,
+    "weightLbs": 206.2
+  },
+  {
+    "rank": 4,
+    "name": "Thomas Denmeade",
+    "gender": "men",
+    "weightKg": 93.55,
+    "isRecord": false,
+    "weightLbs": 206.2
+  },
+  {
+    "rank": 5,
+    "name": "Joseph Hodgson",
+    "gender": "men",
+    "weightKg": 91.3,
+    "isRecord": false,
+    "weightLbs": 201.3
+  },
+  {
+    "rank": 6,
+    "name": "Jayden Osmialowski",
+    "gender": "men",
+    "weightKg": 88.55,
+    "isRecord": false,
+    "weightLbs": 195.2
+  },
+  {
+    "rank": 7,
+    "name": "Samuel Vogt",
+    "gender": "men",
+    "weightKg": 88.55,
+    "isRecord": false,
+    "weightLbs": 195.2
+  },
+  {
+    "rank": 8,
+    "name": "Mark Boylin",
+    "gender": "men",
+    "weightKg": 79.5,
+    "isRecord": false,
+    "weightLbs": 175.3
+  },
+  {
+    "rank": 9,
+    "name": "Travis Herbert",
+    "gender": "men",
+    "weightKg": 78.55,
+    "isRecord": false,
+    "weightLbs": 173.2
+  },
+  {
+    "rank": 10,
+    "name": "Dominic Awad",
+    "gender": "men",
+    "weightKg": 73.8,
+    "isRecord": false,
+    "weightLbs": 162.7
+  },
+  {
+    "rank": 11,
+    "name": "Lachlan Simms",
+    "gender": "men",
+    "weightKg": 73.8,
+    "isRecord": false,
+    "weightLbs": 162.7
+  },
+  {
+    "rank": 12,
+    "name": "Mathew Wayling",
+    "gender": "men",
+    "weightKg": 73.8,
+    "isRecord": false,
+    "weightLbs": 162.7
+  },
+  {
+    "rank": 13,
+    "name": "James Sue",
+    "gender": "men",
+    "weightKg": 68.8,
+    "isRecord": false,
+    "weightLbs": 151.7
+  },
+  {
+    "rank": 14,
+    "name": "Dejan \"Dead\" Redzic",
+    "gender": "men",
+    "weightKg": 68.55,
+    "isRecord": false,
+    "weightLbs": 151.1
+  },
+  {
+    "rank": 15,
+    "name": "Sean Magnusson",
+    "gender": "men",
+    "weightKg": 63.55,
+    "isRecord": false,
+    "weightLbs": 140.1
+  },
+  {
+    "rank": 16,
+    "name": "Thomas Claxton",
+    "gender": "men",
+    "weightKg": 63.8,
+    "isRecord": false,
+    "weightLbs": 140.7
+  },
+  {
+    "rank": 17,
+    "name": "Joseph Ameer",
+    "gender": "men",
+    "weightKg": 58.8,
+    "isRecord": false,
+    "weightLbs": 129.6
+  },
+  {
+    "rank": 18,
+    "name": "Andrew Hodge",
+    "gender": "men",
+    "weightKg": 38.55,
+    "isRecord": false,
+    "weightLbs": 85.0
+  },
+  {
+    "rank": 19,
+    "name": "James Burns",
+    "gender": "men",
+    "weightKg": 38.55,
+    "isRecord": false,
+    "weightLbs": 85.0
+  },
+  {
+    "rank": 1,
+    "name": "Sarah Rodwell",
+    "gender": "women",
+    "weightKg": 53.8,
+    "isRecord": true,
+    "weightLbs": 118.6
+  },
+  {
+    "rank": 2,
+    "name": "Megan Galvin",
+    "gender": "women",
+    "weightKg": 53.55,
+    "isRecord": false,
+    "weightLbs": 118.1
+  },
+  {
+    "rank": 3,
+    "name": "Naomi Denmeade",
+    "gender": "women",
+    "weightKg": 48.55,
+    "isRecord": false,
+    "weightLbs": 107.0
+  }
+]

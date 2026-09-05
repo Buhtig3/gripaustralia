@@ -1,45 +1,4 @@
-#!/usr/bin/env -S uv run
-# /// script
-# requires-python = ">=3.11"
-# dependencies = [
-#     "pandas",
-#     "numpy", 
-#     "matplotlib",
-#     "seaborn",
-#     "nbformat",
-#     "nbclient",
-#     "ipykernel",
-#     "duckdb>=1.0.0",
-#     "requests>=2.31.0",
-#     "plotly>=5.18.0",
-#     "itables>=2.0.0",
-# ]
-# ///
-"""
-Build and execute gripsport_analysis.ipynb with pre-computed outputs and charts,
-and generate the companion Quarto report (gripsport_analysis.qmd) styled to
-Calibrated Athletic Minimalism design tokens.
-"""
-import sys
-import asyncio
-from pathlib import Path
-import nbformat as nbf
-from nbclient import NotebookClient
-
-# Suppress ProactorEventLoop warning on Windows for zmq
-if sys.platform == "win32":
-    try:
-        asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
-    except Exception:
-        pass
-
-SCRIPT_DIR = Path(__file__).resolve().parent
-PROJECT_ROOT = SCRIPT_DIR.parent
-
-# -----------------------------------------------------------------------------
-# Quarto Frontmatter & SCSS Companion
-# -----------------------------------------------------------------------------
-QUARTO_FRONTMATTER = """---
+---
 title: "GripSport Analytics: Athlete Performance & Leaderboards"
 subtitle: "Analyzing Global Competitors: All Events vs. Tracked Events"
 author: "GripSport Analytics"
@@ -64,138 +23,8 @@ execute:
   warning: false
   message: false
 ---
-"""
 
-SCSS_CONTENT = """/*-- scss:defaults --*/
-$font-family-sans-serif: 'Inter', sans-serif;
-$headings-font-family: 'Barlow Condensed', sans-serif;
-
-// Calibrated Theme Color Tokens matching global.css
-$body-bg: #f8f9fa;
-$body-color: #0f172a;
-$card-bg: #ffffff;
-$primary: #143024;
-$warning: #e5a93c;
-$danger: #e05a2b;
-
-/*-- scss:rules --*/
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
-
-body {
-  font-family: $font-family-sans-serif;
-  background-color: $body-bg;
-  color: $body-color;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: $headings-font-family;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  color: #143024;
-}
-
-h1 {
-  border-bottom: 2px solid #e2e8f0;
-  padding-bottom: 0.5rem;
-}
-
-h2 {
-  border-bottom: 1px solid #e2e8f0;
-  padding-bottom: 0.35rem;
-  margin-top: 2rem;
-}
-
-// DataTables and HTML Tables styling matching .prose-grip
-.dataTables_wrapper, table.dataTable {
-  background-color: #ffffff;
-  border-radius: 8px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 14px rgba(20, 48, 36, 0.05);
-  margin: 1.25rem 0;
-
-  thead th {
-    background-color: #f1f3f5 !important;
-    color: #0f172a !important;
-    font-family: 'Barlow Condensed', sans-serif !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.04em !important;
-    border-bottom: 1px solid #e2e8f0 !important;
-    padding: 10px 14px !important;
-  }
-
-  tbody td {
-    border-bottom: 1px solid #e2e8f0 !important;
-    font-variant-numeric: tabular-nums;
-    padding: 8px 14px !important;
-  }
-
-  tbody tr:hover td {
-    background-color: #f8f9fa !important;
-  }
-}
-
-.callout-note {
-  border-left-color: #143024 !important;
-  border-radius: 8px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 12px rgba(20, 48, 36, 0.04);
-}
-
-.callout-tip {
-  border-left-color: #e5a93c !important;
-  border-radius: 8px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 12px rgba(20, 48, 36, 0.04);
-}
-
-.callout-important {
-  border-left-color: #e05a2b !important;
-  border-radius: 8px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 12px rgba(20, 48, 36, 0.04);
-}
-"""
-
-QUARTO_YML = """project:
-  type: default
-
-format:
-  html:
-    theme:
-      light: [cosmo, theme-calibrated.scss]
-    toc: true
-    toc-depth: 3
-    toc-title: "Contents"
-    number-sections: false
-    code-fold: true
-    code-tools: true
-    code-summary: "Show Code"
-    self-contained: true
-    grid:
-      body-width: 1000px
-      margin-width: 280px
-execute:
-  echo: true
-  warning: false
-  message: false
-"""
-
-
-# -----------------------------------------------------------------------------
-# Section Cell Builders
-# -----------------------------------------------------------------------------
-cells_data = []
-
-def add_md(text: str):
-    cells_data.append(("markdown", text.strip()))
-
-def add_code(code: str):
-    cells_data.append(("code", code.strip()))
-
-
-# --- Intro ---
-add_md(r"""# 🏋️‍♂️ GripSport Analytics: Athlete Performance & Leaderboards
+# 🏋️‍♂️ GripSport Analytics: Athlete Performance & Leaderboards
 ### Analyzing Global Competitors: All Events vs. Tracked Events (`gripsport.duckdb`)
 
 This notebook and companion report provide an in-depth exploratory data analysis (EDA) of international grip sport athletes from the `gripsport.duckdb` database and official tracked event records.
@@ -216,10 +45,9 @@ GripSport tracks competitive performances across numerous historical and active 
 5. **National Depth vs. Elite Peak Metric**: Gini coefficients, median performance, and top-2 athlete concentration ratios.
 6. **Rank Shift (Bump) Visualizations**: Tracking how athlete ranks dynamically shift between All Events and Tracked Events.
 7. **Untracked Win Distribution**: ECDF curve and segmented tier breakdown replacing low-resolution histograms.
-""")
 
-# --- Setup Cell ---
-add_code(r"""# Environment & Calibrated Theming Setup
+```{python}
+# Environment & Calibrated Theming Setup
 import duckdb
 import pandas as pd
 import numpy as np
@@ -279,19 +107,18 @@ color_all = BRAND_DARK_GREEN
 color_tracked = BRAND_GOLD
 
 print("Calibrated Athletic Minimalism styling initialized successfully!")
-""")
+```
 
-# --- Data Ingestion & Bayesian Smoothing ---
-add_md(r"""## 1. Data Ingestion & Integration
+## 1. Data Ingestion & Integration
 
 We connect to `gripsport.duckdb` (or fallback CSV) to load athlete details and official tracked events list. 
 In this step, we also compute:
 - **`untracked_ones`**: The delta between lifetime wins and standardized tracked wins.
 - **`win_rate_bayes`**: Bayesian-smoothed win rate per contest using an empirical Bayes prior ($m=10$) to account for volume disparity.
 - **`era`**: Categorization into Pioneer/Veteran Era (debut Pre-2015, `athlete_id < 750`) vs. Modern Era (`athlete_id >= 750`).
-""")
 
-add_code(r"""# Resolve database / CSV paths
+```{python}
+# Resolve database / CSV paths
 db_candidates = [
     Path("gripsport.duckdb"),
     Path("scripts/gripsport.duckdb"),
@@ -363,9 +190,10 @@ df['era'] = np.where(df['athlete_id'] < 750, 'Pre-2015 (Pioneer/Veteran)', 'Post
 
 print(f"Loaded {len(df)} athletes. Global Tracked Win Rate per Contest: {global_mu:.3f}")
 show(df.head(5), classes="display compact", scrollX=True)
-""")
+```
 
-add_code(r"""# High-level aggregate statistics: All Events vs. Tracked Events
+```{python}
+# High-level aggregate statistics: All Events vs. Tracked Events
 total_all = int(df['class_ones_all'].sum())
 total_tracked = int(df['class_ones_tracked'].sum())
 total_untracked = int(df['untracked_ones'].sum())
@@ -399,10 +227,9 @@ stats_comparison = pd.DataFrame({
 })
 
 show(stats_comparison, classes="display compact")
-""")
+```
 
-# --- Section 2: Global Comparison & ECDF ---
-add_md(r"""---
+---
 ## 2. Global Comparison: All vs. Tracked Events
 
 ::: {.callout-note appearance="simple"}
@@ -414,9 +241,9 @@ add_md(r"""---
 
 How much do legacy, custom, or discontinued implements affect athlete win totals?
 Below we examine the athlete distribution with an interactive scatter plot, empirical cumulative distribution function (ECDF), and legacy win tiers.
-""")
 
-add_code(r"""# Interactive Scatter Plot: All Events vs Tracked Events (Plotly)
+```{python}
+# Interactive Scatter Plot: All Events vs Tracked Events (Plotly)
 fig_scatter = px.scatter(
     df,
     x='class_ones_all',
@@ -460,9 +287,10 @@ fig_scatter.update_layout(
     margin=dict(l=40, r=40, t=50, b=40)
 )
 fig_scatter.show()
-""")
+```
 
-add_code(r"""# Static Visualizations: Scatter with Annotations & Untracked Win ECDF Plot
+```{python}
+# Static Visualizations: Scatter with Annotations & Untracked Win ECDF Plot
 fig, axes = plt.subplots(1, 2, figsize=(15, 6))
 
 # 1. Scatter Plot with Key Athlete Annotations
@@ -499,22 +327,21 @@ axes[1].legend(frameon=True, facecolor=BG_SURFACE, edgecolor=BORDER_COLOR)
 
 plt.tight_layout()
 plt.show()
-""")
+```
 
-add_md(r"""### 🏺 Athletes with Most Legacy / Untracked Wins
+### 🏺 Athletes with Most Legacy / Untracked Wins
 Long-time veterans frequently participated in competitions with one-off historical implements, special exhibition bars, or discontinued implements:
-""")
 
-add_code(r"""# Legacy Leaders Table
+```{python}
+# Legacy Leaders Table
 legacy_leaders = df.sort_values(
     by=['untracked_ones', 'class_ones_all'], ascending=[False, False]
 ).head(10)[['name', 'gender', 'country', 'contests', 'class_ones_all', 'class_ones_tracked', 'untracked_ones', 'pct_tracked', 'win_ratio_tracked']]
 
 show(legacy_leaders, classes="display compact")
-""")
+```
 
-# --- Section 3: Rank Shift (Bump) Analysis ---
-add_md(r"""---
+---
 ## 3. Rank Shift (Bump) Analysis
 
 ::: {.callout-tip appearance="simple"}
@@ -526,9 +353,9 @@ Filtering out legacy and exhibition implements causes notable leadership rearran
 :::
 
 The bump chart below illustrates the trajectory shifts for the world's top competitors when evaluated under **All Events** vs. **Tracked Events**.
-""")
 
-add_code(r"""# Compute division rankings and rank shifts
+```{python}
+# Compute division rankings and rank shifts
 men_df = df[df['gender'] == 'Male'].copy()
 men_df = men_df.sort_values(by=['class_ones_all', 'contests'], ascending=[False, True]).reset_index(drop=True)
 men_df['rank_all'] = men_df.index + 1
@@ -571,10 +398,9 @@ plt.title("Men's Top 10 Rank Shifts: All Events vs. Tracked Events", pad=15)
 plt.grid(axis='y', linestyle='--', alpha=0.5)
 plt.tight_layout()
 plt.show()
-""")
+```
 
-# --- Section 4: Volume vs Efficiency Quadrant ---
-add_md(r"""---
+---
 ## 4. Volume vs. Efficiency Normalization & Competitor Quadrants
 
 Raw counts reward athletes who have competed for 15+ years across dozens of contests (e.g. Jedd Johnson at 70 competitions). 
@@ -583,9 +409,9 @@ To evaluate efficiency objectively, we divide competitors into four functional a
 2. **High-Efficiency Specialists**: High win rate per contest across selective appearances.
 3. **Iron Veterans**: Decades of contest frequency and reliable competitive contributions.
 4. **Developing Contenders**: Lower contest volume with emerging resumes.
-""")
 
-add_code(r"""# Competitor Quadrant Visualization
+```{python}
+# Competitor Quadrant Visualization
 plt.figure(figsize=(13, 7))
 
 sns.scatterplot(
@@ -627,30 +453,29 @@ plt.ylabel("Tracked #1 Placements per Contest")
 plt.legend(frameon=True, facecolor=BG_SURFACE, edgecolor=BORDER_COLOR)
 plt.tight_layout()
 plt.show()
-""")
+```
 
-add_md(r"""### Bayesian-Smoothed Leaderboard (Minimizing Sample Size Noise)
+### Bayesian-Smoothed Leaderboard (Minimizing Sample Size Noise)
 By incorporating a prior weight ($m=10$), athletes with very few contests (e.g. 1 contest, 1 win) shrink toward the global average ($0.152$), allowing sustained performers to stand out:
-""")
 
-add_code(r"""top_bayes = df.sort_values(
+```{python}
+top_bayes = df.sort_values(
     by=['win_rate_bayes', 'class_ones_tracked'], ascending=[False, False]
 ).head(10)[['name', 'country', 'gender', 'contests', 'class_ones_tracked', 'win_ratio_tracked', 'win_rate_bayes']]
 
 show(top_bayes, classes="display compact")
-""")
+```
 
-# --- Section 5: Career Era Adjustment ---
-add_md(r"""---
+---
 ## 5. Career Era Adjustment: Pioneer Veterans vs. Modern Competitors
 
 ::: {.callout-note appearance="simple"}
 ### Longitudinal Context
 Because athlete IDs in GripSport are assigned chronologically upon competitive debut, athletes with `athlete_id < 750` entered the sport during the Pre-2015 pioneer era when standard rulesets were still crystallizing. Modern lifters (`athlete_id >= 750`) have competed almost exclusively within officially recognized standard implements.
 :::
-""")
 
-add_code(r"""# Career Era Aggregates
+```{python}
+# Career Era Aggregates
 era_breakdown = df.groupby('era').agg(
     athletes=('athlete_id', 'count'),
     contests=('contests', 'sum'),
@@ -662,9 +487,10 @@ era_breakdown = df.groupby('era').agg(
 ).reset_index()
 
 show(era_breakdown, classes="display compact")
-""")
+```
 
-add_code(r"""# Visualizing Era Differences in Standardization
+```{python}
+# Visualizing Era Differences in Standardization
 fig, axes = plt.subplots(1, 2, figsize=(13, 5))
 
 # 1. Tracked vs Untracked Wins by Era
@@ -685,10 +511,9 @@ for i, v in enumerate(era_breakdown['tracked_retention_pct']):
 
 plt.tight_layout()
 plt.show()
-""")
+```
 
-# --- Section 6: Implement Family Categorization ---
-add_md(r"""---
+---
 ## 6. Implement Family Categorization (64 Tracked Events)
 
 Official GripSport implements span diverse grip mechanics. We categorize all 64 officially tracked implements into 6 primary functional disciplines to understand athlete specialization archetypes:
@@ -698,9 +523,9 @@ Official GripSport implements span diverse grip mechanics. We categorize all 64 
 4. **Hub & Spherical Grip**
 5. **Vertical Bar & Cones**
 6. **Grippers & Wrist/Leverage**
-""")
 
-add_code(r"""def categorize_implement(name):
+```{python}
+def categorize_implement(name):
     n = name.lower()
     if any(k in n for k in ['axle', 'crusher', 'crush', 'jug', 'rolling', 'wrist wrench', 'inch dumbbell', 'adjustable thick bar', 'napalms nightmare 1', 'napalms nightmare 2.375', 'napalms nightmare 2']):
         if 'pinch' not in n:
@@ -740,16 +565,15 @@ plt.tight_layout()
 plt.show()
 
 show(family_counts, classes="display compact")
-""")
+```
 
-# --- Section 7: Gender Leaderboards ---
-add_md(r"""---
+---
 ## 7. Gender Leaderboards: Men's & Women's Divisions
 
 Evaluating Top 10 Men and Women side-by-side under both criteria (All Events vs. Standardized Tracked Events).
-""")
 
-add_code(r"""# Men's Division Leaderboards
+```{python}
+# Men's Division Leaderboards
 top10_male_all = men_df.sort_values(
     by=['class_ones_all', 'contests'], ascending=[False, False]
 ).head(10)[['name', 'country', 'contests', 'class_ones_all', 'class_ones_tracked', 'untracked_ones', 'pct_tracked']]
@@ -760,9 +584,10 @@ top10_male_tracked = men_df.sort_values(
 
 print("TOP 10 MEN: TRACKED EVENTS")
 show(top10_male_tracked, classes="display compact")
-""")
+```
 
-add_code(r"""# Women's Division Leaderboards
+```{python}
+# Women's Division Leaderboards
 women_df = df[df['gender'] == 'Female'].copy()
 top10_female_tracked = women_df.sort_values(
     by=['class_ones_tracked', 'contests'], ascending=[False, False]
@@ -770,9 +595,10 @@ top10_female_tracked = women_df.sort_values(
 
 print("TOP 10 WOMEN: TRACKED EVENTS")
 show(top10_female_tracked, classes="display compact")
-""")
+```
 
-add_code(r"""# Visual Comparison: Top Men & Women (All vs Tracked Placements)
+```{python}
+# Visual Comparison: Top Men & Women (All vs Tracked Placements)
 fig, axes = plt.subplots(2, 1, figsize=(14, 11))
 
 # 1. Men Top 10
@@ -802,10 +628,9 @@ axes[1].legend(loc='lower right', frameon=True, facecolor=BG_SURFACE, edgecolor=
 
 plt.tight_layout()
 plt.show()
-""")
+```
 
-# --- Section 8: National Depth vs Elite Peak & Australia ---
-add_md(r"""---
+---
 ## 8. National Depth vs. Elite Peak & Australian Spotlight
 
 ::: {.callout-note appearance="simple"}
@@ -817,9 +642,9 @@ In this section, we analyze each nation's depth using:
 - **`avg_tracked` & `median_tracked`**: Average and median wins per competitor.
 - **`top2_share_pct`**: The percentage of a country's total tracked wins achieved by its top 2 athletes (separating deep national rosters from superstar-driven rosters).
 - **`gini_coef`**: Gini coefficient of inequality in win distribution.
-""")
 
-add_code(r"""def compute_gini(arr):
+```{python}
+def compute_gini(arr):
     arr = np.array(arr, dtype=np.float64)
     if len(arr) == 0 or np.sum(arr) == 0:
         return 0.0
@@ -851,9 +676,10 @@ for country, grp in df.groupby('country'):
 
 country_df = pd.DataFrame(country_stats).sort_values(by='tracked_wins', ascending=False).reset_index(drop=True)
 show(country_df, classes="display compact")
-""")
+```
 
-add_code(r"""# Visualizing National Depth vs Elite Peak (Scatter)
+```{python}
+# Visualizing National Depth vs Elite Peak (Scatter)
 plt.figure(figsize=(10, 6))
 
 sns.scatterplot(
@@ -874,28 +700,27 @@ plt.xlabel("Total Tracked #1 Placements")
 plt.ylabel("Top 2 Athlete Share of Total Wins (%)")
 plt.tight_layout()
 plt.show()
-""")
+```
 
-add_md(r"""### 🇦🇺 Australian Athletes Detailed Roster
+### 🇦🇺 Australian Athletes Detailed Roster
 Complete breakdown for Australia's qualifying competitors ($\ge 8$ contests or notable medalists):
-""")
 
-add_code(r"""aus_roster = df[df['country'] == 'Australia'].sort_values(
+```{python}
+aus_roster = df[df['country'] == 'Australia'].sort_values(
     by=['class_ones_tracked', 'class_ones_all', 'contests'], ascending=[False, False, False]
 ).reset_index(drop=True)
 
 aus_roster.index += 1
 show(aus_roster[['name', 'gender', 'contests', 'class_ones_tracked', 'class_ones_all', 'untracked_ones', 'pct_tracked', 'win_ratio_tracked', 'win_rate_bayes']], classes="display compact")
-""")
+```
 
-# --- Section 9: DuckDB SQL Playground ---
-add_md(r"""---
+---
 ## 9. DuckDB SQL Query Playground
 
 Analytical queries running natively on DuckDB using window functions and conditional aggregations.
-""")
 
-add_code(r"""if db_path:
+```{python}
+if db_path:
     con = duckdb.connect(str(db_path), read_only=True)
 else:
     con = duckdb.connect(":memory:")
@@ -926,10 +751,9 @@ ORDER BY country, tracked_rank;
 rank_res = con.execute(sql_ranks).df()
 show(rank_res, classes="display compact")
 con.close()
-""")
+```
 
-# --- Section 10: Key Findings & Summary ---
-add_md(r"""---
+---
 ## 10. Key Findings & Executive Summary
 
 1. **High Tracked Implements Standardization (76.8% Global Retention)**:
@@ -946,78 +770,3 @@ add_md(r"""---
 
 4. **Career Era Impact**:
    - Pre-2015 pioneer athletes hold over 60% of all untracked wins (averaging 0.58 untracked wins per lifter vs. 0.20 for modern athletes), proving that untracked wins are predominantly an artifact of early-era competitions.
-""")
-
-
-# -----------------------------------------------------------------------------
-# Compilation: Generate gripsport_analysis.ipynb and gripsport_analysis.qmd
-# -----------------------------------------------------------------------------
-def build_all():
-    # 1. Build Jupyter Notebook
-    nb = nbf.v4.new_notebook()
-    nb.metadata = {
-        "kernelspec": {
-            "display_name": "Python 3",
-            "language": "python",
-            "name": "python3"
-        },
-        "language_info": {
-            "name": "python",
-            "version": "3.11"
-        }
-    }
-    
-    nb_cells = []
-    qmd_parts = [QUARTO_FRONTMATTER]
-    
-    for cell_type, content in cells_data:
-        if cell_type == "markdown":
-            nb_cells.append(nbf.v4.new_markdown_cell(content))
-            qmd_parts.append(f"\n{content}\n")
-        elif cell_type == "code":
-            nb_cells.append(nbf.v4.new_code_cell(content))
-            qmd_parts.append(f"\n```{{python}}\n{content}\n```\n")
-            
-    nb.cells = nb_cells
-    
-    # Write Quarto Document
-    qmd_content = "".join(qmd_parts)
-    
-    qmd_targets = [PROJECT_ROOT / "gripsport_analysis.qmd", SCRIPT_DIR / "gripsport_analysis.qmd"]
-    for q_path in qmd_targets:
-        with open(q_path, "w", encoding="utf-8") as f:
-            f.write(qmd_content)
-        print(f"Generated Quarto report at: {q_path}")
-        
-    # Write SCSS & _quarto.yml
-    scss_targets = [PROJECT_ROOT / "theme-calibrated.scss", SCRIPT_DIR / "theme-calibrated.scss"]
-    for s_path in scss_targets:
-        with open(s_path, "w", encoding="utf-8") as f:
-            f.write(SCSS_CONTENT)
-            
-    yml_targets = [PROJECT_ROOT / "_quarto.yml", SCRIPT_DIR / "_quarto.yml"]
-    for y_path in yml_targets:
-        with open(y_path, "w", encoding="utf-8") as f:
-            f.write(QUARTO_YML)
-            
-    # Write & Execute Notebook
-    nb_targets = [PROJECT_ROOT / "gripsport_analysis.ipynb", SCRIPT_DIR / "gripsport_analysis.ipynb"]
-    primary_nb = nb_targets[0]
-    
-    with open(primary_nb, "w", encoding="utf-8") as f:
-        nbf.write(nb, f)
-    print(f"Wrote notebook to {primary_nb}. Now executing with NotebookClient to pre-render outputs...")
-    
-    client = NotebookClient(nb, timeout=600, kernel_name="python3")
-    client.execute()
-    
-    for nb_path in nb_targets:
-        with open(nb_path, "w", encoding="utf-8") as f:
-            nbf.write(nb, f)
-        print(f"Pre-rendered and saved executed notebook to: {nb_path}")
-        
-    print("\nAll assets generated and compiled successfully!")
-
-
-if __name__ == "__main__":
-    build_all()
