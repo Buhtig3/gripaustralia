@@ -87,7 +87,7 @@ const mensResults = [
         
         <!-- Women's Podium (Left) -->
         <div class="flex flex-col items-center">
-          <div class="w-full max-w-[320px] aspect-4/3 rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] mb-4">
+          <div class="w-full max-w-[320px] aspect-[4/3] rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] mb-4">
             <Image
               src={womensPodiumImg}
               alt="Women's Podium - 2026 Australian Grip Sport Championship"
@@ -123,7 +123,7 @@ const mensResults = [
 
         <!-- Competitors (Right) -->
         <div class="flex flex-col items-center">
-          <div class="w-full max-w-[320px] aspect-4/3 rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] mb-4">
+          <div class="w-full max-w-[320px] aspect-[4/3] rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] mb-4">
             <Image
               src={competitorsImg}
               alt="Competitors - 17 Men and 7 Women"
@@ -309,43 +309,28 @@ const mensResults = [
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        <div class="rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] flex flex-col">
-          <div class="aspect-4/3 w-full overflow-hidden">
-            <Image
-              src={action1Img}
-              alt="York dumbbell and block weight challenge lifts"
-              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-            />
-          </div>
-          <p class="p-3 text-xs text-[var(--text-muted)] text-center font-medium">
-            York dumbbell &amp; block weight tests
-          </p>
+        <div class="rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] aspect-[3/4] group">
+          <Image
+            src={action1Img}
+            alt="York dumbbell and block weight challenge tests - lifting implements at Iron Revolution Gym"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
         </div>
 
-        <div class="rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] flex flex-col">
-          <div class="aspect-4/3 w-full overflow-hidden">
-            <Image
-              src={action2Img}
-              alt="Competitor lifting block weights under official refereeing"
-              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-            />
-          </div>
-          <p class="p-3 text-xs text-[var(--text-muted)] text-center font-medium">
-            Refereeing &amp; official implement lift
-          </p>
+        <div class="rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] aspect-[3/4] group">
+          <Image
+            src={action2Img}
+            alt="Refereeing and official implement lift - competitor lifting block weights under official supervision"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
         </div>
 
-        <div class="rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] flex flex-col sm:col-span-2 md:col-span-1">
-          <div class="aspect-4/3 w-full overflow-hidden">
-            <Image
-              src={action3Img}
-              alt="Heavy implement challenges at the 2026 Championship"
-              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-            />
-          </div>
-          <p class="p-3 text-xs text-[var(--text-muted)] text-center font-medium">
-            Athletes testing competition implements
-          </p>
+        <div class="rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] aspect-[3/4] group sm:col-span-2 md:col-span-1">
+          <Image
+            src={action3Img}
+            alt="Athletes testing competition implements and heavy grip challenges at the 2026 Championship"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
         </div>
       </div>
     </section>
@@ -433,13 +418,13 @@ const mensResults = [
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         
-        <div>
-          <h3 class="font-display font-bold text-base uppercase text-[var(--text-main)] mb-2">
+        <div class="flex flex-col max-w-[320px] mx-auto sm:max-w-none w-full">
+          <h3 class="font-display font-bold text-sm uppercase text-[var(--text-main)] mb-2 min-h-[2.5rem] flex items-end">
             Inch Run - Isaac Pitt
           </h3>
-          <div class="aspect-video w-full rounded-xl overflow-hidden border border-[var(--border-color)] bg-black shadow-md">
+          <div class="aspect-[9/16] w-full rounded-xl overflow-hidden border border-[var(--border-color)] bg-black shadow-md">
             <iframe
               src="https://player.vimeo.com/video/1205744468?title=0&byline=0&portrait=0"
               title="Inch Run - Isaac Pitt"
@@ -450,11 +435,11 @@ const mensResults = [
           </div>
         </div>
 
-        <div>
-          <h3 class="font-display font-bold text-base uppercase text-[var(--text-main)] mb-2">
+        <div class="flex flex-col max-w-[320px] mx-auto sm:max-w-none w-full">
+          <h3 class="font-display font-bold text-sm uppercase text-[var(--text-main)] mb-2 min-h-[2.5rem] flex items-end">
             Inch Run - Martin Zhang
           </h3>
-          <div class="aspect-video w-full rounded-xl overflow-hidden border border-[var(--border-color)] bg-black shadow-md">
+          <div class="aspect-[9/16] w-full rounded-xl overflow-hidden border border-[var(--border-color)] bg-black shadow-md">
             <iframe
               src="https://player.vimeo.com/video/1205744469?title=0&byline=0&portrait=0"
               title="Inch Run - Martin Zhang"
@@ -465,11 +450,11 @@ const mensResults = [
           </div>
         </div>
 
-        <div>
-          <h3 class="font-display font-bold text-base uppercase text-[var(--text-main)] mb-2">
+        <div class="flex flex-col max-w-[320px] mx-auto sm:max-w-none w-full">
+          <h3 class="font-display font-bold text-sm uppercase text-[var(--text-main)] mb-2 min-h-[2.5rem] flex items-end">
             Inch Run - Megan Galvin
           </h3>
-          <div class="aspect-video w-full rounded-xl overflow-hidden border border-[var(--border-color)] bg-black shadow-md">
+          <div class="aspect-[9/16] w-full rounded-xl overflow-hidden border border-[var(--border-color)] bg-black shadow-md">
             <iframe
               src="https://player.vimeo.com/video/1205748123?title=0&byline=0&portrait=0"
               title="Inch Run - Megan Galvin"
@@ -480,11 +465,11 @@ const mensResults = [
           </div>
         </div>
 
-        <div>
-          <h3 class="font-display font-bold text-base uppercase text-[var(--text-main)] mb-2">
+        <div class="flex flex-col max-w-[320px] mx-auto sm:max-w-none w-full">
+          <h3 class="font-display font-bold text-sm uppercase text-[var(--text-main)] mb-2 min-h-[2.5rem] flex items-end">
             Declan Wright - Top Vertical Cannon Lift 143.3kg
           </h3>
-          <div class="aspect-video w-full rounded-xl overflow-hidden border border-[var(--border-color)] bg-black shadow-md">
+          <div class="aspect-[9/16] w-full rounded-xl overflow-hidden border border-[var(--border-color)] bg-black shadow-md">
             <iframe
               src="https://player.vimeo.com/video/1205744467?title=0&byline=0&portrait=0"
               title="Declan Wright - top Vertical Cannon lift 143.3kg"

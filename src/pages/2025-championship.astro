@@ -78,7 +78,7 @@ const mensResults = [
         
         <!-- Men's Podium (Left) -->
         <div class="flex flex-col items-center">
-          <div class="w-full max-w-[320px] aspect-4/3 rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] mb-4">
+          <div class="w-full max-w-[320px] aspect-[3/4] rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] mb-4">
             <Image
               src={podiumImg}
               alt="Men's Podium - 2025 Australian Grip Sport Championship"
@@ -114,7 +114,7 @@ const mensResults = [
 
         <!-- Official Poster (Right) -->
         <div class="flex flex-col items-center">
-          <div class="w-full max-w-[320px] aspect-4/3 rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] mb-4">
+          <div class="w-full max-w-[320px] aspect-[3/4] rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] mb-4">
             <Image
               src={posterImg}
               alt="Official 2025 Championship Poster autographed by athletes"
@@ -288,43 +288,28 @@ const mensResults = [
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        <div class="rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] flex flex-col">
-          <div class="aspect-4/3 w-full overflow-hidden">
-            <Image
-              src={action1Img}
-              alt="Isaac Pitt presenting Henry Mullett with Champion trophy"
-              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-            />
-          </div>
-          <p class="p-3 text-xs text-[var(--text-muted)] text-center font-medium">
-            Trophy presentation to Men's Champion Henry Mullett
-          </p>
+        <div class="rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] aspect-[3/4] group">
+          <Image
+            src={action1Img}
+            alt="Trophy presentation - Isaac Pitt presenting Men's Champion trophy to Henry Mullett"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
         </div>
 
-        <div class="rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] flex flex-col">
-          <div class="aspect-4/3 w-full overflow-hidden">
-            <Image
-              src={action2Img}
-              alt="Isaac Pitt and Tom Denmeade with Five Arms implement"
-              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-            />
-          </div>
-          <p class="p-3 text-xs text-[var(--text-muted)] text-center font-medium">
-            Five Arms implement showcase with Tom Denmeade
-          </p>
+        <div class="rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] aspect-[3/4] group">
+          <Image
+            src={action2Img}
+            alt="Five Arms implement showcase - Isaac Pitt and Tom Denmeade testing championship equipment"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
         </div>
 
-        <div class="rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] flex flex-col sm:col-span-2 md:col-span-1">
-          <div class="aspect-4/3 w-full overflow-hidden">
-            <Image
-              src={action3Img}
-              alt="Competitors gathered at the score and award table"
-              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-            />
-          </div>
-          <p class="p-3 text-xs text-[var(--text-muted)] text-center font-medium">
-            Athletes and judges around the championship score table
-          </p>
+        <div class="rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] aspect-[3/4] group sm:col-span-2 md:col-span-1">
+          <Image
+            src={action3Img}
+            alt="Athletes, judges, and officials gathered around the championship score and award table"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
         </div>
       </div>
     </section>
