@@ -29,7 +29,7 @@ execute:
 
 This notebook and companion report provide an in-depth exploratory data analysis (EDA) of international grip sport athletes from the `gripsport.duckdb` database and official tracked event records.
 
----
+***
 
 ### 📌 Core Focus: `class_ones_all` vs. `class_ones_tracked`
 GripSport tracks competitive performances across numerous historical and active implements. This dataset distinguishes between:
@@ -121,6 +121,7 @@ In this step, we also compute:
 # Resolve database / CSV paths
 db_candidates = [
     Path("gripsport.duckdb"),
+    Path("../scripts/gripsport.duckdb"),
     Path("scripts/gripsport.duckdb"),
     Path("../gripsport.duckdb")
 ]
@@ -159,7 +160,9 @@ if db_path:
 else:
     csv_candidates = [
         Path("athlete_first_placements.csv"),
-        Path("scripts/athlete_first_placements.csv")
+        Path("../scripts/athlete_first_placements.csv"),
+        Path("scripts/athlete_first_placements.csv"),
+        Path("../athlete_first_placements.csv")
     ]
     csv_path = next((p for p in csv_candidates if p.exists()), Path("athlete_first_placements.csv"))
     raw_df = pd.read_csv(csv_path)
@@ -229,11 +232,12 @@ stats_comparison = pd.DataFrame({
 show(stats_comparison, classes="display compact")
 ```
 
----
+***
 ## 2. Global Comparison: All vs. Tracked Events
 
-::: {.callout-note appearance="simple"}
+:::{.callout-note}
 ### Tracking Standard Overview
+
 * **`class_ones_all`**: Lifetime #1 placements won across all recorded competitive implements.
 * **`class_ones_tracked`**: #1 placements restricted strictly to currently active and officially tracked implements.
 * **`untracked_ones` ($\Delta$)**: Wins collected on legacy, custom, or one-off contest implements.
@@ -341,15 +345,17 @@ legacy_leaders = df.sort_values(
 show(legacy_leaders, classes="display compact")
 ```
 
----
+***
 ## 3. Rank Shift (Bump) Analysis
 
-::: {.callout-tip appearance="simple"}
+::: {.callout-tip}
 ### Global Rank Trajectories
+
 Filtering out legacy and exhibition implements causes notable leadership rearrangements:
-- **Jesse Hagedorn** ascends to **#1 in the world** in the Men's division with a 100% tracked record (22/22).
-- **Isaac Pitt (Australia)** leaps from **#8 to #4 worldwide** among men (and surges into the global top 10 overall).
-- **Lucas Raymond** falls 6 spots from #3 to #9, revealing that 37.5% of his wins came on legacy equipment.
+
+* **Jesse Hagedorn** ascends to **#1 in the world** in the Men's division with a 100% tracked record (22/22).
+* **Isaac Pitt (Australia)** leaps from **#8 to #4 worldwide** among men (and surges into the global top 10 overall).
+* **Lucas Raymond** falls 6 spots from #3 to #9, revealing that 37.5% of his wins came on legacy equipment.
 :::
 
 The bump chart below illustrates the trajectory shifts for the world's top competitors when evaluated under **All Events** vs. **Tracked Events**.
@@ -400,7 +406,7 @@ plt.tight_layout()
 plt.show()
 ```
 
----
+***
 ## 4. Volume vs. Efficiency Normalization & Competitor Quadrants
 
 Raw counts reward athletes who have competed for 15+ years across dozens of contests (e.g. Jedd Johnson at 70 competitions). 
@@ -466,11 +472,12 @@ top_bayes = df.sort_values(
 show(top_bayes, classes="display compact")
 ```
 
----
+***
 ## 5. Career Era Adjustment: Pioneer Veterans vs. Modern Competitors
 
-::: {.callout-note appearance="simple"}
+:::{.callout-note}
 ### Longitudinal Context
+
 Because athlete IDs in GripSport are assigned chronologically upon competitive debut, athletes with `athlete_id < 750` entered the sport during the Pre-2015 pioneer era when standard rulesets were still crystallizing. Modern lifters (`athlete_id >= 750`) have competed almost exclusively within officially recognized standard implements.
 :::
 
@@ -513,7 +520,7 @@ plt.tight_layout()
 plt.show()
 ```
 
----
+***
 ## 6. Implement Family Categorization (64 Tracked Events)
 
 Official GripSport implements span diverse grip mechanics. We categorize all 64 officially tracked implements into 6 primary functional disciplines to understand athlete specialization archetypes:
@@ -567,7 +574,7 @@ plt.show()
 show(family_counts, classes="display compact")
 ```
 
----
+***
 ## 7. Gender Leaderboards: Men's & Women's Divisions
 
 Evaluating Top 10 Men and Women side-by-side under both criteria (All Events vs. Standardized Tracked Events).
@@ -630,11 +637,12 @@ plt.tight_layout()
 plt.show()
 ```
 
----
+***
 ## 8. National Depth vs. Elite Peak & Australian Spotlight
 
-::: {.callout-note appearance="simple"}
+:::{.callout-note}
 ### 🇦🇺 Australian Grip Athletes: World-Class Standardization
+
 Australia showcases extraordinary data purity: **Isaac Pitt** ranks **#4 globally** among men on tracked implements (12 tracked #1s out of 12 all, 100% retention). Australia also boasts deep talent including Joseph Hodgson (5 tracked #1s), Tom Denmeade (4 tracked #1s), and Megan Galvin (8 tracked #1s, 1.60 win ratio).
 :::
 
@@ -714,7 +722,7 @@ aus_roster.index += 1
 show(aus_roster[['name', 'gender', 'contests', 'class_ones_tracked', 'class_ones_all', 'untracked_ones', 'pct_tracked', 'win_ratio_tracked', 'win_rate_bayes']], classes="display compact")
 ```
 
----
+***
 ## 9. DuckDB SQL Query Playground
 
 Analytical queries running natively on DuckDB using window functions and conditional aggregations.
@@ -753,7 +761,7 @@ show(rank_res, classes="display compact")
 con.close()
 ```
 
----
+***
 ## 10. Key Findings & Executive Summary
 
 1. **High Tracked Implements Standardization (76.8% Global Retention)**:

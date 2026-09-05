@@ -35,15 +35,16 @@ const currentYear = new Date().getFullYear();
 
       <!-- Quick Links -->
       <div>
-        <h3 class="text-xs font-semibold uppercase tracking-wider text-[var(--accent-gold)] mb-4 font-accent">Competitions & Feats</h3>
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-[var(--accent-gold)] mb-4 font-accent">Records & Competitions</h3>
         <ul class="space-y-2 text-sm text-[var(--text-muted)]">
           <li><a href={getUrl('/records')} class="hover:text-[var(--text-main)] transition-colors font-medium text-[var(--accent-gold)]">Australian Grip Records</a></li>
-          <li><a href={getUrl('/competition-calendar')} class="hover:text-[var(--text-main)] transition-colors">Competition Calendar</a></li>
-          <li><a href={getUrl('/2026-championship')} class="hover:text-[var(--text-main)] transition-colors">2026 Championship</a></li>
-          <li><a href={getUrl('/2025-championship')} class="hover:text-[var(--text-main)] transition-colors">2025 Championship</a></li>
-          <li><a href={getUrl('/2024-championship')} class="hover:text-[var(--text-main)] transition-colors">2024 Championship</a></li>
-          <li><a href={getUrl('/australian-grip-feats')} class="hover:text-[var(--text-main)] transition-colors">Australian Historic Feats</a></li>
+          <li><a href={getUrl('/australian-grip-feats')} class="hover:text-[var(--text-main)] transition-colors">Australian Grip Feats</a></li>
           <li><a href={getUrl('/mulletts-mandrel')} class="hover:text-[var(--text-main)] transition-colors">Mullett's Mandrel Records</a></li>
+          <li class="pt-2 border-t border-[var(--border-color)]/50"><a href={getUrl('/competition-calendar')} class="hover:text-[var(--text-main)] transition-colors">Competition Calendar</a></li>
+          <li><a href={getUrl('/championships')} class="hover:text-[var(--text-main)] transition-colors font-medium text-[var(--text-main)]">National Championships Hub</a></li>
+          <li><a href={getUrl('/2026-championship')} class="hover:text-[var(--text-main)] transition-colors pl-2 border-l border-[var(--border-color)]">2026 Championship</a></li>
+          <li><a href={getUrl('/2025-championship')} class="hover:text-[var(--text-main)] transition-colors pl-2 border-l border-[var(--border-color)]">2025 Championship</a></li>
+          <li><a href={getUrl('/2024-championship')} class="hover:text-[var(--text-main)] transition-colors pl-2 border-l border-[var(--border-color)]">2024 Championship</a></li>
         </ul>
       </div>
 
@@ -52,6 +53,7 @@ const currentYear = new Date().getFullYear();
         <h3 class="text-xs font-semibold uppercase tracking-wider text-[var(--accent-gold)] mb-4 font-accent">Community & Tools</h3>
         <ul class="space-y-2 text-sm text-[var(--text-muted)]">
           <li><a href={getUrl('/what-is-grip-sport')} class="hover:text-[var(--text-main)] transition-colors">What is Grip Sport?</a></li>
+          <li><a href={getUrl('/equipment-guide')} class="hover:text-[var(--text-main)] transition-colors">Beginner's Equipment Guide</a></li>
           <li><a href={getUrl('/get-involved')} class="hover:text-[var(--text-main)] transition-colors">Get Involved</a></li>
           <li><a href={getUrl('/gripper-rating-service')} class="hover:text-[var(--text-main)] transition-colors">Gripper Rating Service</a></li>
           <li><a href={getUrl('/media')} class="hover:text-[var(--text-main)] transition-colors">Interviews & Media</a></li>

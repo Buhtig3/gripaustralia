@@ -13,15 +13,20 @@ tags:
   - competition
 ---
 
----
-
 ![](../../assets/images/2025-championship-b3c7cad5.jpg)
 
-Lachlan Simms (3rd) Henry Mullett (1st) and Isaac Pitt (2nd)
+#### Men's Podium
+Lachlan Simms (3rd), Henry Mullett (1st & Champion), and Isaac Pitt (2nd & Pound-for-Pound Champion)
 
 ![](../../assets/images/2025-championship-3a326477.png)
 
-14 competitors on the day with Henry Mullett winning Overall Men's Champion, Sarah Rainbow winning Overall Women's Champion and Isaac Pitt taking home the 'Proportional Force Recognition Award' aka Pound for Pound (P4P)
+14 competitors on the day with **Henry Mullett** winning Overall Men's Champion, **Sarah Rainbow** winning Overall Women's Champion, and **Isaac Pitt** taking home the 'Proportional Force Recognition Award' aka Pound for Pound (P4P).
+
+> [!NOTE]
+> **Official Grip Sport International (GSI) Record:** View the sanctioned contest record and event breakdowns on [GripSport.org (Contest #433)](https://www.gripsport.org/contest/433).
+
+#### Event Sponsors
+This event was sponsored by **Climbing Anchors**, **Arm Assassin Strength Shop**, **Nemesis Grips**, **The Grip Show**, **Cannon PowerWorks**, and **Five Arms**.
 
 ![](../../assets/images/2025-championship-d44d2256.jpeg)
 

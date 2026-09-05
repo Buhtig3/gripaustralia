@@ -1,0 +1,1324 @@
+{
+  "2024": {
+    "year": 2024,
+    "contestId": 395,
+    "title": "2024 Australian Grip Sport Championship",
+    "gsiUrl": "https://www.gripsport.org/contest/395",
+    "date": "June 1, 2024",
+    "venue": "Sydney, NSW",
+    "promoter": "Isaac Pitt",
+    "abbreviation": "AGSC24",
+    "champions": {
+      "mensOverall": "Luke Reynolds",
+      "womensOverall": null,
+      "mensP4P": "Isaac Pitt",
+      "womensP4P": null
+    },
+    "eventNames": [
+      "Napalms Nightmare 2.375\"",
+      "Napalms Nightmare 2 Hand Pinch (3\" Blocks)",
+      "Little Big Horn",
+      "Double Shallow Inch Pinch"
+    ],
+    "athleteCount": 13,
+    "mensCount": 13,
+    "womensCount": 0,
+    "athletes": [
+      {
+        "athlete": "Aaron Liu",
+        "athleteId": "1521",
+        "weightClass": "Mens 59k, Masters 50-59",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "117.80 kg",
+            "value": 117.79793858778
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "71.50 kg",
+            "value": 71.499765343059
+          },
+          "Little Big Horn": {
+            "display": "55.30 kg",
+            "value": 55.3
+          },
+          "Double Shallow Inch Pinch": {
+            "display": "35.30 kg",
+            "value": 35.3
+          }
+        }
+      },
+      {
+        "athlete": "Dominic Awad",
+        "athleteId": "2329",
+        "weightClass": "Mens 120k",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "150.30 kg",
+            "value": 150.29783192554
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "86.50 kg",
+            "value": 86.500065031538
+          },
+          "Little Big Horn": {
+            "display": "70.30 kg",
+            "value": 70.3
+          },
+          "Double Shallow Inch Pinch": {
+            "display": "40.30 kg",
+            "value": 40.3
+          }
+        }
+      },
+      {
+        "athlete": "Glenn Hunter",
+        "athleteId": "1464",
+        "weightClass": "Mens 120k+",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "130.30 kg",
+            "value": 130.29894431547
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "86.50 kg",
+            "value": 86.500065031538
+          },
+          "Little Big Horn": {
+            "display": "80.30 kg",
+            "value": 80.3
+          },
+          "Double Shallow Inch Pinch": {
+            "display": "40.30 kg",
+            "value": 40.3
+          }
+        }
+      },
+      {
+        "athlete": "Henry Mullett",
+        "athleteId": "2331",
+        "weightClass": "Mens 120k+",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "185.30 kg",
+            "value": 185.30155514779
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "121.70 kg",
+            "value": 121.69883297306
+          },
+          "Little Big Horn": {
+            "display": "85.30 kg",
+            "value": 85.3
+          },
+          "Double Shallow Inch Pinch": {
+            "display": "50.30 kg",
+            "value": 50.3
+          }
+        }
+      },
+      {
+        "athlete": "Isaac Pitt",
+        "athleteId": "2083",
+        "weightClass": "Mens 83k",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "165.30 kg",
+            "value": 165.29813161402
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "96.50 kg",
+            "value": 96.501776798425
+          },
+          "Little Big Horn": {
+            "display": "95.30 kg",
+            "value": 95.3
+          },
+          "Double Shallow Inch Pinch": {
+            "display": "42.80 kg",
+            "value": 42.8
+          }
+        }
+      },
+      {
+        "athlete": "Jermiah Merciconah",
+        "athleteId": "2332",
+        "weightClass": "Mens 120k+",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "165.30 kg",
+            "value": 165.29813161402
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "101.50 kg",
+            "value": 101.50036472002
+          },
+          "Little Big Horn": {
+            "display": "65.30 kg",
+            "value": 65.3
+          },
+          "Double Shallow Inch Pinch": {
+            "display": "35.30 kg",
+            "value": 35.3
+          }
+        }
+      },
+      {
+        "athlete": "Luke Reynolds",
+        "athleteId": "2162",
+        "weightClass": "Mens 120k+",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "199.80 kg",
+            "value": 199.79836730515
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "126.70 kg",
+            "value": 126.70195681835
+          },
+          "Little Big Horn": {
+            "display": "90.30 kg",
+            "value": 90.3
+          },
+          "Double Shallow Inch Pinch": {
+            "display": "50.30 kg",
+            "value": 50.3
+          }
+        }
+      },
+      {
+        "athlete": "Mal Bone",
+        "athleteId": "2142",
+        "weightClass": "Mens 120k+",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "165.30 kg",
+            "value": 165.29813161402
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "106.70 kg",
+            "value": 106.69853328458
+          },
+          "Little Big Horn": {
+            "display": "80.30 kg",
+            "value": 80.3
+          },
+          "Double Shallow Inch Pinch": {
+            "display": "42.80 kg",
+            "value": 42.8
+          }
+        }
+      },
+      {
+        "athlete": "Mark Boylin",
+        "athleteId": "2079",
+        "weightClass": "Mens 93k",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "115.30 kg",
+            "value": 115.29864462699
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "71.50 kg",
+            "value": 71.499765343059
+          },
+          "Little Big Horn": {
+            "display": "67.80 kg",
+            "value": 67.8
+          },
+          "Double Shallow Inch Pinch": {
+            "display": "40.30 kg",
+            "value": 40.3
+          }
+        }
+      },
+      {
+        "athlete": "Mathew Wayling",
+        "athleteId": "2425",
+        "weightClass": "Mens 120k+",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "140.30 kg",
+            "value": 140.30065608235
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "91.50 kg",
+            "value": 91.49865295313
+          },
+          "Little Big Horn": {
+            "display": "80.30 kg",
+            "value": 80.3
+          },
+          "Double Shallow Inch Pinch": {
+            "display": "50.30 kg",
+            "value": 50.3
+          }
+        }
+      },
+      {
+        "athlete": "Matthew Shaw",
+        "athleteId": "2330",
+        "weightClass": "Mens 83k",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "90.30 kg",
+            "value": 90.301169095326
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "64.00 kg",
+            "value": 64.001883460671
+          },
+          "Little Big Horn": {
+            "display": "52.80 kg",
+            "value": 52.8
+          },
+          "Double Shallow Inch Pinch": {
+            "display": "25.30 kg",
+            "value": 25.3
+          }
+        }
+      },
+      {
+        "athlete": "Tom Denmeade",
+        "athleteId": "1625",
+        "weightClass": "Mens 74k",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "140.30 kg",
+            "value": 140.30065608235
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "86.50 kg",
+            "value": 86.500065031538
+          },
+          "Little Big Horn": {
+            "display": "80.30 kg",
+            "value": 80.3
+          },
+          "Double Shallow Inch Pinch": {
+            "display": "37.80 kg",
+            "value": 37.8
+          }
+        }
+      },
+      {
+        "athlete": "Will Fuggle",
+        "athleteId": "2163",
+        "weightClass": "Mens 83k",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "160.30 kg",
+            "value": 160.29954369243
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "106.70 kg",
+            "value": 106.69853328458
+          },
+          "Little Big Horn": {
+            "display": "90.30 kg",
+            "value": 90.3
+          },
+          "Double Shallow Inch Pinch": {
+            "display": "47.80 kg",
+            "value": 47.8
+          }
+        }
+      }
+    ]
+  },
+  "2025": {
+    "year": 2025,
+    "contestId": 433,
+    "title": "2025 Australian Grip Sport Championship",
+    "gsiUrl": "https://www.gripsport.org/contest/433",
+    "date": "June 1, 2025",
+    "venue": "Ultra Fitness & Strength, Brisbane, QLD",
+    "promoter": "Isaac Pitt",
+    "abbreviation": "AGSC25",
+    "champions": {
+      "mensOverall": "Henry Mullett",
+      "womensOverall": "Sarah Rainbow",
+      "mensP4P": "Isaac Pitt",
+      "womensP4P": null
+    },
+    "eventNames": [
+      "Silver Bullet 3.5 (Men)",
+      "Napalms Nightmare 2.375\"",
+      "Napalms Nightmare 2 Hand Pinch (3\" Blocks)",
+      "Grandfather Clock / Hilt / Vertical Cannon",
+      "Silver Bullet 3 (Men)",
+      "Silver Bullet 4 (Men)"
+    ],
+    "athleteCount": 14,
+    "mensCount": 13,
+    "womensCount": 1,
+    "athletes": [
+      {
+        "athlete": "Dominic Awad",
+        "athleteId": "2329",
+        "weightClass": "Mens 120k",
+        "gender": "Men",
+        "events": {
+          "Silver Bullet 3.5 (Men)": {
+            "display": "1.09 sec",
+            "value": 1.09
+          },
+          "Napalms Nightmare 2.375\"": {
+            "display": "158.20 kg",
+            "value": 158.19941101756
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "91.30 kg",
+            "value": 91.299072310163
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "97.60 kg",
+            "value": 97.6
+          },
+          "Silver Bullet 3 (Men)": {
+            "display": "-",
+            "value": 0
+          },
+          "Silver Bullet 4 (Men)": {
+            "display": "-",
+            "value": 0
+          }
+        }
+      },
+      {
+        "athlete": "Glenn Hunter",
+        "athleteId": "1464",
+        "weightClass": "Mens 120k+",
+        "gender": "Men",
+        "events": {
+          "Silver Bullet 3.5 (Men)": {
+            "display": "-",
+            "value": 0
+          },
+          "Napalms Nightmare 2.375\"": {
+            "display": "135.70 kg",
+            "value": 135.7012294467
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "91.30 kg",
+            "value": 91.299072310163
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "97.60 kg",
+            "value": 97.6
+          },
+          "Silver Bullet 3 (Men)": {
+            "display": "6.82 sec",
+            "value": 6.82
+          },
+          "Silver Bullet 4 (Men)": {
+            "display": "-",
+            "value": 0
+          }
+        }
+      },
+      {
+        "athlete": "Henry Mullett",
+        "athleteId": "2331",
+        "weightClass": "Mens 120k+",
+        "gender": "Men",
+        "events": {
+          "Silver Bullet 3.5 (Men)": {
+            "display": "-",
+            "value": 0
+          },
+          "Napalms Nightmare 2.375\"": {
+            "display": "200.70 kg",
+            "value": 200.70101612221
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "141.30 kg",
+            "value": 141.29855929719
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "147.60 kg",
+            "value": 147.6
+          },
+          "Silver Bullet 3 (Men)": {
+            "display": "-",
+            "value": 0
+          },
+          "Silver Bullet 4 (Men)": {
+            "display": "13.36 sec",
+            "value": 13.36
+          }
+        }
+      },
+      {
+        "athlete": "Isaac Pitt",
+        "athleteId": "2083",
+        "weightClass": "Mens 83k",
+        "gender": "Men",
+        "events": {
+          "Silver Bullet 3.5 (Men)": {
+            "display": "-",
+            "value": 0
+          },
+          "Napalms Nightmare 2.375\"": {
+            "display": "175.70 kg",
+            "value": 175.69900466684
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "101.30 kg",
+            "value": 101.30078407705
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "137.60 kg",
+            "value": 137.6
+          },
+          "Silver Bullet 3 (Men)": {
+            "display": "4.11 sec",
+            "value": 4.11
+          },
+          "Silver Bullet 4 (Men)": {
+            "display": "-",
+            "value": 0
+          }
+        }
+      },
+      {
+        "athlete": "Jaksen Daddo",
+        "athleteId": "2710",
+        "weightClass": "Mens 120k",
+        "gender": "Men",
+        "events": {
+          "Silver Bullet 3.5 (Men)": {
+            "display": "-",
+            "value": 0
+          },
+          "Napalms Nightmare 2.375\"": {
+            "display": "140.70 kg",
+            "value": 140.69981736829
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "76.30 kg",
+            "value": 76.298772621683
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "77.60 kg",
+            "value": 77.6
+          },
+          "Silver Bullet 3 (Men)": {
+            "display": "-",
+            "value": 0
+          },
+          "Silver Bullet 4 (Men)": {
+            "display": "-",
+            "value": 0
+          }
+        }
+      },
+      {
+        "athlete": "Josh Cook",
+        "athleteId": "2709",
+        "weightClass": "Mens 105k",
+        "gender": "Men",
+        "events": {
+          "Silver Bullet 3.5 (Men)": {
+            "display": "-",
+            "value": 0
+          },
+          "Napalms Nightmare 2.375\"": {
+            "display": "110.70 kg",
+            "value": 110.69921799133
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "56.30 kg",
+            "value": 56.299885011613
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "67.60 kg",
+            "value": 67.6
+          },
+          "Silver Bullet 3 (Men)": {
+            "display": "-",
+            "value": 0
+          },
+          "Silver Bullet 4 (Men)": {
+            "display": "-",
+            "value": 0
+          }
+        }
+      },
+      {
+        "athlete": "Lachlan Simms",
+        "athleteId": "2423",
+        "weightClass": "Mens 120k+",
+        "gender": "Men",
+        "events": {
+          "Silver Bullet 3.5 (Men)": {
+            "display": "-",
+            "value": 0
+          },
+          "Napalms Nightmare 2.375\"": {
+            "display": "185.70 kg",
+            "value": 185.70071643373
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "106.30 kg",
+            "value": 106.29937199864
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "102.60 kg",
+            "value": 102.6
+          },
+          "Silver Bullet 3 (Men)": {
+            "display": "3.57 sec",
+            "value": 3.57
+          },
+          "Silver Bullet 4 (Men)": {
+            "display": "-",
+            "value": 0
+          }
+        }
+      },
+      {
+        "athlete": "Mark Boylin",
+        "athleteId": "2079",
+        "weightClass": "Mens 105k",
+        "gender": "Men",
+        "events": {
+          "Silver Bullet 3.5 (Men)": {
+            "display": "-",
+            "value": 0
+          },
+          "Napalms Nightmare 2.375\"": {
+            "display": "125.70 kg",
+            "value": 125.69951767981
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "76.30 kg",
+            "value": 76.298772621683
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "87.60 kg",
+            "value": 87.6
+          },
+          "Silver Bullet 3 (Men)": {
+            "display": "-",
+            "value": 0
+          },
+          "Silver Bullet 4 (Men)": {
+            "display": "-",
+            "value": 0
+          }
+        }
+      },
+      {
+        "athlete": "Mathew Wayling",
+        "athleteId": "2425",
+        "weightClass": "Mens 120k+",
+        "gender": "Men",
+        "events": {
+          "Silver Bullet 3.5 (Men)": {
+            "display": "-",
+            "value": 0
+          },
+          "Napalms Nightmare 2.375\"": {
+            "display": "150.70 kg",
+            "value": 150.70152913518
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "106.30 kg",
+            "value": 106.29937199864
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "107.60 kg",
+            "value": 107.6
+          },
+          "Silver Bullet 3 (Men)": {
+            "display": "7.23 sec",
+            "value": 7.23
+          },
+          "Silver Bullet 4 (Men)": {
+            "display": "-",
+            "value": 0
+          }
+        }
+      },
+      {
+        "athlete": "Matthew Shaw",
+        "athleteId": "2330",
+        "weightClass": "Mens 74k",
+        "gender": "Men",
+        "events": {
+          "Silver Bullet 3.5 (Men)": {
+            "display": "-",
+            "value": 0
+          },
+          "Napalms Nightmare 2.375\"": {
+            "display": "110.70 kg",
+            "value": 110.69921799133
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "61.30 kg",
+            "value": 61.298472933204
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "82.60 kg",
+            "value": 82.6
+          },
+          "Silver Bullet 3 (Men)": {
+            "display": "-",
+            "value": 0
+          },
+          "Silver Bullet 4 (Men)": {
+            "display": "-",
+            "value": 0
+          }
+        }
+      },
+      {
+        "athlete": "Samuel Farbach",
+        "athleteId": "2708",
+        "weightClass": "Mens 93k",
+        "gender": "Men",
+        "events": {
+          "Silver Bullet 3.5 (Men)": {
+            "display": "-",
+            "value": 0
+          },
+          "Napalms Nightmare 2.375\"": {
+            "display": "140.70 kg",
+            "value": 140.69981736829
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "71.30 kg",
+            "value": 71.300184700092
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "97.60 kg",
+            "value": 97.6
+          },
+          "Silver Bullet 3 (Men)": {
+            "display": "-",
+            "value": 0
+          },
+          "Silver Bullet 4 (Men)": {
+            "display": "-",
+            "value": 0
+          }
+        }
+      },
+      {
+        "athlete": "Sarah Rainbow",
+        "athleteId": "2711",
+        "weightClass": "Womens 100k",
+        "gender": "Women",
+        "events": {
+          "Silver Bullet 3.5 (Men)": {
+            "display": "-",
+            "value": 0
+          },
+          "Napalms Nightmare 2.375\"": {
+            "display": "100.70 kg",
+            "value": 100.70204214815
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "66.30 kg",
+            "value": 66.3015967785
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "72.60 kg",
+            "value": 72.6
+          },
+          "Silver Bullet 3 (Men)": {
+            "display": "-",
+            "value": 0
+          },
+          "Silver Bullet 4 (Men)": {
+            "display": "-",
+            "value": 0
+          }
+        }
+      },
+      {
+        "athlete": "Tom Denmeade",
+        "athleteId": "1625",
+        "weightClass": "Mens 74k",
+        "gender": "Men",
+        "events": {
+          "Silver Bullet 3.5 (Men)": {
+            "display": "-",
+            "value": 0
+          },
+          "Napalms Nightmare 2.375\"": {
+            "display": "140.70 kg",
+            "value": 140.69981736829
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "91.30 kg",
+            "value": 91.299072310163
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "107.60 kg",
+            "value": 107.6
+          },
+          "Silver Bullet 3 (Men)": {
+            "display": "11.92 sec",
+            "value": 11.92
+          },
+          "Silver Bullet 4 (Men)": {
+            "display": "-",
+            "value": 0
+          }
+        }
+      },
+      {
+        "athlete": "Will Fuggle",
+        "athleteId": "2163",
+        "weightClass": "Mens 83k",
+        "gender": "Men",
+        "events": {
+          "Silver Bullet 3.5 (Men)": {
+            "display": "-",
+            "value": 0
+          },
+          "Napalms Nightmare 2.375\"": {
+            "display": "150.70 kg",
+            "value": 150.70152913518
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "106.30 kg",
+            "value": 106.29937199864
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "117.60 kg",
+            "value": 117.6
+          },
+          "Silver Bullet 3 (Men)": {
+            "display": "-",
+            "value": 0
+          },
+          "Silver Bullet 4 (Men)": {
+            "display": "-",
+            "value": 0
+          }
+        }
+      }
+    ]
+  },
+  "2026": {
+    "year": 2026,
+    "contestId": 483,
+    "title": "2026 Australian Grip Sport Championship",
+    "gsiUrl": "https://www.gripsport.org/contest/483",
+    "date": "June 27, 2026",
+    "venue": "Iron Revolution Gym, Melbourne, VIC",
+    "promoter": "Isaac Pitt",
+    "abbreviation": "AGSC26",
+    "champions": {
+      "mensOverall": "Declan Wright",
+      "womensOverall": "Megan Galvin",
+      "mensP4P": "Isaac Pitt",
+      "womensP4P": "Sarah Rodwell"
+    },
+    "eventNames": [
+      "Napalms Nightmare 2.375\"",
+      "Napalms Nightmare 2 Hand Pinch (3\" Blocks)",
+      "Grandfather Clock / Hilt / Vertical Cannon"
+    ],
+    "athleteCount": 24,
+    "mensCount": 17,
+    "womensCount": 7,
+    "athletes": [
+      {
+        "athlete": "Alison Dann",
+        "athleteId": "2666",
+        "weightClass": "Womens 100k, Masters 50-59",
+        "gender": "Women",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "92.90 kg",
+            "value": 92.9
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "56.00 kg",
+            "value": 56
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "57.30 kg",
+            "value": 57.3
+          }
+        }
+      },
+      {
+        "athlete": "Benjamin Kleinberg",
+        "athleteId": "3381",
+        "weightClass": "Mens 105k",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "125.20 kg",
+            "value": 125.2
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "77.00 kg",
+            "value": 77
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "83.30 kg",
+            "value": 83.3
+          }
+        }
+      },
+      {
+        "athlete": "Christo Swart",
+        "athleteId": "3263",
+        "weightClass": "Mens 105k",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "181.20 kg",
+            "value": 181.2
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "107.00 kg",
+            "value": 107
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "103.30 kg",
+            "value": 103.3
+          }
+        }
+      },
+      {
+        "athlete": "Cressida Liu",
+        "athleteId": "3386",
+        "weightClass": "Womens 63k",
+        "gender": "Women",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "50.40 kg",
+            "value": 50.4
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "31.00 kg",
+            "value": 31
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "37.30 kg",
+            "value": 37.3
+          }
+        }
+      },
+      {
+        "athlete": "Declan Wright",
+        "athleteId": "3200",
+        "weightClass": "Mens 120k+",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "201.20 kg",
+            "value": 201.2
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "122.00 kg",
+            "value": 122
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "143.30 kg",
+            "value": 143.3
+          }
+        }
+      },
+      {
+        "athlete": "Dylan Thomson",
+        "athleteId": "3382",
+        "weightClass": "Mens 120k+",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "125.20 kg",
+            "value": 125.2
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "82.00 kg",
+            "value": 82
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "73.30 kg",
+            "value": 73.3
+          }
+        }
+      },
+      {
+        "athlete": "Erin Specht",
+        "athleteId": "3385",
+        "weightClass": "Womens 72k",
+        "gender": "Women",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "75.40 kg",
+            "value": 75.4
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "46.00 kg",
+            "value": 46
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "47.30 kg",
+            "value": 47.3
+          }
+        }
+      },
+      {
+        "athlete": "Frazer Gayapersad",
+        "athleteId": "3384",
+        "weightClass": "Mens 120k+",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "151.20 kg",
+            "value": 151.2
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "77.00 kg",
+            "value": 77
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "-",
+            "value": 0
+          }
+        }
+      },
+      {
+        "athlete": "Glen Krutli",
+        "athleteId": "1463",
+        "weightClass": "Mens 120k",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "151.20 kg",
+            "value": 151.2
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "107.00 kg",
+            "value": 107
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "93.30 kg",
+            "value": 93.3
+          }
+        }
+      },
+      {
+        "athlete": "Glenn Hunter",
+        "athleteId": "1464",
+        "weightClass": "Mens 120k+",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "131.20 kg",
+            "value": 131.2
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "92.00 kg",
+            "value": 92
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "93.30 kg",
+            "value": 93.3
+          }
+        }
+      },
+      {
+        "athlete": "Isaac Pitt",
+        "athleteId": "2083",
+        "weightClass": "Mens 83k",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "181.20 kg",
+            "value": 181.2
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "107.00 kg",
+            "value": 107
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "133.30 kg",
+            "value": 133.3
+          }
+        }
+      },
+      {
+        "athlete": "Jackson Willows",
+        "athleteId": "3261",
+        "weightClass": "Mens 105k",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "141.20 kg",
+            "value": 141.2
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "97.00 kg",
+            "value": 97
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "83.30 kg",
+            "value": 83.3
+          }
+        }
+      },
+      {
+        "athlete": "Jayden Osmialowski",
+        "athleteId": "2786",
+        "weightClass": "Mens 83k",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "141.20 kg",
+            "value": 141.2
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "97.00 kg",
+            "value": 97
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "93.30 kg",
+            "value": 93.3
+          }
+        }
+      },
+      {
+        "athlete": "Joseph Hodgson",
+        "athleteId": "1570",
+        "weightClass": "Mens 105k",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "176.20 kg",
+            "value": 176.2
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "122.00 kg",
+            "value": 122
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "103.30 kg",
+            "value": 103.3
+          }
+        }
+      },
+      {
+        "athlete": "Katie Barron",
+        "athleteId": "3267",
+        "weightClass": "Womens 63k",
+        "gender": "Women",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "65.40 kg",
+            "value": 65.4
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "36.00 kg",
+            "value": 36
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "52.30 kg",
+            "value": 52.3
+          }
+        }
+      },
+      {
+        "athlete": "Kiri Jenkinson",
+        "athleteId": "3107",
+        "weightClass": "Womens 100k+",
+        "gender": "Women",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "72.90 kg",
+            "value": 72.9
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "41.00 kg",
+            "value": 41
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "47.30 kg",
+            "value": 47.3
+          }
+        }
+      },
+      {
+        "athlete": "Lachlan Simms",
+        "athleteId": "2423",
+        "weightClass": "Mens 120k+",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "196.20 kg",
+            "value": 196.2
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "122.00 kg",
+            "value": 122
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "103.30 kg",
+            "value": 103.3
+          }
+        }
+      },
+      {
+        "athlete": "Mark Boylin",
+        "athleteId": "2079",
+        "weightClass": "Mens 105k",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "120.20 kg",
+            "value": 120.2
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "72.00 kg",
+            "value": 72
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "63.30 kg",
+            "value": 63.3
+          }
+        }
+      },
+      {
+        "athlete": "Martin Zhang",
+        "athleteId": "3380",
+        "weightClass": "Mens 83k",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "171.20 kg",
+            "value": 171.2
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "97.00 kg",
+            "value": 97
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "103.30 kg",
+            "value": 103.3
+          }
+        }
+      },
+      {
+        "athlete": "Mathew Wayling",
+        "athleteId": "2425",
+        "weightClass": "Mens 120k+",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "151.20 kg",
+            "value": 151.2
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "102.00 kg",
+            "value": 102
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "93.30 kg",
+            "value": 93.3
+          }
+        }
+      },
+      {
+        "athlete": "Matthew Shaw",
+        "athleteId": "2330",
+        "weightClass": "Mens 74k",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "110.20 kg",
+            "value": 110.2
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "67.00 kg",
+            "value": 67
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "73.30 kg",
+            "value": 73.3
+          }
+        }
+      },
+      {
+        "athlete": "Megan Galvin",
+        "athleteId": "2778",
+        "weightClass": "Womens 100k+",
+        "gender": "Women",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "105.40 kg",
+            "value": 105.4
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "63.50 kg",
+            "value": 63.5
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "77.30 kg",
+            "value": 77.3
+          }
+        }
+      },
+      {
+        "athlete": "Robert Sabbage",
+        "athleteId": "3383",
+        "weightClass": "Mens 93k",
+        "gender": "Men",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "110.20 kg",
+            "value": 110.2
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "82.00 kg",
+            "value": 82
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "73.30 kg",
+            "value": 73.3
+          }
+        }
+      },
+      {
+        "athlete": "Sarah Rodwell",
+        "athleteId": "2078",
+        "weightClass": "Womens 72k",
+        "gender": "Women",
+        "events": {
+          "Napalms Nightmare 2.375\"": {
+            "display": "100.40 kg",
+            "value": 100.4
+          },
+          "Napalms Nightmare 2 Hand Pinch (3\" Blocks)": {
+            "display": "58.50 kg",
+            "value": 58.5
+          },
+          "Grandfather Clock / Hilt / Vertical Cannon": {
+            "display": "57.30 kg",
+            "value": 57.3
+          }
+        }
+      }
+    ]
+  }
+}

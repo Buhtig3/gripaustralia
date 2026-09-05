@@ -1,0 +1,519 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import { getUrl } from '../utils/url';
+
+import womensPodiumImg from '../assets/images/2026-championship-24c10421.jpg';
+import mensPodiumImg from '../assets/images/2026-championship-4803541f.jpg';
+import competitorsImg from '../assets/images/2026-championship-5ef03799.jpg';
+import action1Img from '../assets/images/2026-championship-dd112841.jpg';
+import action2Img from '../assets/images/2026-championship-f8ffc2a5.jpg';
+import action3Img from '../assets/images/2026-championship-0529fa77.jpg';
+
+const womensResults = [
+  { rank: 1, name: 'Megan Galvin', division: 'Womens 100k+', nn: '105.40 kg', pinch: '63.50 kg', cannon: '77.30 kg', totalScore: '4.75', p4p: '1.98', honor: '🥇 Overall Champion', p4pRank: null },
+  { rank: 2, name: 'Sarah Rodwell', division: 'Womens 72k', nn: '100.40 kg', pinch: '58.50 kg', cannon: '57.30 kg', totalScore: '4.27', p4p: '2.78', honor: '🥈 2nd Overall', p4pRank: '1st P4P' },
+  { rank: 3, name: 'Alison Dann', division: 'Womens 100k (M50-59)', nn: '92.90 kg', pinch: '56.00 kg', cannon: '57.30 kg', totalScore: '4.15', p4p: '2.19', honor: '🥉 3rd Overall', p4pRank: null },
+  { rank: 4, name: 'Erin Specht', division: 'Womens 72k', nn: '75.40 kg', pinch: '46.00 kg', cannon: '47.30 kg', totalScore: '3.60', p4p: '2.33', honor: '4th', p4pRank: '3rd P4P' },
+  { rank: 5, name: 'Kiri Jenkinson', division: 'Womens 100k+', nn: '72.90 kg', pinch: '41.00 kg', cannon: '47.30 kg', totalScore: '3.50', p4p: '1.44', honor: '5th', p4pRank: null },
+  { rank: 6, name: 'Katie Barron', division: 'Womens 63k', nn: '65.40 kg', pinch: '36.00 kg', cannon: '52.30 kg', totalScore: '3.41', p4p: '2.45', honor: '6th', p4pRank: '2nd P4P' },
+  { rank: 7, name: 'Cressida Liu', division: 'Womens 63k', nn: '50.40 kg', pinch: '31.00 kg', cannon: '37.30 kg', totalScore: '2.80', p4p: '2.02', honor: '7th', p4pRank: null },
+];
+
+const mensResults = [
+  { rank: 1, name: 'Declan Wright', division: 'Mens 120k+', nn: '201.20 kg', pinch: '122.00 kg', cannon: '143.30 kg', totalScore: '5.00', p4p: '2.64', honor: '🥇 Overall Champion', p4pRank: null },
+  { rank: 2, name: 'Isaac Pitt', division: 'Mens 83k', nn: '181.20 kg', pinch: '107.00 kg', cannon: '133.30 kg', totalScore: '4.56', p4p: '5.12', honor: '🥈 2nd Overall', p4pRank: '1st P4P' },
+  { rank: 3, name: 'Lachlan Simms', division: 'Mens 120k+', nn: '196.20 kg', pinch: '122.00 kg', cannon: '103.30 kg', totalScore: '4.55', p4p: '2.68', honor: '🥉 3rd Overall', p4pRank: null },
+  { rank: 4, name: 'Joseph Hodgson', division: 'Mens 105k', nn: '176.20 kg', pinch: '122.00 kg', cannon: '103.30 kg', totalScore: '4.45', p4p: '3.83', honor: '4th', p4pRank: null },
+  { rank: 5, name: 'Christo Swart', division: 'Mens 105k', nn: '181.20 kg', pinch: '107.00 kg', cannon: '103.30 kg', totalScore: '4.30', p4p: '3.73', honor: '5th', p4pRank: null },
+  { rank: 6, name: 'Glen Krutli', division: 'Mens 120k', nn: '151.20 kg', pinch: '107.00 kg', cannon: '93.30 kg', totalScore: '4.23', p4p: '2.95', honor: '6th', p4pRank: null },
+  { rank: 7, name: 'Martin Zhang', division: 'Mens 83k', nn: '171.20 kg', pinch: '97.00 kg', cannon: '103.30 kg', totalScore: '4.12', p4p: '4.49', honor: '7th', p4pRank: '2nd P4P' },
+  { rank: 8, name: 'Mathew Wayling', division: 'Mens 120k+', nn: '151.20 kg', pinch: '102.00 kg', cannon: '93.30 kg', totalScore: '3.89', p4p: '2.40', honor: '8th', p4pRank: null },
+  { rank: 9, name: 'Jayden Osmialowski', division: 'Mens 83k', nn: '141.20 kg', pinch: '97.00 kg', cannon: '93.30 kg', totalScore: '3.75', p4p: '4.34', honor: '9th', p4pRank: '3rd P4P' },
+  { rank: 10, name: 'Jackson Willows', division: 'Mens 105k', nn: '141.20 kg', pinch: '97.00 kg', cannon: '83.30 kg', totalScore: '3.58', p4p: '3.34', honor: '10th', p4pRank: null },
+  { rank: 11, name: 'Glenn Hunter', division: 'Mens 120k+', nn: '131.20 kg', pinch: '92.00 kg', cannon: '93.30 kg', totalScore: '3.51', p4p: '2.45', honor: '11th', p4pRank: null },
+  { rank: 12, name: 'Benjamin Kleinberg', division: 'Mens 105k', nn: '125.20 kg', pinch: '77.00 kg', cannon: '83.30 kg', totalScore: '3.28', p4p: '2.88', honor: '12th', p4pRank: null },
+  { rank: 13, name: 'Dylan Thomson', division: 'Mens 120k+', nn: '125.20 kg', pinch: '82.00 kg', cannon: '73.30 kg', totalScore: '3.21', p4p: '1.72', honor: '13th', p4pRank: null },
+  { rank: 14, name: 'Robert Sabbage', division: 'Mens 93k', nn: '110.20 kg', pinch: '82.00 kg', cannon: '73.30 kg', totalScore: '3.13', p4p: '3.12', honor: '14th', p4pRank: null },
+  { rank: 15, name: 'Mark Boylin', division: 'Mens 105k', nn: '120.20 kg', pinch: '72.00 kg', cannon: '63.30 kg', totalScore: '2.98', p4p: '2.59', honor: '15th', p4pRank: null },
+  { rank: 16, name: 'Matthew Shaw', division: 'Mens 74k', nn: '110.20 kg', pinch: '67.00 kg', cannon: '73.30 kg', totalScore: '2.91', p4p: '3.60', honor: '16th', p4pRank: null },
+  { rank: 17, name: 'Frazer Gayapersad', division: 'Mens 120k+', nn: '151.20 kg', pinch: '77.00 kg', cannon: '-', totalScore: '2.83', p4p: '1.64', honor: '17th', p4pRank: null },
+];
+---
+
+<BaseLayout
+  title="2026 Australian Grip Sport Championship | Grip Australia"
+  description="Official results, photos, and video runs from the 2026 Australian Grip Sport Championship at Iron Revolution Gym, Melbourne."
+>
+  <article class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    
+    <!-- Breadcrumb -->
+    <nav class="flex items-center space-x-2 text-xs text-[var(--text-muted)] mb-6 font-mono" aria-label="Breadcrumb">
+      <a href={getUrl('/')} class="hover:text-[var(--accent-gold)] transition-colors">Home</a>
+      <span>/</span>
+      <a href={getUrl('/championships')} class="hover:text-[var(--accent-gold)] transition-colors">National Championships</a>
+      <span>/</span>
+      <span class="text-[var(--text-main)] truncate font-semibold">2026 Championship</span>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="text-center pb-8 mb-8 border-b border-[var(--border-color)]">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-[var(--text-main)] font-display uppercase tracking-tight leading-tight">
+        2026 Australian Grip Sport Championship
+      </h1>
+      <p class="mt-3 text-base sm:text-lg text-[var(--text-muted)] max-w-2xl mx-auto leading-relaxed">
+        June 27, 2026 • Iron Revolution Gym, Melbourne, VIC • GSI Sanctioned
+      </p>
+      
+      <div class="mt-4 flex flex-wrap justify-center items-center gap-2">
+        <span class="px-2.5 py-0.5 rounded bg-[var(--bg-elevated)] text-[var(--accent-gold)] font-mono text-xs font-semibold border border-[var(--accent-gold)]/30">
+          #grip sport
+        </span>
+        <span class="px-2.5 py-0.5 rounded bg-[var(--bg-elevated)] text-[var(--text-muted)] font-mono text-xs border border-[var(--border-color)]">
+          #australia
+        </span>
+        <span class="px-2.5 py-0.5 rounded bg-[var(--bg-elevated)] text-[var(--text-muted)] font-mono text-xs border border-[var(--border-color)]">
+          #championship
+        </span>
+        <span class="px-2.5 py-0.5 rounded bg-[var(--bg-elevated)] text-[var(--text-muted)] font-mono text-xs border border-[var(--border-color)]">
+          #competition
+        </span>
+      </div>
+    </header>
+
+    <!-- Podium & Competitor Grid (Matching Original Site Layout) -->
+    <section class="my-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start text-center">
+        
+        <!-- Women's Podium (Left) -->
+        <div class="flex flex-col items-center">
+          <div class="w-full max-w-[320px] aspect-4/3 rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] mb-4">
+            <Image
+              src={womensPodiumImg}
+              alt="Women's Podium - 2026 Australian Grip Sport Championship"
+              class="w-full h-full object-cover"
+              loading="eager"
+            />
+          </div>
+          <h3 class="font-display font-black text-xl uppercase tracking-wide text-[var(--text-main)] mb-1">
+            Women's Podium
+          </h3>
+          <p class="text-xs text-[var(--text-muted)] leading-relaxed max-w-[280px]">
+            Alison Dann (3rd), Megan Galvin (Champion) &amp; Sarah Rodwell (2nd &amp; Pound-for-Pound Champion)
+          </p>
+        </div>
+
+        <!-- Men's Podium (Center - Circular Photo) -->
+        <div class="flex flex-col items-center">
+          <div class="w-64 h-64 sm:w-72 sm:h-72 rounded-full overflow-hidden shadow-xl border-4 border-[var(--accent-gold)] bg-[var(--bg-surface)] mb-4 p-1">
+            <Image
+              src={mensPodiumImg}
+              alt="Men's Podium - 2026 Australian Grip Sport Championship"
+              class="w-full h-full object-cover rounded-full"
+              loading="eager"
+            />
+          </div>
+          <h3 class="font-display font-black text-xl uppercase tracking-wide text-[var(--accent-gold)] mb-1">
+            Men's Podium
+          </h3>
+          <p class="text-xs text-[var(--text-muted)] leading-relaxed max-w-[280px]">
+            Lachie Simms (3rd), Declan Wright (Champion) &amp; Isaac Pitt (2nd &amp; Pound-for-Pound Champion)
+          </p>
+        </div>
+
+        <!-- Competitors (Right) -->
+        <div class="flex flex-col items-center">
+          <div class="w-full max-w-[320px] aspect-4/3 rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] mb-4">
+            <Image
+              src={competitorsImg}
+              alt="Competitors - 17 Men and 7 Women"
+              class="w-full h-full object-cover"
+              loading="eager"
+            />
+          </div>
+          <h3 class="font-display font-black text-xl uppercase tracking-wide text-[var(--text-main)] mb-1">
+            Competitors
+          </h3>
+          <p class="text-xs text-[var(--text-muted)] leading-relaxed max-w-[280px]">
+            Competitors - 17 Men and 7 Women (24 total athletes) at Iron Revolution Gym
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Pound-for-Pound & GSI Sanctioning Callout -->
+    <div class="my-8 p-5 rounded-xl border border-[var(--accent-gold)]/40 bg-[var(--bg-surface)] shadow-md">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <div class="text-[11px] font-mono uppercase tracking-widest text-[var(--accent-gold)] font-bold mb-1">
+            National Recognition • Proportional Force
+          </div>
+          <h2 class="font-display font-black text-lg text-[var(--text-main)] uppercase tracking-wide">
+            2026 Australian Pound-for-Pound Champions
+          </h2>
+          <div class="mt-2 flex flex-wrap gap-x-6 gap-y-1 text-sm text-[var(--text-main)]">
+            <div>🏆 <span class="font-bold">Sarah Rodwell</span> <span class="text-xs text-[var(--text-muted)]">(Women's P4P — 2.78 pts)</span></div>
+            <div>🏆 <span class="font-bold">Isaac Pitt</span> <span class="text-xs text-[var(--text-muted)]">(Men's P4P — 5.12 pts)</span></div>
+          </div>
+        </div>
+
+        <a
+          href="https://www.gripsport.org/contest/483"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="shrink-0 px-4 py-2.5 rounded-lg bg-[var(--bg-elevated)] border border-[var(--accent-gold)]/50 hover:border-[var(--accent-gold)] text-[var(--accent-gold)] text-xs font-accent font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm hover:bg-[var(--accent-gold)] hover:text-black"
+        >
+          <span>View GSI Contest #483</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Official Results Section -->
+    <section class="my-12">
+      <div class="flex items-center justify-between pb-3 mb-6 border-b border-[var(--border-color)]">
+        <div>
+          <h2 class="font-display font-black text-2xl uppercase tracking-tight text-[var(--text-main)]">
+            Official Championship Results
+          </h2>
+          <p class="text-xs text-[var(--text-muted)] mt-0.5">
+            Verified data extracted from sanctioned scorecards and Grip Sport International
+          </p>
+        </div>
+      </div>
+
+      <!-- Women's Results Table -->
+      <div class="mb-10">
+        <h3 class="font-display font-bold text-lg uppercase tracking-wide text-[var(--accent-gold)] mb-3 flex items-center gap-2">
+          <span>Women's Championship</span>
+          <span class="text-xs font-mono text-[var(--text-muted)] font-normal">(7 Competitors)</span>
+        </h3>
+        
+        <div class="overflow-x-auto rounded-xl border border-[var(--border-color)] bg-[var(--bg-surface)] shadow-sm">
+          <table class="w-full text-left text-xs sm:text-sm border-collapse">
+            <thead>
+              <tr class="bg-[var(--bg-elevated)] text-[var(--text-main)] font-mono text-[11px] uppercase tracking-wider border-b border-[var(--border-color)]">
+                <th class="py-3 px-3 w-12 text-center">Rank</th>
+                <th class="py-3 px-3">Athlete</th>
+                <th class="py-3 px-3">Division</th>
+                <th class="py-3 px-3 text-right">Napalm's 2.375"</th>
+                <th class="py-3 px-3 text-right">2-Hand Pinch</th>
+                <th class="py-3 px-3 text-right">Vertical Cannon</th>
+                <th class="py-3 px-3 text-right font-bold text-[var(--accent-gold)]">Total Score</th>
+                <th class="py-3 px-3 text-right">P4P Score</th>
+                <th class="py-3 px-3 text-center">Honors</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[var(--border-color)]/50">
+              {womensResults.map(row => (
+                <tr class="hover:bg-[var(--bg-elevated)]/60 transition-colors">
+                  <td class="py-3 px-3 font-mono font-bold text-center text-[var(--text-muted)]">{row.rank}</td>
+                  <td class="py-3 px-3 font-bold text-[var(--text-main)]">{row.name}</td>
+                  <td class="py-3 px-3 text-[var(--text-muted)] font-mono text-xs">{row.division}</td>
+                  <td class="py-3 px-3 text-right font-mono font-semibold">{row.nn}</td>
+                  <td class="py-3 px-3 text-right font-mono font-semibold">{row.pinch}</td>
+                  <td class="py-3 px-3 text-right font-mono font-semibold">{row.cannon}</td>
+                  <td class="py-3 px-3 text-right font-mono font-bold text-[var(--accent-gold)]">{row.totalScore}</td>
+                  <td class="py-3 px-3 text-right font-mono">
+                    <span class:list={[
+                      "px-2 py-0.5 rounded",
+                      row.p4pRank === '1st P4P' ? "bg-amber-400/20 text-amber-500 font-bold border border-amber-400/40" :
+                      row.p4pRank === '2nd P4P' ? "bg-slate-300/20 text-slate-300 font-bold border border-slate-300/30" :
+                      row.p4pRank === '3rd P4P' ? "bg-amber-700/20 text-amber-700 font-bold border border-amber-700/30" :
+                      "text-[var(--text-muted)]"
+                    ]}>
+                      {row.p4p}
+                    </span>
+                  </td>
+                  <td class="py-3 px-3 text-center font-accent font-semibold text-xs">
+                    {row.honor}
+                    {row.p4pRank && (
+                      <span class="block text-[10px] text-amber-500 font-mono font-bold">({row.p4pRank})</span>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Men's Results Table -->
+      <div class="mb-10">
+        <h3 class="font-display font-bold text-lg uppercase tracking-wide text-[var(--accent-gold)] mb-3 flex items-center gap-2">
+          <span>Men's Championship</span>
+          <span class="text-xs font-mono text-[var(--text-muted)] font-normal">(17 Competitors)</span>
+        </h3>
+        
+        <div class="overflow-x-auto rounded-xl border border-[var(--border-color)] bg-[var(--bg-surface)] shadow-sm">
+          <table class="w-full text-left text-xs sm:text-sm border-collapse">
+            <thead>
+              <tr class="bg-[var(--bg-elevated)] text-[var(--text-main)] font-mono text-[11px] uppercase tracking-wider border-b border-[var(--border-color)]">
+                <th class="py-3 px-3 w-12 text-center">Rank</th>
+                <th class="py-3 px-3">Athlete</th>
+                <th class="py-3 px-3">Division</th>
+                <th class="py-3 px-3 text-right">Napalm's 2.375"</th>
+                <th class="py-3 px-3 text-right">2-Hand Pinch</th>
+                <th class="py-3 px-3 text-right">Vertical Cannon</th>
+                <th class="py-3 px-3 text-right font-bold text-[var(--accent-gold)]">Total Score</th>
+                <th class="py-3 px-3 text-right">P4P Score</th>
+                <th class="py-3 px-3 text-center">Honors</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[var(--border-color)]/50">
+              {mensResults.map(row => (
+                <tr class="hover:bg-[var(--bg-elevated)]/60 transition-colors">
+                  <td class="py-3 px-3 font-mono font-bold text-center text-[var(--text-muted)]">{row.rank}</td>
+                  <td class="py-3 px-3 font-bold text-[var(--text-main)]">{row.name}</td>
+                  <td class="py-3 px-3 text-[var(--text-muted)] font-mono text-xs">{row.division}</td>
+                  <td class="py-3 px-3 text-right font-mono font-semibold">{row.nn}</td>
+                  <td class="py-3 px-3 text-right font-mono font-semibold">{row.pinch}</td>
+                  <td class="py-3 px-3 text-right font-mono font-semibold">{row.cannon}</td>
+                  <td class="py-3 px-3 text-right font-mono font-bold text-[var(--accent-gold)]">{row.totalScore}</td>
+                  <td class="py-3 px-3 text-right font-mono">
+                    <span class:list={[
+                      "px-2 py-0.5 rounded",
+                      row.p4pRank === '1st P4P' ? "bg-amber-400/20 text-amber-500 font-bold border border-amber-400/40" :
+                      row.p4pRank === '2nd P4P' ? "bg-slate-300/20 text-slate-300 font-bold border border-slate-300/30" :
+                      row.p4pRank === '3rd P4P' ? "bg-amber-700/20 text-amber-700 font-bold border border-amber-700/30" :
+                      "text-[var(--text-muted)]"
+                    ]}>
+                      {row.p4p}
+                    </span>
+                  </td>
+                  <td class="py-3 px-3 text-center font-accent font-semibold text-xs">
+                    {row.honor}
+                    {row.p4pRank && (
+                      <span class="block text-[10px] text-amber-500 font-mono font-bold">({row.p4pRank})</span>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Action Photos Gallery (Preserved from Original Site) -->
+    <section class="my-12">
+      <div class="pb-3 mb-6 border-b border-[var(--border-color)]">
+        <h2 class="font-display font-black text-2xl uppercase tracking-tight text-[var(--text-main)]">
+          Event Gallery &amp; Heavy Implements
+        </h2>
+        <p class="text-xs text-[var(--text-muted)] mt-0.5">
+          York dumbbells, pinch blocks, and challenge implements lifted at Iron Revolution Gym
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] flex flex-col">
+          <div class="aspect-4/3 w-full overflow-hidden">
+            <Image
+              src={action1Img}
+              alt="York dumbbell and block weight challenge lifts"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          <p class="p-3 text-xs text-[var(--text-muted)] text-center font-medium">
+            York dumbbell &amp; block weight tests
+          </p>
+        </div>
+
+        <div class="rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] flex flex-col">
+          <div class="aspect-4/3 w-full overflow-hidden">
+            <Image
+              src={action2Img}
+              alt="Competitor lifting block weights under official refereeing"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          <p class="p-3 text-xs text-[var(--text-muted)] text-center font-medium">
+            Refereeing &amp; official implement lift
+          </p>
+        </div>
+
+        <div class="rounded-xl overflow-hidden shadow-md border border-[var(--border-color)] bg-[var(--bg-surface)] flex flex-col sm:col-span-2 md:col-span-1">
+          <div class="aspect-4/3 w-full overflow-hidden">
+            <Image
+              src={action3Img}
+              alt="Heavy implement challenges at the 2026 Championship"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          <p class="p-3 text-xs text-[var(--text-muted)] text-center font-medium">
+            Athletes testing competition implements
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tournament Sponsors & Host Venue Section -->
+    <section class="my-12 p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-surface)] shadow-md">
+      <div class="max-w-3xl">
+        <div class="text-[11px] font-mono uppercase tracking-widest text-[var(--accent-gold)] font-bold mb-1">
+          Official Recognition
+        </div>
+        <h2 class="font-display font-black text-2xl uppercase tracking-tight text-[var(--text-main)] mb-3">
+          Tournament Sponsors &amp; Host Venue
+        </h2>
+        <p class="text-sm text-[var(--text-muted)] leading-relaxed mb-6">
+          A massive thank you to the sponsors and partners who supported the athletes and made the 2026 Australian Grip Sport Championship such a historic success:
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-[var(--bg-elevated)] border border-[var(--border-color)]">
+            <div class="text-xs font-mono text-[var(--accent-gold)] uppercase font-bold mb-1">Australian Sponsor</div>
+            <a
+              href="https://www.instagram.com/club_strong/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-bold text-[var(--text-main)] hover:text-[var(--accent-gold)] flex items-center gap-1 transition-colors"
+            >
+              <span>@club_strong</span>
+              <svg class="w-3.5 h-3.5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+            <p class="text-xs text-[var(--text-muted)] mt-1">Returning premier Australian strength partner</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-[var(--bg-elevated)] border border-[var(--border-color)]">
+            <div class="text-xs font-mono text-[var(--accent-gold)] uppercase font-bold mb-1">Host Venue</div>
+            <a
+              href="https://www.instagram.com/ironrevolutiongym/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-bold text-[var(--text-main)] hover:text-[var(--accent-gold)] flex items-center gap-1 transition-colors"
+            >
+              <span>@ironrevolutiongym</span>
+              <svg class="w-3.5 h-3.5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+            <p class="text-xs text-[var(--text-muted)] mt-1">Iron Revolution Gym, Melbourne — powerhouse facility</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-[var(--bg-elevated)] border border-[var(--border-color)] sm:col-span-2">
+            <div class="text-xs font-mono text-[var(--accent-gold)] uppercase font-bold mb-1">International Sponsors</div>
+            <div class="flex flex-wrap items-center gap-4 mt-1">
+              <a
+                href="https://www.instagram.com/armassassinstrengthshop/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-bold text-[var(--text-main)] hover:text-[var(--accent-gold)] flex items-center gap-1 transition-colors"
+              >
+                <span>@armassassinstrengthshop</span>
+                <svg class="w-3 h-3 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+              <span class="text-[var(--border-color)]">•</span>
+              <a
+                href="https://www.instagram.com/nemesisgrips/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-bold text-[var(--text-main)] hover:text-[var(--accent-gold)] flex items-center gap-1 transition-colors"
+              >
+                <span>@nemesisgrips</span>
+                <svg class="w-3 h-3 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+              <span class="text-[var(--border-color)]">•</span>
+              <span class="font-bold text-[var(--text-main)]">The Grip Show</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="my-12">
+      <div class="pb-3 mb-6 border-b border-[var(--border-color)]">
+        <h2 class="font-display font-black text-2xl uppercase tracking-tight text-[var(--text-main)]">
+          Video Runs &amp; Highlights
+        </h2>
+        <p class="text-xs text-[var(--text-muted)] mt-0.5">
+          Thomas Inch replica dumbbell runs and record-breaking vertical cannon lifts
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <div>
+          <h3 class="font-display font-bold text-base uppercase text-[var(--text-main)] mb-2">
+            Inch Run - Isaac Pitt
+          </h3>
+          <div class="aspect-video w-full rounded-xl overflow-hidden border border-[var(--border-color)] bg-black shadow-md">
+            <iframe
+              src="https://player.vimeo.com/video/1205744468?title=0&byline=0&portrait=0"
+              title="Inch Run - Isaac Pitt"
+              class="w-full h-full"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-display font-bold text-base uppercase text-[var(--text-main)] mb-2">
+            Inch Run - Martin Zhang
+          </h3>
+          <div class="aspect-video w-full rounded-xl overflow-hidden border border-[var(--border-color)] bg-black shadow-md">
+            <iframe
+              src="https://player.vimeo.com/video/1205744469?title=0&byline=0&portrait=0"
+              title="Inch Run - Martin Zhang"
+              class="w-full h-full"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-display font-bold text-base uppercase text-[var(--text-main)] mb-2">
+            Inch Run - Megan Galvin
+          </h3>
+          <div class="aspect-video w-full rounded-xl overflow-hidden border border-[var(--border-color)] bg-black shadow-md">
+            <iframe
+              src="https://player.vimeo.com/video/1205748123?title=0&byline=0&portrait=0"
+              title="Inch Run - Megan Galvin"
+              class="w-full h-full"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-display font-bold text-base uppercase text-[var(--text-main)] mb-2">
+            Declan Wright - Top Vertical Cannon Lift 143.3kg
+          </h3>
+          <div class="aspect-video w-full rounded-xl overflow-hidden border border-[var(--border-color)] bg-black shadow-md">
+            <iframe
+              src="https://player.vimeo.com/video/1205744467?title=0&byline=0&portrait=0"
+              title="Declan Wright - top Vertical Cannon lift 143.3kg"
+              class="w-full h-full"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Page Footer / Navigation -->
+    <footer class="mt-16 pt-8 border-t border-[var(--border-color)] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--text-muted)]">
+      <a
+        href={getUrl('/championships')}
+        class="inline-flex items-center gap-1.5 text-[var(--accent-gold)] hover:underline font-accent uppercase tracking-wider font-semibold"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        <span>Back to National Championships Hub</span>
+      </a>
+
+      <span class="text-[var(--text-subtle)] text-[11px]">
+        Official record archived under Grip Sport International #483
+      </span>
+    </footer>
+
+  </article>
+</BaseLayout>

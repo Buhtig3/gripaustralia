@@ -35,6 +35,8 @@ if sys.platform == "win32":
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = SCRIPT_DIR.parent
+ANALYSIS_DIR = PROJECT_ROOT / "analysis"
+ANALYSIS_DIR.mkdir(exist_ok=True)
 
 # -----------------------------------------------------------------------------
 # Quarto Frontmatter & SCSS Companion
@@ -200,7 +202,7 @@ add_md(r"""# 🏋️‍♂️ GripSport Analytics: Athlete Performance & Leaderb
 
 This notebook and companion report provide an in-depth exploratory data analysis (EDA) of international grip sport athletes from the `gripsport.duckdb` database and official tracked event records.
 
----
+***
 
 ### 📌 Core Focus: `class_ones_all` vs. `class_ones_tracked`
 GripSport tracks competitive performances across numerous historical and active implements. This dataset distinguishes between:
@@ -294,6 +296,7 @@ In this step, we also compute:
 add_code(r"""# Resolve database / CSV paths
 db_candidates = [
     Path("gripsport.duckdb"),
+    Path("../scripts/gripsport.duckdb"),
     Path("scripts/gripsport.duckdb"),
     Path("../gripsport.duckdb")
 ]
@@ -332,7 +335,9 @@ if db_path:
 else:
     csv_candidates = [
         Path("athlete_first_placements.csv"),
-        Path("scripts/athlete_first_placements.csv")
+        Path("../scripts/athlete_first_placements.csv"),
+        Path("scripts/athlete_first_placements.csv"),
+        Path("../athlete_first_placements.csv")
     ]
     csv_path = next((p for p in csv_candidates if p.exists()), Path("athlete_first_placements.csv"))
     raw_df = pd.read_csv(csv_path)
@@ -402,11 +407,12 @@ show(stats_comparison, classes="display compact")
 """)
 
 # --- Section 2: Global Comparison & ECDF ---
-add_md(r"""---
+add_md(r"""***
 ## 2. Global Comparison: All vs. Tracked Events
 
-::: {.callout-note appearance="simple"}
+:::{.callout-note}
 ### Tracking Standard Overview
+
 * **`class_ones_all`**: Lifetime #1 placements won across all recorded competitive implements.
 * **`class_ones_tracked`**: #1 placements restricted strictly to currently active and officially tracked implements.
 * **`untracked_ones` ($\Delta$)**: Wins collected on legacy, custom, or one-off contest implements.
@@ -514,15 +520,17 @@ show(legacy_leaders, classes="display compact")
 """)
 
 # --- Section 3: Rank Shift (Bump) Analysis ---
-add_md(r"""---
+add_md(r"""***
 ## 3. Rank Shift (Bump) Analysis
 
-::: {.callout-tip appearance="simple"}
+::: {.callout-tip}
 ### Global Rank Trajectories
+
 Filtering out legacy and exhibition implements causes notable leadership rearrangements:
-- **Jesse Hagedorn** ascends to **#1 in the world** in the Men's division with a 100% tracked record (22/22).
-- **Isaac Pitt (Australia)** leaps from **#8 to #4 worldwide** among men (and surges into the global top 10 overall).
-- **Lucas Raymond** falls 6 spots from #3 to #9, revealing that 37.5% of his wins came on legacy equipment.
+
+* **Jesse Hagedorn** ascends to **#1 in the world** in the Men's division with a 100% tracked record (22/22).
+* **Isaac Pitt (Australia)** leaps from **#8 to #4 worldwide** among men (and surges into the global top 10 overall).
+* **Lucas Raymond** falls 6 spots from #3 to #9, revealing that 37.5% of his wins came on legacy equipment.
 :::
 
 The bump chart below illustrates the trajectory shifts for the world's top competitors when evaluated under **All Events** vs. **Tracked Events**.
@@ -574,7 +582,7 @@ plt.show()
 """)
 
 # --- Section 4: Volume vs Efficiency Quadrant ---
-add_md(r"""---
+add_md(r"""***
 ## 4. Volume vs. Efficiency Normalization & Competitor Quadrants
 
 Raw counts reward athletes who have competed for 15+ years across dozens of contests (e.g. Jedd Johnson at 70 competitions). 
@@ -641,11 +649,12 @@ show(top_bayes, classes="display compact")
 """)
 
 # --- Section 5: Career Era Adjustment ---
-add_md(r"""---
+add_md(r"""***
 ## 5. Career Era Adjustment: Pioneer Veterans vs. Modern Competitors
 
-::: {.callout-note appearance="simple"}
+:::{.callout-note}
 ### Longitudinal Context
+
 Because athlete IDs in GripSport are assigned chronologically upon competitive debut, athletes with `athlete_id < 750` entered the sport during the Pre-2015 pioneer era when standard rulesets were still crystallizing. Modern lifters (`athlete_id >= 750`) have competed almost exclusively within officially recognized standard implements.
 :::
 """)
@@ -688,7 +697,7 @@ plt.show()
 """)
 
 # --- Section 6: Implement Family Categorization ---
-add_md(r"""---
+add_md(r"""***
 ## 6. Implement Family Categorization (64 Tracked Events)
 
 Official GripSport implements span diverse grip mechanics. We categorize all 64 officially tracked implements into 6 primary functional disciplines to understand athlete specialization archetypes:
@@ -743,7 +752,7 @@ show(family_counts, classes="display compact")
 """)
 
 # --- Section 7: Gender Leaderboards ---
-add_md(r"""---
+add_md(r"""***
 ## 7. Gender Leaderboards: Men's & Women's Divisions
 
 Evaluating Top 10 Men and Women side-by-side under both criteria (All Events vs. Standardized Tracked Events).
@@ -805,11 +814,12 @@ plt.show()
 """)
 
 # --- Section 8: National Depth vs Elite Peak & Australia ---
-add_md(r"""---
+add_md(r"""***
 ## 8. National Depth vs. Elite Peak & Australian Spotlight
 
-::: {.callout-note appearance="simple"}
+:::{.callout-note}
 ### 🇦🇺 Australian Grip Athletes: World-Class Standardization
+
 Australia showcases extraordinary data purity: **Isaac Pitt** ranks **#4 globally** among men on tracked implements (12 tracked #1s out of 12 all, 100% retention). Australia also boasts deep talent including Joseph Hodgson (5 tracked #1s), Tom Denmeade (4 tracked #1s), and Megan Galvin (8 tracked #1s, 1.60 win ratio).
 :::
 
@@ -889,7 +899,7 @@ show(aus_roster[['name', 'gender', 'contests', 'class_ones_tracked', 'class_ones
 """)
 
 # --- Section 9: DuckDB SQL Playground ---
-add_md(r"""---
+add_md(r"""***
 ## 9. DuckDB SQL Query Playground
 
 Analytical queries running natively on DuckDB using window functions and conditional aggregations.
@@ -929,7 +939,7 @@ con.close()
 """)
 
 # --- Section 10: Key Findings & Summary ---
-add_md(r"""---
+add_md(r"""***
 ## 10. Key Findings & Executive Summary
 
 1. **High Tracked Implements Standardization (76.8% Global Retention)**:
@@ -982,42 +992,100 @@ def build_all():
     
     # Write Quarto Document
     qmd_content = "".join(qmd_parts)
-    
-    qmd_targets = [PROJECT_ROOT / "gripsport_analysis.qmd", SCRIPT_DIR / "gripsport_analysis.qmd"]
-    for q_path in qmd_targets:
-        with open(q_path, "w", encoding="utf-8") as f:
-            f.write(qmd_content)
-        print(f"Generated Quarto report at: {q_path}")
+    qmd_path = ANALYSIS_DIR / "gripsport_analysis.qmd"
+    with open(qmd_path, "w", encoding="utf-8") as f:
+        f.write(qmd_content)
+    print(f"Generated Quarto report at: {qmd_path}")
         
     # Write SCSS & _quarto.yml
-    scss_targets = [PROJECT_ROOT / "theme-calibrated.scss", SCRIPT_DIR / "theme-calibrated.scss"]
-    for s_path in scss_targets:
-        with open(s_path, "w", encoding="utf-8") as f:
-            f.write(SCSS_CONTENT)
-            
-    yml_targets = [PROJECT_ROOT / "_quarto.yml", SCRIPT_DIR / "_quarto.yml"]
-    for y_path in yml_targets:
-        with open(y_path, "w", encoding="utf-8") as f:
-            f.write(QUARTO_YML)
-            
+    scss_path = ANALYSIS_DIR / "theme-calibrated.scss"
+    with open(scss_path, "w", encoding="utf-8") as f:
+        f.write(SCSS_CONTENT)
+        
+    yml_path = ANALYSIS_DIR / "_quarto.yml"
+    with open(yml_path, "w", encoding="utf-8") as f:
+        f.write(QUARTO_YML)
+        
     # Write & Execute Notebook
-    nb_targets = [PROJECT_ROOT / "gripsport_analysis.ipynb", SCRIPT_DIR / "gripsport_analysis.ipynb"]
-    primary_nb = nb_targets[0]
-    
-    with open(primary_nb, "w", encoding="utf-8") as f:
+    nb_path = ANALYSIS_DIR / "gripsport_analysis.ipynb"
+    with open(nb_path, "w", encoding="utf-8") as f:
         nbf.write(nb, f)
-    print(f"Wrote notebook to {primary_nb}. Now executing with NotebookClient to pre-render outputs...")
+    print(f"Wrote notebook to {nb_path}. Now executing with NotebookClient to pre-render outputs...")
     
     client = NotebookClient(nb, timeout=600, kernel_name="python3")
     client.execute()
     
-    for nb_path in nb_targets:
-        with open(nb_path, "w", encoding="utf-8") as f:
-            nbf.write(nb, f)
-        print(f"Pre-rendered and saved executed notebook to: {nb_path}")
+    with open(nb_path, "w", encoding="utf-8") as f:
+        nbf.write(nb, f)
+    print(f"Pre-rendered and saved executed notebook to: {nb_path}")
         
-    print("\nAll assets generated and compiled successfully!")
+    print("\nAll assets generated and compiled successfully in analysis/!")
+
+
+def find_quarto():
+    import shutil
+    import os
+    q = shutil.which("quarto")
+    if q:
+        return q
+    default_paths = [
+        Path(os.environ.get("LOCALAPPDATA", "")) / "Programs/Quarto/bin/quarto.exe",
+        Path("C:/Program Files/Quarto/bin/quarto.exe")
+    ]
+    for p in default_paths:
+        if p.exists():
+            return str(p)
+    return None
+
+
+def render_quarto(output_formats=("html", "pdf")):
+    import os
+    import subprocess
+    quarto_bin = find_quarto()
+    if not quarto_bin:
+        print("Quarto executable not detected on system. Skipping direct Quarto render.")
+        return
+        
+    env = os.environ.copy()
+    venv_py = PROJECT_ROOT / ".venv" / "Scripts" / "python.exe"
+    if venv_py.exists():
+        env["QUARTO_PYTHON"] = str(venv_py)
+    elif sys.executable:
+        env["QUARTO_PYTHON"] = sys.executable
+        
+    qmd_file = "gripsport_analysis.qmd"
+    
+    if "html" in output_formats:
+        print(f"\n[Quarto] Rendering {qmd_file} to HTML in analysis/...")
+        cmd = [quarto_bin, "render", qmd_file, "--to", "html"]
+        subprocess.run(cmd, env=env, check=True, cwd=str(ANALYSIS_DIR))
+        print(f"[Quarto] Successfully compiled {ANALYSIS_DIR / 'gripsport_analysis.html'}")
+        
+    if "pdf" in output_formats:
+        print(f"\n[Quarto] Rendering {qmd_file} to PDF (typst engine) in analysis/...")
+        cmd = [quarto_bin, "render", qmd_file, "--to", "typst"]
+        subprocess.run(cmd, env=env, check=True, cwd=str(ANALYSIS_DIR))
+        print(f"[Quarto] Successfully compiled {ANALYSIS_DIR / 'gripsport_analysis.pdf'}")
 
 
 if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser(description="Build GripSport Analytics notebook and Quarto reports.")
+    parser.add_argument("--html", action="store_true", help="Render Quarto HTML report.")
+    parser.add_argument("--pdf", action="store_true", help="Render Quarto PDF report.")
+    parser.add_argument("--all", action="store_true", help="Render both HTML and PDF Quarto reports.")
+    args = parser.parse_args()
+    
     build_all()
+    
+    formats = []
+    if args.all:
+        formats = ["html", "pdf"]
+    else:
+        if args.html:
+            formats.append("html")
+        if args.pdf:
+            formats.append("pdf")
+            
+    if formats:
+        render_quarto(formats)

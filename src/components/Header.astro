@@ -7,15 +7,27 @@ interface Props {
 
 const { currentPath = '' } = Astro.props;
 
-const navLinks = [
-  { href: getUrl('/what-is-grip-sport'), label: 'What is Grip Sport?' },
-  { href: getUrl('/records'), label: 'Records' },
-  { href: getUrl('/competition-calendar'), label: 'Calendar' },
-  { href: getUrl('/2026-championship'), label: 'Championships' },
-  { href: getUrl('/australian-grip-feats'), label: 'Grip Feats' },
-  { href: getUrl('/mulletts-mandrel'), label: "Mullett's Mandrel" },
-  { href: getUrl('/get-involved'), label: 'Get Involved' },
+const recordLinks = [
+  { href: getUrl('/records'), label: 'Australian Records', desc: 'National rankings, weight classes & lift leaderboards' },
+  { href: getUrl('/australian-grip-feats'), label: 'Australian Grip Feats', desc: 'Thomas Inch, Blobs & historic odd-object lifts' },
+  { href: getUrl('/mulletts-mandrel'), label: "Mullett's Mandrel Records", desc: 'Australian wrist wrench rules, history & records' },
 ];
+
+const competitionLinks = [
+  { href: getUrl('/competition-calendar'), label: 'Competition Calendar', desc: 'Upcoming GSI-sanctioned events & local meets' },
+  { href: getUrl('/championships'), label: 'National Championships', desc: 'Tournament archives & champion honour roll (2024–2026)' },
+];
+
+const resourceLinks = [
+  { href: getUrl('/what-is-grip-sport'), label: 'What is Grip Sport?', desc: 'Disciplines, contest rules & overview' },
+  { href: getUrl('/equipment-guide'), label: "Beginner's Equipment Guide", desc: 'IM Tugs, loading pins, chalk & pinch blocks' },
+  { href: getUrl('/gripper-rating-service'), label: 'Gripper Rating Service', desc: "Artie's Grip Gym RGC calibration & testing" },
+  { href: getUrl('/media'), label: 'Interviews & Media', desc: 'Athlete interviews, podcasts & video analysis' },
+];
+
+const isRecordsActive = ['/records', '/australian-grip-feats', '/mulletts-mandrel'].some(path => currentPath.includes(path));
+const isCompetitionsActive = ['/competition-calendar', '/championships', '/2024-championship', '/2025-championship', '/2026-championship'].some(path => currentPath.includes(path));
+const isResourcesActive = ['/what-is-grip-sport', '/equipment-guide', '/gripper-rating-service', '/media'].some(path => currentPath.includes(path));
 ---
 
 <header class="sticky top-0 z-40 w-full border-b border-[var(--border-color)] bg-[var(--bg-base)]/95 backdrop-blur-md transition-colors duration-250">
@@ -48,24 +60,133 @@ const navLinks = [
         </div>
       </div>
 
-      <!-- Desktop Navigation -->
+      <!-- Desktop Streamlined Navigation -->
       <nav class="hidden lg:flex items-center space-x-1" aria-label="Main Navigation">
-        {navLinks.map(link => {
-          const isActive = currentPath === link.href || (link.href !== getUrl('/') && currentPath.startsWith(link.href));
-          return (
-            <a
-              href={link.href}
-              class:list={[
-                "px-3 py-2 rounded-md text-sm font-medium transition-colors",
-                isActive 
-                  ? "bg-[var(--bg-elevated)] text-[var(--text-main)] border border-[var(--border-color)] font-semibold" 
-                  : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
-              ]}
-            >
-              {link.label}
-            </a>
-          );
-        })}
+        
+        <!-- Dropdown: Records & Feats -->
+        <div class="relative group">
+          <button
+            type="button"
+            class:list={[
+              "nav-dropdown-trigger flex items-center gap-1.5 px-3 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer",
+              isRecordsActive
+                ? "bg-[var(--bg-elevated)] text-[var(--text-main)] border border-[var(--border-color)] font-semibold"
+                : "text-[var(--text-muted)] group-hover:text-[var(--text-main)] group-hover:bg-[var(--bg-elevated)]"
+            ]}
+            aria-expanded="false"
+          >
+            <span>Records & Feats</span>
+            <svg class="w-4 h-4 text-[var(--text-subtle)] group-hover:text-[var(--accent-gold)] transition-transform group-hover:rotate-180 duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+
+          <!-- Dropdown Menu -->
+          <div class="absolute left-0 top-full pt-2 w-80 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150 transform group-hover:translate-y-0 translate-y-1 z-50">
+            <div class="p-2 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] shadow-xl space-y-1">
+              {recordLinks.map(link => (
+                <a
+                  href={link.href}
+                  class="block p-2.5 rounded-lg hover:bg-[var(--bg-elevated)] transition-colors group/item"
+                >
+                  <div class="font-display font-bold text-sm text-[var(--text-main)] group-hover/item:text-[var(--accent-gold)] uppercase tracking-wide flex items-center justify-between">
+                    <span>{link.label}</span>
+                    <span class="text-[10px] text-[var(--accent-gold)] opacity-0 group-hover/item:opacity-100 transition-opacity font-accent">&rarr;</span>
+                  </div>
+                  <p class="text-[11px] text-[var(--text-muted)] mt-0.5 leading-snug">{link.desc}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Dropdown: Competitions -->
+        <div class="relative group">
+          <button
+            type="button"
+            class:list={[
+              "nav-dropdown-trigger flex items-center gap-1.5 px-3 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer",
+              isCompetitionsActive
+                ? "bg-[var(--bg-elevated)] text-[var(--text-main)] border border-[var(--border-color)] font-semibold"
+                : "text-[var(--text-muted)] group-hover:text-[var(--text-main)] group-hover:bg-[var(--bg-elevated)]"
+            ]}
+            aria-expanded="false"
+          >
+            <span>Competitions</span>
+            <svg class="w-4 h-4 text-[var(--text-subtle)] group-hover:text-[var(--accent-gold)] transition-transform group-hover:rotate-180 duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+
+          <!-- Dropdown Menu -->
+          <div class="absolute left-0 top-full pt-2 w-72 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150 transform group-hover:translate-y-0 translate-y-1 z-50">
+            <div class="p-2 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] shadow-xl space-y-1">
+              {competitionLinks.map(link => (
+                <a
+                  href={link.href}
+                  class="block p-2.5 rounded-lg hover:bg-[var(--bg-elevated)] transition-colors group/item"
+                >
+                  <div class="font-display font-bold text-sm text-[var(--text-main)] group-hover/item:text-[var(--accent-gold)] uppercase tracking-wide flex items-center justify-between">
+                    <span>{link.label}</span>
+                    <span class="text-[10px] text-[var(--accent-gold)] opacity-0 group-hover/item:opacity-100 transition-opacity font-accent">&rarr;</span>
+                  </div>
+                  <p class="text-[11px] text-[var(--text-muted)] mt-0.5 leading-snug">{link.desc}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Dropdown: Resources & Tools -->
+        <div class="relative group">
+          <button
+            type="button"
+            class:list={[
+              "nav-dropdown-trigger flex items-center gap-1.5 px-3 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer",
+              isResourcesActive
+                ? "bg-[var(--bg-elevated)] text-[var(--text-main)] border border-[var(--border-color)] font-semibold"
+                : "text-[var(--text-muted)] group-hover:text-[var(--text-main)] group-hover:bg-[var(--bg-elevated)]"
+            ]}
+            aria-expanded="false"
+          >
+            <span>Resources</span>
+            <svg class="w-4 h-4 text-[var(--text-subtle)] group-hover:text-[var(--accent-gold)] transition-transform group-hover:rotate-180 duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+
+          <!-- Dropdown Menu -->
+          <div class="absolute left-0 top-full pt-2 w-80 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150 transform group-hover:translate-y-0 translate-y-1 z-50">
+            <div class="p-2 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] shadow-xl space-y-1">
+              {resourceLinks.map(link => (
+                <a
+                  href={link.href}
+                  class="block p-2.5 rounded-lg hover:bg-[var(--bg-elevated)] transition-colors group/item"
+                >
+                  <div class="font-display font-bold text-sm text-[var(--text-main)] group-hover/item:text-[var(--accent-gold)] uppercase tracking-wide flex items-center justify-between">
+                    <span>{link.label}</span>
+                    <span class="text-[10px] text-[var(--accent-gold)] opacity-0 group-hover/item:opacity-100 transition-opacity font-accent">&rarr;</span>
+                  </div>
+                  <p class="text-[11px] text-[var(--text-muted)] mt-0.5 leading-snug">{link.desc}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Item: Get Involved CTA Button -->
+        <div class="pl-2">
+          <a
+            href={getUrl('/get-involved')}
+            class="px-4 py-2 rounded-[var(--btn-radius)] bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-[var(--accent-text)] font-accent font-bold text-xs uppercase tracking-wider transition-all duration-200 shadow-sm hover:shadow border border-[var(--accent-gold)]/40 hover:border-[var(--accent-gold)] flex items-center gap-1.5 transform hover:-translate-y-0.5"
+          >
+            <span>Get Involved</span>
+            <svg class="w-3.5 h-3.5 text-[var(--accent-gold)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </a>
+        </div>
+
       </nav>
 
       <!-- Search Trigger & Mobile Menu Button -->
@@ -100,19 +221,57 @@ const navLinks = [
   </div>
 
   <!-- Mobile Drawer -->
-  <div id="mobile-menu" class="hidden lg:hidden border-b border-[var(--border-color)] bg-[var(--bg-surface)] px-4 pt-2 pb-6 space-y-1">
-    {navLinks.map(link => (
+  <div id="mobile-menu" class="hidden lg:hidden border-b border-[var(--border-color)] bg-[var(--bg-surface)] px-4 pt-3 pb-6 space-y-4">
+    
+    <!-- Top Row: Get Involved CTA -->
+    <div class="pb-3 border-b border-[var(--border-color)]">
       <a
-        href={link.href}
-        class="block px-3 py-2 rounded-md text-base font-medium text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+        href={getUrl('/get-involved')}
+        class="block w-full text-center py-2.5 px-3 rounded-lg bg-[var(--accent)] text-[var(--accent-text)] border border-[var(--accent-gold)]/40 text-xs font-bold uppercase font-accent tracking-wider shadow-sm"
       >
-        {link.label}
+        Get Involved
       </a>
-    ))}
-    <div class="pt-2 border-t border-[var(--border-color)]">
-      <a href={getUrl('/media')} class="block px-3 py-2 rounded-md text-sm text-[var(--text-muted)] hover:text-[var(--text-main)]">Interviews & Media</a>
-      <a href={getUrl('/gripper-rating-service')} class="block px-3 py-2 rounded-md text-sm text-[var(--text-muted)] hover:text-[var(--text-main)]">Gripper Rating Service</a>
     </div>
+
+    <!-- Records & Feats Group -->
+    <div class="space-y-1">
+      <div class="text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--accent-gold)] px-2">Records & Feats</div>
+      {recordLinks.map(link => (
+        <a
+          href={link.href}
+          class="block px-2.5 py-2 rounded-md text-sm font-medium text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+
+    <!-- Competitions Group -->
+    <div class="space-y-1 pt-2 border-t border-[var(--border-color)]">
+      <div class="text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--accent-gold)] px-2">Competitions</div>
+      {competitionLinks.map(link => (
+        <a
+          href={link.href}
+          class="block px-2.5 py-2 rounded-md text-sm font-medium text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+
+    <!-- Resources Group -->
+    <div class="space-y-1 pt-2 border-t border-[var(--border-color)]">
+      <div class="text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--accent-gold)] px-2">Resources & Tools</div>
+      {resourceLinks.map(link => (
+        <a
+          href={link.href}
+          class="block px-2.5 py-2 rounded-md text-sm font-medium text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+
   </div>
 </header>
 

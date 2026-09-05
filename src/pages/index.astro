@@ -5,8 +5,33 @@ import { getCollection } from 'astro:content';
 
 const articles = await getCollection('articles');
 
-// Filter articles
-const featuredGuides = articles.filter(a => ['what-is-grip-sport', 'mulletts-mandrel', 'gripper-rating-service', 'australian-grip-feats'].includes(a.slug));
+// Featured Guides & Tools (Non-repetitive, high-utility selection)
+const featuredGuides = [
+  {
+    title: "Beginner's Equipment Guide",
+    slug: 'equipment-guide',
+    badge: 'Essential Starter Gear',
+    description: 'The definitive starter toolkit for grip athletics: IronMind IM Tug grippers, Olympic loading pins, chalk application, and pinch block weights.'
+  },
+  {
+    title: "Artie's Grip Gym Rating Service",
+    slug: 'gripper-rating-service',
+    badge: 'RGC Calibration • $10/$5',
+    description: 'Official RGC calibration in Australia. Calibrated to Cannon PowerWorks parity with durable color-coded tags, 2–4 day turnaround, and local shipping.'
+  },
+  {
+    title: "Mullett's Mandrel Records",
+    slug: 'mulletts-mandrel',
+    badge: 'Benchmark Wrist Wrench',
+    description: 'Australia’s home-grown wrist wrench benchmark. Explore historical marks, implement specifications, contest rules, and world records.'
+  },
+  {
+    title: "Interviews & Media Archive",
+    slug: 'media',
+    badge: 'Podcasts & Insights',
+    description: 'In-depth interviews with elite grip athletes, training philosophies, historical perspectives, and audio/video tournament coverage.'
+  }
+];
 ---
 
 <BaseLayout
@@ -215,15 +240,20 @@ const featuredGuides = articles.filter(a => ['what-is-grip-sport', 'mulletts-man
       {featuredGuides.map(item => (
         <a
           href={getUrl(`/${item.slug}`)}
-          class="bg-[var(--bg-surface)] border border-[var(--border-color)] hover:border-[var(--accent-gold)] p-5 rounded-[var(--card-radius)] flex flex-col justify-between transition-all hover:shadow-md"
+          class="bg-[var(--bg-surface)] border border-[var(--border-color)] hover:border-[var(--accent-gold)] p-5 rounded-[var(--card-radius)] flex flex-col justify-between transition-all hover:shadow-md group"
         >
           <div>
-            <h3 class="font-bold text-base text-[var(--text-main)] font-display uppercase mb-2">{item.data.title}</h3>
+            <span class="inline-block text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--accent-gold)] bg-[var(--accent-gold)]/10 border border-[var(--accent-gold)]/20 px-2 py-0.5 rounded mb-2.5">
+              {item.badge}
+            </span>
+            <h3 class="font-bold text-base text-[var(--text-main)] font-display uppercase mb-2 group-hover:text-[var(--accent-gold)] transition-colors">{item.title}</h3>
             <p class="text-xs text-[var(--text-muted)] line-clamp-3 leading-relaxed">
-              {item.data.description}
+              {item.description}
             </p>
           </div>
-          <span class="mt-4 text-xs font-semibold text-[var(--accent-gold)] font-accent tracking-wider uppercase">Read Article &rarr;</span>
+          <span class="mt-4 text-xs font-semibold text-[var(--accent-gold)] font-accent tracking-wider uppercase group-hover:underline inline-flex items-center gap-1">
+            Explore Guide &rarr;
+          </span>
         </a>
       ))}
     </div>
