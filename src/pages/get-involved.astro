@@ -182,52 +182,61 @@ const firstCompFaqs = [
           </div>
 
           <!-- Quick Jump Buttons (3 Pathways + Meet Hosting) -->
-          <div class="mt-8 pt-6 border-t border-[var(--border-color)] flex flex-wrap gap-2.5">
-            <a
-              href="#pathway-connect"
-              class="px-3.5 py-2 rounded-[var(--btn-radius)] bg-[var(--bg-elevated)] hover:bg-[var(--accent)] hover:text-[var(--accent-text)] text-[var(--text-main)] border border-[var(--border-color)] font-accent uppercase text-xs tracking-wider font-semibold transition-colors flex items-center gap-1.5"
-            >
-              <span class="text-[var(--accent-gold)] font-mono font-bold">1.</span>
-              <span>Connect</span>
-              <span class="text-xs">&darr;</span>
-            </a>
-            <a
-              href="#pathway-train"
-              class="px-3.5 py-2 rounded-[var(--btn-radius)] bg-[var(--bg-elevated)] hover:bg-[var(--accent)] hover:text-[var(--accent-text)] text-[var(--text-main)] border border-[var(--border-color)] font-accent uppercase text-xs tracking-wider font-semibold transition-colors flex items-center gap-1.5"
-            >
-              <span class="text-[var(--accent-gold)] font-mono font-bold">2.</span>
-              <span>Train</span>
-              <span class="text-xs">&darr;</span>
-            </a>
-            <a
-              href="#pathway-compete"
-              class="px-3.5 py-2 rounded-[var(--btn-radius)] bg-[var(--bg-elevated)] hover:bg-[var(--accent)] hover:text-[var(--accent-text)] text-[var(--text-main)] border border-[var(--border-color)] font-accent uppercase text-xs tracking-wider font-semibold transition-colors flex items-center gap-1.5"
-            >
-              <span class="text-[var(--accent-gold)] font-mono font-bold">3.</span>
-              <span>Compete</span>
-              <span class="text-xs">&darr;</span>
-            </a>
-            <a
-              href="#host-a-meet"
-              class="px-3.5 py-2 rounded-[var(--btn-radius)] bg-[var(--accent-gold)]/15 text-[var(--accent-gold)] hover:bg-[var(--accent-gold)]/25 border border-[var(--accent-gold)]/30 font-accent uppercase text-xs tracking-wider font-bold transition-colors flex items-center gap-1.5"
-            >
-              <span>Host a Meet</span>
-              <span class="text-xs">&rarr;</span>
-            </a>
+          <div class="mt-10 pt-8 border-t border-[var(--border-color)]">
+            <div class="flex flex-wrap items-center gap-3">
+              <a
+                href="#pathway-connect"
+                class="px-4 py-2.5 rounded-[var(--btn-radius)] bg-[var(--bg-elevated)] hover:bg-[var(--accent)] hover:text-[var(--accent-text)] text-[var(--text-main)] border border-[var(--border-color)] font-accent uppercase text-xs tracking-wider font-bold transition-all flex items-center gap-2 shadow-sm hover:shadow"
+              >
+                <span class="text-[var(--accent-gold)] font-mono font-bold">1.</span>
+                <span>Connect</span>
+                <span class="text-xs">&darr;</span>
+              </a>
+              <a
+                href="#pathway-train"
+                class="px-4 py-2.5 rounded-[var(--btn-radius)] bg-[var(--bg-elevated)] hover:bg-[var(--accent)] hover:text-[var(--accent-text)] text-[var(--text-main)] border border-[var(--border-color)] font-accent uppercase text-xs tracking-wider font-bold transition-all flex items-center gap-2 shadow-sm hover:shadow"
+              >
+                <span class="text-[var(--accent-gold)] font-mono font-bold">2.</span>
+                <span>Train</span>
+                <span class="text-xs">&darr;</span>
+              </a>
+              <a
+                href="#pathway-compete"
+                class="px-4 py-2.5 rounded-[var(--btn-radius)] bg-[var(--bg-elevated)] hover:bg-[var(--accent)] hover:text-[var(--accent-text)] text-[var(--text-main)] border border-[var(--border-color)] font-accent uppercase text-xs tracking-wider font-bold transition-all flex items-center gap-2 shadow-sm hover:shadow"
+              >
+                <span class="text-[var(--accent-gold)] font-mono font-bold">3.</span>
+                <span>Compete</span>
+                <span class="text-xs">&darr;</span>
+              </a>
+              <a
+                href="#host-a-meet"
+                class="px-4 py-2.5 rounded-[var(--btn-radius)] bg-[var(--accent-gold)]/15 text-[var(--accent-gold)] hover:bg-[var(--accent-gold)]/25 border border-[var(--accent-gold)]/40 font-accent uppercase text-xs tracking-wider font-bold transition-all flex items-center gap-2 shadow-sm hover:shadow"
+              >
+                <span>Host a Meet</span>
+                <span class="text-xs">&rarr;</span>
+              </a>
+            </div>
           </div>
         </div>
 
         <!-- Right: Community Photo Visual -->
-        <div class="lg:col-span-5 relative min-h-[260px] lg:min-h-full border-t lg:border-t-0 lg:border-l border-[var(--border-color)] bg-black/20 overflow-hidden">
+        <div class="lg:col-span-5 relative min-h-[280px] lg:min-h-full border-t lg:border-t-0 lg:border-l border-[var(--border-color)] bg-black/20 overflow-hidden flex flex-col justify-end">
           <Image
             src={communityPhoto}
             alt="Australian grip sport athletes and competitors posing with calibrated plates and implements at a national meet."
             class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-500"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-5">
-            <span class="text-xs font-mono text-white/90 bg-black/60 px-3 py-1 rounded-md backdrop-blur-sm border border-white/10">
-              Australian Grip Athletes &bull; National Community
-            </span>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none"></div>
+          <div class="absolute bottom-4 left-4 right-4 z-10">
+            <div
+              class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl backdrop-blur-md shadow-2xl border border-[var(--accent-gold)]/50"
+              style="background-color: rgba(10, 10, 10, 0.88) !important; color: #ffffff !important;"
+            >
+              <span class="w-2.5 h-2.5 rounded-full bg-[var(--accent-gold)] shrink-0 shadow-sm animate-pulse"></span>
+              <span class="text-xs sm:text-sm font-mono font-bold tracking-wide" style="color: #ffffff !important;">
+                Australian Grip Athletes &bull; National Community
+              </span>
+            </div>
           </div>
         </div>
 
@@ -668,8 +677,8 @@ const firstCompFaqs = [
               alt="Close-up of chalked athlete hand gripping a heavy steel implement on the platform."
               class="w-full h-full object-cover object-center"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
-              <span class="text-xs font-mono text-white/90">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-4">
+              <span class="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-black/80 border border-white/20 shadow-md" style="color: #ffffff !important;">
                 Pure friction &bull; Standardized implements &bull; Calibrated steel
               </span>
             </div>
