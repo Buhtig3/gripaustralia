@@ -1,0 +1,16 @@
+---
+import { getUrl } from '../utils/url';
+const targetUrl = getUrl('/useful-resources');
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content={`0;url=${targetUrl}`}>
+  <link rel="canonical" href={targetUrl}>
+  <title>Redirecting to Useful Sites & Resources...</title>
+</head>
+<body>
+  <p>Redirecting to <a href={targetUrl}>Useful Sites & Resources</a>...</p>
+</body>
+</html>

@@ -19,6 +19,7 @@ const competitionLinks = [
 ];
 
 const resourceLinks = [
+  { href: getUrl('/useful-resources'), label: 'Useful Sites & Resources', desc: 'Governing bodies, forums, equipment & training directories' },
   { href: getUrl('/equipment-guide'), label: "Beginner's Equipment Guide", desc: 'IM Tugs, loading pins, chalk & pinch blocks' },
   { href: getUrl('/gripper-rating-service'), label: 'Gripper Rating Service', desc: "Artie's Grip Gym RGC calibration & testing" },
   { href: getUrl('/media'), label: 'Interviews & Media', desc: 'Athlete interviews, podcasts & video analysis' },
@@ -26,7 +27,7 @@ const resourceLinks = [
 
 const isRecordsActive = ['/records', '/australian-grip-feats', '/mulletts-mandrel'].some(path => currentPath.includes(path));
 const isCompetitionsActive = ['/competition-calendar', '/championships', '/2024-championship', '/2025-championship', '/2026-championship'].some(path => currentPath.includes(path));
-const isResourcesActive = ['/equipment-guide', '/gripper-rating-service', '/media'].some(path => currentPath.includes(path));
+const isResourcesActive = ['/useful-resources', '/resources', '/equipment-guide', '/gripper-rating-service', '/media'].some(path => currentPath.includes(path));
 const isWhatIsGripActive = currentPath.includes('/what-is-grip-sport');
 ---
 

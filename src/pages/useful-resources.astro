@@ -1,0 +1,842 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getUrl } from '../utils/url';
+
+const pageTitle = "Useful Sites & Resources: Grip Sport Directory & Standards";
+const pageDescription = "Curated directory of international grip sport governing bodies, community forums, equipment makers, certification rosters, GSI contest rules, and RGC calibration guides.";
+
+// Categorized Directory Data
+const categories = [
+  {
+    id: "governing",
+    title: "Governing Bodies & Sanctioning Records",
+    badge: "Sanctioning & Rules",
+    description: "Official international federations and standardizing bodies maintaining rules, world championships, and national record registries.",
+    resources: [
+      {
+        name: "Grip Sport International (GSI)",
+        url: "https://www.gripsportint.com",
+        altUrl: "http://www.gripsport.org",
+        role: "Primary Global Sanctioning Body",
+        location: "International",
+        tags: ["Official Records", "Rulebook", "Weight Classes", "Sanctioning"],
+        description: "The primary sanctioning body standardizing contest rules, referee criteria, and maintaining the official international and Australian record databases for all tracked implements.",
+        internalLink: {
+          label: "View Australian GSI Records",
+          url: getUrl('/records')
+        }
+      },
+      {
+        name: "World Grip Sport Federation (WGSF)",
+        url: "https://www.worldgripsport.com",
+        role: "World Championships & Cup Series",
+        location: "International",
+        tags: ["World Cup", "Championships", "Classic 4-Event"],
+        description: "Oversees international championships including the global World Cup series and standardizes classic four-event lift structures across participating national bodies.",
+      },
+      {
+        name: "International Grip Sport Union (IGSU)",
+        url: "https://www.worldgripsport.com",
+        role: "Legacy Championship Standardization",
+        location: "International / Europe",
+        tags: ["Legacy Events", "European Championships", "Historical Benchmarks"],
+        description: "International body standardizing legacy championship events such as the European and World championships, classic implement standards, and foundational rules.",
+      }
+    ]
+  },
+  {
+    id: "community",
+    title: "Community Forums & Discussion",
+    badge: "Community Hubs",
+    description: "Global discussion boards, beginner communities, training logs, and equipment reviews connecting lifters worldwide.",
+    resources: [
+      {
+        name: "The GripBoard",
+        url: "https://www.gripboard.com",
+        role: "Global Grip History & Discussion Hub",
+        location: "Global",
+        tags: ["Training Logs", "Contest Announcements", "Equipment Reviews", "Mash Monster Ladder"],
+        description: "Founded by Bill Piche, this is the central global hub for grip history, competitor training logs, equipment reviews, contest announcements, and feat certifications (including the Mash Monster gripper ladder).",
+      },
+      {
+        name: "r/GripTraining (Reddit)",
+        url: "https://www.reddit.com/r/GripTraining",
+        role: "Beginner Hub & Routine Database",
+        location: "Global",
+        tags: ["Beginner Routines", "David Horne Routine", "Q&A", "Community Challenges"],
+        description: "Ideal entry-level resource for beginners and athletes transitioning from general lifting. Features structured programs like the David Horne Basic Routine, detailed FAQs, and contest discussions.",
+      }
+    ]
+  },
+  {
+    id: "equipment",
+    title: "Equipment, Ratings & Implements",
+    badge: "Gear & Implements",
+    description: "Specialized implement fabricators, certified gripper calibration providers, and local Australian gear distributors.",
+    resources: [
+      {
+        name: "Cannon PowerWorks",
+        url: "https://www.cannonpowerworks.com",
+        role: "Global Benchmark for Gripper Calibration",
+        location: "United States (Global Shipping)",
+        tags: ["RGC Calibration", "Custom Grippers", "Choked Setups", "Rating Database"],
+        description: "The global benchmark for hand gripper calibration under the RGC (Rating Gripper Calibration) system, custom spring modifications, and the world's most extensive gripper rating data registry.",
+        internalLink: {
+          label: "Australian Local Calibration Alternative",
+          url: getUrl('/gripper-rating-service')
+        }
+      },
+      {
+        name: "FiveArms",
+        url: "https://fivearms.com.au",
+        role: "Dedicated Australian Grip Equipment Distributor",
+        location: "Australia 🇦🇺",
+        tags: ["Domestic Shipping", "Contest Implements", "Loading Pins", "Chalk & Accessories"],
+        description: "Australia and Oceania's dedicated grip equipment and accessory distributor, supplying competition-grade implements, training tools, and gear directly to local athletes and meets.",
+      },
+      {
+        name: "IronMind",
+        url: "https://www.ironmind.com",
+        role: "Captains of Crush & Core Contest Apparatus",
+        location: "United States (Global)",
+        tags: ["Captains of Crush", "Rolling Thunder", "IronMind Hub", "Red Nail"],
+        description: "The pioneer of modern grip athletics. Official manufacturer of Captains of Crush (CoC) grippers, the Rolling Thunder revolving handle, the IronMind Hub, and formal certification benchmarks.",
+      },
+      {
+        name: "Club Strong",
+        url: "https://clubstrong.com.au",
+        role: "Sydney Implement Designer & Climbing Grip Resource",
+        location: "Sydney, Australia 🇦🇺",
+        tags: ["Australian Maker", "Pinch Blocks", "Finger Strength", "Climbing Implements"],
+        description: "Sydney-based grip and climbing strength implement designer and equipment resource, manufacturing ergonomic pinch blocks, training cylinders, and specialized finger strength apparatus.",
+      },
+      {
+        name: "Barrel Strength Systems",
+        url: "https://barrelstrengthsystems.com",
+        role: "Contest Pinch & Specialty Fabricator",
+        location: "United States",
+        tags: ["The Flask", "Napalm's Nightmare", "Saxon Bar", "Pinch Apparatus"],
+        description: "Originator of standardized international contest pinch and lift tools, including The Flask, Napalm's Nightmare revolving pinch apparatus, and precision Saxon bar attachments.",
+      }
+    ]
+  },
+  {
+    id: "training-feats",
+    title: "Feat Certifications & Training Reference",
+    badge: "Certifications & Technique",
+    description: "Official rosters for elite feat verification, technical video libraries, and specialized strength mechanics.",
+    resources: [
+      {
+        name: "IronMind Certification Roster",
+        url: "https://ironmind.com/certification/",
+        role: "Official World Feat Verification",
+        location: "Global",
+        tags: ["CoC #3, #3.5, #4", "Red Nail Bending", "Crushed-to-Dust Challenge"],
+        description: "Official historical listings for verified closures of the Captains of Crush #3, #3.5, and #4 grippers, the IronMind Red Nail bending roster, and the Crushed-to-Dust challenge.",
+        internalLink: {
+          label: "Explore Australian Grip Feats",
+          url: getUrl('/australian-grip-feats')
+        }
+      },
+      {
+        name: "Diesel Crew (Jedd Johnson)",
+        url: "https://dieselcrew.com",
+        role: "Grip Training Library & Video Masterclasses",
+        location: "United States",
+        tags: ["Blob Lifting", "Inch Dumbbell", "Steel Bending", "Mechanics & Technique"],
+        description: "Comprehensive training library, technical articles, and instructional video series detailing mechanics for block weight lifting (York Blob), Inch replica dumbbells, and short steel bending.",
+      }
+    ]
+  }
+];
+
+// Core GSI Sanctioned Event Rules Quick Reference Data
+const gsiDisciplines = [
+  {
+    name: '2" Two-Hands Pinch',
+    alias: 'Euro Pinch / Standardized Pinch Blocks',
+    focus: 'Symmetric Bilateral Thumb & Finger Clamping',
+    apparatus: 'Two parallel steel plates (or approved 2" solid block) adjusted for hand width, mounted on a vertical 1.9" Olympic loading pin.',
+    rules: [
+      'Grip Position: Overhand pinch grip only. The thumbs must oppose the four fingers across the outer vertical surfaces of the plates.',
+      'Legal Contact: Hands must be entirely placed on the designated gripping faces. Contact with the center spacers, loading pin, or weights is an immediate foul.',
+      'Clean Pull: The implement must rise smoothly from the floor without pausing or hitching against the shins or thighs.',
+      'Lockout Criteria: Lifter stands fully erect with knees locked, hips pushed through, and shoulders back. The implement must remain completely motionless.',
+      'The Down Signal: Lifter must hold the weight at lockout until the head referee calls "DOWN". The weight must then be guided under grip control down to the floor without dropping.'
+    ],
+    prohibitions: 'No sticky adhesives, resin, or tacky (pure dry magnesium carbonate chalk only). No resting hands or apparatus on the legs at any point.'
+  },
+  {
+    name: 'Rolling Handle Lift',
+    alias: 'Rolling Thunder / 60 mm Revolving Deadlift',
+    focus: 'Unilateral Open-Hand Support & Rotational Friction',
+    apparatus: 'Standardized 2.375" (60 mm) outer diameter rotating cylindrical handle attached to an Olympic loading pin via a heavy-duty carabiner.',
+    rules: [
+      'One-Handed Lift: Lifted using one hand only (competitor may select left or right hand per attempt).',
+      'Free Rotation: The handle sleeve must spin freely on its axle. Wedging, cocking, or canting the hand against the side brackets to prevent rotation is strictly illegal.',
+      'Non-Lifting Arm: The non-lifting hand and arm must remain completely clear of the body, thighs, and lifting apparatus.',
+      'Lockout Criteria: Hips and knees locked, torso erect, implement held steady off the floor.',
+      'The Down Signal: Must maintain full grip and control until the referee says "DOWN". Releasing the handle while the load is in the air invalidates the lift.'
+    ],
+    prohibitions: 'No contact between the lifting hand/wrist and the steel side frames. No thumb hooking or strap-like wraps over the top of the fingers.'
+  },
+  {
+    name: 'The Hub Lift',
+    alias: 'IronMind Hub / Vintage Plate Hub',
+    focus: 'Pinch Clamping & Fingertip Pad Opposition',
+    apparatus: 'Circular raised steel hub (2.875" diameter) fastened to a base plate and suspended from an Olympic loading pin.',
+    rules: [
+      'Fingertip-Only Contact: The weight must be lifted using only the distal pads of the fingers and thumb contacting the circular vertical perimeter of the hub.',
+      'The "Heel Foul": No part of the palm, palm heel, or web of the hand may contact the flat top surface or the horizontal base plate. The referee must be able to see clear daylight between the palm and the hub surface.',
+      'Vertical Lift: The implement must be pulled vertically in a clean line without leg assistance or contact.',
+      'Lockout: Complete standing lockout with hips and knees extended until the audible "DOWN" command.'
+    ],
+    prohibitions: 'No wedging the base plate against clothing or legs. Chalk must be standard dry magnesium carbonate.'
+  },
+  {
+    name: 'Saxon Bar Deadlift',
+    alias: '3" or 4" Rectangular Pinch Bar',
+    focus: 'Two-Handed Broad Flat-Bar Pinching',
+    apparatus: 'Hollow structural rectangular steel bar (standardized at 3" x 4" or 3" x 3"), loaded with Olympic plates on rotating or fixed sleeves.',
+    rules: [
+      'Double-Overhand Pinch: Both hands must grasp the flat parallel vertical faces of the bar with thumbs on the rear and fingers on the front.',
+      'No Hooking Underneath: The tips of the fingers and thumbs must NOT hook under the bottom edge or under-surface of the rectangular tube.',
+      'Lifting Stance: Competitor may use either a conventional (feet inside hands) or sumo (feet outside hands) stance.',
+      'Lockout Criteria: The bar must be lifted smoothly to full hip and knee lockout without ramping or resting on the thighs.',
+      'Controlled Return: After the referee\'s "DOWN" command, the bar must be guided back to the floor with both hands maintaining contact.'
+    ],
+    prohibitions: 'No under-hooking beneath the bar. No hitching, jerking, or resting the bar on the thighs during the ascent.'
+  },
+  {
+    name: 'Axle Deadlift',
+    alias: "Apollon's Axle (1.9\"–2\" Non-Rotating Bar)",
+    focus: 'Maximal Double-Overhand Support & Thick Bar Grip',
+    apparatus: 'A rigid, non-rotating steel bar measuring 1.9" to 2" (48–50 mm) in outer diameter, loaded with standard Olympic plates.',
+    rules: [
+      'Double-Overhand Pronated Grip: Both palms must face toward the lifter (knuckles facing forward/away). Mixed grip (one palm forward, one palm back) is STRICTLY PROHIBITED.',
+      'No Hook Grip: The thumb cannot be tucked underneath the fingers in an Olympic hook grip. The thumb must wrap over the fingers or remain in a standard open grasp.',
+      'Continuous Ascent: The bar must travel from floor to lockout in a single continuous movement without downward motion or bouncing.',
+      'Zero Hitching: Ramping the bar onto the thighs or resting the bar on the knees to regrip is an automatic red light.',
+      'Lockout & Control: Knees and hips fully locked, shoulders back, holding until the referee\'s "DOWN" command.'
+    ],
+    prohibitions: 'No straps, wraps, or sticky compounds. No mixed grip. No resting the bar on the thighs.'
+  }
+];
+
+// Internal Companion Tools
+const companionTools = [
+  {
+    title: "Australian Grip Records",
+    url: getUrl('/records'),
+    desc: "The official national leaderboard for all sanctioned GSI implements across Australian weight classes.",
+    badge: "Official Registry"
+  },
+  {
+    title: "Beginner's Equipment Guide",
+    url: getUrl('/equipment-guide'),
+    desc: "Starter gear breakdown: IM Tugs, loading pins, chalk selection, and pinch blocks.",
+    badge: "Gear Guide"
+  },
+  {
+    title: "Artie's Grip Gym Rating Service",
+    url: getUrl('/gripper-rating-service'),
+    desc: "Local Australian RGC calibration matched to Cannon PowerWorks standards with instant pricing calculator.",
+    badge: "Aus RGC Service"
+  },
+  {
+    title: "Competition Calendar",
+    url: getUrl('/competition-calendar'),
+    desc: "Upcoming Australian meets, GSI sanctioned events, and online postal competitions.",
+    badge: "Events"
+  },
+  {
+    title: "Australian Grip Feats",
+    url: getUrl('/australian-grip-feats'),
+    desc: "Historic achievements: 50 lb Blobs, Inch Dumbbells, and certified Captains of Crush closures.",
+    badge: "Hall of Feats"
+  },
+  {
+    title: "What is Grip Sport?",
+    url: getUrl('/what-is-grip-sport'),
+    desc: "Comprehensive introduction covering the four physiological pillars and the competition day workflow.",
+    badge: "Sport Overview"
+  }
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    
+    <!-- Breadcrumb -->
+    <nav class="flex items-center space-x-2 text-xs text-[var(--text-muted)] mb-6 font-mono" aria-label="Breadcrumb">
+      <a href={getUrl('/')} class="hover:text-[var(--accent-gold)] transition-colors">Home</a>
+      <span>/</span>
+      <span class="text-[var(--text-main)] truncate font-semibold">Useful Sites & Resources</span>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="pb-8 mb-10 border-b border-[var(--border-color)]">
+      <div class="flex flex-wrap items-center gap-2 mb-3">
+        <span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-[var(--accent-gold)]/15 text-[var(--accent-gold)] border border-[var(--accent-gold)]/30">
+          Curated Directory
+        </span>
+        <span class="px-2.5 py-0.5 rounded-full text-xs font-mono text-[var(--text-muted)] bg-[var(--bg-elevated)] border border-[var(--border-color)]">
+          GSI Sanctioning Standards
+        </span>
+        <span class="px-2.5 py-0.5 rounded-full text-xs font-mono text-[var(--accent)] font-semibold bg-[var(--accent)]/10 border border-[var(--accent)]/20">
+          Non-Duplicative Reference
+        </span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-[var(--text-main)] font-display uppercase tracking-tight leading-tight">
+        Useful Sites & <span class="text-[var(--accent-gold)]">Resources</span>
+      </h1>
+
+      <p class="mt-4 text-base sm:text-lg text-[var(--text-muted)] leading-relaxed max-w-3xl">
+        A dedicated directory connecting Australian athletes to the global grip sport ecosystem: official sanctioning bodies, historical community forums, verified equipment suppliers, competition rule standards, and precision calibration guides.
+      </p>
+
+      <!-- Quick Nav Buttons -->
+      <div class="mt-8 flex flex-wrap gap-2.5 text-xs font-accent uppercase tracking-wider font-semibold">
+        <a
+          href="#governing"
+          class="px-3.5 py-2 rounded-[var(--btn-radius)] bg-[var(--bg-elevated)] hover:bg-[var(--accent)] hover:text-[var(--accent-text)] text-[var(--text-main)] border border-[var(--border-color)] transition-colors flex items-center gap-1.5"
+        >
+          <span>Governing Bodies</span>
+          <span class="text-[var(--accent-gold)] font-mono text-[11px]">&darr;</span>
+        </a>
+        <a
+          href="#community"
+          class="px-3.5 py-2 rounded-[var(--btn-radius)] bg-[var(--bg-elevated)] hover:bg-[var(--accent)] hover:text-[var(--accent-text)] text-[var(--text-main)] border border-[var(--border-color)] transition-colors flex items-center gap-1.5"
+        >
+          <span>Forums & Hubs</span>
+          <span class="text-[var(--accent-gold)] font-mono text-[11px]">&darr;</span>
+        </a>
+        <a
+          href="#equipment"
+          class="px-3.5 py-2 rounded-[var(--btn-radius)] bg-[var(--bg-elevated)] hover:bg-[var(--accent)] hover:text-[var(--accent-text)] text-[var(--text-main)] border border-[var(--border-color)] transition-colors flex items-center gap-1.5"
+        >
+          <span>Equipment & Makers</span>
+          <span class="text-[var(--accent-gold)] font-mono text-[11px]">&darr;</span>
+        </a>
+        <a
+          href="#training-feats"
+          class="px-3.5 py-2 rounded-[var(--btn-radius)] bg-[var(--bg-elevated)] hover:bg-[var(--accent)] hover:text-[var(--accent-text)] text-[var(--text-main)] border border-[var(--border-color)] transition-colors flex items-center gap-1.5"
+        >
+          <span>Feats & Training</span>
+          <span class="text-[var(--accent-gold)] font-mono text-[11px]">&darr;</span>
+        </a>
+        <a
+          href="#rules-guide"
+          class="px-3.5 py-2 rounded-[var(--btn-radius)] bg-[var(--accent)] text-[var(--accent-text)] border border-[var(--accent-gold)]/40 hover:bg-[var(--accent-hover)] transition-colors flex items-center gap-1.5 shadow-sm"
+        >
+          <span>GSI Event Rules Guide</span>
+          <span class="text-[var(--accent-gold)] font-mono text-[11px]">&rarr;</span>
+        </a>
+        <a
+          href="#calibration-guide"
+          class="px-3.5 py-2 rounded-[var(--btn-radius)] bg-[var(--accent-gold)]/15 text-[var(--accent-gold)] border border-[var(--accent-gold)]/40 hover:bg-[var(--accent-gold)]/25 transition-colors flex items-center gap-1.5 font-bold"
+        >
+          <span>RGC Calibration Guide</span>
+          <span class="text-[var(--accent-gold)] font-mono text-[11px]">&rarr;</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Interactive Directory Search & Filter Controls -->
+    <section class="mb-12">
+      <div class="p-4 sm:p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        
+        <!-- Category Filter Tabs -->
+        <div class="flex flex-wrap items-center gap-1.5" id="category-filters">
+          <button
+            type="button"
+            class="filter-btn active px-3 py-1.5 rounded-lg text-xs font-mono font-bold uppercase transition-all bg-[var(--accent)] text-[var(--accent-text)] border border-[var(--accent-gold)]/30"
+            data-filter="all"
+          >
+            All Resources (12)
+          </button>
+          <button
+            type="button"
+            class="filter-btn px-3 py-1.5 rounded-lg text-xs font-mono font-semibold uppercase transition-all bg-[var(--bg-elevated)] hover:bg-[var(--bg-base)] text-[var(--text-muted)] hover:text-[var(--text-main)] border border-[var(--border-color)]"
+            data-filter="governing"
+          >
+            Governing Bodies (3)
+          </button>
+          <button
+            type="button"
+            class="filter-btn px-3 py-1.5 rounded-lg text-xs font-mono font-semibold uppercase transition-all bg-[var(--bg-elevated)] hover:bg-[var(--bg-base)] text-[var(--text-muted)] hover:text-[var(--text-main)] border border-[var(--border-color)]"
+            data-filter="community"
+          >
+            Community Forums (2)
+          </button>
+          <button
+            type="button"
+            class="filter-btn px-3 py-1.5 rounded-lg text-xs font-mono font-semibold uppercase transition-all bg-[var(--bg-elevated)] hover:bg-[var(--bg-base)] text-[var(--text-muted)] hover:text-[var(--text-main)] border border-[var(--border-color)]"
+            data-filter="equipment"
+          >
+            Equipment & Makers (5)
+          </button>
+          <button
+            type="button"
+            class="filter-btn px-3 py-1.5 rounded-lg text-xs font-mono font-semibold uppercase transition-all bg-[var(--bg-elevated)] hover:bg-[var(--bg-base)] text-[var(--text-muted)] hover:text-[var(--text-main)] border border-[var(--border-color)]"
+            data-filter="training-feats"
+          >
+            Feats & Training (2)
+          </button>
+        </div>
+
+        <!-- Search Input -->
+        <div class="relative w-full sm:w-64 shrink-0">
+          <input
+            type="text"
+            id="resource-search"
+            placeholder="Search links, brands, gear..."
+            class="w-full pl-8 pr-3 py-1.5 text-xs rounded-lg bg-[var(--bg-base)] border border-[var(--border-color)] text-[var(--text-main)] placeholder-[var(--text-subtle)] focus:outline-none focus:ring-1 focus:ring-[var(--accent-gold)] font-mono"
+          />
+          <svg class="w-4 h-4 text-[var(--text-subtle)] absolute left-2.5 top-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Main Categorized Resource Sections -->
+    <div class="space-y-16" id="resources-container">
+      {categories.map((cat) => (
+        <section id={cat.id} class="category-block scroll-mt-24" data-category={cat.id}>
+          
+          <!-- Category Section Header -->
+          <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-6 pb-3 border-b border-[var(--border-color)]">
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="w-2 h-2 rounded-full bg-[var(--accent-gold)]"></span>
+                <span class="text-xs font-mono font-bold uppercase tracking-wider text-[var(--accent-gold)]">{cat.badge}</span>
+              </div>
+              <h2 class="text-2xl sm:text-3xl font-black text-[var(--text-main)] font-display uppercase tracking-tight">
+                {cat.title}
+              </h2>
+            </div>
+            <p class="text-xs text-[var(--text-muted)] mt-1 sm:mt-0 max-w-md">
+              {cat.description}
+            </p>
+          </div>
+
+          <!-- Category Resource Cards Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {cat.resources.map((item) => (
+              <div class="resource-card group bg-[var(--bg-surface)] border border-[var(--border-color)] hover:border-[var(--accent-gold)]/60 rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between" data-search-text={`${item.name} ${item.role} ${item.tags.join(' ')} ${item.description}`}>
+                <div>
+                  
+                  <!-- Card Top Metadata -->
+                  <div class="flex items-center justify-between gap-2 mb-3">
+                    <span class="text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[var(--text-muted)] border border-[var(--border-color)] truncate">
+                      {item.role}
+                    </span>
+                    <span class="text-[10px] font-mono text-[var(--accent-gold)] shrink-0 font-semibold">
+                      {item.location}
+                    </span>
+                  </div>
+
+                  <!-- Resource Name & Outbound Link -->
+                  <h3 class="font-display font-black text-xl uppercase tracking-wide text-[var(--text-main)] group-hover:text-[var(--accent-gold)] transition-colors">
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-1.5 focus:outline-none"
+                    >
+                      <span>{item.name}</span>
+                      <svg class="w-4 h-4 text-[var(--text-subtle)] group-hover:text-[var(--accent-gold)] transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                      </svg>
+                    </a>
+                  </h3>
+
+                  <!-- Description -->
+                  <p class="text-xs text-[var(--text-muted)] mt-2.5 leading-relaxed">
+                    {item.description}
+                  </p>
+
+                  <!-- Tags -->
+                  <div class="mt-4 flex flex-wrap gap-1.5">
+                    {item.tags.map((tag) => (
+                      <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-[var(--bg-base)] text-[var(--text-subtle)] border border-[var(--border-color)]">
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+
+                </div>
+
+                <!-- Footer Action & Cross Links -->
+                <div class="mt-6 pt-4 border-t border-[var(--border-color)] flex flex-col gap-2">
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-xs font-mono font-bold text-[var(--accent-gold)] hover:underline flex items-center justify-between"
+                  >
+                    <span>Visit {item.name}</span>
+                    <span class="text-[10px]">&rarr;</span>
+                  </a>
+
+                  {item.internalLink && (
+                    <a
+                      href={item.internalLink.url}
+                      class="text-[11px] text-[var(--text-main)] hover:text-[var(--accent-gold)] flex items-center gap-1 pt-1 font-medium"
+                    >
+                      <svg class="w-3.5 h-3.5 text-[var(--accent-gold)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                      </svg>
+                      <span class="underline">{item.internalLink.label}</span>
+                    </a>
+                  )}
+                </div>
+
+              </div>
+            ))}
+          </div>
+
+        </section>
+      ))}
+    </div>
+
+    <!-- INFORMATION MODULE 1: GSI Sanctioned Event Rules Quick Reference -->
+    <section id="rules-guide" class="mt-20 pt-12 border-t border-[var(--border-color)] scroll-mt-20">
+      <div class="mb-8 max-w-3xl">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-[var(--accent)] text-[var(--accent-text)] border border-[var(--accent-gold)]/40">
+            Rules Reference Guide
+          </span>
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-mono text-[var(--text-muted)] bg-[var(--bg-elevated)] border border-[var(--border-color)]">
+            Core Competition Disciplines
+          </span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-[var(--text-main)] font-display uppercase tracking-tight">
+          GSI Sanctioned Event <span class="text-[var(--accent-gold)]">Legal Lift Rules</span>
+        </h2>
+        <p class="mt-3 text-sm text-[var(--text-muted)] leading-relaxed">
+          Sanctioned Grip Sport International (GSI) contests enforce unambiguous mechanical standards. Every competitor must understand the strict boundaries separating a valid white light from a disallowed attempt across the five cornerstone competition disciplines.
+        </p>
+      </div>
+
+      <!-- Quick Comparison Cards for the 5 Disciplines -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {gsiDisciplines.map((item, idx) => (
+          <div class="p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] relative flex flex-col justify-between shadow-sm hover:border-[var(--accent-gold)]/40 transition-colors">
+            
+            <div>
+              <!-- Header -->
+              <div class="flex items-start justify-between gap-2 pb-4 border-b border-[var(--border-color)]">
+                <div>
+                  <div class="text-[10px] font-mono uppercase tracking-wider text-[var(--accent-gold)] font-bold">
+                    Discipline 0{idx + 1} &bull; {item.focus}
+                  </div>
+                  <h3 class="text-xl sm:text-2xl font-black font-display uppercase tracking-wide text-[var(--text-main)] mt-0.5">
+                    {item.name}
+                  </h3>
+                  <div class="text-xs text-[var(--text-muted)] font-mono mt-0.5">
+                    {item.alias}
+                  </div>
+                </div>
+
+                <div class="w-9 h-9 rounded-xl bg-[var(--bg-elevated)] border border-[var(--border-color)] flex items-center justify-center font-mono font-black text-sm text-[var(--accent-gold)] shrink-0">
+                  {idx + 1}
+                </div>
+              </div>
+
+              <!-- Apparatus Spec -->
+              <div class="mt-4 p-3 rounded-lg bg-[var(--bg-elevated)] text-xs text-[var(--text-muted)] border border-[var(--border-color)]">
+                <span class="font-bold text-[var(--text-main)] font-mono uppercase text-[10px] block mb-0.5">Apparatus Standard:</span>
+                {item.apparatus}
+              </div>
+
+              <!-- Detailed Rules Checklist -->
+              <div class="mt-4 space-y-2.5">
+                <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--text-subtle)] block">
+                  Legal Execution Criteria:
+                </span>
+                <ul class="space-y-2 text-xs text-[var(--text-main)]">
+                  {item.rules.map((rule) => (
+                    <li class="flex items-start gap-2 leading-relaxed">
+                      <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                      </svg>
+                      <span>{rule}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <!-- Prohibitions Alert Callout -->
+            <div class="mt-6 pt-4 border-t border-[var(--border-color)] text-[11px] text-amber-600 dark:text-amber-400 bg-amber-500/5 p-3 rounded-lg border border-amber-500/20">
+              <span class="font-bold font-mono uppercase text-[10px] block mb-0.5">Strictly Disallowed:</span>
+              {item.prohibitions}
+            </div>
+
+          </div>
+        ))}
+      </div>
+
+      <!-- Universal Judging Callout -->
+      <div class="mt-8 p-5 rounded-xl bg-[var(--bg-elevated)] border border-[var(--accent-gold)]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div class="space-y-1">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+            <span class="font-display font-bold text-sm uppercase tracking-wider text-[var(--text-main)]">
+              Universal GSI Referee Standard: The "DOWN" Command
+            </span>
+          </div>
+          <p class="text-xs text-[var(--text-muted)] max-w-2xl">
+            In every sanctioned lift, the competitor must bring the implement to a full, motionless lockout (knees and hips locked, torso erect) and wait for the audible and visual "DOWN" signal from the head referee. Dropping, dumping, or losing grip on the descent results in an immediate red light (no lift).
+          </p>
+        </div>
+        <a
+          href={getUrl('/what-is-grip-sport')}
+          class="shrink-0 px-4 py-2 rounded-lg bg-[var(--bg-surface)] hover:bg-[var(--bg-base)] text-[var(--text-main)] border border-[var(--border-color)] font-semibold text-xs uppercase tracking-wider font-accent transition-colors shadow-sm"
+        >
+          Read Full Meet Workflow &rarr;
+        </a>
+      </div>
+    </section>
+
+    <!-- INFORMATION MODULE 2: Equipment Calibration Guide (RGC Explainer) -->
+    <section id="calibration-guide" class="mt-20 pt-12 border-t border-[var(--border-color)] scroll-mt-20">
+      <div class="mb-8 max-w-3xl">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-[var(--accent-gold)]/15 text-[var(--accent-gold)] border border-[var(--accent-gold)]/30">
+            Calibration Explainer
+          </span>
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-mono text-[var(--text-muted)] bg-[var(--bg-elevated)] border border-[var(--border-color)]">
+            Torsion Spring Standards
+          </span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-[var(--text-main)] font-display uppercase tracking-tight">
+          Equipment Calibration: <span class="text-[var(--accent-gold)]">How RGC Works vs Factory Numbers</span>
+        </h2>
+        <p class="mt-3 text-sm text-[var(--text-muted)] leading-relaxed">
+          Torsion-spring hand grippers are the universal benchmark of crushing power, but stamped factory numbers create immense confusion. Here is the engineering science behind why manufacturer ratings mislead, how the RGC system standardizes closing force, and why calibration is essential.
+        </p>
+      </div>
+
+      <!-- 3-Column Explainer Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Card 1: The Problem with Factory Ratings -->
+        <div class="p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-red-500/10 text-red-500 flex items-center justify-center font-mono font-bold text-sm mb-4 border border-red-500/20">
+              01
+            </div>
+            <h3 class="font-display font-bold text-lg uppercase text-[var(--text-main)] mb-2">
+              Why Factory Numbers Mislead
+            </h3>
+            <p class="text-xs text-[var(--text-muted)] leading-relaxed">
+              When a brand advertises a gripper as <strong>"195 lbs" (like a CoC #2)</strong> or <strong>"280 lbs" (CoC #3)</strong>, that number represents either theoretical spring torque, midpoint resistance, or engineering wire deflection before handle leverage is introduced.
+            </p>
+            <div class="mt-4 p-3 rounded-lg bg-[var(--bg-elevated)] text-[11px] font-mono text-[var(--text-subtle)] border border-[var(--border-color)]">
+              Factory Stamp: ~195 lbs<br/>
+              Actual Hand Resistance: ~106 lbs RGC
+            </div>
+          </div>
+          <p class="mt-4 text-[11px] text-[var(--text-muted)] pt-3 border-t border-[var(--border-color)]">
+            Human hands squeeze along the entire length of the handle, with pinky drive applying force at maximum leverage.
+          </p>
+        </div>
+
+        <!-- Card 2: The RGC Standardization Method -->
+        <div class="p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-[var(--accent-gold)]/15 text-[var(--accent-gold)] flex items-center justify-center font-mono font-bold text-sm mb-4 border border-[var(--accent-gold)]/30">
+              02
+            </div>
+            <h3 class="font-display font-bold text-lg uppercase text-[var(--text-main)] mb-2">
+              How RGC Is Measured
+            </h3>
+            <p class="text-xs text-[var(--text-muted)] leading-relaxed">
+              <strong>RGC (Rating Gripper Calibration)</strong>, pioneered by Cannon PowerWorks and adopted globally, removes all human subjectivity. The gripper is clamped horizontally by one handle into a rigid steel fixture. A 1/4" non-elastic strap is positioned precisely at the very tip of the free handle.
+            </p>
+            <div class="mt-4 p-3 rounded-lg bg-[var(--bg-elevated)] text-[11px] font-mono text-[var(--text-subtle)] border border-[var(--border-color)]">
+              Fixture: Horizontal steel clamp<br/>
+              Fulcrum: 1/4" strap at handle tip<br/>
+              Target: Calibrated parallel contact
+            </div>
+          </div>
+          <p class="mt-4 text-[11px] text-[var(--text-muted)] pt-3 border-t border-[var(--border-color)]">
+            Calibrated static weight is added until the handles make parallel contact. The suspended weight in pounds is the true RGC.
+          </p>
+        </div>
+
+        <!-- Card 3: Manufacturing Tolerances & Stepping Stones -->
+        <div class="p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center font-mono font-bold text-sm mb-4 border border-emerald-500/20">
+              03
+            </div>
+            <h3 class="font-display font-bold text-lg uppercase text-[var(--text-main)] mb-2">
+              Variance & Plateau Busting
+            </h3>
+            <p class="text-xs text-[var(--text-muted)] leading-relaxed">
+              Due to natural variances in spring wire batches, coil heat treatment, and handle mounting depths, two grippers with identical factory stamps can differ by <strong>10 to 15+ lbs RGC</strong>. A "hard" CoC #2 can overlap an "easy" #2.5!
+            </p>
+            <div class="mt-4 p-3 rounded-lg bg-[var(--bg-elevated)] text-[11px] font-mono text-[var(--text-subtle)] border border-[var(--border-color)]">
+              Cross-Brand Unification:<br/>
+              CoC &bull; GHP &bull; Baraban &bull; Heavy Grips<br/>
+              Mapped to one single poundage scale
+            </div>
+          </div>
+          <p class="mt-4 text-[11px] text-[var(--text-muted)] pt-3 border-t border-[var(--border-color)]">
+            Rating enables athletes to find micro-increments (e.g. 112 lb GHP Level 6) to bridge massive 20+ lb gaps between milestone grippers.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Cannon PowerWorks vs Artie's Rating Service Callout -->
+      <div class="mt-8 p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
+        <div class="space-y-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+              Calibration Options for Athletes
+            </span>
+          </div>
+          <h3 class="font-display font-bold text-xl uppercase text-[var(--text-main)]">
+            Where to Get Your Grippers Calibrated
+          </h3>
+          <p class="text-xs text-[var(--text-muted)] max-w-2xl leading-relaxed">
+            While <a href="https://cannonpowerworks.com" target="_blank" rel="noopener noreferrer" class="text-[var(--accent-gold)] underline font-medium">Cannon PowerWorks</a> is the global pioneer in the United States, Australian lifters can avoid expensive overseas postage ($80–$120+ AUD round-trip) by using <a href={getUrl('/gripper-rating-service')} class="text-[var(--accent-gold)] underline font-medium">Artie's Grip Gym Rating Service</a> in Australia, which matches CPW benchmark standards with fast domestic turnaround and durable color-coded tags.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center gap-3 shrink-0 w-full md:w-auto">
+          <a
+            href={getUrl('/gripper-rating-service')}
+            class="w-full sm:w-auto text-center px-5 py-2.5 rounded-[var(--btn-radius)] bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-[var(--accent-text)] font-bold text-xs uppercase tracking-wider font-accent shadow-sm border border-[var(--accent-gold)]/40 transition-colors"
+          >
+            Artie's Aus Rating & Calculator &rarr;
+          </a>
+          <a
+            href="https://cannonpowerworks.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full sm:w-auto text-center px-5 py-2.5 rounded-[var(--btn-radius)] bg-[var(--bg-elevated)] hover:bg-[var(--bg-base)] text-[var(--text-main)] border border-[var(--border-color)] font-semibold text-xs uppercase tracking-wider font-accent transition-colors"
+          >
+            Visit Cannon PowerWorks &nearr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cross-Linking: Grip Australia Internal Companion Hubs -->
+    <section class="mt-20 pt-12 border-t border-[var(--border-color)]">
+      <div class="mb-6">
+        <h2 class="text-xs font-bold text-[var(--accent-gold)] tracking-widest uppercase mb-1 font-accent">Site Ecosystem</h2>
+        <p class="text-2xl sm:text-3xl font-black text-[var(--text-main)] font-display uppercase">Grip Australia Tools & Directories</p>
+        <p class="text-xs text-[var(--text-muted)] mt-1">Connect directly with our local databases, historical archives, and competitor tools.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {companionTools.map((tool) => (
+          <a
+            href={tool.url}
+            class="p-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] hover:border-[var(--accent-gold)] transition-all group flex flex-col justify-between shadow-sm"
+          >
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-[10px] font-mono uppercase font-bold text-[var(--accent-gold)] px-2 py-0.5 rounded bg-[var(--bg-elevated)] border border-[var(--border-color)]">
+                  {tool.badge}
+                </span>
+                <span class="text-[11px] text-[var(--text-subtle)] group-hover:text-[var(--accent-gold)] font-accent">&rarr;</span>
+              </div>
+              <h3 class="font-display font-bold text-base uppercase text-[var(--text-main)] group-hover:text-[var(--accent-gold)] transition-colors">
+                {tool.title}
+              </h3>
+              <p class="text-xs text-[var(--text-muted)] mt-1 leading-relaxed">
+                {tool.desc}
+              </p>
+            </div>
+            <div class="mt-3 pt-2 border-t border-[var(--border-color)] text-[10px] font-mono text-[var(--accent-gold)]">
+              Explore page &rarr;
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>
+
+<script>
+  // Client-side interactive filter & search logic
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const searchInput = document.getElementById('resource-search') as HTMLInputElement | null;
+  const cards = document.querySelectorAll('.resource-card') as NodeListOf<HTMLElement>;
+  const categoryBlocks = document.querySelectorAll('.category-block') as NodeListOf<HTMLElement>;
+
+  let activeCategory = 'all';
+  let searchTerm = '';
+
+  function applyFilters() {
+    const query = searchTerm.toLowerCase().trim();
+
+    cards.forEach((card) => {
+      const parentSection = card.closest('.category-block') as HTMLElement | null;
+      const categoryId = parentSection?.dataset.category || '';
+      const text = (card.dataset.searchText || card.textContent || '').toLowerCase();
+
+      const matchesCategory = activeCategory === 'all' || categoryId === activeCategory;
+      const matchesSearch = !query || text.includes(query);
+
+      if (matchesCategory && matchesSearch) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    // Toggle category block visibility if all cards inside are hidden
+    categoryBlocks.forEach((block) => {
+      const categoryId = block.dataset.category || '';
+      if (activeCategory !== 'all' && categoryId !== activeCategory) {
+        block.style.display = 'none';
+        return;
+      }
+
+      const visibleCards = block.querySelectorAll('.resource-card[style="display: flex;"]');
+      // If query is empty and category matches, show all cards
+      if (!query && (activeCategory === 'all' || categoryId === activeCategory)) {
+        block.style.display = 'block';
+      } else if (visibleCards.length === 0 && query) {
+        block.style.display = 'none';
+      } else {
+        block.style.display = 'block';
+      }
+    });
+  }
+
+  filterButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach((b) => {
+        b.classList.remove('active', 'bg-[var(--accent)]', 'text-[var(--accent-text)]');
+        b.classList.add('bg-[var(--bg-elevated)]', 'text-[var(--text-muted)]');
+      });
+
+      btn.classList.add('active', 'bg-[var(--accent)]', 'text-[var(--accent-text)]');
+      btn.classList.remove('bg-[var(--bg-elevated)]', 'text-[var(--text-muted)]');
+
+      activeCategory = btn.getAttribute('data-filter') || 'all';
+      applyFilters();
+    });
+  });
+
+  searchInput?.addEventListener('input', (e) => {
+    searchTerm = (e.target as HTMLInputElement).value;
+    applyFilters();
+  });
+</script>
