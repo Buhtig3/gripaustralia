@@ -8,6 +8,7 @@
 # ]
 # ///
 
+import argparse
 import logging
 import re
 import sys
@@ -22,9 +23,10 @@ from urllib3.util.retry import Retry
 
 # --- Configuration & Paths ---
 BASE_URL = "https://www.gripsport.org"
-DB_PATH = Path("gripsport.duckdb")
-CSV_EXPORT_PATH = Path("athlete_first_placements.csv")
-DEBUG_DIR = Path("debug_html")
+SCRIPT_DIR = Path(__file__).resolve().parent
+DB_PATH = SCRIPT_DIR / "gripsport.duckdb" if (SCRIPT_DIR / "gripsport.duckdb").exists() else Path("gripsport.duckdb")
+CSV_EXPORT_PATH = SCRIPT_DIR / "athlete_first_placements.csv" if (SCRIPT_DIR / "athlete_first_placements.csv").exists() else Path("athlete_first_placements.csv")
+DEBUG_DIR = SCRIPT_DIR / "debug_html"
 DEBUG_DIR.mkdir(exist_ok=True)
 
 logging.basicConfig(
@@ -85,6 +87,14 @@ def init_db(con: duckdb.DuckDBPyConnection):
             FOREIGN KEY (athlete_id) REFERENCES candidates(athlete_id)
         );
     """)
+
+    # Ensure any athletes already recorded in athlete_first_places are marked 'completed'
+    con.execute("""
+        UPDATE candidates
+        SET status = 'completed'
+        WHERE athlete_id IN (SELECT athlete_id FROM athlete_first_places)
+          AND status != 'completed';
+    """)
     logger.info("DuckDB tables initialized.")
 
 
@@ -134,11 +144,26 @@ def fetch_tracked_events(con: duckdb.DuckDBPyConnection) -> Set[str]:
 
 
 def discover_and_save_candidates(
-    con: duckdb.DuckDBPyConnection, min_contests: int = 8, max_pages: int = 66
+    con: duckdb.DuckDBPyConnection,
+    min_contests: int = 3,
+    max_pages: int = 66,
+    skip_processed: bool = True,
 ):
     """Crawls directory pages and discovers candidates with >= min_contests."""
     logger.info("Scanning directory for athletes with >= %d contests...", min_contests)
     total_saved = 0
+    total_skipped = 0
+
+    processed_ids: Set[int] = set()
+    if skip_processed:
+        processed_ids = set(
+            r[0] for r in con.execute("""
+                SELECT athlete_id FROM candidates WHERE status = 'completed'
+                UNION
+                SELECT athlete_id FROM athlete_first_places
+            """).fetchall()
+        )
+        logger.info("Loaded %d already processed candidates to skip during discovery.", len(processed_ids))
 
     for page in range(1, max_pages + 1):
         url = f"{BASE_URL}/athletes?page={page}"
@@ -170,6 +195,7 @@ def discover_and_save_candidates(
             break
 
         candidates_on_page = 0
+        skipped_on_page = 0
         for row in rows:
             cols = row.find_all("td")
             if len(cols) < 4:
@@ -185,6 +211,11 @@ def discover_and_save_candidates(
             if not match:
                 continue
             athlete_id = int(match.group(1))
+
+            if skip_processed and athlete_id in processed_ids:
+                skipped_on_page += 1
+                total_skipped += 1
+                continue
 
             raw_contests = cols[contest_col_idx].text.strip()
             digits = re.sub(r"[^\d]", "", raw_contests)
@@ -208,11 +239,20 @@ def discover_and_save_candidates(
                 candidates_on_page += 1
                 total_saved += 1
 
-        logger.info("Directory page %d/%d: found %d qualifying athletes.", page, max_pages, candidates_on_page)
+        if skipped_on_page > 0:
+            logger.info(
+                "Directory page %d/%d: found %d qualifying athletes (%d already processed skipped).",
+                page, max_pages, candidates_on_page, skipped_on_page,
+            )
+        else:
+            logger.info("Directory page %d/%d: found %d qualifying athletes.", page, max_pages, candidates_on_page)
         time.sleep(1.0)
 
     pending_count = con.execute("SELECT COUNT(*) FROM candidates WHERE status = 'pending'").fetchone()[0]
-    logger.info("Discovery complete. Total pending candidates to inspect: %d", pending_count)
+    logger.info(
+        "Discovery complete. Total candidates saved: %d (skipped %d already processed). Total pending candidates to inspect: %d",
+        total_saved, total_skipped, pending_count,
+    )
 
 
 def count_class_ones(profile_url: str, tracked_events: Set[str]) -> Tuple[int, int]:
@@ -273,6 +313,13 @@ def process_candidates(con: duckdb.DuckDBPyConnection, tracked_events: Set[str],
     """
     if force_reprocess:
         con.execute("UPDATE candidates SET status = 'pending'")
+    else:
+        con.execute("""
+            UPDATE candidates
+            SET status = 'completed'
+            WHERE athlete_id IN (SELECT athlete_id FROM athlete_first_places)
+              AND status != 'completed';
+        """)
 
     pending = con.execute("""
         SELECT athlete_id, name, contests, profile_url
@@ -312,7 +359,7 @@ def process_candidates(con: duckdb.DuckDBPyConnection, tracked_events: Set[str],
         logger.warning("Process interrupted by user (Ctrl+C). Progress is safely saved.")
 
 
-def export_and_summarize(con: duckdb.DuckDBPyConnection):
+def export_and_summarize(con: duckdb.DuckDBPyConnection, csv_path: Path = CSV_EXPORT_PATH):
     """Exports both placement metrics to CSV and displays the tracked #1 leaderboard."""
     con.execute(f"""
         COPY (
@@ -328,9 +375,9 @@ def export_and_summarize(con: duckdb.DuckDBPyConnection):
             FROM athlete_first_places p
             LEFT JOIN candidates c ON p.athlete_id = c.athlete_id
             ORDER BY p.class_ones_tracked DESC, p.class_ones_all DESC, p.contests DESC
-        ) TO '{CSV_EXPORT_PATH}' (HEADER, DELIMITER ',');
+        ) TO '{csv_path.as_posix()}' (HEADER, DELIMITER ',');
     """)
-    logger.info("Exported leaderboard to '%s'.", CSV_EXPORT_PATH)
+    logger.info("Exported leaderboard to '%s'.", csv_path)
 
     top_tracked = con.execute("""
         SELECT p.name, c.country, p.class_ones_tracked, p.class_ones_all, p.contests
@@ -352,20 +399,62 @@ def export_and_summarize(con: duckdb.DuckDBPyConnection):
 
 
 def main():
-    con = duckdb.connect(str(DB_PATH))
+    parser = argparse.ArgumentParser(description="GripSport athlete placement scraper and analyzer.")
+    parser.add_argument(
+        "--db-path",
+        type=Path,
+        default=DB_PATH,
+        help=f"Path to DuckDB database (default: {DB_PATH}).",
+    )
+    parser.add_argument(
+        "--csv-path",
+        type=Path,
+        default=CSV_EXPORT_PATH,
+        help=f"Path to output CSV (default: {CSV_EXPORT_PATH}).",
+    )
+    parser.add_argument(
+        "--force-reprocess",
+        action="store_true",
+        help="Force re-evaluation of already processed athletes.",
+    )
+    parser.add_argument(
+        "--no-skip-processed",
+        action="store_true",
+        help="Do not skip processed candidates during discovery.",
+    )
+    parser.add_argument(
+        "--min-contests",
+        type=int,
+        default=3,
+        help="Minimum contests threshold (default: 3).",
+    )
+    parser.add_argument(
+        "--max-pages",
+        type=int,
+        default=66,
+        help="Maximum athlete directory pages to scan (default: 66).",
+    )
+    args = parser.parse_args()
+
+    con = duckdb.connect(str(args.db_path))
     init_db(con)
 
     # 1. Fetch currently tracked events list from gripsport.org/events
     tracked_events = fetch_tracked_events(con)
 
-    # 2. Discover candidates with >= 8 contests across the 65 directory pages
-    discover_and_save_candidates(con, min_contests=8)
+    # 2. Discover candidates with >= min_contests across directory pages
+    discover_and_save_candidates(
+        con,
+        min_contests=args.min_contests,
+        max_pages=args.max_pages,
+        skip_processed=not args.no_skip_processed,
+    )
 
-    # 3. Process candidates (set force_reprocess=True if re-evaluating previously cached runs)
-    process_candidates(con, tracked_events, force_reprocess=True)
+    # 3. Process candidates (skips completed unless --force-reprocess is passed)
+    process_candidates(con, tracked_events, force_reprocess=args.force_reprocess)
 
     # 4. Save results to CSV and print the leaderboard
-    export_and_summarize(con)
+    export_and_summarize(con, csv_path=args.csv_path)
 
     con.close()
 

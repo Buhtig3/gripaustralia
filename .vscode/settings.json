@@ -12,7 +12,7 @@
             "type": "file",
             "path": "c:\\Users\\Cam.Chimera\\Code\\gripaustralia\\scripts\\gripsport.duckdb",
             "readOnly": true,
-            "attached": true
+            "attached": false
         }
     ],
     "duckdb.defaultDatabase": "gripsport"

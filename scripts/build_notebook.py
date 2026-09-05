@@ -1,3 +1,18 @@
+#!/usr/bin/env -S uv run
+# /// script
+# requires-python = ">=3.11"
+# dependencies = [
+#     "pandas",
+#     "numpy", 
+#     "matplotlib",
+#     "seaborn",
+#     "nbformat",
+#     "nbclient",
+#     "ipykernel",
+#     "duckdb>=1.0.0",
+#     "requests>=2.31.0",
+# ]
+# ///
 """
 Build and execute gripsport_analysis.ipynb with pre-computed outputs and charts,
 incorporating class_ones_all vs class_ones_tracked.
