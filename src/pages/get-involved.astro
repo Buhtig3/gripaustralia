@@ -1,0 +1,1119 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import { getUrl } from '../utils/url';
+import communityPhoto from '../assets/images/get-involved-f7184e17.jpg';
+import trainingPhoto from '../assets/images/get-involved-f3de02c0.jpg';
+
+const pageTitle = "Get Involved in Australian Grip Sport: Community, Gyms & Events";
+const pageDescription = "Your self-serve launchpad to Australian grip sport. Connect with local athletes on Instagram, find gyms and starter gear, join your first competition, or host a sanctioned meet.";
+
+// State Directory Data
+const states = [
+  {
+    state: "VIC",
+    stateName: "Victoria",
+    metro: "Melbourne & Regional",
+    description: "Home to the 2026 Australian Championships and a dense concentration of competitive grip athletes and calibrated gripper rating.",
+    anchors: [
+      {
+        name: "Iron Revolution Gym",
+        location: "Melbourne (Coburg)",
+        focus: "Host venue for the 2026 Australian Grip Sport Championship; dedicated strongman and grip sport implements including Saxon bars, Napalm's Nightmares, and calibrated plates.",
+        tag: "Championship Host Gym"
+      },
+      {
+        name: "Artie's Grip Gym & Calibration",
+        location: "Melbourne",
+        focus: "The national hub for RGC gripper rating and testing; active lifters testing crush and pinch implements.",
+        link: getUrl('/gripper-rating-service'),
+        linkText: "View Rating Service",
+        tag: "RGC Calibration Hub"
+      }
+    ]
+  },
+  {
+    state: "NSW",
+    stateName: "New South Wales",
+    metro: "Sydney & Newcastle",
+    description: "Birthplace of the inaugural 2024 Australian Nationals and home to custom grip implement design and regular training syndicates.",
+    anchors: [
+      {
+        name: "Club Strong Sydney",
+        location: "Sydney Metro",
+        focus: "Specialized grip and climbing strength implement designers, pinch blocks, and open-hand training gear.",
+        externalLink: "https://clubstrong.com.au",
+        linkText: "Visit Club Strong",
+        tag: "Implement Designer & Gym"
+      },
+      {
+        name: "Sydney Grip Athletes Syndicate",
+        location: "Sydney Metro & Surrounds",
+        focus: "Regular training groups and meet competitors practicing classic GSI disciplines and Inch dumbbell odd-object lifting.",
+        tag: "Competitor Syndicate"
+      }
+    ]
+  },
+  {
+    state: "QLD",
+    stateName: "Queensland",
+    metro: "Brisbane & Gold Coast",
+    description: "Host of the historic 2025 Australian Nationals with an active community spanning strongman, armlifting, and specialized grip feats.",
+    anchors: [
+      {
+        name: "Ultra Fitness Brisbane",
+        location: "Brisbane (North)",
+        focus: "Host venue of the 2025 Australian Grip Sport Championship; equipped with contest-grade loading pins, rolling handles, and heavy plates.",
+        tag: "Championship Host Gym"
+      },
+      {
+        name: "Gold Coast / Sunshine Coast Grip Lifters",
+        location: "South East Queensland",
+        focus: "Regional lifters training thick-bar deadlifts, pinch blocks, and preparing for national events.",
+        tag: "Regional Training"
+      }
+    ]
+  },
+  {
+    state: "ACT",
+    stateName: "Australian Capital Territory",
+    metro: "Canberra",
+    description: "Active competition hub hosting the annual StrongFest IV Grip Challenge and state record-setting meets.",
+    anchors: [
+      {
+        name: "StrongFest Canberra & GSI Challenge",
+        location: "Canberra",
+        focus: "Regular GSI-sanctioned events including StrongFest IV and local record meets; excellent entry point for first-time competitors in the capital region.",
+        link: getUrl('/competition-calendar'),
+        linkText: "Check Calendar",
+        tag: "Sanctioned Contest Venue"
+      }
+    ]
+  },
+  {
+    state: "TAS",
+    stateName: "Tasmania",
+    metro: "Hobart & State-wide",
+    description: "Passionate strength community combining grip sport, Highland games, and the annual Hobart Hoist.",
+    anchors: [
+      {
+        name: "Hobart Hoist Community",
+        location: "Hobart",
+        focus: "Organizers of the Hobart Hoist; welcomes newcomers, heavy stone lifters, and grip specialists from across Tasmania.",
+        link: getUrl('/competition-calendar'),
+        linkText: "View Hobart Hoist",
+        tag: "Annual Event Hub"
+      }
+    ]
+  },
+  {
+    state: "WA-SA",
+    stateName: "WA & SA",
+    metro: "Perth & Adelaide",
+    description: "Connected lifters training in private facilities, home gym syndicates, and competing in online postal contests.",
+    anchors: [
+      {
+        name: "Western Australia & South Australia Network",
+        location: "Perth & Adelaide",
+        focus: "Lifters collaborating via Instagram and online scoreboards; competing in postal challenges and national qualifiers.",
+        tag: "Postal & Home Gyms"
+      }
+    ]
+  }
+];
+
+// Beginner First Comp FAQs
+const firstCompFaqs = [
+  {
+    q: "Do I need to be an elite lifter to enter a competition?",
+    a: "Absolutely not. Grip competitions cater to all strength levels from raw beginners testing their baseline to record chasers. Meets feature standard bodyweight divisions and novice categories."
+  },
+  {
+    q: "What equipment do I need to bring on the day?",
+    a: "Only your gym clothes and flat shoes (or deadlift slippers). All competition implements, loading pins, calibrated weights, and dry magnesium carbonate chalk are provided by the event host."
+  },
+  {
+    q: "How does the contest format work?",
+    a: "Most Australian meets use a 'rising bar' format. The weight on the implement increases in set increments. You choose which weights to attempt, and you are never forced to lift a weight beyond your current ability."
+  },
+  {
+    q: "How are rules and referee commands handled?",
+    a: "Every meet starts with a mandatory athlete rules briefing where the head referee physically demonstrates legal lockouts, legal hand placement, and the critical 'DOWN' signal. Questions are actively encouraged before lifting commences."
+  }
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    
+    <!-- Breadcrumb -->
+    <nav class="flex items-center space-x-2 text-xs text-[var(--text-muted)] mb-6 font-mono" aria-label="Breadcrumb">
+      <a href={getUrl('/')} class="hover:text-[var(--accent-gold)] transition-colors">Home</a>
+      <span>/</span>
+      <span class="text-[var(--text-main)] truncate font-semibold">Get Involved</span>
+    </nav>
+
+    <!-- Hero Section with Community Banner -->
+    <header class="relative rounded-3xl overflow-hidden border border-[var(--border-color)] bg-[var(--bg-surface)] mb-14 shadow-lg">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+        
+        <!-- Left: Copy & Pathways Overview -->
+        <div class="lg:col-span-7 p-6 sm:p-10 flex flex-col justify-between">
+          <div>
+            <div class="flex flex-wrap items-center gap-2 mb-4">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-[var(--accent)] text-[var(--accent-text)] border border-[var(--accent-gold)]/40">
+                Self-Serve Launchpad
+              </span>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono text-[var(--text-muted)] bg-[var(--bg-elevated)] border border-[var(--border-color)]">
+                Australian Grip Community
+              </span>
+            </div>
+
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-[var(--text-main)] font-display uppercase tracking-tight leading-tight">
+              Get Involved in <span class="text-[var(--accent-gold)]">Australian Grip Sport</span>
+            </h1>
+
+            <p class="mt-4 text-base sm:text-lg text-[var(--text-muted)] leading-relaxed">
+              Whether you want to crush your first heavy gripper, train with seasoned lifters, or step onto the platform at your first contest, this is your direct launchpad. No forms or gatekeeping—choose your pathway below.
+            </p>
+          </div>
+
+          <!-- Quick Jump Buttons (3 Pathways + Meet Hosting) -->
+          <div class="mt-8 pt-6 border-t border-[var(--border-color)] flex flex-wrap gap-2.5">
+            <a
+              href="#pathway-connect"
+              class="px-3.5 py-2 rounded-[var(--btn-radius)] bg-[var(--bg-elevated)] hover:bg-[var(--accent)] hover:text-[var(--accent-text)] text-[var(--text-main)] border border-[var(--border-color)] font-accent uppercase text-xs tracking-wider font-semibold transition-colors flex items-center gap-1.5"
+            >
+              <span class="text-[var(--accent-gold)] font-mono font-bold">1.</span>
+              <span>Connect</span>
+              <span class="text-xs">&darr;</span>
+            </a>
+            <a
+              href="#pathway-train"
+              class="px-3.5 py-2 rounded-[var(--btn-radius)] bg-[var(--bg-elevated)] hover:bg-[var(--accent)] hover:text-[var(--accent-text)] text-[var(--text-main)] border border-[var(--border-color)] font-accent uppercase text-xs tracking-wider font-semibold transition-colors flex items-center gap-1.5"
+            >
+              <span class="text-[var(--accent-gold)] font-mono font-bold">2.</span>
+              <span>Train</span>
+              <span class="text-xs">&darr;</span>
+            </a>
+            <a
+              href="#pathway-compete"
+              class="px-3.5 py-2 rounded-[var(--btn-radius)] bg-[var(--bg-elevated)] hover:bg-[var(--accent)] hover:text-[var(--accent-text)] text-[var(--text-main)] border border-[var(--border-color)] font-accent uppercase text-xs tracking-wider font-semibold transition-colors flex items-center gap-1.5"
+            >
+              <span class="text-[var(--accent-gold)] font-mono font-bold">3.</span>
+              <span>Compete</span>
+              <span class="text-xs">&darr;</span>
+            </a>
+            <a
+              href="#host-a-meet"
+              class="px-3.5 py-2 rounded-[var(--btn-radius)] bg-[var(--accent-gold)]/15 text-[var(--accent-gold)] hover:bg-[var(--accent-gold)]/25 border border-[var(--accent-gold)]/30 font-accent uppercase text-xs tracking-wider font-bold transition-colors flex items-center gap-1.5"
+            >
+              <span>Host a Meet</span>
+              <span class="text-xs">&rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Community Photo Visual -->
+        <div class="lg:col-span-5 relative min-h-[260px] lg:min-h-full border-t lg:border-t-0 lg:border-l border-[var(--border-color)] bg-black/20 overflow-hidden">
+          <Image
+            src={communityPhoto}
+            alt="Australian grip sport athletes and competitors posing with calibrated plates and implements at a national meet."
+            class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-500"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-5">
+            <span class="text-xs font-mono text-white/90 bg-black/60 px-3 py-1 rounded-md backdrop-blur-sm border border-white/10">
+              Australian Grip Athletes &bull; National Community
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- 3 Pathways Interactive Roadmap Grid -->
+    <section class="mb-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Pathway Card 1: Connect -->
+        <a
+          href="#pathway-connect"
+          class="group p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] hover:border-[var(--accent-gold)] transition-all shadow-sm flex flex-col justify-between"
+        >
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="w-9 h-9 rounded-xl bg-[var(--accent-gold)]/15 text-[var(--accent-gold)] flex items-center justify-center font-mono font-bold text-sm border border-[var(--accent-gold)]/30">
+                01
+              </span>
+              <span class="text-[10px] font-mono uppercase tracking-wider text-[var(--text-subtle)] font-semibold">
+                Socials & Clubs
+              </span>
+            </div>
+            <h2 class="text-xl font-black font-display uppercase tracking-wide text-[var(--text-main)] group-hover:text-[var(--accent-gold)] transition-colors">
+              Connect
+            </h2>
+            <p class="text-xs text-[var(--text-muted)] mt-2 leading-relaxed">
+              Find training partners, message local lifters, join discussion boards, and discover regional clubs across every Australian state.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-[var(--border-color)] flex items-center justify-between text-xs font-mono font-bold text-[var(--accent-gold)]">
+            <span>Explore Community</span>
+            <span class="transform group-hover:translate-x-1 transition-transform">&rarr;</span>
+          </div>
+        </a>
+
+        <!-- Pathway Card 2: Train -->
+        <a
+          href="#pathway-train"
+          class="group p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] hover:border-[var(--accent-gold)] transition-all shadow-sm flex flex-col justify-between"
+        >
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center font-mono font-bold text-sm border border-emerald-500/20">
+                02
+              </span>
+              <span class="text-[10px] font-mono uppercase tracking-wider text-[var(--text-subtle)] font-semibold">
+                Gyms & Gear
+              </span>
+            </div>
+            <h2 class="text-xl font-black font-display uppercase tracking-wide text-[var(--text-main)] group-hover:text-emerald-500 transition-colors">
+              Train
+            </h2>
+            <p class="text-xs text-[var(--text-muted)] mt-2 leading-relaxed">
+              Build your starter gym setup without breaking the bank, locate grip-friendly facilities, and calibrate your torsion-spring grippers.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-[var(--border-color)] flex items-center justify-between text-xs font-mono font-bold text-emerald-500">
+            <span>Gear & Facilities</span>
+            <span class="transform group-hover:translate-x-1 transition-transform">&rarr;</span>
+          </div>
+        </a>
+
+        <!-- Pathway Card 3: Compete -->
+        <a
+          href="#pathway-compete"
+          class="group p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] hover:border-[var(--accent-gold)] transition-all shadow-sm flex flex-col justify-between"
+        >
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="w-9 h-9 rounded-xl bg-orange-500/10 text-orange-500 flex items-center justify-center font-mono font-bold text-sm border border-orange-500/20">
+                03
+              </span>
+              <span class="text-[10px] font-mono uppercase tracking-wider text-[var(--text-subtle)] font-semibold">
+                Meets & Sanctioning
+              </span>
+            </div>
+            <h2 class="text-xl font-black font-display uppercase tracking-wide text-[var(--text-main)] group-hover:text-orange-500 transition-colors">
+              Compete
+            </h2>
+            <p class="text-xs text-[var(--text-muted)] mt-2 leading-relaxed">
+              Step onto the platform at a novice-friendly meet, view the national event calendar, or host your own sanctioned competition.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-[var(--border-color)] flex items-center justify-between text-xs font-mono font-bold text-orange-500">
+            <span>Find Competitions</span>
+            <span class="transform group-hover:translate-x-1 transition-transform">&rarr;</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- PATHWAY 1: CONNECT -->
+    <section id="pathway-connect" class="mb-20 pt-8 border-t border-[var(--border-color)] scroll-mt-20">
+      
+      <div class="mb-8">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="w-2 h-2 rounded-full bg-[var(--accent-gold)]"></span>
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-[var(--accent-gold)]">Pathway 01</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-[var(--text-main)] font-display uppercase tracking-tight">
+          Connect with the <span class="text-[var(--accent-gold)]">Australian Community</span>
+        </h2>
+        <p class="mt-2 text-sm text-[var(--text-muted)] max-w-2xl leading-relaxed">
+          Grip sport thrives on peer support, garage sessions, and shared technique tips. You don't have to train in isolation—here is how to link up with active lifters.
+        </p>
+      </div>
+
+      <!-- Instagram & Direct Socials Feature Block -->
+      <div class="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-[var(--bg-surface)] via-[var(--bg-surface)] to-[var(--bg-elevated)] border border-[var(--border-color)] mb-8 shadow-sm">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div class="space-y-3 max-w-2xl">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-pink-500/10 text-pink-600 dark:text-pink-400 border border-pink-500/20">
+                Official Social Hub
+              </span>
+              <span class="text-xs font-mono text-[var(--text-muted)]">Direct Lifter Network</span>
+            </div>
+
+            <h3 class="text-2xl font-black font-display uppercase tracking-wide text-[var(--text-main)]">
+              Follow, Tag & DM: <a href="https://instagram.com/gripaustralia" target="_blank" rel="noopener noreferrer" class="text-[var(--accent-gold)] hover:underline">@gripaustralia</a>
+            </h3>
+
+            <p class="text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
+              Instagram is the primary daily communication channel for Australian grip lifters. If you're looking for training partners in your area, tag us in your training videos or send a direct message. We regularly spotlight local PRs, announce pop-up gym sessions, and connect newcomers with nearby veterans.
+            </p>
+
+            <!-- Community Hashtags -->
+            <div class="pt-2 flex flex-wrap items-center gap-2 text-xs font-mono">
+              <span class="text-[var(--text-subtle)]">Community Tags:</span>
+              <a href="https://www.instagram.com/explore/tags/australiangripsport/" target="_blank" rel="noopener noreferrer" class="px-2 py-0.5 rounded bg-[var(--bg-base)] text-[var(--accent-gold)] border border-[var(--border-color)] hover:border-[var(--accent-gold)] transition-colors">
+                #AustralianGripSport
+              </a>
+              <a href="https://www.instagram.com/explore/tags/gripaustralia/" target="_blank" rel="noopener noreferrer" class="px-2 py-0.5 rounded bg-[var(--bg-base)] text-[var(--accent-gold)] border border-[var(--border-color)] hover:border-[var(--accent-gold)] transition-colors">
+                #GripAustralia
+              </a>
+            </div>
+          </div>
+
+          <!-- Direct Instagram Action Button -->
+          <div class="shrink-0 w-full md:w-auto">
+            <a
+              href="https://instagram.com/gripaustralia"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-pink-600 via-rose-600 to-amber-600 hover:from-pink-500 hover:to-amber-500 text-white font-bold text-xs uppercase tracking-wider font-accent shadow-md transition-all transform hover:-translate-y-0.5"
+            >
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+              <span>Connect on Instagram</span>
+              <span>&rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Forums & Online Discussion Hubs -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        
+        <!-- GripBoard -->
+        <div class="p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] hover:border-[var(--accent-gold)]/60 transition-all flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-mono uppercase font-bold px-2 py-0.5 rounded bg-[var(--accent-gold)]/15 text-[var(--accent-gold)] border border-[var(--accent-gold)]/30">
+                Global Archive
+              </span>
+              <span class="text-xs font-mono text-[var(--text-muted)]">gripboard.com</span>
+            </div>
+            <h3 class="text-xl font-bold font-display uppercase text-[var(--text-main)]">
+              The GripBoard
+            </h3>
+            <p class="text-xs text-[var(--text-muted)] mt-2 leading-relaxed">
+              Founded by Bill Piche, The GripBoard is the world's most extensive repository of grip history, competitor training logs, implement dimensions, and feat certifications. If you have an odd equipment question or want to log your progress, this is the global authority.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-[var(--border-color)]">
+            <a
+              href="https://www.gripboard.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-xs font-mono font-bold text-[var(--accent-gold)] hover:underline inline-flex items-center gap-1.5"
+            >
+              <span>Visit The GripBoard Forum</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- r/GripTraining -->
+        <div class="p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] hover:border-[var(--accent-gold)]/60 transition-all flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-mono uppercase font-bold px-2 py-0.5 rounded bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30">
+                Beginner Hub
+              </span>
+              <span class="text-xs font-mono text-[var(--text-muted)]">reddit.com/r/GripTraining</span>
+            </div>
+            <h3 class="text-xl font-bold font-display uppercase text-[var(--text-main)]">
+              r/GripTraining Community
+            </h3>
+            <p class="text-xs text-[var(--text-muted)] mt-2 leading-relaxed">
+              The premier entry point for athletes transitioning from strength training or climbing into formal grip sport. Features free, structured programming like the David Horne Basic Routine, weekly challenge threads, and active community technique checks.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-[var(--border-color)]">
+            <a
+              href="https://www.reddit.com/r/GripTraining"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-xs font-mono font-bold text-orange-600 dark:text-orange-400 hover:underline inline-flex items-center gap-1.5"
+            >
+              <span>Explore r/GripTraining</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- State-by-State / Metro Directory -->
+      <div class="p-6 sm:p-8 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)]">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-[var(--border-color)]">
+          <div>
+            <h3 class="text-xl sm:text-2xl font-black font-display uppercase text-[var(--text-main)]">
+              State-by-State & Metro Directory
+            </h3>
+            <p class="text-xs text-[var(--text-muted)] mt-1">
+              Select a state to locate training clubs, host gym facilities, and regional lifter anchors.
+            </p>
+          </div>
+
+          <!-- State Filter Buttons -->
+          <div class="flex flex-wrap items-center gap-1.5" id="state-filter-tabs">
+            <button
+              type="button"
+              class="state-tab-btn active px-3 py-1 rounded-lg text-xs font-mono font-bold uppercase transition-all bg-[var(--accent)] text-[var(--accent-text)] border border-[var(--accent-gold)]/40 cursor-pointer"
+              data-state="all"
+            >
+              All States
+            </button>
+            {states.map((s) => (
+              <button
+                type="button"
+                class="state-tab-btn px-2.5 py-1 rounded-lg text-xs font-mono font-semibold uppercase transition-all bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:text-[var(--text-main)] border border-[var(--border-color)] cursor-pointer"
+                data-state={s.state}
+              >
+                {s.state}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <!-- State Cards Container -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="state-cards-grid">
+          {states.map((s) => (
+            <div class="state-card p-5 rounded-xl bg-[var(--bg-elevated)] border border-[var(--border-color)] flex flex-col justify-between transition-all" data-state={s.state}>
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-xs font-mono font-black uppercase text-[var(--accent-gold)] px-2 py-0.5 rounded bg-[var(--bg-base)] border border-[var(--border-color)]">
+                    {s.state}
+                  </span>
+                  <span class="text-[11px] font-mono text-[var(--text-subtle)]">
+                    {s.metro}
+                  </span>
+                </div>
+                
+                <h4 class="font-display font-bold text-lg uppercase text-[var(--text-main)]">
+                  {s.stateName}
+                </h4>
+
+                <p class="text-xs text-[var(--text-muted)] mt-1.5 leading-relaxed">
+                  {s.description}
+                </p>
+
+                <!-- Anchors list -->
+                <div class="mt-4 space-y-3 pt-3 border-t border-[var(--border-color)]">
+                  {s.anchors.map((anchor) => (
+                    <div class="text-xs">
+                      <div class="flex items-center justify-between gap-1">
+                        <span class="font-bold text-[var(--text-main)]">{anchor.name}</span>
+                        <span class="text-[9px] font-mono px-1.5 py-0.2 rounded bg-[var(--bg-base)] text-[var(--text-subtle)] border border-[var(--border-color)] truncate">
+                          {anchor.tag}
+                        </span>
+                      </div>
+                      <p class="text-[11px] text-[var(--text-muted)] mt-0.5 leading-snug">
+                        {anchor.focus}
+                      </p>
+                      {anchor.link && (
+                        <a href={anchor.link} class="inline-block mt-1 text-[11px] font-mono text-[var(--accent-gold)] hover:underline font-semibold">
+                          {anchor.linkText || "View Details"} &rarr;
+                        </a>
+                      )}
+                      {anchor.externalLink && (
+                        <a href={anchor.externalLink} target="_blank" rel="noopener noreferrer" class="inline-block mt-1 text-[11px] font-mono text-[var(--accent-gold)] hover:underline font-semibold">
+                          {anchor.linkText || "Visit Site"} &nearr;
+                        </a>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-[var(--border-color)] text-[11px] text-[var(--text-subtle)] font-mono flex items-center justify-between">
+                <span>Want your gym listed?</span>
+                <a href="https://instagram.com/gripaustralia" target="_blank" rel="noopener noreferrer" class="text-[var(--accent-gold)] hover:underline">
+                  DM us &nearr;
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- PATHWAY 2: TRAIN -->
+    <section id="pathway-train" class="mb-20 pt-8 border-t border-[var(--border-color)] scroll-mt-20">
+      
+      <div class="mb-8">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-500">Pathway 02</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-[var(--text-main)] font-display uppercase tracking-tight">
+          Train: <span class="text-[var(--accent-gold)]">Gyms, Home Setups & Starter Gear</span>
+        </h2>
+        <p class="mt-2 text-sm text-[var(--text-muted)] max-w-2xl leading-relaxed">
+          You don't need hundreds of kilograms of specialized steel to start building elite crushing and pinching power. Standardize the essentials, train smart, and measure progress objectively.
+        </p>
+      </div>
+
+      <!-- Feature Split: Starter Kit Breakdown vs Calibration & Resources -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+        
+        <!-- Left: Starter Kit Checklist Card (7 cols) -->
+        <div class="lg:col-span-7 p-6 sm:p-8 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] shadow-sm">
+          <div class="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-[var(--border-color)]">
+            <div>
+              <span class="text-[10px] font-mono uppercase tracking-wider text-[var(--accent-gold)] font-bold">Home Gym Blueprint</span>
+              <h3 class="text-2xl font-black font-display uppercase text-[var(--text-main)]">
+                The 4-Piece Beginner Starter Kit
+              </h3>
+            </div>
+            <a
+              href={getUrl('/equipment-guide')}
+              class="text-xs font-mono font-bold text-[var(--accent-gold)] hover:underline shrink-0"
+            >
+              Full Guide &rarr;
+            </a>
+          </div>
+
+          <p class="text-xs text-[var(--text-muted)] mb-6 leading-relaxed">
+            With just four versatile implements, you can train crushing, pinching, and open-hand support strength that transfers directly to official Grip Sport International (GSI) contests.
+          </p>
+
+          <div class="space-y-4">
+            
+            <!-- Item 1: Loading Pin -->
+            <div class="p-4 rounded-xl bg-[var(--bg-elevated)] border border-[var(--border-color)] flex items-start gap-3.5">
+              <div class="w-8 h-8 rounded-lg bg-[var(--bg-base)] border border-[var(--border-color)] flex items-center justify-center font-mono font-bold text-xs text-[var(--accent-gold)] shrink-0">
+                01
+              </div>
+              <div class="text-xs space-y-1">
+                <span class="font-bold text-[var(--text-main)] text-sm block">1.9" Olympic Loading Pin & Carabiner</span>
+                <p class="text-[var(--text-muted)] leading-relaxed">
+                  The backbone of vertical lifting. Easily attaches to revolving handles, pinch blocks, and hub tools. Fits standard 2" Olympic weight plates.
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 2: Rolling Handle -->
+            <div class="p-4 rounded-xl bg-[var(--bg-elevated)] border border-[var(--border-color)] flex items-start gap-3.5">
+              <div class="w-8 h-8 rounded-lg bg-[var(--bg-base)] border border-[var(--border-color)] flex items-center justify-center font-mono font-bold text-xs text-[var(--accent-gold)] shrink-0">
+                02
+              </div>
+              <div class="text-xs space-y-1">
+                <span class="font-bold text-[var(--text-main)] text-sm block">2" to 2.375" Revolving Handle</span>
+                <p class="text-[var(--text-muted)] leading-relaxed">
+                  The ultimate benchmark for open-hand rotational grip (like the Rolling Thunder). Free-spinning sleeve forces the fingers and thumb to fight roll.
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 3: Torsion Spring Gripper -->
+            <div class="p-4 rounded-xl bg-[var(--bg-elevated)] border border-[var(--border-color)] flex items-start gap-3.5">
+              <div class="w-8 h-8 rounded-lg bg-[var(--bg-base)] border border-[var(--border-color)] flex items-center justify-center font-mono font-bold text-xs text-[var(--accent-gold)] shrink-0">
+                03
+              </div>
+              <div class="text-xs space-y-1">
+                <span class="font-bold text-[var(--text-main)] text-sm block">Calibrated Torsion-Spring Hand Grippers</span>
+                <p class="text-[var(--text-muted)] leading-relaxed">
+                  Start with a Captains of Crush Trainer or #1 (or equivalent). Accurately rated RGC poundages ensure you train on realistic resistance steps.
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 4: Chalk & Brush -->
+            <div class="p-4 rounded-xl bg-[var(--bg-elevated)] border border-[var(--border-color)] flex items-start gap-3.5">
+              <div class="w-8 h-8 rounded-lg bg-[var(--bg-base)] border border-[var(--border-color)] flex items-center justify-center font-mono font-bold text-xs text-[var(--accent-gold)] shrink-0">
+                04
+              </div>
+              <div class="text-xs space-y-1">
+                <span class="font-bold text-[var(--text-main)] text-sm block">Dry Magnesium Carbonate Chalk & Nylon Brush</span>
+                <p class="text-[var(--text-muted)] leading-relaxed">
+                  Pure gym chalk eliminates sweat and ensures maximum mechanical friction into the knurling. Stiff nylon brush keeps grooves clean.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-[var(--border-color)] flex flex-wrap items-center justify-between gap-3">
+            <span class="text-xs text-[var(--text-muted)] font-mono">Want in-depth implement specs?</span>
+            <a
+              href={getUrl('/equipment-guide')}
+              class="px-4 py-2 rounded-lg bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-[var(--accent-text)] font-accent font-bold text-xs uppercase tracking-wider transition-colors shadow-sm"
+            >
+              Read Beginner's Equipment Guide &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Calibration & Local Gear Hubs (5 cols) -->
+        <div class="lg:col-span-5 space-y-6">
+          
+          <!-- Image Card -->
+          <div class="rounded-2xl overflow-hidden border border-[var(--border-color)] relative h-48 bg-black/20">
+            <Image
+              src={trainingPhoto}
+              alt="Close-up of chalked athlete hand gripping a heavy steel implement on the platform."
+              class="w-full h-full object-cover object-center"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+              <span class="text-xs font-mono text-white/90">
+                Pure friction &bull; Standardized implements &bull; Calibrated steel
+              </span>
+            </div>
+          </div>
+
+          <!-- Rating Service Card -->
+          <div class="p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] hover:border-[var(--accent-gold)]/60 transition-all shadow-sm">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-mono uppercase font-bold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                Australian RGC Service
+              </span>
+              <span class="text-xs font-mono text-[var(--accent-gold)] font-bold">$10 / $5 Rates</span>
+            </div>
+            <h4 class="font-display font-black text-xl uppercase text-[var(--text-main)]">
+              Artie's Grip Gym Rating Service
+            </h4>
+            <p class="text-xs text-[var(--text-muted)] mt-2 leading-relaxed">
+              Torsion grippers have huge factory tolerances. Avoid expensive US shipping by having your grippers accurately rated right here in Australia to Cannon PowerWorks standards with durable color-coded tags.
+            </p>
+            <div class="mt-4 pt-3 border-t border-[var(--border-color)]">
+              <a
+                href={getUrl('/gripper-rating-service')}
+                class="text-xs font-mono font-bold text-[var(--accent-gold)] hover:underline inline-flex items-center gap-1"
+              >
+                <span>Calculate Rating Price & Order</span>
+                <span>&rarr;</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Australian Distributors & Makers -->
+          <div class="p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] shadow-sm">
+            <span class="text-[10px] font-mono uppercase font-bold text-[var(--text-subtle)] block mb-2">
+              Australian Equipment Providers
+            </span>
+            <div class="space-y-3">
+              <div class="text-xs">
+                <a href="https://fivearms.com.au" target="_blank" rel="noopener noreferrer" class="font-bold text-[var(--text-main)] hover:text-[var(--accent-gold)] flex items-center justify-between">
+                  <span>FiveArms Australia</span>
+                  <span class="text-[10px] font-mono text-[var(--accent-gold)]">&nearr;</span>
+                </a>
+                <p class="text-[11px] text-[var(--text-muted)] mt-0.5">Dedicated Australian grip implements, loading pins, chalk, and accessories distributor.</p>
+              </div>
+              <div class="text-xs pt-2 border-t border-[var(--border-color)]">
+                <a href="https://clubstrong.com.au" target="_blank" rel="noopener noreferrer" class="font-bold text-[var(--text-main)] hover:text-[var(--accent-gold)] flex items-center justify-between">
+                  <span>Club Strong</span>
+                  <span class="text-[10px] font-mono text-[var(--accent-gold)]">&nearr;</span>
+                </a>
+                <p class="text-[11px] text-[var(--text-muted)] mt-0.5">Sydney-based grip implement designer specializing in pinch blocks and finger strength tools.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- PATHWAY 3: COMPETE -->
+    <section id="pathway-compete" class="mb-20 pt-8 border-t border-[var(--border-color)] scroll-mt-20">
+      
+      <div class="mb-8">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-orange-500">Pathway 03</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-[var(--text-main)] font-display uppercase tracking-tight">
+          Compete: <span class="text-[var(--accent-gold)]">First Comp Guide & Calendar</span>
+        </h2>
+        <p class="mt-2 text-sm text-[var(--text-muted)] max-w-2xl leading-relaxed">
+          The best way to understand grip sport is to jump into a competition. Meets are welcoming, equipment is shared, and every lifter is cheered on.
+        </p>
+      </div>
+
+      <!-- Hero Comp Banner -->
+      <div class="p-6 sm:p-8 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] mb-8 shadow-sm">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div class="space-y-2 max-w-2xl">
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20">
+                Official Contest Schedule
+              </span>
+              <span class="text-xs font-mono text-[var(--text-muted)]">GSI Sanctioned Meets</span>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-black font-display uppercase tracking-wide text-[var(--text-main)]">
+              Browse Upcoming Competitions
+            </h3>
+            <p class="text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
+              Explore scheduled Australian Grip Sport International (GSI) contests, state championships, and local challenges like StrongFest IV in Canberra and the Hobart Hoist.
+            </p>
+          </div>
+
+          <a
+            href={getUrl('/competition-calendar')}
+            class="shrink-0 w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white font-bold text-xs uppercase tracking-wider font-accent shadow-md transition-all transform hover:-translate-y-0.5"
+          >
+            <span>View Competition Calendar</span>
+            <span class="text-sm">&rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Beginner Reassurance: The 3-Point First-Timer Checklist -->
+      <div class="p-6 sm:p-8 rounded-2xl bg-[var(--bg-elevated)] border border-[var(--accent-gold)]/30 mb-10">
+        <div class="mb-6">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-[var(--accent-gold)] block mb-1">
+            Zero Intimidation Guarantee
+          </span>
+          <h3 class="text-xl sm:text-2xl font-black font-display uppercase text-[var(--text-main)]">
+            First-Timer 3-Point Reassurance
+          </h3>
+          <p class="text-xs text-[var(--text-muted)] mt-1">
+            If you've never competed before, here is why Australian grip meets are the best entry point in strength sports:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          
+          <div class="p-5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)]">
+            <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-500 flex items-center justify-center mb-3">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <h4 class="font-bold text-sm uppercase text-[var(--text-main)] mb-1">
+              Novice Classes & Weight Categories
+            </h4>
+            <p class="text-xs text-[var(--text-muted)] leading-relaxed">
+              You compete strictly within your bodyweight class or novice division. There are no minimum qualifying totals required to enter.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)]">
+            <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-500 flex items-center justify-center mb-3">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <h4 class="font-bold text-sm uppercase text-[var(--text-main)] mb-1">
+              Rules Demonstrated on the Day
+            </h4>
+            <p class="text-xs text-[var(--text-muted)] leading-relaxed">
+              The morning athlete briefing walks through every implement, hand placement rule, and the referee's "DOWN" command before anyone lifts.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)]">
+            <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-500 flex items-center justify-center mb-3">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <h4 class="font-bold text-sm uppercase text-[var(--text-main)] mb-1">
+              Spectators & Newcomers Celebrated
+            </h4>
+            <p class="text-xs text-[var(--text-muted)] leading-relaxed">
+              The platform atmosphere is electric and collaborative. Competitors will actively lend you chalk, adjust your grip stance, and cheer every personal record.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- First Comp FAQs Grid -->
+      <div class="mb-12">
+        <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-[var(--accent-gold)] mb-3">
+          First Competition FAQs
+        </h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {firstCompFaqs.map((faq) => (
+            <div class="p-5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)]">
+              <h5 class="font-bold text-sm text-[var(--text-main)] mb-2 flex items-start gap-2">
+                <span class="text-[var(--accent-gold)] font-mono font-bold">Q:</span>
+                <span>{faq.q}</span>
+              </h5>
+              <p class="text-xs text-[var(--text-muted)] leading-relaxed pl-5">
+                {faq.a}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </section>
+
+    <!-- MEET DIRECTOR TOOLKIT: HOST A MEET ACCORDION -->
+    <section id="host-a-meet" class="mb-20 pt-8 border-t border-[var(--border-color)] scroll-mt-20">
+      
+      <div class="mb-8">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-[var(--accent-gold)]/15 text-[var(--accent-gold)] border border-[var(--accent-gold)]/30">
+            Meet Director Toolkit
+          </span>
+          <span class="text-xs font-mono text-[var(--text-muted)]">Event Sanctioning</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-[var(--text-main)] font-display uppercase tracking-tight">
+          Host a Meet: <span class="text-[var(--accent-gold)]">Sanction an Event on the National Calendar</span>
+        </h2>
+        <p class="mt-2 text-sm text-[var(--text-muted)] max-w-2xl leading-relaxed">
+          Want to bring a grip competition to your gym, crossfit box, or club? Grip Australia helps local organizers sanction events under Grip Sport International (GSI) rules and promotes them nationally.
+        </p>
+      </div>
+
+      <!-- Interactive Accordion Box -->
+      <div class="space-y-4">
+        
+        <!-- Accordion 1: Minimum Gear Needed -->
+        <div class="accordion-item rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] overflow-hidden transition-colors">
+          <button
+            type="button"
+            class="accordion-trigger w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
+            aria-expanded="true"
+          >
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-lg bg-[var(--bg-elevated)] border border-[var(--border-color)] flex items-center justify-center font-mono font-bold text-xs text-[var(--accent-gold)] shrink-0">
+                01
+              </span>
+              <span class="font-display font-bold text-lg sm:text-xl uppercase text-[var(--text-main)]">
+                Minimum Gear Needed to Run a Sanctioned Meet
+              </span>
+            </div>
+            <svg class="accordion-chevron w-5 h-5 text-[var(--text-subtle)] transform rotate-180 transition-transform duration-200 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          
+          <div class="accordion-content p-6 pt-0 border-t border-[var(--border-color)] text-xs text-[var(--text-muted)] space-y-3">
+            <p>To run a valid competition where results are submitted to the official GSI rankings, your facility requires:</p>
+            <ul class="list-disc pl-5 space-y-1 text-[var(--text-main)]">
+              <li><strong>Calibrated Olympic Plates:</strong> Standard 2" Olympic cast iron or calibrated steel plates weighed on a certified scale.</li>
+              <li><strong>Standardized Loading Pin:</strong> Minimum 1.9" diameter Olympic pin with heavy-duty rated carabiner (12+ kN).</li>
+              <li><strong>Contest Implements:</strong> Selected standard implements for your scheduled events (e.g. 2.375" Rolling Thunder/Napalm's Nightmare, Euro Pinch or 3" pinch block, Hub lift, or Saxon bar).</li>
+              <li><strong>Digital Athlete Weigh-In Scale:</strong> Accurate digital platform scale for recording bodyweights.</li>
+              <li><strong>Referee Stopwatch & Chalk:</strong> Digital timer for the standard 1-minute attempt clock, and pure dry magnesium carbonate chalk.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Accordion 2: Sanctioning Bodies & Rules Standards -->
+        <div class="accordion-item rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] overflow-hidden transition-colors">
+          <button
+            type="button"
+            class="accordion-trigger w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
+            aria-expanded="false"
+          >
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-lg bg-[var(--bg-elevated)] border border-[var(--border-color)] flex items-center justify-center font-mono font-bold text-xs text-[var(--accent-gold)] shrink-0">
+                02
+              </span>
+              <span class="font-display font-bold text-lg sm:text-xl uppercase text-[var(--text-main)]">
+                Sanctioning Bodies & Contest Rules
+              </span>
+            </div>
+            <svg class="accordion-chevron w-5 h-5 text-[var(--text-subtle)] transition-transform duration-200 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          
+          <div class="accordion-content hidden p-6 pt-0 border-t border-[var(--border-color)] text-xs text-[var(--text-muted)] space-y-3">
+            <p>Contests in Australia are standardly aligned with <strong>Grip Sport International (GSI)</strong> criteria:</p>
+            <ul class="list-disc pl-5 space-y-1 text-[var(--text-main)]">
+              <li><strong>Standard Weight Classes:</strong> Men (59k, 66k, 74k, 83k, 93k, 105k, 120k, 120k+) and Women (52k, 63k, 72k, 84k, 100k, 100k+), plus Masters age divisions (40+, 50+, 60+).</li>
+              <li><strong>Attempt Format:</strong> Typically 4 attempts per athlete per event (or rising bar format for large fields).</li>
+              <li><strong>Referees:</strong> At least one certified or recognized head referee enforcing legal lockout and the audible "DOWN" command.</li>
+              <li><strong>Official Rule Reference:</strong> Read our detailed <a href={getUrl('/useful-resources#rules-guide')} class="text-[var(--accent-gold)] underline">GSI Event Legal Lift Rules Guide</a> for mechanical criteria across all core disciplines.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Accordion 3: How to List on the National Calendar -->
+        <div class="accordion-item rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] overflow-hidden transition-colors">
+          <button
+            type="button"
+            class="accordion-trigger w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
+            aria-expanded="false"
+          >
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-lg bg-[var(--bg-elevated)] border border-[var(--border-color)] flex items-center justify-center font-mono font-bold text-xs text-[var(--accent-gold)] shrink-0">
+                03
+              </span>
+              <span class="font-display font-bold text-lg sm:text-xl uppercase text-[var(--text-main)]">
+                How to Submit Your Meet for Calendar Listing & Promotion
+              </span>
+            </div>
+            <svg class="accordion-chevron w-5 h-5 text-[var(--text-subtle)] transition-transform duration-200 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          
+          <div class="accordion-content hidden p-6 pt-0 border-t border-[var(--border-color)] text-xs text-[var(--text-muted)] space-y-4">
+            <p>Listing your event on the official Grip Australia calendar is 100% free and ensures national visibility:</p>
+            <ol class="list-decimal pl-5 space-y-1.5 text-[var(--text-main)]">
+              <li><strong>Lock In Details:</strong> Confirm event date, host venue address, entry fee, event list (3–4 disciplines is standard), and registration link (Eventbrite, gym portal, or direct entry).</li>
+              <li><strong>Send to Grip Australia:</strong> Send details via Instagram DM to <a href="https://instagram.com/gripaustralia" target="_blank" rel="noopener noreferrer" class="text-[var(--accent-gold)] underline font-semibold">@gripaustralia</a>.</li>
+              <li><strong>National Promotion:</strong> We list your meet on <a href={getUrl('/competition-calendar')} class="text-[var(--accent-gold)] underline font-semibold">/competition-calendar</a>, share graphics across social channels, and notify active lifters in your region.</li>
+              <li><strong>Post-Event Submission:</strong> After the meet, send through your completed scoresheet to be immortalized in the national record archive!</li>
+            </ol>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyable Meet Director Template Action Card -->
+      <div class="mt-8 p-6 rounded-2xl bg-[var(--bg-elevated)] border border-[var(--border-color)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <span class="font-bold text-sm text-[var(--text-main)] font-display uppercase tracking-wide block">
+            Meet Submission Quick-Template
+          </span>
+          <p class="text-xs text-[var(--text-muted)] mt-0.5">
+            Copy our standard event submission format to send directly via Instagram DM.
+          </p>
+        </div>
+
+        <button
+          type="button"
+          id="copy-template-btn"
+          class="shrink-0 px-4 py-2.5 rounded-lg bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-[var(--accent-text)] font-accent font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-1.5 shadow-sm cursor-pointer"
+        >
+          <svg class="w-4 h-4 text-[var(--accent-gold)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/>
+          </svg>
+          <span id="copy-btn-label">Copy Meet Template</span>
+        </button>
+      </div>
+
+    </section>
+
+    <!-- Companion Ecosystem Hubs -->
+    <section class="pt-8 border-t border-[var(--border-color)]">
+      <div class="mb-6">
+        <h3 class="text-xs font-bold text-[var(--accent-gold)] tracking-widest uppercase mb-1 font-accent">Site Ecosystem</h3>
+        <p class="text-xl sm:text-2xl font-black text-[var(--text-main)] font-display uppercase">Continue Exploring Grip Australia</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <a href={getUrl('/what-is-grip-sport')} class="p-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] hover:border-[var(--accent-gold)] transition-colors group">
+          <div class="text-[10px] font-mono uppercase text-[var(--accent-gold)] font-bold mb-1">Sport Guide</div>
+          <div class="font-display font-bold text-sm uppercase text-[var(--text-main)] group-hover:text-[var(--accent-gold)] transition-colors">What is Grip Sport?</div>
+          <p class="text-xs text-[var(--text-muted)] mt-1">Crush, pinch, support & wrist disciplines.</p>
+        </a>
+
+        <a href={getUrl('/records')} class="p-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] hover:border-[var(--accent-gold)] transition-colors group">
+          <div class="text-[10px] font-mono uppercase text-[var(--accent-gold)] font-bold mb-1">Leaderboards</div>
+          <div class="font-display font-bold text-sm uppercase text-[var(--text-main)] group-hover:text-[var(--accent-gold)] transition-colors">Australian Records</div>
+          <p class="text-xs text-[var(--text-muted)] mt-1">GSI national rankings and weight classes.</p>
+        </a>
+
+        <a href={getUrl('/championships')} class="p-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] hover:border-[var(--accent-gold)] transition-colors group">
+          <div class="text-[10px] font-mono uppercase text-[var(--accent-gold)] font-bold mb-1">Tournament Archive</div>
+          <div class="font-display font-bold text-sm uppercase text-[var(--text-main)] group-hover:text-[var(--accent-gold)] transition-colors">National Championships</div>
+          <p class="text-xs text-[var(--text-muted)] mt-1">2024–2026 scorecards and champions.</p>
+        </a>
+
+        <a href={getUrl('/useful-resources')} class="p-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] hover:border-[var(--accent-gold)] transition-colors group">
+          <div class="text-[10px] font-mono uppercase text-[var(--accent-gold)] font-bold mb-1">Curated Directory</div>
+          <div class="font-display font-bold text-sm uppercase text-[var(--text-main)] group-hover:text-[var(--accent-gold)] transition-colors">Useful Sites & Resources</div>
+          <p class="text-xs text-[var(--text-muted)] mt-1">Global federations, makers & rules.</p>
+        </a>
+
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>
+
+<script>
+  // State Directory Filtering
+  const stateTabBtns = document.querySelectorAll('.state-tab-btn');
+  const stateCards = document.querySelectorAll('.state-card') as NodeListOf<HTMLElement>;
+
+  stateTabBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      stateTabBtns.forEach(b => {
+        b.classList.remove('active', 'bg-[var(--accent)]', 'text-[var(--accent-text)]', 'border-[var(--accent-gold)]/40');
+        b.classList.add('bg-[var(--bg-elevated)]', 'text-[var(--text-muted)]');
+      });
+
+      btn.classList.add('active', 'bg-[var(--accent)]', 'text-[var(--accent-text)]', 'border-[var(--accent-gold)]/40');
+      btn.classList.remove('bg-[var(--bg-elevated)]', 'text-[var(--text-muted)]');
+
+      const selectedState = btn.getAttribute('data-state');
+
+      stateCards.forEach((card) => {
+        if (selectedState === 'all' || card.getAttribute('data-state') === selectedState) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Accordion Logic
+  const accordionTriggers = document.querySelectorAll('.accordion-trigger');
+
+  accordionTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+      const content = trigger.nextElementSibling as HTMLElement | null;
+      const chevron = trigger.querySelector('.accordion-chevron') as HTMLElement | null;
+
+      if (isExpanded) {
+        trigger.setAttribute('aria-expanded', 'false');
+        content?.classList.add('hidden');
+        chevron?.classList.remove('rotate-180');
+      } else {
+        trigger.setAttribute('aria-expanded', 'true');
+        content?.classList.remove('hidden');
+        chevron?.classList.add('rotate-180');
+      }
+    });
+  });
+
+  // Copy Meet Host Template to Clipboard
+  const copyBtn = document.getElementById('copy-template-btn');
+  const copyLabel = document.getElementById('copy-btn-label');
+
+  const meetTemplate = `EVENT NAME: [e.g. Melbourne Open Grip Challenge]
+DATE & TIME: [e.g. Saturday, 15 November 2026, 10am]
+VENUE / GYM: [Gym Name, Street Address, City, State]
+PROMOTER / CONTACT: [Name & Instagram Handle]
+ENTRY FEE: [e.g. $40]
+REGISTRATION LINK: [Eventbrite / URL / DM to Enter]
+EVENTS / DISCIPLINES:
+1. 2.375" Rolling Handle (Napalm's Nightmare / Rolling Thunder)
+2. 2-Hand Pinch (3" Euro Pinch / Flask)
+3. IronMind Hub Lift
+4. Axle Deadlift (Double Overhand)`;
+
+  copyBtn?.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(meetTemplate);
+      if (copyLabel) {
+        copyLabel.textContent = "✓ Template Copied!";
+        setTimeout(() => {
+          copyLabel.textContent = "Copy Meet Template";
+        }, 3000);
+      }
+    } catch (err) {
+      if (copyLabel) {
+        copyLabel.textContent = "Copy failed (browser denied)";
+      }
+    }
+  });
+</script>

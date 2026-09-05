@@ -1,0 +1,16 @@
+---
+import { getUrl } from '../utils/url';
+const targetUrl = getUrl('/equipment-guide');
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content={`0;url=${targetUrl}`}>
+  <link rel="canonical" href={targetUrl}>
+  <title>Redirecting to Beginner's Equipment Guide...</title>
+</head>
+<body>
+  <p>Redirecting to <a href={targetUrl}>Beginner's Equipment Guide</a>...</p>
+</body>
+</html>
