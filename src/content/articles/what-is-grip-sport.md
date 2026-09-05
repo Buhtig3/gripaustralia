@@ -1,7 +1,7 @@
 ---
 title: What is Grip Sport?
 description: >-
-  An authoritative guide to Grip Sport — core disciplines, contest formats,
+  An authoritative guide to Grip Sport: Core disciplines, contest formats,
   GSI rules, starter equipment, and how to get involved in Australia.
 originalUrl: https://gripaustralia.com/what-is-grip-sport%3F
 migratedAt: '2026-09-04T04:22:27.479Z'
