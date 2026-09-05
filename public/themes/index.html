@@ -44,7 +44,7 @@
       --hero-overlay: radial-gradient(circle at 50% 0%, rgba(255, 85, 0, 0.1) 0%, transparent 60%);
     }
 
-    /* THEME 02: Outback Ochre & Terra (Warm Dark / Australian Earth) */
+    /* THEME 02: Outback Ochre & Terra (Warm Dark / Australian Earth) ⭐ PRIMARY DARK PAIR */
     body[data-theme="theme-2"] {
       --bg-base: #141110;
       --bg-surface: #1e1917;
@@ -148,7 +148,7 @@
       --hero-overlay: radial-gradient(circle at 50% 0%, rgba(180, 131, 44, 0.08) 0%, transparent 60%);
     }
 
-    /* THEME 06: Calibrated Athletic Minimalism (LIGHT / Deep Eucalyptus & Wattle Gold) */
+    /* THEME 06: Calibrated Athletic Minimalism (LIGHT / Deep Eucalyptus & Wattle Gold) ⭐ PRIMARY LIGHT PAIR */
     body[data-theme="theme-6"] {
       --bg-base: #f8f9fa;
       --bg-surface: #ffffff;
@@ -191,7 +191,7 @@
       color: var(--text-main);
       font-family: var(--font-body);
       line-height: 1.6;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
       overflow-x: hidden;
       min-height: 100vh;
       padding-bottom: 110px; /* Space for theme inspector dock */
@@ -284,6 +284,18 @@
       box-shadow: 0 0 12px rgba(229, 169, 60, 0.3);
     }
 
+    .pair-quick-toggle {
+      background: #1c2233 !important;
+      border: 1px solid #e5a93c !important;
+      color: #ffffff !important;
+      box-shadow: 0 0 14px rgba(229, 169, 60, 0.25);
+    }
+
+    .pair-quick-toggle:hover {
+      background: #273047 !important;
+      box-shadow: 0 0 18px rgba(229, 169, 60, 0.4);
+    }
+
     .theme-tag-light {
       background: #38bdf8;
       color: #031c29;
@@ -352,15 +364,16 @@
       height: 64px;
     }
 
-    .brand-logo {
+    /* Brand Logo & Interactive Gripper Switch */
+    .brand-logo-container {
       display: flex;
       align-items: center;
       gap: 12px;
     }
 
-    .brand-icon {
-      width: 40px;
-      height: 40px;
+    .brand-icon-toggle {
+      width: 42px;
+      height: 42px;
       border-radius: var(--btn-radius);
       background: var(--accent);
       color: var(--accent-text);
@@ -368,7 +381,97 @@
       align-items: center;
       justify-content: center;
       box-shadow: var(--btn-shadow);
-      transition: var(--transition-smooth);
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background-color 0.3s ease;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      position: relative;
+      padding: 0;
+      outline: none;
+      user-select: none;
+    }
+
+    body[data-theme="theme-6"] .brand-icon-toggle {
+      background: #143024;
+      color: #e5a93c;
+      border: 1.5px solid #e5a93c;
+    }
+
+    body[data-theme="theme-2"] .brand-icon-toggle {
+      background: #e05a2b;
+      color: #ffffff;
+      border: 1.5px solid #e59b3c;
+    }
+
+    .brand-icon-toggle:hover {
+      transform: scale(1.09);
+    }
+
+    .brand-icon-toggle:active {
+      transform: scale(0.94);
+    }
+
+    /* Tooltip on logo */
+    .brand-icon-toggle::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      white-space: nowrap;
+      background: rgba(15, 23, 42, 0.95);
+      color: #ffffff;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-4px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      z-index: 70;
+    }
+
+    .brand-icon-toggle:hover::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Gripper SVG Internal Elements */
+    .gripper-svg {
+      width: 24px;
+      height: 24px;
+      overflow: visible;
+      transition: transform 0.2s ease;
+    }
+
+    .gripper-coil {
+      transform-origin: 50px 32px;
+      transition: transform 0.25s ease;
+    }
+
+    .gripper-handle-left {
+      transform-origin: 38px 36px;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .gripper-handle-right {
+      transform-origin: 62px 36px;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    /* Crushing / Squeezing Animation on Click */
+    .brand-icon-toggle.crushing .gripper-handle-left {
+      transform: rotate(14deg);
+    }
+
+    .brand-icon-toggle.crushing .gripper-handle-right {
+      transform: rotate(-14deg);
+    }
+
+    .brand-icon-toggle.crushing .gripper-coil {
+      transform: scale(0.92);
     }
 
     .brand-text {
@@ -394,6 +497,13 @@
       color: var(--accent-gold);
     }
 
+    .brand-motto-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 2px;
+    }
+
     .brand-motto {
       font-family: var(--font-accent);
       font-size: 10px;
@@ -401,6 +511,42 @@
       text-transform: uppercase;
       color: var(--text-muted);
       font-weight: 700;
+    }
+
+    .mode-switch-pill {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      font-family: var(--font-accent);
+      font-size: 9px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 1px 7px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: var(--transition-smooth);
+      outline: none;
+    }
+
+    .mode-switch-pill:hover {
+      border-color: var(--accent);
+      transform: scale(1.05);
+    }
+
+    body[data-theme="theme-6"] .mode-switch-pill {
+      background: #143024;
+      border-color: #e5a93c;
+      color: #e5a93c;
+    }
+
+    body[data-theme="theme-2"] .mode-switch-pill {
+      background: rgba(224, 90, 43, 0.18);
+      border-color: #e05a2b;
+      color: #e59b3c;
     }
 
     .site-nav {
@@ -1108,13 +1254,19 @@
     </div>
 
     <div class="theme-nav-buttons">
+      <!-- Quick Dual Toggle Button -->
+      <button id="quick-pair-toggle-btn" class="theme-btn pair-quick-toggle" onclick="toggleGripLightDarkMode(event)" title="Toggle Light (Calibrated Minimalism) ↔ Dark (Outback Ochre)">
+        <span id="pair-btn-icon">☀️ LIGHT</span>
+        <span style="font-weight:700;">Grip Switch (or Click Logo)</span>
+      </button>
+
       <button class="theme-btn active" onclick="switchTheme('theme-6', this)">
         <span class="theme-color-dot" style="background:#143024; border: 1px solid #e5a93c;"></span>
-        06. Calibrated Minimalism <span class="theme-tag-light">NEW</span>
+        06. Calibrated Minimalism <span class="theme-tag-light">LIGHT</span>
       </button>
       <button class="theme-btn" onclick="switchTheme('theme-2', this)">
         <span class="theme-color-dot" style="background:#e05a2b;"></span>
-        02. Outback Ochre ⭐
+        02. Outback Ochre ⭐ <span style="font-size:9px; background:#e05a2b; color:#fff; padding:1px 4px; border-radius:3px;">DARK</span>
       </button>
       <button class="theme-btn" onclick="switchTheme('theme-4', this)">
         <span class="theme-color-dot" style="background:#d4af37;"></span>
@@ -1149,20 +1301,40 @@
     <div class="site-header">
       <div class="site-wrapper">
         <div class="header-inner">
-          <a href="#" class="brand-logo">
-            <div class="brand-icon">
-              <!-- Gripper Icon SVG -->
-              <svg width="22" height="22" viewBox="0 0 100 100" fill="none">
-                <circle cx="50" cy="32" r="16" stroke="currentColor" stroke-width="8"/>
-                <path d="M38 36 L24 82" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
-                <path d="M62 36 L76 82" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+          <div class="brand-logo-container">
+            <!-- INTERACTIVE SMALL GRIP LOGO SWITCHER -->
+            <button
+              id="header-grip-logo"
+              type="button"
+              class="brand-icon-toggle"
+              data-tooltip="Click gripper to toggle: Calibrated (Light) ↔ Outback (Dark)"
+              title="Click gripper to toggle: Calibrated (Light) ↔ Outback (Dark)"
+              aria-label="Toggle between Calibrated Minimalism light mode and Outback Ochre dark mode"
+              onclick="toggleGripLightDarkMode(event)"
+            >
+              <svg class="gripper-svg" viewBox="0 0 100 100" fill="none">
+                <circle class="gripper-coil" cx="50" cy="32" r="16" stroke="currentColor" stroke-width="8"/>
+                <path class="gripper-handle-left" d="M38 36 L24 82" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+                <path class="gripper-handle-right" d="M62 36 L76 82" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
               </svg>
-            </div>
+            </button>
+
             <div class="brand-text">
-              <div class="brand-title">Grip<span>Australia</span></div>
-              <div class="brand-motto">Just Grip It</div>
+              <a href="#" class="brand-title">Grip<span>Australia</span></a>
+              <div class="brand-motto-row">
+                <span class="brand-motto">Just Grip It</span>
+                <button
+                  id="header-mode-badge"
+                  class="mode-switch-pill"
+                  onclick="toggleGripLightDarkMode(event)"
+                  title="Click to toggle Light (Calibrated) / Dark (Outback)"
+                >
+                  <span class="mode-icon">☀️</span>
+                  <span class="mode-text">LIGHT (CALIBRATED)</span>
+                </button>
+              </div>
             </div>
-          </a>
+          </div>
 
           <nav class="site-nav">
             <a href="#" class="nav-link">What is Grip Sport?</a>
@@ -1397,13 +1569,22 @@
       <div class="site-wrapper">
         <div class="footer-content">
           <div style="display: flex; align-items: center; gap: 10px;">
-            <div class="brand-icon" style="width: 28px; height: 28px;">
-              <svg width="16" height="16" viewBox="0 0 100 100" fill="none">
-                <circle cx="50" cy="32" r="16" stroke="currentColor" stroke-width="8"/>
-                <path d="M38 36 L24 82" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
-                <path d="M62 36 L76 82" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+            <!-- Clickable Footer Gripper Logo Toggle -->
+            <button
+              id="footer-grip-logo"
+              type="button"
+              class="brand-icon-btn"
+              style="width: 32px; height: 32px;"
+              data-tooltip="Toggle Light/Dark"
+              title="Click gripper to toggle: Calibrated (Light) ↔ Outback (Dark)"
+              onclick="toggleGripLightDarkMode(event)"
+            >
+              <svg class="gripper-svg" width="18" height="18" viewBox="0 0 100 100" fill="none">
+                <circle class="gripper-coil" cx="50" cy="32" r="16" stroke="currentColor" stroke-width="8"/>
+                <path class="gripper-handle-left" d="M38 36 L24 82" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+                <path class="gripper-handle-right" d="M62 36 L76 82" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
               </svg>
-            </div>
+            </button>
             <span style="font-family: var(--font-display); font-weight: 800; font-size: 16px; letter-spacing: 0.04em; color: var(--text-main);">
               GRIP AUSTRALIA
             </span>
@@ -1436,10 +1617,10 @@
     </div>
 
     <div class="gallery-grid">
-      <!-- 06: Calibrated Athletic Minimalism -->
+      <!-- 06: Calibrated Athletic Minimalism (Light Pair) -->
       <div class="gallery-card" style="background:#f8f9fa; border: 1px solid #e2e8f0; border-left: 4px solid #143024;">
         <div class="gallery-card-header" style="background:#ffffff; border-bottom: 1px solid #e2e8f0;">
-          <strong style="color: #143024; font-family:'Barlow Condensed', sans-serif; font-size: 16px; font-weight:800; text-transform:uppercase;">06. Calibrated Minimalism 🦘</strong>
+          <strong style="color: #143024; font-family:'Barlow Condensed', sans-serif; font-size: 16px; font-weight:800; text-transform:uppercase;">06. Calibrated Minimalism 🦘 (Light)</strong>
           <button class="theme-btn" style="background:#143024; color:#fff;" onclick="applyAndSwitch('theme-6')">Apply &rarr;</button>
         </div>
         <div class="gallery-preview-frame">
@@ -1449,7 +1630,7 @@
               FORGING AUSTRALIAN <span style="color:#143024; border-bottom: 2px solid #e5a93c;">GRIP STRENGTH</span>
             </h3>
             <p style="font-size: 12px; color: #64748b; font-family: 'Inter', sans-serif;">
-              Deep Eucalyptus (#143024), Wattle Gold, and Chalk Off-White. Technical scoreboards, knurled dividers, and tabular precision.
+              Deep Eucalyptus (#143024), Wattle Gold, and Chalk Off-White. Official primary light-mode theme.
             </p>
           </div>
           <div style="margin-top: 20px;">
@@ -1460,10 +1641,10 @@
         </div>
       </div>
 
-      <!-- 02: Outback Ochre & Terra -->
-      <div class="gallery-card" style="background:#141110; border: 1px solid #3d332f;">
+      <!-- 02: Outback Ochre & Terra (Dark Pair) -->
+      <div class="gallery-card" style="background:#141110; border: 1px solid #3d332f; border-left: 4px solid #e05a2b;">
         <div class="gallery-card-header">
-          <strong style="color: #faf5ee; font-family:'Bebas Neue', cursive; font-size: 17px; letter-spacing: 0.05em;">02. Outback Ochre & Terra ⭐</strong>
+          <strong style="color: #faf5ee; font-family:'Bebas Neue', cursive; font-size: 17px; letter-spacing: 0.05em;">02. Outback Ochre & Terra ⭐ (Dark)</strong>
           <button class="theme-btn" onclick="applyAndSwitch('theme-2')">Apply &rarr;</button>
         </div>
         <div class="gallery-preview-frame">
@@ -1473,7 +1654,7 @@
               FORGING AUSTRALIAN <span style="color:#e05a2b;">GRIP STRENGTH</span>
             </h3>
             <p style="font-size: 12px; color: #ad9e96; font-family: 'DM Sans', sans-serif;">
-              Red centre clay, sunbaked sandstone gold, and charred ironbark tones.
+              Red centre clay, sunbaked sandstone gold, and charred ironbark tones. Official primary dark-mode theme.
             </p>
           </div>
           <div style="margin-top: 20px;">
@@ -1625,19 +1806,6 @@
           { name: 'Cold Steel', hex: '#f1f3f5' }
         ]
       },
-      'theme-1': {
-        name: 'Theme 01: Raw Iron & Mag Chalk (Dark)',
-        vibe: 'Heavy Foundry • Obsidian Slate • Forge Amber • Mag Chalk Mist',
-        dotColor: '#ff5500',
-        fonts: ['Display: Syne', 'Accent: Barlow Condensed', 'Body: Plus Jakarta Sans'],
-        swatches: [
-          { name: 'Base', hex: '#0e1013' },
-          { name: 'Surface', hex: '#16191f' },
-          { name: 'Border', hex: '#2a2f3a' },
-          { name: 'Forge Orange', hex: '#ff5500' },
-          { name: 'Chalk White', hex: '#f4f4f6' }
-        ]
-      },
       'theme-2': {
         name: 'Theme 02: Outback Ochre & Terra (Warm Dark) ⭐',
         vibe: 'Australian Bush Iron • Red Centre Ochre • Sunbaked Sandstone • Spinifex',
@@ -1649,19 +1817,6 @@
           { name: 'Ochre Red', hex: '#e05a2b' },
           { name: 'Gold Sand', hex: '#e59b3c' },
           { name: 'Spinifex', hex: '#5d7a68' }
-        ]
-      },
-      'theme-3': {
-        name: 'Theme 03: Sandstone & Coastal Iron (Light) ☀️',
-        vibe: 'Sunlit Australian Coast • Ocean Cobalt Ink • Coastal Gold • Warm Sandstone Linen',
-        dotColor: '#d97706',
-        fonts: ['Display: Outfit', 'Accent: Barlow Condensed', 'Body: Plus Jakarta Sans'],
-        swatches: [
-          { name: 'Sandstone Canvas', hex: '#f7f4ed' },
-          { name: 'Pure Vellum', hex: '#ffffff' },
-          { name: 'Pacific Navy', hex: '#0f2942' },
-          { name: 'Coastal Gold', hex: '#d97706' },
-          { name: 'Limestone Edge', hex: '#dfd7c5' }
         ]
       },
       'theme-4': {
@@ -1677,6 +1832,19 @@
           { name: 'Laurel Green', hex: '#254a3c' }
         ]
       },
+      'theme-3': {
+        name: 'Theme 03: Sandstone & Coastal Iron (Light) ☀️',
+        vibe: 'Sunlit Australian Coast • Ocean Cobalt Ink • Coastal Gold • Warm Sandstone Linen',
+        dotColor: '#d97706',
+        fonts: ['Display: Outfit', 'Accent: Barlow Condensed', 'Body: Plus Jakarta Sans'],
+        swatches: [
+          { name: 'Sandstone Canvas', hex: '#f7f4ed' },
+          { name: 'Pure Vellum', hex: '#ffffff' },
+          { name: 'Pacific Navy', hex: '#0f2942' },
+          { name: 'Coastal Gold', hex: '#d97706' },
+          { name: 'Limestone Edge', hex: '#dfd7c5' }
+        ]
+      },
       'theme-5': {
         name: 'Theme 05: Vintage Archival Gazette (Light) 📜',
         vibe: 'Championship Sporting Broadsheet • Ivory Paper • Letterpress Ink • Antique Gold Seal',
@@ -1689,18 +1857,97 @@
           { name: 'Medal Gold', hex: '#b4832c' },
           { name: 'Antique Rule', hex: '#dcd2be' }
         ]
+      },
+      'theme-1': {
+        name: 'Theme 01: Raw Iron & Mag Chalk (Dark)',
+        vibe: 'Heavy Foundry • Obsidian Slate • Forge Amber • Mag Chalk Mist',
+        dotColor: '#ff5500',
+        fonts: ['Display: Syne', 'Accent: Barlow Condensed', 'Body: Plus Jakarta Sans'],
+        swatches: [
+          { name: 'Base', hex: '#0e1013' },
+          { name: 'Surface', hex: '#16191f' },
+          { name: 'Border', hex: '#2a2f3a' },
+          { name: 'Forge Orange', hex: '#ff5500' },
+          { name: 'Chalk White', hex: '#f4f4f6' }
+        ]
       }
     };
 
     function switchTheme(themeKey, btnElement) {
       document.body.setAttribute('data-theme', themeKey);
       
-      // Update button active states
-      document.querySelectorAll('.theme-nav-buttons .theme-btn').forEach(btn => btn.classList.remove('active'));
-      if (btnElement) btnElement.classList.add('active');
+      // Update button active states in controller
+      document.querySelectorAll('.theme-nav-buttons .theme-btn').forEach(btn => {
+        if (!btn.classList.contains('pair-quick-toggle')) {
+          btn.classList.remove('active');
+        }
+      });
+      if (btnElement && !btnElement.classList.contains('pair-quick-toggle')) {
+        btnElement.classList.add('active');
+      }
 
-      // Update Inspector Panel
+      // Update Inspector Panel & Gripper Mode Badges
       updateInspector(themeKey);
+      updateGripModeBadge(themeKey);
+
+      try {
+        localStorage.setItem('ga-preferred-mode', themeKey);
+      } catch (e) {}
+    }
+
+    function toggleGripLightDarkMode(event) {
+      if (event) event.preventDefault();
+
+      const currentTheme = document.body.getAttribute('data-theme');
+      
+      // Trigger gripper crush squeeze animation on both header and footer icons
+      const icons = [document.getElementById('header-grip-logo'), document.getElementById('footer-grip-logo')];
+      icons.forEach(icon => {
+        if (icon) {
+          icon.classList.add('crushing');
+          setTimeout(() => icon.classList.remove('crushing'), 350);
+        }
+      });
+
+      // Switch between theme-6 (Calibrated Minimalism - Light) and theme-2 (Outback Ochre - Dark)
+      let nextTheme = 'theme-2';
+      if (currentTheme === 'theme-6') {
+        nextTheme = 'theme-2';
+      } else if (currentTheme === 'theme-2') {
+        nextTheme = 'theme-6';
+      } else {
+        // If coming from another theme, default to theme-6 if coming from dark, or theme-2 if coming from light
+        nextTheme = (currentTheme === 'theme-3' || currentTheme === 'theme-5') ? 'theme-2' : 'theme-6';
+      }
+
+      const targetBtn = Array.from(document.querySelectorAll('.theme-nav-buttons .theme-btn'))
+        .find(btn => btn.getAttribute('onclick')?.includes(nextTheme));
+      
+      switchTheme(nextTheme, targetBtn);
+    }
+
+    function updateGripModeBadge(themeKey) {
+      const badge = document.getElementById('header-mode-badge');
+      const logoBtn = document.getElementById('header-grip-logo');
+      const pairBtnIcon = document.getElementById('pair-btn-icon');
+      
+      if (themeKey === 'theme-6') {
+        if (badge) badge.innerHTML = `<span class="mode-icon">☀️</span> <span class="mode-text">LIGHT (CALIBRATED)</span>`;
+        if (logoBtn) logoBtn.setAttribute('data-tooltip', '☀️ Light Mode (Calibrated) • Click logo to crush into Outback Dark');
+        if (pairBtnIcon) pairBtnIcon.textContent = '☀️ (Light active)';
+      } else if (themeKey === 'theme-2') {
+        if (badge) badge.innerHTML = `<span class="mode-icon">🌙</span> <span class="mode-text">DARK (OUTBACK)</span>`;
+        if (logoBtn) logoBtn.setAttribute('data-tooltip', '🌙 Dark Mode (Outback) • Click logo to crush into Calibrated Light');
+        if (pairBtnIcon) pairBtnIcon.textContent = '🌙 (Dark active)';
+      } else if (themeKey === 'theme-3' || themeKey === 'theme-5') {
+        if (badge) badge.innerHTML = `<span class="mode-icon">☀️</span> <span class="mode-text">LIGHT</span>`;
+        if (logoBtn) logoBtn.setAttribute('data-tooltip', 'Click logo to toggle Calibrated Light ↔ Outback Dark');
+        if (pairBtnIcon) pairBtnIcon.textContent = '☀️/🌙';
+      } else {
+        if (badge) badge.innerHTML = `<span class="mode-icon">🌙</span> <span class="mode-text">DARK</span>`;
+        if (logoBtn) logoBtn.setAttribute('data-tooltip', 'Click logo to toggle Calibrated Light ↔ Outback Dark');
+        if (pairBtnIcon) pairBtnIcon.textContent = '☀️/🌙';
+      }
     }
 
     function applyAndSwitch(themeKey) {
@@ -1761,8 +2008,11 @@
       }).catch(() => {});
     }
 
-    // Initialize with Theme 6 (Calibrated Athletic Minimalism)
-    updateInspector('theme-6');
+    // Initialize with saved preference or default Theme 6
+    const savedTheme = localStorage.getItem('ga-preferred-mode') || 'theme-6';
+    const initBtn = Array.from(document.querySelectorAll('.theme-nav-buttons .theme-btn'))
+      .find(btn => btn.getAttribute('onclick')?.includes(savedTheme));
+    switchTheme(savedTheme, initBtn);
   </script>
 </body>
 </html>
