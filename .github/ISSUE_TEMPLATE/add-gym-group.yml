@@ -1,0 +1,132 @@
+name: "Add a Gym / Training Group"
+description: "Submit a new training facility, club, or regional grip syndicate for the Australian directory on /get-involved."
+title: "[Gym / Group]: <Facility Name> - <City, State>"
+labels: ["gym-directory", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 📍 Grip Australia Gym & Training Syndicate Directory
+        Help grow the grassroots grip sport community across Australia by listing your gym, commercial training center, club, or private syndicate on [gripaustralia.com/get-involved](https://gripaustralia.com/get-involved).
+
+  - type: input
+    id: gym_name
+    attributes:
+      label: Gym or Group Name
+      placeholder: e.g. Southern Highlands Grip Club / Iron Revolution Gym
+    validations:
+      required: true
+
+  - type: dropdown
+    id: state
+    attributes:
+      label: State or Territory
+      options:
+        - "VIC"
+        - "NSW"
+        - "QLD"
+        - "ACT"
+        - "TAS"
+        - "WA"
+        - "SA"
+        - "NT"
+    validations:
+      required: true
+
+  - type: input
+    id: city_suburb
+    attributes:
+      label: Suburb, City & Region
+      placeholder: e.g. Melbourne (Coburg) / Gold Coast
+    validations:
+      required: true
+
+  - type: input
+    id: address
+    attributes:
+      label: Full Physical Address (or General Area if private home gym)
+      placeholder: e.g. 12 Smith St, Coburg VIC 3058 (or "Private Syndicate - Contact via DM for address")
+    validations:
+      required: true
+
+  - type: input
+    id: contact_person
+    attributes:
+      label: Primary Contact / Coach / Promoter
+      placeholder: e.g. John Doe (@johndoegrip)
+    validations:
+      required: true
+
+  - type: input
+    id: instagram_handle
+    attributes:
+      label: Instagram Handle / Social Profile
+      placeholder: https://instagram.com/yourgym or @yourgym
+    validations:
+      required: false
+
+  - type: input
+    id: website_url
+    attributes:
+      label: Official Website URL (if applicable)
+      placeholder: https://yourgym.com.au
+    validations:
+      required: false
+
+  - type: dropdown
+    id: tag_badge
+    attributes:
+      label: Classification / Badge Tag
+      description: How this facility should be tagged in the directory.
+      options:
+        - "Championship Host Gym"
+        - "Dedicated Strength & Grip Facility"
+        - "Regional Training Syndicate"
+        - "Implement Designer & Gym"
+        - "RGC Calibration Hub"
+        - "Climbing & Grip Gym"
+        - "Private / Postal Syndicate"
+    validations:
+      required: true
+
+  - type: textarea
+    id: equipment_available
+    attributes:
+      label: Grip Implements & Equipment Available
+      description: List key grip tools available for athletes (e.g. Rolling Thunder, Saxon Bar, IronMind Hub, Flask, CoC #1-#4, York Blobs, calibrated plates).
+      placeholder: |
+        - 2.375" Napalm's Nightmare & Rolling Thunder
+        - 3" Saxon Bar
+        - IronMind Hub & Silver Bullet
+        - Calibrated steel plates & 2" loading pins
+        - Full Captains of Crush set (Sport through to #3.5)
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Summary & Visiting Information
+      description: Overview of the gym, open training sessions, guest pass details, or how new lifters can get involved.
+      placeholder: e.g. Open gym available 7 days. Weekly grip-focused session on Thursday evenings. Beginners welcome. Contact on Instagram before your first session.
+    validations:
+      required: true
+
+  - type: textarea
+    id: formatted_anchor
+    attributes:
+      label: Pre-formatted JS Object (Optional for Instant Merge)
+      description: For maintainers to paste directly into `src/pages/get-involved.astro`:
+      value: |
+        ```js
+        {
+          name: "Gym Name",
+          location: "City (Suburb), State",
+          focus: "Host venue / specialty implements...",
+          externalLink: "https://...",
+          linkText: "Visit Gym Website",
+          tag: "Dedicated Strength & Grip Facility"
+        }
+        ```
+    validations:
+      required: false

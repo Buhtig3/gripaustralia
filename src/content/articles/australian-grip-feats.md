@@ -176,6 +176,9 @@ Have you completed an iconic grip feat or certified on an official implement? Gr
 * **Proper Lockout:** Clear full-body lockout with knees locked, hips extended, and shoulders back.
 * **Controlled Descent:** The implement must be returned to the floor under control (no dropping).
 
-To submit your verified lift for inclusion on this page, please get in touch through our [Get Involved / Contact Page](/get-involved).
+To submit your verified lift or official certification for inclusion in the Australian Honour Roll:
+
+* 📝 **Submit Online:** Open a [Record / Feat Verification Submission on GitHub](https://github.com/Buhtig3/gripaustralia/issues/new?template=submit-record-feat.yml) with your attempt details and video link.
+* 💬 **Direct Message:** Contact Grip Australia via Instagram DM at [@pinch_bypinch](https://instagram.com/pinch_bypinch) or visit our [Get Involved / Contact Page](/get-involved).
 
 

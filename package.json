@@ -9,6 +9,8 @@
     "build:astro": "astro build",
     "postbuild": "node scripts/postbuild.js",
     "check:links": "node scripts/check-links.js",
+    "validate": "node scripts/validate-data.js",
+    "extract:results": "node scripts/extract_results.js",
     "preview": "astro preview",
     "astro": "astro",
     "migrate": "node scripts/migrate.js"

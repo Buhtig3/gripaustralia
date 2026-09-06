@@ -1,0 +1,187 @@
+name: "Submit a Record / Feat Verification"
+description: "Submit an official Australian Grip record, historic benchmark, or verified feat of strength for inclusion in the registry."
+title: "[Record Submission]: <Athlete Name> - <Event / Lift>"
+labels: ["record-submission", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 🇦🇺 Grip Australia Record & Feat Verification
+        Thank you for submitting a mark to the official Grip Australia registry.
+        
+        **Verification Guidelines:**
+        1. **Continuous, Unedited Video:** Complete lift from floor/setup to full lockout and controlled return to ground.
+        2. **Equipment Clear in Frame:** Implement, manufacturer marks, and weight must be verified.
+        3. **Calibrated Weights / Scale:** For records or odd-object benchmarks, show digital scale weigh-in or calibrated plates.
+
+  - type: input
+    id: athlete_name
+    attributes:
+      label: Athlete Name
+      description: Full name of the lifter.
+      placeholder: e.g. Declan Wright
+    validations:
+      required: true
+
+  - type: input
+    id: gsi_athlete_id
+    attributes:
+      label: GripSport.org Athlete ID (if applicable)
+      description: If the athlete has a profile on gripsport.org, provide the numeric ID (e.g. 2331) or profile link.
+      placeholder: e.g. 2331 or https://www.gripsport.org/athlete/2331
+    validations:
+      required: false
+
+  - type: input
+    id: event_name
+    attributes:
+      label: Event / Implement Name
+      description: The official name of the discipline, implement, or challenge.
+      placeholder: e.g. 2.25" Crusher, 50lb York Fatman Blob, Thomas Inch Dumbbell, Captains of Crush #3
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category Discipline
+      description: Select the mechanical category.
+      options:
+        - "crush"
+        - "pinch"
+        - "thick-bar"
+        - "vertical-lift"
+        - "historical-feat"
+        - "endurance"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: gender
+    attributes:
+      label: Gender Division
+      options:
+        - "men"
+        - "women"
+    validations:
+      required: true
+
+  - type: input
+    id: weight_class
+    attributes:
+      label: Weight Class / Age Division
+      description: e.g. 83kg, 93kg, 105kg, 120kg+, Open, Masters 40+, etc.
+      placeholder: e.g. 93kg (or Open)
+    validations:
+      required: true
+
+  - type: input
+    id: result_value
+    attributes:
+      label: Weight Lifted / Result with Unit
+      description: Specify exact weight or hold time with unit.
+      placeholder: e.g. 112.70 kg (or 14.50 sec)
+    validations:
+      required: true
+
+  - type: input
+    id: attempt_date
+    attributes:
+      label: Date of Performance
+      description: ISO format (YYYY-MM-DD) or Month DD, YYYY.
+      placeholder: e.g. 2026-06-27
+    validations:
+      required: true
+
+  - type: input
+    id: location
+    attributes:
+      label: Venue / Location
+      description: Facility name and Australian city/state.
+      placeholder: e.g. Iron Revolution Gym, Melbourne, VIC
+    validations:
+      required: true
+
+  - type: input
+    id: contest_info
+    attributes:
+      label: Competition / Meet Name (if applicable)
+      description: Name of the event, or specify "Independent Benchmark / Gym Lift".
+      placeholder: e.g. 2026 Australian Grip Sport Championship
+    validations:
+      required: false
+
+  - type: input
+    id: sanctioning_body
+    attributes:
+      label: Sanctioning Body
+      description: e.g. GSI, Mullett's Mandrel, IronMind, or Historic Benchmark.
+      placeholder: e.g. GSI
+    validations:
+      required: false
+
+  - type: input
+    id: video_url
+    attributes:
+      label: Verification Video Link
+      description: Direct public URL (YouTube, Vimeo, or Instagram Reel) showing the continuous unedited attempt.
+      placeholder: https://www.youtube.com/watch?v=... or https://www.instagram.com/reel/...
+    validations:
+      required: true
+
+  - type: textarea
+    id: equipment_scale_notes
+    attributes:
+      label: Equipment & Calibration Notes
+      description: Details on implement calibration, scale used, plate breakdown, or certification witnesses.
+      placeholder: e.g. Weighed on calibrated Jadever scale at 112.7kg. 2.25" handle inspected and spin-tested prior to attempt.
+    validations:
+      required: false
+
+  - type: textarea
+    id: formatted_json
+    attributes:
+      label: Pre-formatted JSON (Optional for Speedy Merge)
+      description: |
+        If you are comfortable with JSON, paste the record structure matching `src/data/records.json`:
+      value: |
+        ```json
+        {
+          "id": "slug-event-gender-weightclass",
+          "event": "Event Name",
+          "category": "thick-bar",
+          "gender": "men",
+          "division": "Open",
+          "weightClass": "93kg",
+          "weightKg": 00.0,
+          "unit": "kg",
+          "holder": "Athlete Name",
+          "athleteId": null,
+          "gsiAthleteUrl": null,
+          "date": "YYYY-MM-DD",
+          "year": 2026,
+          "contest": "Meet Name",
+          "contestId": null,
+          "contestUrl": null,
+          "location": "City, State",
+          "sanctioned": true,
+          "sanctioningBody": "GSI",
+          "verificationUrl": "https://...",
+          "status": "current",
+          "notes": ""
+        }
+        ```
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: verification_checklist
+    attributes:
+      label: Submission Checklist
+      options:
+        - label: Video is unedited and shows full attempt to lockout with controlled return.
+          required: true
+        - label: Lifter was an Australian resident or citizen at time of lift (or lifted on Australian soil).
+          required: true
+        - label: I understand this submission will be publicly archived on Grip Australia.
+          required: true

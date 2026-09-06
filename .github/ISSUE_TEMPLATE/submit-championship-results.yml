@@ -1,0 +1,103 @@
+name: "Submit Championship / Meet Results"
+description: "For Contest Directors to submit official scorecards, overall champions, and event results from Australian meets."
+title: "[Meet Results]: <Year> <Contest Name> - <City, State>"
+labels: ["contest-results", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 🏆 Submit Contest Results & Official Scorecards
+        Use this template to submit sanctioned meet results, Australian Championships scorecards, or postal challenge results to be archived in `src/data/results.json` and featured on [gripaustralia.com/championships](https://gripaustralia.com/championships).
+
+  - type: input
+    id: meet_name
+    attributes:
+      label: Competition Name
+      placeholder: e.g. 2027 Australian Grip Sport Championship / Hobart Hoist
+    validations:
+      required: true
+
+  - type: input
+    id: contest_year
+    attributes:
+      label: Year
+      placeholder: e.g. 2027
+    validations:
+      required: true
+
+  - type: input
+    id: meet_date
+    attributes:
+      label: Competition Date
+      placeholder: e.g. June 26, 2027
+    validations:
+      required: true
+
+  - type: input
+    id: venue
+    attributes:
+      label: Venue & Location
+      placeholder: e.g. Iron Revolution Gym, Melbourne, VIC
+    validations:
+      required: true
+
+  - type: input
+    id: promoter
+    attributes:
+      label: Meet Promoter / Director
+      placeholder: e.g. Isaac Pitt
+    validations:
+      required: true
+
+  - type: input
+    id: gsi_url
+    attributes:
+      label: GripSport.org Contest URL (if published)
+      placeholder: https://www.gripsport.org/contest/483
+    validations:
+      required: false
+
+  - type: textarea
+    id: champions
+    attributes:
+      label: Overall Champions
+      description: Overall and Pound-for-Pound (P4P) champions across Men and Women.
+      placeholder: |
+        - Men's Overall Champion: 
+        - Women's Overall Champion: 
+        - Men's Pound-for-Pound: 
+        - Women's Pound-for-Pound: 
+    validations:
+      required: true
+
+  - type: textarea
+    id: events_list
+    attributes:
+      label: Contested Events / Disciplines
+      description: List all events in order contested.
+      placeholder: |
+        1. 2.25" Crusher (Thick-Bar)
+        2. 3"x4" Saxon Bar (2-Hand Pinch)
+        3. IronMind Silver Bullet Hold
+        4. FBBC 2" Vertical Bar
+    validations:
+      required: true
+
+  - type: textarea
+    id: scorecard_data
+    attributes:
+      label: Scorecard / Results Data (CSV or JSON or Table)
+      description: Paste CSV data, spreadsheet table, or link to online scorecard.
+      placeholder: |
+        Athlete, Weight Class, Gender, Event 1, Event 2, Event 3, Event 4, Total Points
+    validations:
+      required: true
+
+  - type: textarea
+    id: media_links
+    attributes:
+      label: High-Resolution Photos / Video Stream Links
+      description: Google Drive, Dropbox, YouTube stream, or photographer galleries.
+      placeholder: e.g. YouTube Livestream: https://..., Photo drive: https://...
+    validations:
+      required: false

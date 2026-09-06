@@ -200,6 +200,21 @@ Ensure the following DNS records are active:
 2. Follow semantic commit messages (`feat: add south australia gym listings`, `fix: update header nav`).
 3. Ensure schema compliance prior to pushing:
    ```bash
+   npm run validate
    npm run build
+   npm run check:links
    ```
 4. Open a Pull Request against `main` for review.
+
+---
+
+## Automations, Scraping Toolchain & Operational Guide
+
+For complete documentation on our self-sustaining no-backend architecture, Python/Node scrapers, and GitHub workflows:
+
+👉 **[Read the Automations & Scripts Guide](docs/AUTOMATIONS_AND_SCRIPTS_GUIDE.md)**
+
+- **Issue Templates:** Community self-serve portals for [Record Verifications](.github/ISSUE_TEMPLATE/submit-record-feat.yml), [Gym Directory Listings](.github/ISSUE_TEMPLATE/add-gym-group.yml), and [Championship Results](.github/ISSUE_TEMPLATE/submit-championship-results.yml).
+- **Data Validation:** Run `npm run validate` to test schema conformity of all datasets.
+- **Scrapers:** `scripts/scrape_records.py` (gripsport.org crawler) and `scripts/extract_results.js` (meet scorecard parser).
+

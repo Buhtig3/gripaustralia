@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Australian Grip Sport Championship - Grip Sport International</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="/assets/css/style.css?v=1788689955" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- DataTables CSS -->
+    <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    
+    <!-- jQuery (loaded early for page scripts) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><img src="/assets/images/GSI-Banner.png" alt="GripSport.org" class="main-banner"></a>
+            
+            <div class="navbar-nav">
+                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/athletes">Athletes</a>
+                <a class="nav-link" href="/contests">Contests</a>
+                <a class="nav-link" href="/events">Events</a>
+                <a class="nav-link" href="/lists">Results</a>
+                <a class="nav-link" href="/records">Records</a>
+                <!--<a class="nav-link" href="/rules">Rules</a>
+                <a class="nav-link" href="/divisions">Divisions</a>
+                <a class="nav-link" href="/promoters">Promoters</a>
+                <a class="nav-link" href="/rankings">Rankings</a>
+                <a class="nav-link" href="/contact">Contact</a>
+                <a class="nav-link" href="/sponsors">Sponsors</a>-->
+                
+                <div class="measurement-toggle">
+                                                                <span class="measurement-active">kg</span>
+                                        <span class="measurement-separator">/</span>
+                                            <a href="/contest/433?measurement=1" class="measurement-link">lbs</a>
+                                    </div>
+                
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container-fluid">
+        
+        
+        <div class="row">
+    <div class="col-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/contests">Contests</a></li>
+                <li class="breadcrumb-item active">Australian Grip Sport Championship</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-12">
+        <h1 class="display-4 fw-bold text-primary text-center mb-4">Australian Grip Sport Championship</h1>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Contest Information</h5>
+                        <dl class="row">
+                            <dt class="col-sm-4">Abbreviation:</dt>
+                            <dd class="col-sm-8">AGSC25</dd>
+                            
+                            <dt class="col-sm-4">Date:</dt>
+                            <dd class="col-sm-8">June 1, 2025</dd>
+                            
+                            <dt class="col-sm-4">Location:</dt>
+                            <dd class="col-sm-8">
+                                Brisbane, Australia                            </dd>
+                            
+                            <dt class="col-sm-4">Promoter:</dt>
+                            <dd class="col-sm-8">Isaac Pitt</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Events Tracked</h5>
+                                                    <ul class="list-unstyled">
+                                                                                                                                                <li>
+                                            <i class="fas fa-dumbbell me-2 text-primary"></i>
+                                            <a href="/event/285" 
+                                               class="text-decoration-none">
+                                                Napalms Nightmare 2.375&quot;                                            </a>
+                                        </li>
+                                                                                                                                                                                    <li>
+                                            <i class="fas fa-dumbbell me-2 text-primary"></i>
+                                            <a href="/event/313" 
+                                               class="text-decoration-none">
+                                                Napalms Nightmare 2 Hand Pinch (3&quot; Blocks)                                            </a>
+                                        </li>
+                                                                                                                                                                                    <li>
+                                            <i class="fas fa-dumbbell me-2 text-primary"></i>
+                                            <a href="/event/314" 
+                                               class="text-decoration-none">
+                                                Grandfather Clock / Hilt / Vertical Cannon                                            </a>
+                                        </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </ul>
+                            <small class="text-muted">
+                                <i class="fas fa-info-circle me-1"></i>
+                                Note: All contested events may not be included in the tracked results.
+                            </small>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-trophy me-2"></i>Contest Results
+                    <small class="text-muted ms-2">
+                        <i class="fas fa-info-circle me-1"></i>Click column headers to sort
+                    </small>
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="btn-group" role="group">
+                            <a href="/contest/433" 
+                               class="btn btn-primary">
+                                <i class="fas fa-globe me-1"></i>Overall Results
+                            </a>
+                            <a href="/contest/433/weight-class" 
+                               class="btn btn-outline-primary">
+                                <i class="fas fa-weight me-1"></i>Weight Class (Distinct)
+                            </a>
+                            <a href="/contest/433/weight-class-cumulative" 
+                                class="btn btn-outline-primary">
+                                <i class="fas fa-layer-group me-1"></i>Weight Class (Cumulative)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                                    <div class="table-responsive">
+                        <table class="table table-striped table-hover" id="contestResultsTable">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Athlete</th>
+                                    <th>Weight Class</th>
+                                                                                                                <th>Silver Bullet 3.5 (Men)</th>
+                                                                            <th>Napalms Nightmare 2.375&quot;</th>
+                                                                            <th>Napalms Nightmare 2 Hand Pinch (3&quot; Blocks)</th>
+                                                                            <th>Grandfather Clock / Hilt / Vertical Cannon</th>
+                                                                            <th>Silver Bullet 3 (Men)</th>
+                                                                            <th>Silver Bullet 4 (Men)</th>
+                                                                    </tr>
+                            </thead>
+                            <tbody>
+                                                                                                    <tr>
+                                        <td data-order="Dominic Awad">
+                                            <a href="/athlete/2329" 
+                                               class="text-decoration-none">
+                                                Dominic Awad                                            </a>
+                                        </td>
+                                        <td data-order="120">
+                                            Mens 120k                                        </td>
+                                                                                    <td data-order="1.09">
+                                                                                                                                                        <strong>1.09&nbsp;sec</strong>
+                                                                                            </td>
+                                                                                    <td data-order="158.19941101756">
+                                                                                                                                                        <strong>158.20&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="91.299072310163">
+                                                                                                                                                        <strong>91.30&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="97.6">
+                                                                                                                                                        <strong>97.60&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                            </tr>
+                                                                    <tr>
+                                        <td data-order="Glenn Hunter">
+                                            <a href="/athlete/1464" 
+                                               class="text-decoration-none">
+                                                Glenn Hunter                                            </a>
+                                        </td>
+                                        <td data-order="121">
+                                            Mens 120k+                                        </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                                    <td data-order="135.7012294467">
+                                                                                                                                                        <strong>135.70&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="91.299072310163">
+                                                                                                                                                        <strong>91.30&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="97.6">
+                                                                                                                                                        <strong>97.60&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="6.82">
+                                                                                                                                                        <strong>6.82&nbsp;sec</strong>
+                                                                                            </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                            </tr>
+                                                                    <tr>
+                                        <td data-order="Henry Mullett">
+                                            <a href="/athlete/2331" 
+                                               class="text-decoration-none">
+                                                Henry Mullett                                            </a>
+                                        </td>
+                                        <td data-order="121">
+                                            Mens 120k+                                        </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                                    <td data-order="200.70101612221">
+                                                                                                                                                        <strong>200.70&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="141.29855929719">
+                                                                                                                                                        <strong>141.30&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="147.6">
+                                                                                                                                                        <strong>147.60&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                                    <td data-order="13.36">
+                                                                                                                                                        <strong>13.36&nbsp;sec</strong>
+                                                                                            </td>
+                                                                            </tr>
+                                                                    <tr>
+                                        <td data-order="Isaac Pitt">
+                                            <a href="/athlete/2083" 
+                                               class="text-decoration-none">
+                                                Isaac Pitt                                            </a>
+                                        </td>
+                                        <td data-order="83">
+                                            Mens 83k                                        </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                                    <td data-order="175.69900466684">
+                                                                                                                                                        <strong>175.70&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="101.30078407705">
+                                                                                                                                                        <strong>101.30&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="137.6">
+                                                                                                                                                        <strong>137.60&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="4.11">
+                                                                                                                                                        <strong>4.11&nbsp;sec</strong>
+                                                                                            </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                            </tr>
+                                                                    <tr>
+                                        <td data-order="Jaksen Daddo">
+                                            <a href="/athlete/2710" 
+                                               class="text-decoration-none">
+                                                Jaksen Daddo                                            </a>
+                                        </td>
+                                        <td data-order="120">
+                                            Mens 120k                                        </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                                    <td data-order="140.69981736829">
+                                                                                                                                                        <strong>140.70&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="76.298772621683">
+                                                                                                                                                        <strong>76.30&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="77.6">
+                                                                                                                                                        <strong>77.60&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                            </tr>
+                                                                    <tr>
+                                        <td data-order="Josh Cook">
+                                            <a href="/athlete/2709" 
+                                               class="text-decoration-none">
+                                                Josh Cook                                            </a>
+                                        </td>
+                                        <td data-order="105">
+                                            Mens 105k                                        </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                                    <td data-order="110.69921799133">
+                                                                                                                                                        <strong>110.70&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="56.299885011613">
+                                                                                                                                                        <strong>56.30&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="67.6">
+                                                                                                                                                        <strong>67.60&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                            </tr>
+                                                                    <tr>
+                                        <td data-order="Lachlan Simms">
+                                            <a href="/athlete/2423" 
+                                               class="text-decoration-none">
+                                                Lachlan Simms                                            </a>
+                                        </td>
+                                        <td data-order="121">
+                                            Mens 120k+                                        </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                                    <td data-order="185.70071643373">
+                                                                                                                                                        <strong>185.70&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="106.29937199864">
+                                                                                                                                                        <strong>106.30&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="102.6">
+                                                                                                                                                        <strong>102.60&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="3.57">
+                                                                                                                                                        <strong>3.57&nbsp;sec</strong>
+                                                                                            </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                            </tr>
+                                                                    <tr>
+                                        <td data-order="Mark Boylin">
+                                            <a href="/athlete/2079" 
+                                               class="text-decoration-none">
+                                                Mark Boylin                                            </a>
+                                        </td>
+                                        <td data-order="105">
+                                            Mens 105k                                        </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                                    <td data-order="125.69951767981">
+                                                                                                                                                        <strong>125.70&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="76.298772621683">
+                                                                                                                                                        <strong>76.30&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="87.6">
+                                                                                                                                                        <strong>87.60&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                            </tr>
+                                                                    <tr>
+                                        <td data-order="Mathew Wayling">
+                                            <a href="/athlete/2425" 
+                                               class="text-decoration-none">
+                                                Mathew Wayling                                            </a>
+                                        </td>
+                                        <td data-order="121">
+                                            Mens 120k+                                        </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                                    <td data-order="150.70152913518">
+                                                                                                                                                        <strong>150.70&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="106.29937199864">
+                                                                                                                                                        <strong>106.30&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="107.6">
+                                                                                                                                                        <strong>107.60&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="7.23">
+                                                                                                                                                        <strong>7.23&nbsp;sec</strong>
+                                                                                            </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                            </tr>
+                                                                    <tr>
+                                        <td data-order="Matthew Shaw">
+                                            <a href="/athlete/2330" 
+                                               class="text-decoration-none">
+                                                Matthew Shaw                                            </a>
+                                        </td>
+                                        <td data-order="74">
+                                            Mens 74k                                        </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                                    <td data-order="110.69921799133">
+                                                                                                                                                        <strong>110.70&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="61.298472933204">
+                                                                                                                                                        <strong>61.30&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="82.6">
+                                                                                                                                                        <strong>82.60&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                            </tr>
+                                                                    <tr>
+                                        <td data-order="Samuel Farbach">
+                                            <a href="/athlete/2708" 
+                                               class="text-decoration-none">
+                                                Samuel Farbach                                            </a>
+                                        </td>
+                                        <td data-order="93">
+                                            Mens 93k                                        </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                                    <td data-order="140.69981736829">
+                                                                                                                                                        <strong>140.70&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="71.300184700092">
+                                                                                                                                                        <strong>71.30&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="97.6">
+                                                                                                                                                        <strong>97.60&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                            </tr>
+                                                                    <tr>
+                                        <td data-order="Sarah Rainbow">
+                                            <a href="/athlete/2711" 
+                                               class="text-decoration-none">
+                                                Sarah Rainbow                                            </a>
+                                        </td>
+                                        <td data-order="100">
+                                            Womens 100k                                        </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                                    <td data-order="100.70204214815">
+                                                                                                                                                        <strong>100.70&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="66.3015967785">
+                                                                                                                                                        <strong>66.30&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="72.6">
+                                                                                                                                                        <strong>72.60&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                            </tr>
+                                                                    <tr>
+                                        <td data-order="Tom Denmeade">
+                                            <a href="/athlete/1625" 
+                                               class="text-decoration-none">
+                                                Tom Denmeade                                            </a>
+                                        </td>
+                                        <td data-order="74">
+                                            Mens 74k                                        </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                                    <td data-order="140.69981736829">
+                                                                                                                                                        <strong>140.70&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="91.299072310163">
+                                                                                                                                                        <strong>91.30&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="107.6">
+                                                                                                                                                        <strong>107.60&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="11.92">
+                                                                                                                                                        <strong>11.92&nbsp;sec</strong>
+                                                                                            </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                            </tr>
+                                                                    <tr>
+                                        <td data-order="Will Fuggle">
+                                            <a href="/athlete/2163" 
+                                               class="text-decoration-none">
+                                                Will Fuggle                                            </a>
+                                        </td>
+                                        <td data-order="83">
+                                            Mens 83k                                        </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                                    <td data-order="150.70152913518">
+                                                                                                                                                        <strong>150.70&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="106.29937199864">
+                                                                                                                                                        <strong>106.30&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="117.6">
+                                                                                                                                                        <strong>117.60&nbsp;kg</strong>
+                                                                                            </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                                    <td data-order="0">
+                                                                                                    <span class="text-muted">-</span>
+                                                                                            </td>
+                                                                            </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('#contestResultsTable').DataTable({
+        'order': [], // No default sorting
+        'pageLength': -1, // Show all entries
+        'searching': true,
+        'paging': false, // No pagination
+        'info': true,
+        'language': {
+            'search': 'Search results:',
+            'info': 'Showing _TOTAL_ entries'
+        },
+        'columnDefs': [
+            {
+                'targets': [0], // Athlete column
+                'type': 'string',
+                'orderSequence': ['asc', 'desc']
+            },
+            {
+                'targets': [1], // Weight class column
+                'type': 'num',
+                'orderSequence': ['asc', 'desc']
+            },
+            {
+                'targets': '_all', // All event result columns (starting from index 2)
+                'type': 'num',
+                'orderSequence': ['desc', 'asc']
+            }
+        ]
+    });
+});
+</script>    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Grip Sport International</h5>
+                    <p class="mb-0">The official database for North American Grip Sport competitions and records.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">
+                        <small>&copy; 2026 North American Grip Sport Organization</small>
+                    </p>
+                    <p class="mb-0">
+                        <small>Version 2.0.0</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="/assets/js/app.js"></script>
+</body>
+</html>

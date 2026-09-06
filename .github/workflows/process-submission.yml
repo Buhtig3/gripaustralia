@@ -1,0 +1,55 @@
+name: Process & Validate Issue Submissions
+
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  check-submission:
+    # Only run on submissions
+    if: contains(github.event.issue.labels.*.name, 'record-submission') || contains(github.event.issue.labels.*.name, 'gym-submission') || contains(github.event.issue.labels.*.name, 'contest-results')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Acknowledge & Validate Submission
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const labels = issue.labels.map(l => l.name);
+            const body = issue.body || '';
+
+            let submissionType = 'Submission';
+            if (labels.includes('record-submission')) submissionType = 'Record / Feat Verification';
+            if (labels.includes('gym-submission')) submissionType = 'Gym / Training Group Directory Listing';
+            if (labels.includes('contest-results')) submissionType = 'Championship / Meet Scorecard';
+
+            const commentBody = `### 🇦🇺 Grip Australia Automated Submission Review
+
+            Thank you for submitting **${submissionType}**!
+
+            - **Status:** Received & Queued for Maintainer Review
+            - **Author:** @${issue.user.login}
+            - **Next Steps:**
+              1. A maintainer will verify submitted details (video lockout / scale verification / facility details).
+              2. Once verified, the structured data will be merged into the static data pipeline and published automatically on the next build.
+
+            *Note: To expedite verification, ensure video links are unedited, publicly viewable, and show clear implement lockout.*`;
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              body: commentBody
+            });
