@@ -24,7 +24,7 @@ Whether you're looking to close your first heavy torsion gripper, train with sea
 
 Australian grip sport thrives on shared knowledge, garage sessions, and peer encouragement.
 
-* **Follow & Tag on Instagram:** Connect directly with [@gripaustralia](https://instagram.com/gripaustralia). Tag `#AustralianGripSport` and `#GripAustralia` on your training clips to get featured and link up with lifters in your area.
+* **Follow & Tag on Instagram:** Connect directly with [@pinch_bypinch](https://instagram.com/pinch_bypinch). Tag `#AustralianGripSport` and `#GripAustralia` on your training clips to get featured and link up with lifters in your area.
 * **Global Discussion & Archives:** Join [The GripBoard](https://www.gripboard.com/)—the world's premier forum for grip history, contest announcements, training logs, and equipment reviews.
 * **Reddit Community:** Explore [r/GripTraining](https://www.reddit.com/r/GripTraining) for beginner routines (like the David Horne routine), technique checks, and equipment advice.
 

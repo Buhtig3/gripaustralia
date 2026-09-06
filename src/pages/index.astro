@@ -36,8 +36,67 @@ const featuredGuides = [
 
 <BaseLayout
   title="Grip Australia: Hand, Wrist & Forearm Strength Athletics"
-  description="The home of Grip Sport in Australia. Strongfest sign-up, 2026 Nationals results, rules, Australian records, and competition calendar."
+  description="The new home of Grip Sport in Australia. Active content migration and new features underway. Strongfest sign-up, 2026 Nationals results, rules, Australian records, and competition calendar."
 >
+  <!-- Site Migration & New Features Announcement Banner -->
+  <aside
+    id="migration-banner"
+    class="w-full bg-[var(--bg-elevated)] border-b border-[var(--border-color)] py-3 px-4 sm:px-6 transition-colors duration-250 relative z-30"
+    aria-label="Site update notification"
+  >
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-xs sm:text-sm">
+      <div class="flex items-center gap-2.5 text-center md:text-left">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider bg-[var(--accent-gold)]/15 text-[var(--accent-gold)] border border-[var(--accent-gold)]/30 shrink-0">
+          <span class="w-1.5 h-1.5 rounded-full bg-[var(--accent-gold)] animate-ping"></span>
+          New Site
+        </span>
+        <p class="text-[var(--text-main)] font-medium leading-normal">
+          <strong class="font-bold">Welcome to the new site for Grip Australia!</strong> Content migration and new features are being actively added.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-3 shrink-0 text-xs">
+        <span class="text-[var(--text-muted)] hidden sm:inline">Notice anything?</span>
+        <a
+          href="https://instagram.com/pinch_bypinch"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1 font-bold text-[var(--accent-gold)] hover:underline"
+        >
+          <span>DM @pinch_bypinch</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+        <span class="text-[var(--border-color)] hidden sm:inline">|</span>
+        <a
+          href="mailto:gripsportaustralia@gmail.com"
+          class="font-semibold text-[var(--text-muted)] hover:text-[var(--text-main)] hover:underline"
+        >
+          gripsportaustralia@gmail.com
+        </a>
+        <span class="text-[var(--border-color)] hidden sm:inline">|</span>
+        <a
+          href={getUrl('/get-involved')}
+          class="font-semibold text-[var(--text-muted)] hover:text-[var(--text-main)] hover:underline"
+        >
+          Reach Out &rarr;
+        </a>
+        <button
+          id="dismiss-banner-btn"
+          type="button"
+          class="ml-1 p-1 rounded hover:bg-[var(--bg-surface)] text-[var(--text-muted)] hover:text-[var(--text-main)] transition-colors cursor-pointer"
+          title="Dismiss notification"
+          aria-label="Dismiss notification"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </aside>
+
   <!-- Hero Video Section (100% Screen Width) -->
   <section class="relative w-full bg-black border-b border-[var(--border-color)] overflow-hidden">
     <div class="w-full relative aspect-video overflow-hidden bg-black flex items-center justify-center">
@@ -95,8 +154,46 @@ const featuredGuides = [
         </h1>
         
         <p class="mt-4 text-base sm:text-lg text-[var(--text-muted)] leading-relaxed">
-          Welcome to Grip Australia. We support athletes, gym venues, and contest organizers across the nation in tests of crushing, pinching, and thick-bar power.
+          Welcome to the new site for Grip Australia. We support athletes, gym venues, and contest organizers across the nation in tests of crushing, pinching, and thick-bar power.
         </p>
+
+        <!-- New Site & Content Migration Notice Card -->
+        <div class="mt-6 p-4 sm:p-5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] hover:border-[var(--accent-gold)]/60 transition-colors shadow-sm text-left">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-[var(--accent-gold)]/15 text-[var(--accent-gold)] border border-[var(--accent-gold)]/30">
+                  Site Update
+                </span>
+                <span class="text-xs font-bold text-[var(--text-main)] uppercase tracking-wide font-display">
+                  Content Migration & New Features Underway
+                </span>
+              </div>
+              <p class="text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
+                This is the new site for Grip Australia! Content migration and new features are actively being added. If you notice anything missing, broken, or have feedback, please reach out.
+              </p>
+            </div>
+            <div class="flex flex-wrap sm:flex-nowrap items-center gap-2 shrink-0 w-full sm:w-auto">
+              <a
+                href="https://instagram.com/pinch_bypinch"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full sm:w-auto text-center px-3.5 py-2 rounded-[var(--btn-radius)] bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-[var(--accent-text)] font-accent font-bold text-xs uppercase tracking-wider transition-all shadow-sm border border-[var(--accent-gold)]/30 inline-flex items-center justify-center gap-1.5"
+              >
+                <span>Reach Out</span>
+                <svg class="w-3.5 h-3.5 text-[var(--accent-gold)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+              </a>
+              <a
+                href="mailto:gripsportaustralia@gmail.com"
+                class="w-full sm:w-auto text-center px-3.5 py-2 rounded-[var(--btn-radius)] bg-[var(--bg-elevated)] hover:bg-[var(--bg-base)] text-[var(--text-main)] font-accent font-bold text-xs uppercase tracking-wider transition-all border border-[var(--border-color)] inline-flex items-center justify-center"
+              >
+                Email
+              </a>
+            </div>
+          </div>
+        </div>
 
         <div class="mt-8 flex flex-wrap gap-4 justify-center sm:justify-start">
           <a
@@ -259,3 +356,22 @@ const featuredGuides = [
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  // Banner dismiss logic
+  const banner = document.getElementById('migration-banner');
+  const dismissBtn = document.getElementById('dismiss-banner-btn');
+
+  try {
+    if (sessionStorage.getItem('ga-migration-banner-dismissed') === 'true') {
+      banner?.classList.add('hidden');
+    }
+  } catch (e) {}
+
+  dismissBtn?.addEventListener('click', () => {
+    banner?.classList.add('hidden');
+    try {
+      sessionStorage.setItem('ga-migration-banner-dismissed', 'true');
+    } catch (e) {}
+  });
+</script>
