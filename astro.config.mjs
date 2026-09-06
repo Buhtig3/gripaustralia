@@ -3,13 +3,16 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import { rehypeCallouts } from './src/utils/rehype-callouts.mjs';
 
+const isNetlify = !!process.env.NETLIFY;
 const isGitHubActions = !!process.env.GITHUB_REPOSITORY;
 const repoName = process.env.GITHUB_REPOSITORY ? process.env.GITHUB_REPOSITORY.split('/')[1] : 'grip-australia-alpha';
 const repoOwner = process.env.GITHUB_REPOSITORY_OWNER || 'mappboy';
 
-// If on a user/project repo page (e.g. mappboy.github.io/grip-australia-alpha), use base path
-const isProjectPage = process.env.NO_BASE ? false : true;
-const siteUrl = isProjectPage ? `https://${repoOwner.toLowerCase()}.github.io` : 'https://gripaustralia.com';
+// Use project base subpath ONLY when explicitly building for GitHub Pages project site without custom domain
+const isProjectPage = !isNetlify && !process.env.NO_BASE && isGitHubActions;
+const siteUrl = isNetlify
+  ? (process.env.URL || 'https://gripaustralia.com')
+  : (isProjectPage ? `https://${repoOwner.toLowerCase()}.github.io` : 'https://gripaustralia.com');
 const basePath = isProjectPage ? `/${repoName}` : '/';
 
 export default defineConfig({

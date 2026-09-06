@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getUrl } from '../utils/url';
+---
+
+<BaseLayout
+  title="404: Page Not Found | Grip Australia"
+  description="The requested page could not be found. Return to Grip Australia home or explore our competition records and guides."
+>
+  <main class="min-h-[60vh] flex items-center justify-center py-20 px-4">
+    <div class="max-w-lg w-full text-center space-y-6">
+      <div class="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-[var(--bg-elevated)] border border-[var(--border-color)] text-[var(--accent-gold)] shadow-inner">
+        <svg class="w-10 h-10" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="32" r="16" stroke="currentColor" stroke-width="8"></circle>
+          <path d="M38 36 L24 82" stroke="currentColor" stroke-width="9" stroke-linecap="round"></path>
+          <path d="M62 36 L76 82" stroke="currentColor" stroke-width="9" stroke-linecap="round"></path>
+        </svg>
+      </div>
+
+      <div class="space-y-2">
+        <span class="text-xs font-mono font-bold tracking-widest uppercase text-[var(--accent-gold)]">404 Error</span>
+        <h1 class="text-3xl sm:text-4xl font-display font-black uppercase tracking-tight text-[var(--text-main)]">
+          Lost Your Grip?
+        </h1>
+        <p class="text-sm sm:text-base text-[var(--text-muted)] max-w-md mx-auto leading-relaxed">
+          The page you’re looking for doesn’t exist or may have been relocated.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-3 pt-2">
+        <a
+          href={getUrl('/')}
+          class="px-5 py-2.5 rounded-[var(--btn-radius)] bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-[var(--accent-text)] font-accent font-bold text-xs uppercase tracking-wider transition-all duration-200 shadow-sm border border-[var(--accent-gold)]/40"
+        >
+          Return Home
+        </a>
+        <a
+          href={getUrl('/competition-calendar')}
+          class="px-5 py-2.5 rounded-[var(--btn-radius)] bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-main)] font-accent font-bold text-xs uppercase tracking-wider transition-all duration-200 border border-[var(--border-color)]"
+        >
+          Competitions
+        </a>
+        <a
+          href={getUrl('/what-is-grip-sport')}
+          class="px-5 py-2.5 rounded-[var(--btn-radius)] bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-main)] font-accent font-bold text-xs uppercase tracking-wider transition-all duration-200 border border-[var(--border-color)]"
+        >
+          What is Grip Sport?
+        </a>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
