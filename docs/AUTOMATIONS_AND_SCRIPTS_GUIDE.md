@@ -17,6 +17,7 @@ This guide details the complete automation ecosystem, scraping toolchain, and gi
    - [`scripts/postbuild.js`](#7-scriptspostbuildjs)
    - [`scripts/build_notebook.py`](#8-scriptsbuild_notebookpy)
    - [`scripts/migrate.js`](#9-scriptsmigratejs)
+   - [`scripts/gsi_results.py`](#10-scriptsgsi_resultspy)
 3. [Implemented GitHub Issue Forms & Workflows](#implemented-github-issue-forms--workflows)
    - [Record & Feat Verification Issue Form](#record--feat-verification-issue-form)
    - [Gym & Training Group Directory Form](#gym--training-group-directory-form)
@@ -28,6 +29,8 @@ This guide details the complete automation ecosystem, scraping toolchain, and gi
    - [Workflow B: Reviewing & Adding a Gym / Training Group](#workflow-b-reviewing--adding-a-gym--training-group)
    - [Workflow C: Running the GripSport.org Scraper](#workflow-c-running-the-gripsportorg-scraper)
    - [Workflow D: Publishing New Championship Results](#workflow-d-publishing-new-championship-results)
+   - [Workflow E: Generating Official GSI Results Spreadsheets (`.xlsx`)](#workflow-e-generating-official-gsi-results-spreadsheets-xlsx)
+   - [Workflow F: Importing Completed GSI Results Template into Grip Australia](#workflow-f-importing-completed-gsi-results-template-into-grip-australia)
 
 ---
 
@@ -181,6 +184,52 @@ The repository includes a suite of Python and Node.js utilities in `scripts/`:
 ### 9. `scripts/migrate.js`
 * **Language & Runtime:** Node.js (`turndown`, `turndown-plugin-gfm`, `cheerio`, `axios`).
 * **Purpose:** Legacy archival scraper used to extract raw HTML from legacy CMS pages and convert them into structured Astro Markdown with YAML frontmatter.
+
+---
+
+### 10. `scripts/gsi_results.py`
+* **Language & Runtime:** Python 3.11+ (PEP 723 inline script dependencies: `uv run`, `openpyxl`).
+* **Purpose:** Bidirectional automation pipeline between Grip Australia competition data (`src/data/results.json`) and the official Grip Sport International spreadsheet format (`docs/gsi-docs/GSIResultsTemplate.xlsx`).
+* **Capabilities:**
+  1. **Export to Official Template:** Converts a competition from `results.json` into a populated `GSIResultsTemplate.xlsx` file with contest details, events, and competitor lifts formatted and ready to email to GSI directors.
+  2. **Import from Template:** Ingests a completed GSI spreadsheet submitted by a meet director, automatically calculates Grip Sport 100-pt percentage scores, identifies overall champions, and creates or updates the competition entry in `src/data/results.json`.
+  3. **Template Validation:** Audits a spreadsheet to ensure header cells, event names, competitor rows, and gender codes conform to GSI criteria prior to submission.
+* **GSI Official Requirements:**
+  - Submit within 24 hours of contest completion.
+  - Email targets: Eric Roussin (`eroussin@rogers.com`) and Jedd Johnson (`jedd.diesel@gmail.com`).
+  - Standard Template: [GSIResultsTemplate.xlsx](https://gripsportint.com/PDF/GSIResultsTemplate.xlsx) (sourced from [gripsportint.com/resources](https://gripsportint.com/resources)).
+* **Enhanced Template Architecture (`create-template`):**
+  - **Sheet 1: `Contest Results`:** Official GSI 13-column scorecard with built-in Excel Data Validation (dropdown menus for Gender `M/F`, GSI Weight Classes, and Event selection referencing the Implements sheet).
+  - **Sheet 2: `Live Standings`:** Real-time Grip Sport 100-point percentage scoring formulas (`[Result / MAX] * 100`) computing live athlete ranks as attempts are recorded.
+  - **Sheet 3: `Athletes Directory`:** 48 unique Australian competitors compiled from `records.json` and `results.json` with weight classes, GSI IDs, profile links, and records held.
+  - **Sheet 4: `Implements & Records Reference`:** 50 Australian tracked implements and events with current national marks, record holders, apparatus specs, and seasoning rules.
+  - **Sheet 5: `Meet Director Guide & Checklist`:** 9-point operational guide covering scale calibration, seasoning, attempt flow, dual scoring, and 24-hr GSI submission.
+* **CLI Usage:**
+  ```bash
+  # Generate a clean Enhanced Template for upcoming meet directors
+  npm run gsi:create-template -- -o dist/GSIResultsTemplate_Enhanced.xlsx
+
+  # Generate with pre-filled contest metadata, events, and Australian athlete roster
+  npm run gsi:create-template -- \
+    --contest-name "2027 Hobart Hoist" \
+    --date "January 30, 2027" \
+    --city "Hobart" --state "TAS" \
+    --events "2.25\" Crusher" "3\"x4\" Saxon Bar" "Silver Bullet" \
+    --prefill-athletes \
+    -o dist/2027_Hobart_Hoist_Template.xlsx
+
+  # Export existing contest to GSI Excel template
+  npm run gsi:export -- --year 2026 -o dist/GSIResults_2026.xlsx
+
+  # Validate a completed results template
+  npm run gsi:validate -- --file path/to/scorecard.xlsx
+
+  # Dry-run test importing a completed spreadsheet
+  npm run gsi:import -- --file path/to/scorecard.xlsx --dry-run
+
+  # Import and commit to src/data/results.json
+  npm run gsi:import -- --file path/to/scorecard.xlsx
+  ```
 
 ---
 
@@ -387,5 +436,58 @@ When an annual Australian Championship concludes:
    ```bash
    npm run build && npm run check:links
    git commit -am "feat(championships): publish 2027 Australian Championship scorecards"
+   git push origin main
+   ```
+
+---
+
+### Workflow E: Generating Official GSI Results Spreadsheets (`.xlsx`)
+
+When an Australian competition is staged and results need to be officially sent to Grip Sport International:
+
+1. **Export Contest Data:**
+   ```bash
+   # Export specific year (e.g. 2026) to an official GSI template spreadsheet
+   npm run gsi:export -- --year 2026 -o dist/GSIResults_2026_AGSC.xlsx
+   ```
+2. **Validate the Spreadsheet:**
+   ```bash
+   npm run gsi:validate -- --file dist/GSIResults_2026_AGSC.xlsx
+   ```
+3. **Submit to GSI (within 24 Hours):**
+   - Attach `dist/GSIResults_2026_AGSC.xlsx` in an email to:
+     - Eric Roussin: `eroussin@rogers.com`
+     - Jedd Johnson: `jedd.diesel@gmail.com`
+   - Subject: `GSI Contest Results - [Contest Name] - [Date]`
+
+---
+
+### Workflow F: Importing Completed GSI Results Template into Grip Australia
+
+When a meet director fills out the official `GSIResultsTemplate.xlsx` during competition day:
+
+1. **Validate Format:**
+   ```bash
+   npm run gsi:validate -- --file path/to/scorecard.xlsx
+   ```
+2. **Dry-Run Test Import:**
+   ```bash
+   npm run gsi:import -- --file path/to/scorecard.xlsx --dry-run
+   ```
+   - Checks that all athletes, bodyweights, gender classifications, and event results parse properly.
+   - Verifies auto-calculated Grip Sport percentage scores and recommended champions.
+3. **Commit Results to Repository:**
+   ```bash
+   # Ingest into src/data/results.json
+   npm run gsi:import -- --file path/to/scorecard.xlsx
+   
+   # Validate JSON schema integrity
+   npm run validate
+   
+   # Build site and audit links
+   npm run build && npm run check:links
+   
+   # Commit and push
+   git commit -am "feat(results): ingest official scorecards from [Contest Name]"
    git push origin main
    ```

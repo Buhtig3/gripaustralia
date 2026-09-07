@@ -11,6 +11,10 @@
     "check:links": "node scripts/check-links.js",
     "validate": "node scripts/validate-data.js",
     "extract:results": "node scripts/extract_results.js",
+    "gsi:export": "uv run scripts/gsi_results.py export",
+    "gsi:import": "uv run scripts/gsi_results.py import",
+    "gsi:validate": "uv run scripts/gsi_results.py validate",
+    "gsi:create-template": "uv run scripts/gsi_results.py create-template",
     "preview": "astro preview",
     "astro": "astro",
     "migrate": "node scripts/migrate.js"

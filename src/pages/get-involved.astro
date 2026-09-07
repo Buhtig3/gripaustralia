@@ -907,12 +907,13 @@ const firstCompFaqs = [
           </button>
           
           <div class="accordion-content p-6 pt-0 border-t border-[var(--border-color)] text-xs text-[var(--text-muted)] space-y-3">
-            <p>To run a valid competition where results are submitted to the official GSI rankings, your facility requires:</p>
-            <ul class="list-disc pl-5 space-y-1 text-[var(--text-main)]">
-              <li><strong>Calibrated Olympic Plates:</strong> Standard 2" Olympic cast iron or calibrated steel plates weighed on a certified scale.</li>
+            <p>To run a valid competition where results are submitted to official GSI world rankings and Grip Australia records, your facility requires:</p>
+            <ul class="list-disc pl-5 space-y-1.5 text-[var(--text-main)]">
+              <li><strong>Calibrated Olympic Plates & Certified Scale:</strong> Certified lifting plates or plates weighed on a certified scale. For Full Sanctioning (F), the loading pin, apparatus, collars, and spacers must also be weighed.</li>
               <li><strong>Standardized Loading Pin:</strong> Minimum 1.9" diameter Olympic pin with heavy-duty rated carabiner (12+ kN).</li>
-              <li><strong>Contest Implements:</strong> Selected standard implements for your scheduled events (e.g. 2.375" Rolling Thunder/Napalm's Nightmare, Euro Pinch or 3" pinch block, Hub lift, or Saxon bar).</li>
-              <li><strong>Digital Athlete Weigh-In Scale:</strong> Accurate digital platform scale for recording bodyweights.</li>
+              <li><strong>Sanctioned Contest Implements:</strong> Selected standard implements for your scheduled events (e.g. IronMind Axle for DOH Axle; Euro Pinch or approved pinch block; 2.375" Napalm's Nightmare / Rolling Thunder; IronMind Hub; Saxon Bar). Implements must meet commercial availability requirements.</li>
+              <li><strong>Implement Seasoning Compliance:</strong> Bare steel equipment may only be seasoned with dry powdered chalk and natural environmental exposure (water/humidity). <em>Zero chemical rust treatments (salt, vinegar), acids, wire wheels, or grinding are permitted.</em> Only dry towels may be used during competition.</li>
+              <li><strong>Digital Athlete Weigh-In Scale:</strong> Accurate digital platform scale for recording competitor bodyweights.</li>
               <li><strong>Referee Stopwatch & Chalk:</strong> Digital timer for the standard 1-minute attempt clock, and pure dry magnesium carbonate chalk.</li>
             </ul>
           </div>
@@ -930,7 +931,7 @@ const firstCompFaqs = [
                 02
               </span>
               <span class="font-display font-bold text-lg sm:text-xl uppercase text-[var(--text-main)]">
-                Sanctioning Bodies & Contest Rules
+                Sanctioning Process, Tiers & Contest Rules
               </span>
             </div>
             <svg class="accordion-chevron w-5 h-5 text-[var(--text-subtle)] transition-transform duration-200 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -939,17 +940,19 @@ const firstCompFaqs = [
           </button>
           
           <div class="accordion-content hidden p-6 pt-0 border-t border-[var(--border-color)] text-xs text-[var(--text-muted)] space-y-3">
-            <p>Contests in Australia are standardly aligned with <strong>Grip Sport International (GSI)</strong> criteria:</p>
-            <ul class="list-disc pl-5 space-y-1 text-[var(--text-main)]">
-              <li><strong>Standard Weight Classes:</strong> Men (59k, 66k, 74k, 83k, 93k, 105k, 120k, 120k+) and Women (52k, 63k, 72k, 84k, 100k, 100k+), plus Masters age divisions (40+, 50+, 60+).</li>
-              <li><strong>Attempt Format:</strong> Typically 4 attempts per athlete per event (or rising bar format for large fields).</li>
-              <li><strong>Referees:</strong> At least one certified or recognized head referee enforcing legal lockout and the audible "DOWN" command.</li>
-              <li><strong>Official Rule Reference:</strong> Read our detailed <a href={getUrl('/useful-resources#rules-guide')} class="text-[var(--accent-gold)] underline">GSI Event Legal Lift Rules Guide</a> for mechanical criteria across all core disciplines.</li>
+            <p>Contests in Australia are standardly aligned with <strong>Grip Sport International (GSI)</strong> criteria (sourced from <a href="https://gripsportint.com/resources" target="_blank" rel="noopener noreferrer" class="text-[var(--accent-gold)] underline">gripsportint.com/resources</a>):</p>
+            <ul class="list-disc pl-5 space-y-1.5 text-[var(--text-main)]">
+              <li><strong>Step 1: Sanctioning Application:</strong> Email Jedd Johnson (<a href="mailto:jedd.diesel@gmail.com" class="text-[var(--accent-gold)] underline">jedd.diesel@gmail.com</a>) with Contest Name, Date, Promoter's Name, Location, Entry/Info Link, and Event List.</li>
+              <li><strong>Sanctioning Tiers:</strong> Events are evaluated as <strong>Full Sanctioning (F)</strong> (qualifies for World's Strongest Grip + logged in global database; requires certified equipment weights), <strong>Partial Sanctioning (P)</strong> (qualifies for World's Strongest Grip), or <strong>Non-Sanctioned (N)</strong>.</li>
+              <li><strong>Standard Weight Classes:</strong> Men (59k, 66k, 74k, 83k, 93k, 105k, 120k, 120k+) and Women (47k, 52k, 57k, 63k, 72k, 84k, 100k, 100k+), plus Masters divisions.</li>
+              <li><strong>Attempt & Loading Format:</strong> 4 attempts per athlete per event (standard Rising Bar format) or Last Man Standing (incremental jumps).</li>
+              <li><strong>Scoring Systems:</strong> Promoters may choose <strong>Grip Sport Scoring</strong> (percentage-based: event winner gets 100 points, others get [lift &divide; winning lift] &times; 100 to reward margin of victory) or <strong>Strongman Scoring</strong> (rank placement: 1st = 1 pt).</li>
+              <li><strong>Universal Referee Standard:</strong> Full lockout with hips and knees extended, motionless pause, and controlled return after the audible "DOWN" signal. Read our detailed <a href={getUrl('/useful-resources#rules-guide')} class="text-[var(--accent-gold)] underline">GSI Event Legal Lift Rules Guide</a>.</li>
             </ul>
           </div>
         </div>
 
-        <!-- Accordion 3: How to List on the National Calendar -->
+        <!-- Accordion 3: How to List on the National Calendar & Submit Results -->
         <div class="accordion-item rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] overflow-hidden transition-colors">
           <button
             type="button"
@@ -961,7 +964,7 @@ const firstCompFaqs = [
                 03
               </span>
               <span class="font-display font-bold text-lg sm:text-xl uppercase text-[var(--text-main)]">
-                How to Submit Your Meet for Calendar Listing & Promotion
+                Calendar Listing & 24-Hour Results Submission
               </span>
             </div>
             <svg class="accordion-chevron w-5 h-5 text-[var(--text-subtle)] transition-transform duration-200 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -970,16 +973,44 @@ const firstCompFaqs = [
           </button>
           
           <div class="accordion-content hidden p-6 pt-0 border-t border-[var(--border-color)] text-xs text-[var(--text-muted)] space-y-4">
-            <p>Listing your event on the official Grip Australia calendar is 100% free and ensures national visibility:</p>
+            <p>Listing your event on the official Grip Australia calendar is 100% free, and post-meet reporting guarantees international inclusion:</p>
             <ol class="list-decimal pl-5 space-y-1.5 text-[var(--text-main)]">
-              <li><strong>Lock In Details:</strong> Confirm event date, host venue address, entry fee, event list (3–4 disciplines is standard), and registration link (Eventbrite, gym portal, or direct entry).</li>
-              <li><strong>Send to Grip Australia:</strong> Send details via Instagram DM to <a href="https://instagram.com/pinch_bypinch" target="_blank" rel="noopener noreferrer" class="text-[var(--accent-gold)] underline font-semibold">@pinch_bypinch</a>.</li>
-              <li><strong>National Promotion:</strong> We list your meet on <a href={getUrl('/competition-calendar')} class="text-[var(--accent-gold)] underline font-semibold">/competition-calendar</a>, share graphics across social channels, and notify active lifters in your region.</li>
-              <li><strong>Post-Event Submission:</strong> After the meet, send through your completed scoresheet to be immortalized in the national record archive!</li>
+              <li><strong>Lock In Details:</strong> Confirm event date, host venue address, entry fee, event list (3–4 disciplines standard), and registration link.</li>
+              <li><strong>Send to Grip Australia:</strong> Send details via Instagram DM to <a href="https://instagram.com/pinch_bypinch" target="_blank" rel="noopener noreferrer" class="text-[var(--accent-gold)] underline font-semibold">@pinch_bypinch</a> for calendar listing.</li>
+              <li><strong>Promote Nationally:</strong> We list your meet on <a href={getUrl('/competition-calendar')} class="text-[var(--accent-gold)] underline font-semibold">/competition-calendar</a> and notify regional competitors.</li>
+              <li><strong>24-Hour Official GSI Submission:</strong> Within 24 hours of contest completion, compile your scores on the official GSI spreadsheet template and email to Eric Roussin (<a href="mailto:eroussin@rogers.com" class="text-[var(--accent-gold)] underline">eroussin@rogers.com</a>) and Jedd Johnson (<a href="mailto:jedd.diesel@gmail.com" class="text-[var(--accent-gold)] underline">jedd.diesel@gmail.com</a>).</li>
+              <li><strong>National Archive Integration:</strong> Submit the completed spreadsheet to Grip Australia via our GitHub Results Portal below to update national leaderboards and championship recaps.</li>
             </ol>
           </div>
         </div>
 
+      </div>
+
+      <!-- GSI Results Spreadsheet Download & Reference Banner -->
+      <div class="mt-6 p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--accent-gold)]/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm">
+        <div>
+          <span class="text-xs font-mono font-bold uppercase text-[var(--accent-gold)] block mb-1">
+            Official GSI Scorecard Spreadsheet
+          </span>
+          <h4 class="font-display font-bold text-lg uppercase text-[var(--text-main)]">
+            Standard GSI Results Template (.xlsx)
+          </h4>
+          <p class="text-xs text-[var(--text-muted)] mt-1 max-w-xl">
+            Meet directors must record athlete bodyweights, weight classes, and individual attempts using this standardized spreadsheet for inclusion in global GSI rankings. Sourced from <a href="https://gripsportint.com/resources" target="_blank" rel="noopener noreferrer" class="text-[var(--accent-gold)] underline">gripsportint.com/resources</a>.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center gap-2.5 shrink-0 w-full sm:w-auto">
+          <a
+            href="https://gripsportint.com/PDF/GSIResultsTemplate.xlsx"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full sm:w-auto text-center px-4 py-2.5 rounded-lg bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-[var(--accent-text)] font-accent font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 shadow-sm"
+          >
+            <svg class="w-4 h-4 text-[var(--accent-gold)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            <span>Download GSI Template &nearr;</span>
+          </a>
+        </div>
       </div>
 
       <!-- Copyable Meet Director Template Action Card -->

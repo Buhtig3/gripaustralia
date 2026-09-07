@@ -159,17 +159,19 @@ Watch Sarah Rodwell set an Australian class record at the GSI Grip Challenge Can
 <div class="bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-lg">
 <div>
 <h3 class="text-lg font-bold text-[var(--text-main)] m-0">Hosting a Grip Sport Event in Your State?</h3>
-<p class="text-sm text-[var(--text-muted)] m-0 mt-1">Get your competition or club challenge sanctioned and listed on the national Grip Australia calendar.</p>
+<p class="text-sm text-[var(--text-muted)] m-0 mt-1">Get your competition sanctioned with Grip Sport International (GSI) and listed on the national Grip Australia calendar. Access official rules, seasoning standards, and the standardized results spreadsheet from <a href="https://gripsportint.com/resources" target="_blank" rel="noopener noreferrer" class="text-orange-500 underline">gripsportint.com/resources</a>.</p>
 </div>
+<div class="flex items-center gap-3 flex-shrink-0">
 <a
 href="/get-involved"
 class="no-underline inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white text-xs font-bold uppercase tracking-wider transition-colors flex-shrink-0 shadow-md hover:shadow-orange-600/30"
 >
-<span>Get Involved</span>
+<span>Meet Director Guide</span>
 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
 </svg>
 </a>
+</div>
 </div>
 
 </div>

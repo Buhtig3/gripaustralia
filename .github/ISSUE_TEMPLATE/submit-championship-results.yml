@@ -86,10 +86,13 @@ body:
   - type: textarea
     id: scorecard_data
     attributes:
-      label: Scorecard / Results Data (CSV or JSON or Table)
-      description: Paste CSV data, spreadsheet table, or link to online scorecard.
+      label: Scorecard / Results Data (GSI Excel Link, CSV or Table)
+      description: |
+        Paste CSV data, markdown table, or provide a link to the completed official GSI Results Template spreadsheet (downloadable from https://gripsportint.com/PDF/GSIResultsTemplate.xlsx).
+        Note: Official GSI sanctioning requires sending this template to Eric Roussin (eroussin@rogers.com) and Jedd Johnson (jedd.diesel@gmail.com) within 24 hours of contest completion.
       placeholder: |
-        Athlete, Weight Class, Gender, Event 1, Event 2, Event 3, Event 4, Total Points
+        Athlete, Bodyweight, Weight Class, Gender, Event 1, Event 2, Event 3, Event 4, Total Points
+        (or paste link to shared GSIResultsTemplate.xlsx file)
     validations:
       required: true
 
