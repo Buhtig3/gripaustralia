@@ -19,6 +19,27 @@ function getAllHtmlFiles(dir) {
   return results;
 }
 
+const repoName = process.env.GITHUB_REPOSITORY ? process.env.GITHUB_REPOSITORY.split('/')[1] : '';
+const basePrefixes = [
+  process.env.BASE_PATH,
+  repoName ? `/${repoName}` : '',
+  '/gripaustralia',
+  '/grip-australia-alpha'
+].filter(Boolean);
+
+function stripBasePrefix(url) {
+  let stripped = url;
+  for (const prefix of basePrefixes) {
+    if (stripped === prefix) {
+      return '/';
+    }
+    if (stripped.startsWith(`${prefix}/`)) {
+      return stripped.slice(prefix.length);
+    }
+  }
+  return stripped;
+}
+
 function verifyLink(link, sourceFile) {
   // Ignore external, mailto, tel, anchor-only, or javascript
   if (link.startsWith('http://') || link.startsWith('https://') || link.startsWith('mailto:') || link.startsWith('tel:') || link.startsWith('javascript:')) {
@@ -34,9 +55,8 @@ function verifyLink(link, sourceFile) {
     return { ok: fs.existsSync(path.join(DIST_DIR, 'index.html')) };
   }
 
-  // Internal route check
-  // Strip optional base prefix like /grip-australia-alpha
-  let stripped = clean.replace(/^\/grip-australia-alpha\/?/, '/');
+  // Internal route check - strip base prefix if present
+  let stripped = stripBasePrefix(clean);
   if (!stripped || stripped === '/') {
     return { ok: fs.existsSync(path.join(DIST_DIR, 'index.html')) };
   }
