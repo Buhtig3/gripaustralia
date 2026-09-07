@@ -125,7 +125,7 @@ MANDREL_DATA: List[Dict[str, Any]] = [
     {"rank": 11, "athleteId": 2423, "name": "Lachlan Simms", "gender": "men", "weightKg": 73.80, "isRecord": False, "gsiAthleteUrl": "https://www.gripsport.org/athlete/2423", "aliases": []},
     {"rank": 12, "athleteId": 2425, "name": "Mathew Wayling", "gender": "men", "weightKg": 73.80, "isRecord": False, "gsiAthleteUrl": "https://www.gripsport.org/athlete/2425", "aliases": ["Matt Wayling"]},
     {"rank": 13, "athleteId": 2426, "name": "James Sue", "gender": "men", "weightKg": 68.80, "isRecord": False, "gsiAthleteUrl": "https://www.gripsport.org/athlete/2426", "aliases": []},
-    {"rank": 14, "athleteId": 2082, "name": 'Dejan "Dead" Redzic', "gender": "men", "weightKg": 68.55, "isRecord": False, "gsiAthleteUrl": "https://www.gripsport.org/athlete/2082", "aliases": ["Dean Redzic", "Dead Redzic", "Dejan Redzic"]},
+    {"rank": 14, "athleteId": 2082, "name": 'Dean "Dead" Redzic', "gender": "men", "weightKg": 68.55, "isRecord": False, "gsiAthleteUrl": "https://www.gripsport.org/athlete/2082", "aliases": ["Dean Redzic", "Dead Redzic"]},
     {"rank": 15, "athleteId": 2784, "name": "Sean Magnusson", "gender": "men", "weightKg": 63.55, "isRecord": False, "gsiAthleteUrl": "https://www.gripsport.org/athlete/2784", "aliases": []},
     {"rank": 16, "athleteId": 2428, "name": "Thomas Claxton", "gender": "men", "weightKg": 63.80, "isRecord": False, "gsiAthleteUrl": "https://www.gripsport.org/athlete/2428", "aliases": ["Tom Claxton"]},
     {"rank": 17, "athleteId": 2427, "name": "Joseph Ameer", "gender": "men", "weightKg": 58.80, "isRecord": False, "gsiAthleteUrl": "https://www.gripsport.org/athlete/2427", "aliases": ["Joe Ameer"]},
