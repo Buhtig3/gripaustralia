@@ -60,20 +60,20 @@ Data extracted from official Grip Sport International records ([GSI Contest #483
 | **Declan Wright** | Mens 120k+ | **201.20 kg** | **122.00 kg** | **143.30 kg** | 🥇 **Overall Champion** |
 | **Isaac Pitt** | Mens 83k | **181.20 kg** | **107.00 kg** | **133.30 kg** | 🥈 **2nd & Pound-for-Pound Champion** |
 | **Lachlan Simms** | Mens 120k+ | **196.20 kg** | **122.00 kg** | **103.30 kg** | 🥉 **3rd Overall** |
-| **Christo Swart** | Mens 105k | **181.20 kg** | **107.00 kg** | **103.30 kg** | 4th |
-| **Joseph Hodgson** | Mens 105k | **176.20 kg** | **122.00 kg** | **103.30 kg** | 5th |
-| **Martin Zhang** | Mens 83k | **171.20 kg** | **97.00 kg** | **103.30 kg** | 6th |
-| **Glen Krutli** | Mens 120k | **151.20 kg** | **107.00 kg** | **93.30 kg** | 7th |
+| **Joseph Hodgson** | Mens 105k | **176.20 kg** | **122.00 kg** | **103.30 kg** | 4th |
+| **Christo Swart** | Mens 105k | **181.20 kg** | **107.00 kg** | **103.30 kg** | 5th |
+| **Glen Krutli** | Mens 120k | **151.20 kg** | **107.00 kg** | **93.30 kg** | 6th |
+| **Martin Zhang** | Mens 83k | **171.20 kg** | **97.00 kg** | **103.30 kg** | 7th & 2nd P4P |
 | **Mathew Wayling** | Mens 120k+ | **151.20 kg** | **102.00 kg** | **93.30 kg** | 8th |
-| **Jackson Willows** | Mens 105k | **141.20 kg** | **97.00 kg** | **83.30 kg** | 9th |
-| **Jayden Osmialowski** | Mens 83k | **141.20 kg** | **97.00 kg** | **93.30 kg** | 10th |
-| **Frazer Gayapersad** | Mens 120k+ | **151.20 kg** | **77.00 kg** | *-* | 11th |
-| **Glenn Hunter** | Mens 120k+ | **131.20 kg** | **92.00 kg** | **93.30 kg** | 12th |
-| **Benjamin Kleinberg** | Mens 105k | **125.20 kg** | **77.00 kg** | **83.30 kg** | 13th |
-| **Dylan Thomson** | Mens 120k+ | **125.20 kg** | **82.00 kg** | **73.30 kg** | 14th |
+| **Jayden Osmialowski** | Mens 83k | **141.20 kg** | **97.00 kg** | **93.30 kg** | 9th & 3rd P4P |
+| **Jackson Willows** | Mens 105k | **141.20 kg** | **97.00 kg** | **83.30 kg** | 10th |
+| **Glenn Hunter** | Mens 120k+ | **131.20 kg** | **92.00 kg** | **93.30 kg** | 11th |
+| **Benjamin Kleinberg** | Mens 105k | **125.20 kg** | **77.00 kg** | **83.30 kg** | 12th |
+| **Dylan Thomson** | Mens 120k+ | **125.20 kg** | **82.00 kg** | **73.30 kg** | 13th |
+| **Robert Sabbage** | Mens 93k | **110.20 kg** | **82.00 kg** | **73.30 kg** | 14th |
 | **Mark Boylin** | Mens 105k | **120.20 kg** | **72.00 kg** | **63.30 kg** | 15th |
 | **Matthew Shaw** | Mens 74k | **110.20 kg** | **67.00 kg** | **73.30 kg** | 16th |
-| **Robert Sabbage** | Mens 93k | **110.20 kg** | **82.00 kg** | **73.30 kg** | 17th |
+| **Frazer Gayapersad** | Mens 120k+ | **151.20 kg** | **77.00 kg** | *-* | 17th |
 
 ***
 
