@@ -20,9 +20,9 @@ tags:
 
 ### Artie's Grip Gym: Australian Gripper Rating Service
 
-If you're serious about hand strength and crushing power, you've almost certainly heard of **RGC (Rating Gripper Calibration)** ratings for torsion-spring grippers.
+If you're serious about hand strength, you've almost certainly heard of **RGC (Redneck Gripper Calibration)** ratings for torsion-spring grippers.
 
-[Cannon PowerWorks](https://cannonpowerworks.com/) in the USA pioneered standardized gripper calibration. However, the cost of return international shipping, customs declarations, and US dollar conversion can make sending grippers overseas prohibitively expensive for Australians ($80–$120+ AUD round-trip).
+[Cannon PowerWorks](https://cannonpowerworks.com/) in the USA pioneered standardised gripper calibration. However, the cost of return international shipping, customs declarations, and US dollar conversion can make sending grippers overseas prohibitively expensive for Australians ($80–$120+ AUD round-trip).
 
 Artie's Grip Gym provides Australian grip athletes with calibrated RGC ratings directly matched to Cannon PowerWorks standards.
 

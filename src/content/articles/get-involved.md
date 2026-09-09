@@ -32,7 +32,7 @@ Australian grip sport thrives on shared knowledge, home-gym sessions, and peer e
 
 ### Pathway 2: Gear Up & Find a Place to Train
 
-You don't need a warehouse full of specialized steel to start building world-class hand and forearm power.
+You don't need a warehouse full of specialised steel to start building world-class hand and forearm power.
 
 * **Essential Starter Gear:** Read our [Beginner's Equipment Guide](/equipment-guide) for breakdowns of loading pins, rotating handles, pinch blocks, and chalk selection.
 * **Calibrate Your Grippers:** Get your grippers rated locally to Cannon PowerWorks standards via [Artie's Grip Gym Rating Service](/gripper-rating-service).

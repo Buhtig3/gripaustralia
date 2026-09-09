@@ -159,7 +159,7 @@ Watch Sarah Rodwell set an Australian class record at the GSI Grip Challenge Can
 <div class="bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-lg">
 <div>
 <h3 class="text-lg font-bold text-[var(--text-main)] m-0">Hosting a Grip Sport Event in Your State?</h3>
-<p class="text-sm text-[var(--text-muted)] m-0 mt-1">Get your competition sanctioned with Grip Sport International (GSI) and listed on the national Grip Australia calendar. Access official rules, seasoning standards, and the standardized results spreadsheet from <a href="https://gripsportint.com/resources" target="_blank" rel="noopener noreferrer" class="text-orange-500 underline">gripsportint.com/resources</a>.</p>
+<p class="text-sm text-[var(--text-muted)] m-0 mt-1">Get your competition sanctioned with Grip Sport International (GSI) and listed on the national Grip Australia calendar. Access official rules, seasoning standards, and the standardised results spreadsheet from <a href="https://gripsportint.com/resources" target="_blank" rel="noopener noreferrer" class="text-orange-500 underline">gripsportint.com/resources</a>.</p>
 </div>
 <div class="flex items-center gap-3 flex-shrink-0">
 <a

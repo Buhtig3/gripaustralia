@@ -15,7 +15,7 @@ tags:
 
 ![Grip sport gym equipment wall displaying IM Tug grippers, pinch blocks, loading pins, and calibrated plates.](../../assets/images/equipment-and-gyms-da255c6b.jpg)
 
-Starting out in [grip sport](/what-is-grip-sport) doesn't require an entire gym full of specialized apparatus. With a handful of versatile, standardized implements, you can develop crushing, pinching, and open-hand support strength that transfers directly to official Grip Sport International (GSI) contests.
+Starting out in [grip sport](/what-is-grip-sport) doesn't require an entire gym full of specialised apparatus. With a handful of versatile, standardised implements, you can develop crushing, pinching, and open-hand support strength that transfers directly to official Grip Sport International (GSI) contests.
 
 If you are new to competitive grip athletics, read our companion overview on [What is Grip Sport?](/what-is-grip-sport) to understand the disciplines and contest rules. Below is the definitive guide to the essential tools every beginner should consider.
 
