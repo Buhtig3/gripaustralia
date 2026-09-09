@@ -19,7 +19,7 @@ tags:
 
 **Grip Sport** is a sport which tests competitors’ grip strength, or more widely, hand, wrist, and forearm strength. While people often equate grip simply with squeezing or holding a standard barbell, competitive grip sport tests strength along distinct biomechanical dimensions.
 
-Originating from 19th and early 20th-century strongman displays of strength such as heavy globe dumbbell lifts, anvil horn lifts, and weight plate pinching, modern grip sport has grown to include specifically made competition imlpements to test various grip strength and is a sport governed by international standards.
+Originating from 19th and early 20th-century strongman displays of strength such as heavy globe dumbbell lifts, anvil horn lifts, and weight plate pinching, modern grip sport has grown to include specifically made competition implements to test various grip strength and is a sport governed by international standards.
 
 ---
 ## How Competitions Work

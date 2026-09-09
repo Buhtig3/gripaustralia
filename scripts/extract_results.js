@@ -31,7 +31,7 @@ const DEFAULT_CONTESTS = [
     contestId: 433,
     gsiUrl: 'https://www.gripsport.org/contest/433',
     title: '2025 Australian Grip Sport Championship',
-    venue: 'Ultra Fitness & Strength, Brisbane, QLD',
+    venue: 'Steel Stone Gym, Brisbane, QLD',
     date: 'June 1, 2025',
     promoter: 'Isaac Pitt',
     abbreviation: 'AGSC25',
