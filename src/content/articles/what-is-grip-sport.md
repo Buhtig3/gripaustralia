@@ -65,7 +65,7 @@ Coming Soon
 
 Whether you want to test yourself against the national records or just train with like-minded lifters, the Australian grip community welcomes athletes of all backgrounds:
 
-* **Browse Upcoming Competitions:** Visit the [Competition Calendar](/competition-calendar) to find upcoming sanctioned GSI contests s.
+* **Browse Upcoming Competitions:** Visit the [Competition Calendar](/competition-calendar) to find upcoming sanctioned GSI contests.
 * **Checkout the Champs:** View past scorecards, photos, and champion honours at the [National Championships Hub](/championships) and the recent [2026 Championship Archive](/2026-championship).
 * **Check the Record Books:** See the current benchmarks across all bodyweight classes on the [Australian Grip Records](/records) page.
 * **Connect with the Community:** F [Get Involved](/get-involved).
