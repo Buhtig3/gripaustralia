@@ -1,8 +1,8 @@
 ---
 title: Mullett's Mandrel Records
 description: >-
-  Discover Mullett's Mandrel, the Australian grip tool crafted for grip sports
-  enthusiasts. Explore records, engage & shop now.
+  Discover Mullett's Mandrel, the Australian grip tool crafted for grip
+  enthusiasts.
 originalUrl: https://gripaustralia.com/mulletts-mandrel
 migratedAt: '2026-09-04T04:22:34.070Z'
 author: Grip Australia
