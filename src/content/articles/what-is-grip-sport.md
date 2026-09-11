@@ -13,18 +13,21 @@ tags:
   - equipment
   - beginners
   - australia
+sourceName: Grip Australia Guide
+verifiedAt: '2026-09-11'
+contentStatus: verified
 ---
 
 ![Australian Grip Sport competitors and athletes gathered at a national competition meet.](../../assets/images/what-is-grip-sport-f8c17f02.jpg)
 
 **Grip Sport** is a sport which tests competitors’ grip strength, or more widely, hand, wrist, and forearm strength. While people often equate grip simply with squeezing or holding a standard barbell, competitive grip sport tests strength along distinct biomechanical dimensions.
 
-Originating from 19th and early 20th-century strongman displays of strength such as heavy globe dumbbell lifts, anvil horn lifts, and weight plate pinching, modern grip sport has grown to include specifically made competition implements to test various grip strength and is a sport governed by international standards.
+Originating from 19th and early 20th-century strongman displays such as heavy globe dumbbell lifts, anvil horn lifts, and weight plate pinching, modern grip sport uses purpose-built implements to test specific grip dimensions under standardized contest rules.
 
 ---
 ## How Competitions Work
 
-Official grip contests in Australia and internationally operate under the governance of **Grip Sport International (GSI)**. 
+Grip Australia primarily documents Australian competitions and records conducted under **Grip Sport International (GSI)** rules and sanctioning. 
 
 ### Contest Formats
 Competitions typically feature 3 to 5 events covering multiple disciplines, run in one of two formats:
@@ -68,7 +71,7 @@ Whether you want to test yourself against the national records or just train wit
 * **Browse Upcoming Competitions:** Visit the [Competition Calendar](/competition-calendar) to find upcoming sanctioned GSI contests.
 * **Checkout the Champs:** View past scorecards, photos, and champion honours at the [National Championships Hub](/championships) and the recent [2026 Championship Archive](/2026-championship).
 * **Check the Record Books:** See the current benchmarks across all bodyweight classes on the [Australian Grip Records](/records) page.
-* **Connect with the Community:** F [Get Involved](/get-involved).
+* **Connect with the Community:** [Get Involved](/get-involved).
 
 ---
 

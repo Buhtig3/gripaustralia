@@ -13,20 +13,23 @@ tags:
   - blob
   - captain of crush
   - crushed to dust
+sourceName: IronMind / GripBoard / Community Submissions
+verifiedAt: '2026-09-11'
+contentStatus: verified
 ---
 
-While Grip Sport International governs which implements are recognised in GSI, classic grip feats are an essential part of Grip Sport, with many people training for a feat or certification in preference to competitions.
-This page serves as the official Australian honour roll, chronicling the Australian athletes who have performed these feats.
+While Grip Sport International sanctions official competition implements, classic grip feats remain a central discipline in Grip Sport, with many athletes training for iconic feats and certifications alongside or independent of sanctioned contests.
+This page serves as a community-maintained Australian honour roll, chronicling Australian athletes who have performed documented feats.
 
 > [!TIP]
-> **Looking for National Competition Records?**
-> Explore the full, sortable, and filterable [Official Australian Grip Records Registry](/records) for all sanctioned Grip Sport International (GSI) implements.
+> **Looking for Sanctioned Competition Records?**
+> Explore the sortable and filterable [Australian Grip Records](/records) for all sanctioned Grip Sport International (GSI) implements.
 
 ---
 
 ### Quick Jump Navigation
 
-* 📊 [Official Australian Grip Records Registry](/records)
+* 📊 [Australian Grip Records](/records)
 * 🏋️‍♂️ [The Thomas Inch Dumbbell & Heavier Replicas](#the-thomas-inch-dumbbell)
 * 🪨 [What is the blob & Heavy Block Weights](#what-is-the-blob)
 * 🗜️ [Captains of Crush #3 Certification](#captains-of-crush-grippers)
@@ -60,7 +63,7 @@ In addition to standard 78 kg replicas heavier Inch replicas have also been crea
 
 ### Australian Inch Dumbbell Honour Roll
 
-The following Australian athletes have officially lifted the Thomas Inch Dumbbell replica or heavier Inch replicas to lockout:
+The following Australian athletes have lifted a 78.3 kg Thomas Inch Dumbbell replica or heavier Inch replica to full lockout. Historical feat entries are community-verified based on public video records, in-person contest demonstrations, or meet archive documentation:
 
 | Athlete | Bells Lifted | Video / Documentation |
 | :--- | :--- |:--- |
@@ -104,7 +107,7 @@ Unlike a flat pinch block, the Blob features steeply sloping, rounded, convex ca
 
 ### Australian 22.7 kg+ (50 lb+) Blob Lifters Honour Roll
 
-The following Australian athletes have successfully lifted a 22.7 kg / 50 lb (or heavier) Blob to lockout:
+The following Australian athletes have successfully lifted a 22.7 kg / 50 lb (or heavier) Blob to lockout. Lifts marked "Documented lift" are community-verified from in-person meet attempts or archive footage on file:
 
 | Athlete | Blobs Lifted | Implement Details | Proof / Footage |
 | :--- | :--- | :--- | :--- |

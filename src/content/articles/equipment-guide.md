@@ -11,6 +11,9 @@ tags:
   - grip sport
   - grippers
   - pinch
+sourceName: Grip Australia Technical Guide
+verifiedAt: '2026-09-11'
+contentStatus: verified
 ---
 
 ![Grip sport gym equipment wall displaying IM Tug grippers, pinch blocks, loading pins, and calibrated plates.](../../assets/images/equipment-and-gyms-da255c6b.jpg)
@@ -26,7 +29,7 @@ If you are new to competitive grip athletics, read our companion overview on [Wh
 While full-size torsion-spring grippers (like the [Captains of Crush](/gripper-rating-service)) test whole-hand crushing power, **IM TUG (Two-by-Two) Grippers** are specifically engineered to isolate individual finger pairs and the thumb.
 
 ### Why IM Tugs are Essential for Beginners:
-* **Target Weaker Digits:** In a standard gripper close, the powerful index and middle fingers naturally dominate. IM Tugs force your ring and little finger (the pinky provides up to 30–40% of hand closure force) to work independently.
+* **Target Weaker Digits:** In a standard gripper close, the powerful index and middle fingers naturally dominate. IM Tugs force your ring and little finger (the ring and little fingers contribute substantially to hand closure force and can be trained separately with two-finger grippers) to work independently.
 * **Thumb Clamping Work:** By setting the thumb against one handle and a finger against the other, you can train crushing thumb strength, direct pinch opposition, and joint stability.
 * **Tendon Conditioning:** Because they load two fingers at a time, you can dial in tendon recovery and volume without fatiguing your central nervous system (CNS).
 
@@ -39,8 +42,8 @@ The **loading pin** is the undisputed backbone of vertical lift grip athletics. 
 ### What to Look For:
 * **Shaft Diameter:** Standard loading pins come in **1.9" (48–50 mm)** to securely fit Olympic 2-inch barbell plates without tilting or rocking.
 * **Base Plate:** A wide, welded steel base (minimum 75–100 mm diameter) ensures plates remain stable during explosive off-the-floor pulls.
-* **Welded Top Eyelet:** Choose a pin with a forged or fully-welded eye bolt capable of handling 200+ kg shock loads.
-* **Heavy-Duty Carabiner:** Always use climbing-rated steel or high-tensile alloy carabiners (minimum 12 kN / ~1,200 kg breaking strain). Avoid cheap aluminum hardware store clips.
+* **Welded Top Eyelet:** Choose a pin with a forged or fully-welded eye bolt capable of handling heavy working loads without bending or failure.
+* **Heavy-Duty Carabiner:** Always use rated climbing or heavy rigging carabiners. Avoid light aluminum hardware store snap clips.
 
 ---
 
