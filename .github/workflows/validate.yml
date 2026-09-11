@@ -26,7 +26,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Validate Schema Conformity (records.json, results.json)
+      - name: Validate Schema Conformity (records.json, results.json, competitions.json)
         run: npm run validate
 
       - name: Test Astro Build & Postbuild Indexing
@@ -34,3 +34,6 @@ jobs:
 
       - name: Verify Link Integrity
         run: npm run check:links
+
+      - name: Run Content Governance & Guardrails Check
+        run: npm run check:content

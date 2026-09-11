@@ -9,6 +9,7 @@
     "build:astro": "astro build",
     "postbuild": "node scripts/postbuild.js",
     "check:links": "node scripts/check-links.js",
+    "check:content": "node scripts/check-content.js",
     "validate": "node scripts/validate-data.js",
     "extract:results": "node scripts/extract_results.js",
     "gsi:export": "uv run scripts/gsi_results.py export",
