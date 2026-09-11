@@ -31,16 +31,8 @@ const categories = [
         url: "https://www.worldgripsport.com",
         role: "World Championships & Cup Series",
         location: "International",
-        tags: ["World Cup", "Championships", "Classic 4-Event"],
-        description: "Oversees international championships including the global World Cup series and standardizes classic four-event lift structures across participating national bodies.",
-      },
-      {
-        name: "International Grip Sport Union (IGSU)",
-        url: "https://www.worldgripsport.com",
-        role: "Legacy Championship Standardization",
-        location: "International / Europe",
-        tags: ["Legacy Events", "European Championships", "Historical Benchmarks"],
-        description: "International body standardizing legacy championship events such as the European and World championships, classic implement standards, and foundational rules.",
+        tags: ["World Cup", "Championships", "Classic 4-Event", "Legacy IGSU"],
+        description: "Oversees international championships including the global World Cup series and standardizes classic four-event lift structures across participating national bodies. Incorporates legacy championship formats and records from the International Grip Sport Union (IGSU).",
       }
     ]
   },
@@ -157,6 +149,8 @@ const gsiDisciplines = [
     alias: 'Euro Pinch / Standardised Pinch Blocks',
     focus: 'Symmetric Bilateral Thumb & Finger Clamping',
     apparatus: 'Two parallel steel plates (or approved 2" solid block) adjusted for hand width, mounted on a vertical 1.9" Olympic loading pin.',
+    ruleset: 'Grip Sport International (GSI)',
+    sourceUrl: 'https://www.gripsportint.com/resources',
     rules: [
       'Grip Position: Overhand pinch grip only. The thumbs must oppose the four fingers across the outer vertical surfaces of the plates.',
       'Legal Contact: Hands must be entirely placed on the designated gripping faces. Contact with the center spacers, loading pin, or weights is an immediate foul.',
@@ -171,6 +165,8 @@ const gsiDisciplines = [
     alias: 'Rolling Thunder / 60 mm Revolving Deadlift',
     focus: 'Unilateral Open-Hand Support & Rotational Friction',
     apparatus: 'Standardised 2.375" (60 mm) outer diameter rotating cylindrical handle attached to an Olympic loading pin via a heavy-duty carabiner.',
+    ruleset: 'Grip Sport International (GSI)',
+    sourceUrl: 'https://www.gripsportint.com/resources',
     rules: [
       'One-Handed Lift: Lifted using one hand only (competitor may select left or right hand per attempt).',
       'Free Rotation: The handle sleeve must spin freely on its axle. Wedging, cocking, or canting the hand against the side brackets to prevent rotation is strictly illegal.',
@@ -185,6 +181,8 @@ const gsiDisciplines = [
     alias: 'IronMind Hub / Vintage Plate Hub',
     focus: 'Pinch Clamping & Fingertip Pad Opposition',
     apparatus: 'Circular raised steel hub (2.875" diameter) fastened to a base plate and suspended from an Olympic loading pin.',
+    ruleset: 'Grip Sport International (GSI)',
+    sourceUrl: 'https://www.gripsportint.com/resources',
     rules: [
       'Fingertip-Only Contact: The weight must be lifted using only the distal pads of the fingers and thumb contacting the circular vertical perimeter of the hub.',
       'The "Heel Foul": No part of the palm, palm heel, or web of the hand may contact the flat top surface or the horizontal base plate. The referee must be able to see clear daylight between the palm and the hub surface.',
@@ -198,6 +196,8 @@ const gsiDisciplines = [
     alias: '3" or 4" Rectangular Pinch Bar',
     focus: 'Two-Handed Broad Flat-Bar Pinching',
     apparatus: 'Hollow structural rectangular steel bar (standardised at 3" x 4" or 3" x 3"), loaded with Olympic plates on rotating or fixed sleeves.',
+    ruleset: 'Grip Sport International (GSI)',
+    sourceUrl: 'https://www.gripsportint.com/resources',
     rules: [
       'Double-Overhand Pinch: Both hands must grasp the flat parallel vertical faces of the bar with thumbs on the rear and fingers on the front.',
       'No Hooking Underneath: The tips of the fingers and thumbs must NOT hook under the bottom edge or under-surface of the rectangular tube.',
@@ -212,6 +212,8 @@ const gsiDisciplines = [
     alias: "Apollon's Axle (1.9\"–2\" Non-Rotating Bar)",
     focus: 'Maximal Double-Overhand Support & Thick Bar Grip',
     apparatus: 'A rigid, non-rotating steel bar measuring 1.9" to 2" (48–50 mm) in outer diameter, loaded with standard Olympic plates.',
+    ruleset: 'Grip Sport International (GSI)',
+    sourceUrl: 'https://www.gripsportint.com/resources',
     rules: [
       'Double-Overhand Pronated Grip: Both palms must face toward the lifter (knuckles facing forward/away). Mixed grip (one palm forward, one palm back) is STRICTLY PROHIBITED.',
       'No Hook Grip: The thumb cannot be tucked underneath the fingers in an Olympic hook grip. The thumb must wrap over the fingers or remain in a standard open grasp.',
@@ -228,8 +230,8 @@ const companionTools = [
   {
     title: "Australian Grip Records",
     url: getUrl('/records'),
-    desc: "The official national leaderboard for all sanctioned GSI implements across Australian weight classes.",
-    badge: "Official Registry"
+    desc: "Australian national records across sanctioned GSI implements and bodyweight classes.",
+    badge: "Records Archive"
   },
   {
     title: "Beginner's Equipment Guide",
@@ -601,17 +603,33 @@ const companionTools = [
               {item.prohibitions}
             </div>
 
+            <!-- Ruleset & Source Link -->
+            <div class="mt-4 pt-3 border-t border-[var(--border-color)] flex items-center justify-between text-xs">
+              <span class="text-[11px] font-mono text-[var(--text-muted)]">Ruleset: <strong class="text-[var(--text-main)]">{item.ruleset}</strong></span>
+              <a
+                href={item.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-[var(--accent-gold)] hover:underline font-semibold inline-flex items-center gap-1"
+              >
+                <span>Official GSI Rules</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+
           </div>
         ))}
       </div>
 
-      <!-- Universal Judging Callout -->
+      <!-- GSI Referee Protocol Callout -->
       <div class="mt-8 p-5 rounded-xl bg-[var(--bg-elevated)] border border-[var(--accent-gold)]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div class="space-y-1">
           <div class="flex items-center gap-2">
             <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
             <span class="font-display font-bold text-sm uppercase tracking-wider text-[var(--text-main)]">
-              Universal GSI Referee Standard: The "DOWN" Command
+              GSI Referee Protocol: The Audible Down Signal
             </span>
           </div>
           <p class="text-xs text-[var(--text-muted)] max-w-2xl">
@@ -642,7 +660,7 @@ const companionTools = [
           Equipment Calibration: <span class="text-[var(--accent-gold)]">How RGC Works vs Factory Numbers</span>
         </h2>
         <p class="mt-3 text-sm text-[var(--text-muted)] leading-relaxed">
-          Torsion-spring hand grippers are the universal benchmark of crushing power, but stamped factory numbers create immense confusion. Here is the engineering science behind why manufacturer ratings mislead, how the RGC system standardizes closing force, and why calibration is essential.
+          Torsion-spring hand grippers are a widely adopted benchmark of crushing power, but stamped factory numbers create immense confusion. Here is the engineering science behind why manufacturer ratings mislead, how the RGC system standardizes closing force, and why calibration is essential.
         </p>
       </div>
 

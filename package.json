@@ -17,10 +17,13 @@
     "gsi:create-template": "uv run scripts/gsi_results.py create-template",
     "preview": "astro preview",
     "astro": "astro",
-    "migrate": "node scripts/migrate.js"
+    "migrate": "node scripts/migrate.js",
+    "archive:site": "node scripts/archive-site.js",
+    "archive:snapshots": "node scripts/capture-snapshots.js"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
+    "@astrojs/markdown-remark": "^7.3.1",
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.5",
     "astro": "^5.4.2",
@@ -34,6 +37,7 @@
     "typescript": "^5.7.3"
   },
   "devDependencies": {
-    "@types/node": "^22.13.9"
+    "@types/node": "^22.13.9",
+    "puppeteer-core": "^25.10.0"
   }
 }
