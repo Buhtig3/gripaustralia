@@ -1,0 +1,32 @@
+[
+  {
+    "id": "strongfest-iv-2026",
+    "title": "StrongFest IV",
+    "date": "2026-08-22",
+    "time": "10:00 AM – 3:00 PM AEST",
+    "location": "Canberra, ACT",
+    "venue": "Canberra, ACT",
+    "registrationUrl": "https://www.eventbrite.com.au/e/strongfest-iv-tickets-1990312708890",
+    "registrationCloseDate": "2026-08-21",
+    "statusOverride": null,
+    "sanctioned": true,
+    "sanctioningBody": "GSI",
+    "description": "Annual GSI-sanctioned Grip Challenge held in Canberra, featuring multi-discipline competition for lifters of all experience levels.",
+    "resultsUrl": null
+  },
+  {
+    "id": "hobart-hoist-2027",
+    "title": "Hobart Hoist 2027",
+    "date": "2027-01-30",
+    "time": "10:00 AM – 2:00 PM AEDT",
+    "location": "Hobart, TAS",
+    "venue": "Hobart, Tasmania",
+    "registrationUrl": null,
+    "registrationCloseDate": null,
+    "statusOverride": null,
+    "sanctioned": true,
+    "sanctioningBody": "GSI",
+    "description": "The premier Tasmanian grip challenge returning for 2027 under GSI sanctioning.",
+    "resultsUrl": null
+  }
+]

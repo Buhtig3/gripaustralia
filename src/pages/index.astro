@@ -2,8 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getUrl } from '../utils/url';
 import { getCollection } from 'astro:content';
+import { getCompetitionsWithStatus } from '../utils/competitions';
 
 const articles = await getCollection('articles');
+const { activeRegistration, nextScheduled } = getCompetitionsWithStatus();
 
 // Featured Guides & Tools (Non-repetitive, high-utility selection)
 const featuredGuides = [
@@ -113,17 +115,36 @@ const featuredGuides = [
   <!-- Prominent Hero Action Buttons -->
   <section class="bg-[var(--bg-elevated)] py-10 px-4 border-b border-[var(--border-color)] transition-colors duration-250">
     <div class="max-w-xl mx-auto flex flex-col gap-4">
-      <a
-        href="https://www.eventbrite.com.au/e/strongfest-iv-tickets-1990312708890"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="w-full text-center py-4 px-6 rounded-[var(--btn-radius)] bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-[var(--accent-text)] font-display font-black text-base sm:text-lg uppercase tracking-widest transition-all duration-200 shadow-md hover:shadow-lg border border-[var(--accent-gold)]/40 transform hover:-translate-y-0.5 flex items-center justify-center gap-2 group"
-      >
-        <span>Strongfest IV Sign-up</span>
-        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform text-[var(--accent-gold)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-        </svg>
-      </a>
+      {activeRegistration && activeRegistration.registrationUrl ? (
+        <a
+          href={activeRegistration.registrationUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full text-center py-4 px-6 rounded-[var(--btn-radius)] bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-[var(--accent-text)] font-display font-black text-base sm:text-lg uppercase tracking-widest transition-all duration-200 shadow-md hover:shadow-lg border border-[var(--accent-gold)]/40 transform hover:-translate-y-0.5 flex items-center justify-center gap-2 group"
+        >
+          <span>{activeRegistration.title} Sign-up</span>
+          <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform text-[var(--accent-gold)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </a>
+      ) : (
+        <a
+          href={getUrl('/competition-calendar')}
+          class="w-full text-center py-3.5 px-6 rounded-[var(--btn-radius)] bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-[var(--accent-text)] font-display font-black text-base sm:text-lg uppercase tracking-widest transition-all duration-200 shadow-md hover:shadow-lg border border-[var(--accent-gold)]/40 transform hover:-translate-y-0.5 flex flex-col items-center justify-center gap-0.5 group"
+        >
+          <div class="flex items-center justify-center gap-2">
+            <span>View Competition Calendar</span>
+            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform text-[var(--accent-gold)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </div>
+          {nextScheduled && (
+            <span class="text-[11px] font-mono font-normal tracking-normal text-[var(--accent-text)]/85">
+              Next: {nextScheduled.title} &bull; {nextScheduled.formattedDate}
+            </span>
+          )}
+        </a>
+      )}
 
       <a
         href={getUrl('/2026-championship')}
