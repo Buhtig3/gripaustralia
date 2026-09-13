@@ -20,7 +20,11 @@
     "astro": "astro",
     "migrate": "node scripts/migrate.js",
     "archive:site": "node scripts/archive-site.js",
-    "archive:snapshots": "node scripts/capture-snapshots.js"
+    "archive:snapshots": "node scripts/capture-snapshots.js",
+    "archive:competitions": "node scripts/archive-competitions.js",
+    "competitions:template": "node scripts/competitions-csv.js template",
+    "competitions:export": "node scripts/competitions-csv.js export",
+    "competitions:import": "node scripts/competitions-csv.js import"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

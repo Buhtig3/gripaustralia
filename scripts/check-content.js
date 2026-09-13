@@ -16,31 +16,56 @@ console.log('\n======================================================');
 console.log('  Grip Australia Content Governance & Guardrails Check');
 console.log('======================================================\n');
 
-// 1. EVENT DATE & REGISTRATION LIFECYCLE CHECKS (Hard Errors)
+// 1. EVENT DATE & REGISTRATION LIFECYCLE CHECKS
 console.log('1. Checking Event Dates & Lifecycle Integrity...');
 const competitionsPath = path.resolve('src/data/competitions.json');
+const completedPath = path.resolve('src/data/completed_competitions.json');
+
 if (fs.existsSync(competitionsPath)) {
   const comps = JSON.parse(fs.readFileSync(competitionsPath, 'utf-8'));
   const today = new Date().toISOString().split('T')[0];
 
   comps.forEach((c) => {
-    // If event is in the past, it must NOT be marked registration_open or scheduled upcoming
+    // Check if event has passed
     if (c.date < today) {
+      // Hard error: Cannot claim registration is open for a past event
       if (c.statusOverride === 'registration_open') {
         error(`Competition "${c.title}" (${c.id}): Event date (${c.date}) is in the past, but statusOverride is 'registration_open'.`);
       }
+      // Advisory warning: Notify user that an event date has passed and should be archived
+      warn(
+        'src/data/competitions.json',
+        0,
+        `Event "${c.title}" (${c.date}) has passed. Run 'npm run archive:competitions' to move it to completed competitions.`
+      );
     }
 
-    // If registrationCloseDate is past, registration must not be open
+    // Check if registration close date has passed
     if (c.registrationCloseDate && c.registrationCloseDate < today) {
       if (c.statusOverride === 'registration_open') {
         error(`Competition "${c.title}" (${c.id}): Registration close date (${c.registrationCloseDate}) has passed, but statusOverride is 'registration_open'.`);
+      }
+      if (c.date >= today && !c.statusOverride) {
+        warn(
+          'src/data/competitions.json',
+          0,
+          `Event "${c.title}" (${c.id}): Registration close date (${c.registrationCloseDate}) has passed while event is still upcoming.`
+        );
       }
     }
 
     // registrationCloseDate must be on or before event date
     if (c.registrationCloseDate && c.date && c.registrationCloseDate > c.date) {
       error(`Competition "${c.title}" (${c.id}): Registration close date (${c.registrationCloseDate}) cannot be after event date (${c.date}).`);
+    }
+
+    // Missing registration close date warning
+    if (c.registrationUrl && !c.registrationCloseDate && c.date >= today) {
+      warn(
+        'src/data/competitions.json',
+        0,
+        `Upcoming event "${c.title}" has registrationUrl but missing registrationCloseDate.`
+      );
     }
   });
 
@@ -50,7 +75,6 @@ if (fs.existsSync(competitionsPath)) {
     const html = fs.readFileSync(calendarHtmlPath, 'utf-8');
     comps.forEach((c) => {
       if (c.date < today) {
-        // If completed, ensure it does not render with active registration badge
         const upcomingSection = html.split('Past Competitions')[0];
         if (upcomingSection && upcomingSection.includes(c.title)) {
           error(`dist/competition-calendar: Past event "${c.title}" (${c.date}) is rendering in the Upcoming section.`);
@@ -60,6 +84,22 @@ if (fs.existsSync(competitionsPath)) {
   }
 } else {
   error('src/data/competitions.json not found!');
+}
+
+// Also audit completed_competitions.json if present
+if (fs.existsSync(completedPath)) {
+  const completedComps = JSON.parse(fs.readFileSync(completedPath, 'utf-8'));
+  const today = new Date().toISOString().split('T')[0];
+
+  completedComps.forEach((c) => {
+    if (c.date > today) {
+      warn(
+        'src/data/completed_competitions.json',
+        0,
+        `Event "${c.title}" in completed_competitions.json has future date (${c.date}).`
+      );
+    }
+  });
 }
 
 // 2. CHECK DUPLICATE ORGANISATION URLS (Advisory Warnings)
@@ -90,6 +130,7 @@ if (fs.existsSync(usefulResourcesPath)) {
 // 3. SCAN CONTENT ARTICLES & PAGES FOR HIGH-RISK PROSE & PLACEHOLDERS (Advisory Warnings)
 console.log('3. Scanning Content Guardrails & Tone (Advisory Warnings)...');
 
+// TODO Add pinacle and other.
 const HIGH_RISK_PATTERNS = [
   { pattern: /\bofficial national\b/i, label: 'High-confidence claim: "official national"' },
   { pattern: /\bthe official\b/i, label: 'High-confidence claim: "the official"' },

@@ -150,6 +150,15 @@ function runValidation() {
         allErrors.push(...validateCompetition(comp, idx, competitionsPath));
       });
     }
+
+    const completedPath = path.resolve('src/data/completed_competitions.json');
+    if (fs.existsSync(completedPath)) {
+      const completed = JSON.parse(fs.readFileSync(completedPath, 'utf-8'));
+      console.log(`Checking ${completed.length} completed competitions in ${path.basename(completedPath)}...`);
+      completed.forEach((comp, idx) => {
+        allErrors.push(...validateCompetition(comp, idx, completedPath));
+      });
+    }
   }
 
   if (allErrors.length > 0) {

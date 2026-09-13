@@ -1,4 +1,5 @@
 import rawCompetitions from '../data/competitions.json';
+import rawCompletedCompetitions from '../data/completed_competitions.json';
 
 export interface Competition {
   id: string;
@@ -83,7 +84,13 @@ export function getCompetitionsWithStatus(referenceDate: Date = new Date()): {
   activeRegistration: CompetitionWithStatus | null;
   nextScheduled: CompetitionWithStatus | null;
 } {
-  const all: CompetitionWithStatus[] = (rawCompetitions as Competition[]).map((comp) => {
+  // Combine both sources, de-duplicating by ID (completed competitions take precedence for completed events)
+  const compMap = new Map<string, Competition>();
+
+  (rawCompetitions as Competition[]).forEach((c) => compMap.set(c.id, c));
+  (rawCompletedCompetitions as Competition[]).forEach((c) => compMap.set(c.id, c));
+
+  const all: CompetitionWithStatus[] = Array.from(compMap.values()).map((comp) => {
     const { status, label, isPast } = getCompetitionStatus(comp, referenceDate);
     return {
       ...comp,
