@@ -35,7 +35,6 @@ Competitions typically feature 3 to 5 events covering multiple disciplines, run 
 2. **Standard Round Format:** Similar to Olympic weightlifting or powerlifting, each competitor receives 3 or 4 attempts per event, with the highest successful lift counting toward their score.
 
 ### Rules & Crossbar/Lockout
-More info coming soon
 ---
 
 ## Why Train Grip Strength?
@@ -57,10 +56,7 @@ You don't need an entire warehouse of expensive apparatus to start building form
 > ### 📖 Explore the Beginner's Equipment Guide
 > Looking for exact specifications, brand recommendations, and setup advice? Check out our dedicated guide:
 > 
-> **👉 [Read the Beginner's Equipment Guide](/equipment-guide)**: Coming Soon
-
-### The Starter Checklist
-Coming Soon
+> **👉 [Read the Beginner's Equipment Guide](/equipment-guide)**
 
 ---
 
@@ -70,7 +66,7 @@ Whether you want to test yourself against the national records or just train wit
 
 * **Browse Upcoming Competitions:** Visit the [Competition Calendar](/competition-calendar) to find upcoming sanctioned GSI contests.
 * **Checkout the Champs:** View past scorecards, photos, and champion honours at the [National Championships Hub](/championships) and the recent [2026 Championship Archive](/2026-championship).
-* **Check the Record Books:** See the current benchmarks across all bodyweight classes on the [Australian Grip Records](/records) page.
+* **Check the Record Books:** See the current benchmarks across all bodyweight classes on the [Grip Sport International Records Database](https://gripsport.org/records).
 * **Connect with the Community:** [Get Involved](/get-involved).
 
 ---

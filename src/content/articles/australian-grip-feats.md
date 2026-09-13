@@ -23,13 +23,12 @@ This page serves as a community-maintained Australian honour roll, chronicling A
 
 > [!TIP]
 > **Looking for Sanctioned Competition Records?**
-> Explore the sortable and filterable [Australian Grip Records](/records) for all sanctioned Grip Sport International (GSI) implements.
+> Explore the official [Grip Sport International Records Database](https://gripsport.org/records) for all sanctioned Australian and world GSI marks.
 
 ---
 
 ### Quick Jump Navigation
 
-* 📊 [Australian Grip Records](/records)
 * 🏋️‍♂️ [The Thomas Inch Dumbbell & Heavier Replicas](#the-thomas-inch-dumbbell)
 * 🪨 [What is the blob & Heavy Block Weights](#what-is-the-blob)
 * 🗜️ [Captains of Crush #3 Certification](#captains-of-crush-grippers)
@@ -109,15 +108,15 @@ Unlike a flat pinch block, the Blob features steeply sloping, rounded, convex ca
 
 The following Australian athletes have successfully lifted a 22.7 kg / 50 lb (or heavier) Blob to lockout. Lifts marked "Documented lift" are community-verified from in-person meet attempts or archive footage on file:
 
-| Athlete | Blobs Lifted | Implement Details | Proof / Footage |
-| :--- | :--- | :--- | :--- |
-| **Joseph Hodgson** | 24kg Holle, 30kg Holle, Original Fatman, Legacy 120, Hodgson Blob, Blobzilla | Full progression up to **Blobzilla** (~29.5 kg+ / 65+ lb) | Documented lifts |
-| **William Fuggle** | 24kg Holle, Original Fatman | 24 kg Holle replica & original vintage 22.7 kg (50 lb) York Fatman | [24kg Holle Lift](https://player.vimeo.com/video/862273051?h=06c8ffd409) • [Fatman Blob Lift](https://vimeo.com/900485203) |
-| **Ben Cossey** | 24kg Holle, Original Fatman | 24 kg Holle replica & vintage 22.7 kg (50 lb) Fatman | Documented lifts |
-| **Luke Reynolds** | Original Fatman | Vintage 22.7 kg (50 lb) York roundhead half | [Luke Reynolds Fatman Lift Reel](https://www.instagram.com/reel/CsFDEgmub9n/) |
-| **Isaac Pitt** | KWN 50, Original Fatman | 22.7 kg (50 lb) KWN block & vintage 22.7 kg (50 lb) Fatman | [Isaac Pitt KWN 50 Shorts](https://youtube.com/shorts/-2kPt6aV4Bo) |
-| **Henry Mullett** | 24kg Holle, 30kg Holle | 24 kg (~53 lb) and heavy 30 kg (~66 lb) Holle replicas | Documented lifts |
-| **Glen Krutli** | Hodgson Blob, 24kg Holle | Custom Hodgson Blob & 24 kg Holle replica | Documented lifts |
+| Athlete | Blobs Lifted | Proof / Footage |
+| :--- | :--- | :--- |
+| **Joseph Hodgson** | 24kg Holle, 30kg Holle, Original Fatman, Legacy 120, Hodgson Blob, Blobzilla | Documented lifts |
+| **William Fuggle** | 24kg Holle, Original Fatman | [24kg Holle Lift](https://player.vimeo.com/video/862273051?h=06c8ffd409) • [Fatman Blob Lift](https://vimeo.com/900485203) |
+| **Ben Cossey** | 24kg Holle, Original Fatman | Documented lifts |
+| **Luke Reynolds** | Original Fatman | [Luke Reynolds Fatman Lift Reel](https://www.instagram.com/reel/CsFDEgmub9n/) |
+| **Isaac Pitt** | KWN 50, Original Fatman | [Isaac Pitt KWN 50 Shorts](https://youtube.com/shorts/-2kPt6aV4Bo) |
+| **Henry Mullett** | 24kg Holle, 30kg Holle | Documented lifts |
+| **Glen Krutli** | Hodgson Blob, 24kg Holle | Documented lifts |
 
 ---
 
@@ -125,12 +124,12 @@ The following Australian athletes have successfully lifted a 22.7 kg / 50 lb (or
 
 ### Australian Certified CoC #3 Closers
 
-| Year | Athlete | Gripper | Certification Status | Official Verification |
-| :--- | :--- | :--- | :--- | :--- |
-| **2023** | **Jermiah Merciconah** | Captains of Crush No. 3 | Officially Certified | [Watch Certification Video](https://www.youtube.com/watch?v=Fc5NZ1OROWE) • [IronMind Certification Roster](https://ironmind.com/product-info/certification/captains-of-crush/whos-who-no.-3-coc/) |
-| **2008** | **Sam Scott** | Captains of Crush No. 3 | Officially Certified | [IronMind Certification Roster](https://ironmind.com/product-info/certification/captains-of-crush/whos-who-no.-3-coc/) |
-| **2003** | **Jeff Tan** | Captains of Crush No. 3 | Officially Certified | [IronMind Certification Roster](https://ironmind.com/product-info/certification/captains-of-crush/whos-who-no.-3-coc/) |
-| **2003** | **Justin Byrnes** | Captains of Crush No. 3 | Officially Certified | [IronMind Certification Roster](https://ironmind.com/product-info/certification/captains-of-crush/whos-who-no.-3-coc/) |
+| Year | Athlete | Gripper | Official Verification |
+| :--- | :--- | :--- | :--- |
+| **2023** | **Jermiah Merciconah** | Captains of Crush No. 3 | [Watch Certification Video](https://www.youtube.com/watch?v=Fc5NZ1OROWE) • [IronMind Certification Roster](https://ironmind.com/product-info/certification/captains-of-crush/whos-who-no.-3-coc/) |
+| **2008** | **Sam Scott** | Captains of Crush No. 3 | [IronMind Certification Roster](https://ironmind.com/product-info/certification/captains-of-crush/whos-who-no.-3-coc/) |
+| **2003** | **Jeff Tan** | Captains of Crush No. 3 | [IronMind Certification Roster](https://ironmind.com/product-info/certification/captains-of-crush/whos-who-no.-3-coc/) |
+| **2003** | **Justin Byrnes** | Captains of Crush No. 3 | [IronMind Certification Roster](https://ironmind.com/product-info/certification/captains-of-crush/whos-who-no.-3-coc/) |
 
 ---
 
@@ -144,12 +143,12 @@ Introduced by IronMind in 2012, the **Crushed-to-Dust! Challenge** tests a lifte
 
 ---
 
-### Australian Certified Athletes
+### Australian Athletes
 
-| Year | Athlete | Status | Milestone | Verification |
-| :--- | :--- | :--- | :--- | :--- |
-| **2024** | **Will Fuggle** | Certified | **1st Australian to officially certify** | [IronMind Certification Roster](https://www.ironmind.com/certification/crushed-to-dust-challenge/certification-list/) • [Watch Video](https://www.youtube.com/watch?v=G_0bfqXlGfc&t=60s) |
-| **2025** | **Isaac Pitt** | Certified | Officially certified | [IronMind Certification Roster](https://www.ironmind.com/certification/crushed-to-dust-challenge/certification-list/) • [Watch Video](https://www.youtube.com/watch?v=8BRUsE_1KkA) |
+| Year | Athlete | Verification |
+| :--- | :--- | :--- |
+| **2024** | **Will Fuggle** | [IronMind Certification Roster](https://www.ironmind.com/certification/crushed-to-dust-challenge/certification-list/) • [Watch Video](https://www.youtube.com/watch?v=G_0bfqXlGfc&t=60s) |
+| **2025** | **Isaac Pitt** | [IronMind Certification Roster](https://www.ironmind.com/certification/crushed-to-dust-challenge/certification-list/) • [Watch Video](https://www.youtube.com/watch?v=8BRUsE_1KkA) |
 
 ---
 

@@ -145,7 +145,7 @@ async function extractGymsFromContent() {
         'Loading pins',
         'Pinch blocks and various grip implements'
       ],
-      description: 'Strongman and strength athletics gym equipped with diverse grip implements and training equipment in northern Tasmania.',
+      description: 'Strongman and strength gym equipped with diverse grip implements and training equipment in northern Tasmania.',
       featured: true
     }
   ];

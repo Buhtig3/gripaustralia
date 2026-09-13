@@ -4,9 +4,9 @@ import { getUrl } from '../utils/url';
 import { getCompetitionsWithStatus } from '../utils/competitions';
 
 const pageTitle = "Competition Calendar | Grip Australia";
-const pageDescription = "Australian grip sport competition calendar: upcoming GSI-sanctioned events, state challenges, entry dates, and contest archives.";
+const pageDescription = "Australian grip sport competition calendar: upcoming GSI-sanctioned events, entry dates, and contest schedules.";
 
-const { upcoming, past } = getCompetitionsWithStatus();
+const { upcoming } = getCompetitionsWithStatus();
 ---
 
 <BaseLayout
@@ -38,7 +38,7 @@ const { upcoming, past } = getCompetitionsWithStatus();
       </h1>
 
       <p class="mt-4 text-lg text-[var(--text-muted)] leading-relaxed max-w-3xl">
-        Australian competitions and records conducted under Grip Sport International (GSI) rules and partner sanctioning. Track upcoming contests, entry dates, and contest archives.
+        Australian competitions conducted under Grip Sport International (GSI) rules and partner sanctioning. Track upcoming contests and entry dates.
       </p>
     </header>
 
@@ -152,84 +152,6 @@ const { upcoming, past } = getCompetitionsWithStatus();
         )}
       </section>
 
-      <!-- PAST COMPETITIONS ARCHIVE SECTION -->
-      {past.length > 0 && (
-        <section id="past-competitions">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6 pb-3 border-b border-[var(--border-color)]">
-            <div>
-              <h2 class="text-2xl font-black text-[var(--text-main)] m-0 tracking-tight flex items-center gap-2">
-                <svg class="w-6 h-6 text-[var(--text-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
-                </svg>
-                Past Competitions
-              </h2>
-              <p class="text-sm text-[var(--text-muted)] mt-1 mb-0">Completed Australian grip contests and scorecards.</p>
-            </div>
-            <span class="inline-flex items-center self-start sm:self-auto px-3 py-1 rounded-full text-xs font-semibold bg-[var(--bg-elevated)] text-[var(--text-muted)] border border-[var(--border-color)] font-mono">
-              Archived
-            </span>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {past.map((event) => (
-              <div class="bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-2xl p-6 flex flex-col justify-between shadow-sm relative overflow-hidden">
-                <div>
-                  <div class="flex items-center justify-between gap-2 mb-4">
-                    <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-[var(--bg-elevated)] text-[var(--text-muted)] border border-[var(--border-color)]">
-                      Completed
-                    </span>
-                    <span class="text-xs font-mono text-[var(--text-muted)]">{event.location}</span>
-                  </div>
-
-                  <h3 class="text-2xl font-black text-[var(--text-main)] m-0 tracking-tight">
-                    {event.title}
-                  </h3>
-
-                  <div class="mt-4 space-y-2 text-sm text-[var(--text-muted)]">
-                    <div class="flex items-center gap-2">
-                      <svg class="w-4 h-4 text-[var(--text-subtle)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                      </svg>
-                      <span>{event.formattedDate}</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                      <svg class="w-4 h-4 text-[var(--text-subtle)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                      </svg>
-                      <span>{event.venue}</span>
-                    </div>
-                    {event.description && (
-                      <p class="text-xs text-[var(--text-muted)] pt-2 leading-relaxed m-0 border-t border-[var(--border-color)]">
-                        {event.description}
-                      </p>
-                    )}
-                  </div>
-                </div>
-
-                <div class="mt-6 pt-4 border-t border-[var(--border-color)]">
-                  {event.resultsUrl ? (
-                    <a
-                      href={event.resultsUrl}
-                      class="no-underline w-full py-2.5 px-4 rounded-xl bg-[var(--bg-elevated)] hover:bg-[var(--bg-base)] text-[var(--text-main)] border border-[var(--border-color)] font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-colors"
-                    >
-                      <span>View Results</span>
-                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                      </svg>
-                    </a>
-                  ) : (
-                    <div class="text-xs text-[var(--text-subtle)] font-mono text-center py-2">
-                      Results pending organiser publication
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
-
       <!-- Featured Record Lift Highlight -->
       <section class="bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-2xl p-6 sm:p-8 shadow-xl">
         <div class="flex items-center gap-2 text-xs font-bold text-[var(--accent-gold)] tracking-wider uppercase mb-2">
@@ -239,14 +161,14 @@ const { upcoming, past } = getCompetitionsWithStatus();
           <span>Featured Record Lift</span>
         </div>
         <h2 class="text-xl sm:text-2xl font-black text-[var(--text-main)] m-0 tracking-tight">
-          Sarah Rodwell: Class Record at GSI Grip Challenge Canberra
+          Sarah Rodwell: World-Class Record at GSI Grip Challenge Canberra
         </h2>
         <p class="text-[var(--text-muted)] text-sm mt-2 mb-4 leading-relaxed">
-          Sarah Rodwell setting an Australian class record at the GSI Grip Challenge Canberra, demonstrating hand, finger, and wrist power.
+          Sarah Rodwell setting a world-class record at the GSI Grip Challenge Canberra.
         </p>
 
         <div class="video-wrapper">
-          <iframe src="https://player.vimeo.com/video/861903100?h=fb9fae452a&title=0&byline=0&portrait=0" title="Sarah Rodwell with class record set at GSI Grip Challenge Canberra" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe src="https://player.vimeo.com/video/861903100?h=fb9fae452a&title=0&byline=0&portrait=0" title="Sarah Rodwell at GSI Grip Challenge Canberra" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
         </div>
       </section>
 

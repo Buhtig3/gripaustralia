@@ -41,9 +41,7 @@
     "weightLbs": 206.2,
     "isRecord": false,
     "gsiAthleteUrl": "https://www.gripsport.org/athlete/1625",
-    "aliases": [
-      "Tom Denmeade"
-    ]
+    "aliases": []
   },
   {
     "rank": 5,
@@ -76,9 +74,7 @@
     "weightLbs": 195.2,
     "isRecord": false,
     "gsiAthleteUrl": "https://www.gripsport.org/athlete/2424",
-    "aliases": [
-      "Sam Vogt"
-    ]
+    "aliases": []
   },
   {
     "rank": 8,
@@ -133,9 +129,7 @@
     "weightLbs": 162.7,
     "isRecord": false,
     "gsiAthleteUrl": "https://www.gripsport.org/athlete/2425",
-    "aliases": [
-      "Matt Wayling"
-    ]
+    "aliases": []
   },
   {
     "rank": 13,
@@ -151,16 +145,13 @@
   {
     "rank": 14,
     "athleteId": 2082,
-    "name": "Dean \"Dead\" Redzic",
+    "name": "Dean Redzic",
     "gender": "men",
     "weightKg": 68.55,
     "weightLbs": 151.1,
     "isRecord": false,
     "gsiAthleteUrl": "https://www.gripsport.org/athlete/2082",
-    "aliases": [
-      "Dean Redzic",
-      "Dead Redzic"
-    ]
+    "aliases": []
   },
   {
     "rank": 15,
@@ -182,9 +173,7 @@
     "weightLbs": 140.7,
     "isRecord": false,
     "gsiAthleteUrl": "https://www.gripsport.org/athlete/2428",
-    "aliases": [
-      "Tom Claxton"
-    ]
+    "aliases": []
   },
   {
     "rank": 17,
@@ -195,9 +184,7 @@
     "weightLbs": 129.6,
     "isRecord": false,
     "gsiAthleteUrl": "https://www.gripsport.org/athlete/2427",
-    "aliases": [
-      "Joe Ameer"
-    ]
+    "aliases": []
   },
   {
     "rank": 18,
@@ -241,7 +228,9 @@
     "weightLbs": 118.1,
     "isRecord": false,
     "gsiAthleteUrl": "https://www.gripsport.org/athlete/2778",
-    "aliases": []
+    "aliases": [
+      "Mouse"
+    ]
   },
   {
     "rank": 3,

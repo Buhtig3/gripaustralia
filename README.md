@@ -158,7 +158,7 @@ tags:
   - "training"
 ---
 
-Grip sport is a strength athletics discipline focused specifically on hand, wrist, and forearm power...
+Grip sport is a strength discipline focused specifically on hand, wrist, and forearm power...
 ```
 
 ---
