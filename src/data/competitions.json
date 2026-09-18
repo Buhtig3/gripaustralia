@@ -1,0 +1,32 @@
+[
+  {
+    "id": "king-kong-grip-2026",
+    "title": "2026 International King Kong Grip Challenge - Canberra",
+    "date": "2026-10-24",
+    "time": "2:00 PM – 6:00 PM AEDT",
+    "location": "Canberra, ACT",
+    "venue": "Ultra Fitness and Strength",
+    "registrationUrl": "https://www.eventbrite.com/e/2026-international-king-kong-grip-challenge-canberra-tickets-1999370868088",
+    "registrationCloseDate": "2026-10-23",
+    "statusOverride": null,
+    "sanctioned": true,
+    "sanctioningBody": "GSI",
+    "description": "Test your grip strength against the best worldwide at Canberra's venue for the King Kong Grip Challenge. See how you rank globally! The King Kong International Grip Challenge is a multi-venue global grip sport contest where the same 4 events are performed worldwide and scores are combined, giving athletes a global ranking.",
+    "resultsUrl": null
+  },
+  {
+    "id": "hobart-hoist-2027",
+    "title": "Hobart Hoist 2027",
+    "date": "2027-01-30",
+    "time": "10:00 AM – 2:00 PM AEDT",
+    "location": "Hobart, TAS",
+    "venue": "Hobart, Tasmania",
+    "registrationUrl": null,
+    "registrationCloseDate": null,
+    "statusOverride": null,
+    "sanctioned": true,
+    "sanctioningBody": "GSI",
+    "description": "The premier Tasmanian grip challenge returning for 2027 under GSI sanctioning.",
+    "resultsUrl": null
+  }
+]

@@ -18,6 +18,8 @@ This guide details the complete automation ecosystem, scraping toolchain, and gi
    - [`scripts/build_notebook.py`](#8-scriptsbuild_notebookpy)
    - [`scripts/migrate.js`](#9-scriptsmigratejs)
    - [`scripts/gsi_results.py`](#10-scriptsgsi_resultspy)
+   - [`scripts/archive-competitions.js`](#11-scriptsarchive-competitionsjs)
+   - [`scripts/competitions-csv.js`](#12-scriptscompetitions-csvjs)
 3. [Implemented GitHub Issue Forms & Workflows](#implemented-github-issue-forms--workflows)
    - [Record & Feat Verification Issue Form](#record--feat-verification-issue-form)
    - [Gym & Training Group Directory Form](#gym--training-group-directory-form)
@@ -229,6 +231,45 @@ The repository includes a suite of Python and Node.js utilities in `scripts/`:
 
   # Import and commit to src/data/results.json
   npm run gsi:import -- --file path/to/scorecard.xlsx
+  ```
+
+### 11. `scripts/archive-competitions.js`
+* **Language & Runtime:** Node.js (ESM).
+* **Purpose:** Moves passed competitions from `src/data/competitions.json` to `src/data/completed_competitions.json` to keep upcoming schedules clean while preserving historical meet entries.
+* **CLI Usage:**
+  ```bash
+  # Preview competitions eligible for archiving without writing changes
+  npm run archive:competitions -- --dry-run
+
+  # Archive all competitions where event date < today
+  npm run archive:competitions
+
+  # Archive a specific competition by ID and attach a results URL
+  npm run archive:competitions -- --id strongfest-iv-2026 --results https://example.com/results/strongfest-iv-2026
+  ```
+
+### 12. `scripts/competitions-csv.js`
+* **Language & Runtime:** Node.js (ESM, zero external dependencies).
+* **Purpose:** Provides a spreadsheet-friendly CSV interface for creating, batch-editing, and importing competitions into `src/data/competitions.json` and `src/data/completed_competitions.json`.
+* **Features:**
+  - Standard template generation (`template`) with realistic example entries.
+  - Full RFC-4180 parsing supporting commas, quotes, and newlines.
+  - Schema and date validation (`YYYY-MM-DD`, close date order, allowed `statusOverride` values).
+  - Date-aware routing: automatically routes passed events to `completed_competitions.json` and upcoming events to `competitions.json`.
+  - Export functionality (`export`) to extract current competitions into CSV for bulk editing in Excel or Google Sheets.
+* **CLI Usage:**
+  ```bash
+  # Generate or refresh the standard template CSV (src/data/competitions_template.csv)
+  npm run competitions:template
+
+  # Export current competitions to CSV for spreadsheet editing
+  npm run competitions:export -- src/data/competitions_export.csv
+
+  # Preview importing a CSV file without writing changes
+  npm run competitions:import -- src/data/competitions_template.csv --dry-run
+
+  # Import competitions from a CSV file
+  npm run competitions:import -- path/to/new_competitions.csv
   ```
 
 ---

@@ -72,6 +72,35 @@ function validateResults(data, sourceName) {
   return errors;
 }
 
+function validateCompetition(comp, index, sourceName) {
+  const errors = [];
+  const requiredFields = ['id', 'title', 'date', 'location', 'venue', 'sanctioned'];
+
+  for (const field of requiredFields) {
+    if (comp[field] === undefined || comp[field] === null || comp[field] === '') {
+      errors.push(`Competition #${index} (${comp.id || 'unknown'}): Missing required field '${field}'`);
+    }
+  }
+
+  if (comp.date && !/^\d{4}-\d{2}-\d{2}$/.test(comp.date)) {
+    errors.push(`Competition #${index} (${comp.id}): 'date' must be ISO format YYYY-MM-DD`);
+  }
+
+  if (comp.registrationCloseDate && !/^\d{4}-\d{2}-\d{2}$/.test(comp.registrationCloseDate)) {
+    errors.push(`Competition #${index} (${comp.id}): 'registrationCloseDate' must be ISO format YYYY-MM-DD`);
+  }
+
+  if (comp.date && comp.registrationCloseDate && comp.registrationCloseDate > comp.date) {
+    errors.push(`Competition #${index} (${comp.id}): 'registrationCloseDate' (${comp.registrationCloseDate}) cannot be after 'date' (${comp.date})`);
+  }
+
+  if (comp.statusOverride && !['cancelled', 'completed', 'scheduled', 'registration_open'].includes(comp.statusOverride)) {
+    errors.push(`Competition #${index} (${comp.id}): Invalid statusOverride '${comp.statusOverride}'`);
+  }
+
+  return errors;
+}
+
 function runValidation() {
   let allErrors = [];
 
@@ -111,6 +140,24 @@ function runValidation() {
       const years = Object.keys(results);
       console.log(`Checking championship results for ${years.join(', ')} in ${path.basename(resultsPath)}...`);
       allErrors.push(...validateResults(results, resultsPath));
+    }
+
+    const competitionsPath = path.resolve('src/data/competitions.json');
+    if (fs.existsSync(competitionsPath)) {
+      const competitions = JSON.parse(fs.readFileSync(competitionsPath, 'utf-8'));
+      console.log(`Checking ${competitions.length} competitions in ${path.basename(competitionsPath)}...`);
+      competitions.forEach((comp, idx) => {
+        allErrors.push(...validateCompetition(comp, idx, competitionsPath));
+      });
+    }
+
+    const completedPath = path.resolve('src/data/completed_competitions.json');
+    if (fs.existsSync(completedPath)) {
+      const completed = JSON.parse(fs.readFileSync(completedPath, 'utf-8'));
+      console.log(`Checking ${completed.length} completed competitions in ${path.basename(completedPath)}...`);
+      completed.forEach((comp, idx) => {
+        allErrors.push(...validateCompetition(comp, idx, completedPath));
+      });
     }
   }
 

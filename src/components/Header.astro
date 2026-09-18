@@ -8,7 +8,6 @@ interface Props {
 const { currentPath = '' } = Astro.props;
 
 const recordLinks = [
-  { href: getUrl('/records'), label: 'Australian Records', desc: 'National rankings, weight classes & lift leaderboards' },
   { href: getUrl('/australian-grip-feats'), label: 'Australian Grip Feats', desc: 'Thomas Inch, Blobs & historic odd-object lifts' },
   { href: getUrl('/mulletts-mandrel'), label: "Mullett's Mandrel Records", desc: 'Australian wrist wrench rules, history & records' },
 ];
@@ -25,7 +24,7 @@ const resourceLinks = [
   { href: getUrl('/media'), label: 'Interviews & Media', desc: 'Athlete interviews, podcasts & video analysis' },
 ];
 
-const isRecordsActive = ['/records', '/australian-grip-feats', '/mulletts-mandrel'].some(path => currentPath.includes(path));
+const isRecordsActive = ['/australian-grip-feats', '/mulletts-mandrel'].some(path => currentPath.includes(path));
 const isCompetitionsActive = ['/competition-calendar', '/championships', '/2024-championship', '/2025-championship', '/2026-championship'].some(path => currentPath.includes(path));
 const isResourcesActive = ['/useful-resources', '/resources', '/equipment-guide', '/gripper-rating-service', '/media'].some(path => currentPath.includes(path));
 const isWhatIsGripActive = currentPath.includes('/what-is-grip-sport');

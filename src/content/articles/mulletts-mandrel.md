@@ -32,7 +32,7 @@ tags:
 | 11 | **Lachlan Simms** | 73.80 kg | 162.7 lbs | Official Lift |
 | 12 | **Mathew Wayling** | 73.80 kg | 162.7 lbs | Official Lift |
 | 13 | **James Sue** | 68.80 kg | 151.7 lbs | Official Lift |
-| 14 | **Dean "Dead" Redzic** | 68.55 kg | 151.1 lbs | Official Lift |
+| 14 | **Dean Redzic** | 68.55 kg | 151.1 lbs | Official Lift |
 | 15 | **Sean Magnusson** | 63.55 kg | 140.1 lbs | Official Lift |
 | 16 | **Thomas Claxton** | 63.80 kg | 140.7 lbs | Official Lift |
 | 17 | **Joseph Ameer** | 58.80 kg | 129.6 lbs | Official Lift |
@@ -44,7 +44,7 @@ tags:
 | Rank | Name | Best Lift (kg) | Best Lift (lbs) | Status |
 | :---: | :--- | :---: | :---: | :--- |
 | 🥇 1 | **Sarah Rodwell** | **53.80 kg** | **118.6 lbs** | 🏆 **Current Australian Record** |
-| 🥈 2 | **Megan Galvin** | 53.55 kg | 118.1 lbs | Official Lift |
+| 🥈 2 | **Megan Galvin (aka Mouse)** | 53.55 kg | 118.1 lbs | Official Lift |
 | 🥉 3 | **Naomi Denmeade** | 48.55 kg | 107.0 lbs | Official Lift |
 
 ---

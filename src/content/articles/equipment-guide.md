@@ -1,7 +1,7 @@
 ---
 title: Beginner's Equipment Guide
 description: >-
-  The essential starter gear for Grip Sport athletics in Australia, from IronMind IM Tug
+  The essential starter gear for Grip Sport in Australia, from IronMind IM Tug
   grippers and loading pins to magnesium carbonate chalk and pinch block weights.
 author: Grip Australia
 tags:
@@ -20,7 +20,7 @@ contentStatus: verified
 
 Starting out in [grip sport](/what-is-grip-sport) doesn't require an entire gym full of specialised apparatus. With a handful of versatile, standardised implements, you can develop crushing, pinching, and open-hand support strength that transfers directly to official Grip Sport International (GSI) contests.
 
-If you are new to competitive grip athletics, read our companion overview on [What is Grip Sport?](/what-is-grip-sport) to understand the disciplines and contest rules. Below is the definitive guide to the essential tools every beginner should consider.
+If you are new to competitive grip sport, read our companion overview on [What is Grip Sport?](/what-is-grip-sport) to understand the disciplines and contest rules. Below is the definitive guide to the essential tools every beginner should consider.
 
 ---
 
@@ -37,7 +37,7 @@ While full-size torsion-spring grippers (like the [Captains of Crush](/gripper-r
 
 ## 2. Olympic Loading Pins & Carabiners
 
-The **loading pin** is the undisputed backbone of vertical lift grip athletics. Virtually every thick-handled lift, pinch block, and hub device connects to a loading pin via a heavy-duty rated carabiner.
+The **loading pin** is the undisputed backbone of vertical lift grip training. Virtually every thick-handled lift, pinch block, and hub device connects to a loading pin via a heavy-duty rated carabiner.
 
 ### What to Look For:
 * **Shaft Diameter:** Standard loading pins come in **1.9" (48–50 mm)** to securely fit Olympic 2-inch barbell plates without tilting or rocking.
