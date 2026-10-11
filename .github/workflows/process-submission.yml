@@ -13,8 +13,11 @@ env:
 
 jobs:
   check-submission:
+    concurrency:
+      group: submission-review-${{ github.event.issue.number }}
+      cancel-in-progress: false
     # Only run on submissions
-    if: contains(github.event.issue.labels.*.name, 'record-submission') || contains(github.event.issue.labels.*.name, 'gym-submission') || contains(github.event.issue.labels.*.name, 'contest-results')
+    if: contains(github.event.issue.labels.*.name, 'record-submission') || contains(github.event.issue.labels.*.name, 'gym-submission') || contains(github.event.issue.labels.*.name, 'contest-results') || contains(github.event.issue.labels.*.name, 'calendar-submission') || startsWith(github.event.issue.title, '[Calendar Add]:') || startsWith(github.event.issue.title, '[Calendar Change]:')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -32,6 +35,33 @@ jobs:
             const issue = context.payload.issue;
             const labels = issue.labels.map(l => l.name);
             const body = issue.body || '';
+
+            if (labels.includes('calendar-submission') || /^\[Calendar (Add|Change)\]:/.test(issue.title)) {
+              const marker = '<!-- calendar-submission-review -->';
+              const comments = await github.paginate(github.rest.issues.listComments, {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number
+              });
+              if (comments.some(comment => comment.user?.login === 'github-actions[bot]' && comment.body?.includes(marker))) return;
+
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: `${marker}
+              ### Competition Calendar Submission
+
+              Received and queued for maintainer review.
+
+              1. A maintainer will verify the organiser's announcement, date, venue, registration details, and sanctioning status.
+              2. For a new event, they will add an entry to \`src/data/competitions.json\`. For a change, they will locate the existing ID in that file or \`src/data/completed_competitions.json\` and update only the requested fields.
+              3. The data change will go through a pull request and the repository's validation and build checks before publication.
+
+              Submission does not grant sanctioning or publish a listing automatically. If details change, edit this issue or add a comment with the organiser's updated announcement.`
+              });
+              return;
+            }
 
             let submissionType = 'Submission';
             if (labels.includes('record-submission')) submissionType = 'Record / Feat Verification';

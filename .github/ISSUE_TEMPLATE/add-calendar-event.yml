@@ -1,0 +1,111 @@
+name: "Add a Competition Calendar Event"
+description: "Submit an Australian grip sport competition for the national calendar."
+title: "[Calendar Add]: <Competition Name> - <City, State>"
+labels: ["calendar-submission", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Submit a competition for [the calendar](https://gripaustralia.com/competition-calendar).
+        A maintainer will verify the details before publishing. This form does not apply for sanctioning.
+        Issues are public; only include contact details you have permission to share.
+
+  - type: input
+    id: title
+    attributes:
+      label: Competition Name
+      placeholder: e.g. Hobart Hoist 2027
+    validations:
+      required: true
+
+  - type: input
+    id: date
+    attributes:
+      label: Competition Date
+      description: Use YYYY-MM-DD. If the date is unconfirmed, explain this in Additional Information.
+      placeholder: "2027-01-30"
+    validations:
+      required: true
+
+  - type: input
+    id: time
+    attributes:
+      label: Time and Time Zone
+      placeholder: e.g. Weigh-in 9 AM, competition 10 AM - 2 PM AEDT
+
+  - type: input
+    id: location
+    attributes:
+      label: City and State or Territory
+      placeholder: e.g. Hobart, TAS
+    validations:
+      required: true
+
+  - type: input
+    id: venue
+    attributes:
+      label: Venue
+      description: Include the venue name and public address, or state that the venue is to be confirmed.
+    validations:
+      required: true
+
+  - type: input
+    id: organiser
+    attributes:
+      label: Meet Director and Public Contact
+      description: Name and a public website, social profile, or contact channel.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: sanctioned
+    attributes:
+      label: Sanctioning Status
+      options:
+        - "Confirmed"
+        - "Pending"
+        - "Not sanctioned"
+    validations:
+      required: true
+
+  - type: input
+    id: sanctioning_body
+    attributes:
+      label: Sanctioning Body
+      placeholder: e.g. GSI
+
+  - type: input
+    id: registration_url
+    attributes:
+      label: Registration URL
+      description: Public entry page, if available.
+      placeholder: https://example.com/register
+
+  - type: input
+    id: registration_close_date
+    attributes:
+      label: Registration Closing Date
+      description: Use YYYY-MM-DD. Must be on or before the competition date.
+      placeholder: "2027-01-29"
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Competition Summary
+      description: Briefly describe the disciplines, divisions, entry requirements, and fees, where known.
+    validations:
+      required: true
+
+  - type: textarea
+    id: source
+    attributes:
+      label: Official Announcement or Supporting Evidence
+      description: Link to an organiser announcement, event page, or sanctioning confirmation. You can attach a flyer.
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_information
+    attributes:
+      label: Additional Information
+      description: Note any details still to be confirmed.

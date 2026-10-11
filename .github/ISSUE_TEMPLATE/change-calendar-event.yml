@@ -1,0 +1,63 @@
+name: "Change a Competition Calendar Event"
+description: "Correct, reschedule, cancel, or update an existing competition listing."
+title: "[Calendar Change]: <Competition Name> - <Change Summary>"
+labels: ["calendar-submission", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Request a change to [the competition calendar](https://gripaustralia.com/competition-calendar).
+        A maintainer will verify the change before publishing. Issues are public; only share public contact details.
+        Use the meet results form for full scorecards.
+
+  - type: input
+    id: existing_event
+    attributes:
+      label: Existing Competition
+      description: Give the current name and date, or the event ID from src/data/competitions.json or src/data/completed_competitions.json.
+      placeholder: e.g. hobart-hoist-2027 / Hobart Hoist 2027, 2027-01-30
+    validations:
+      required: true
+
+  - type: dropdown
+    id: change_type
+    attributes:
+      label: Change Type
+      options:
+        - "Correct event details"
+        - "Reschedule or postpone"
+        - "Cancel event"
+        - "Update registration"
+        - "Update sanctioning"
+        - "Mark completed or add results link"
+    validations:
+      required: true
+
+  - type: textarea
+    id: changes
+    attributes:
+      label: Requested Changes
+      description: |
+        List each field to change and its replacement value. Use YYYY-MM-DD for dates and include the time zone for times.
+        Say explicitly if a registration link or closing date should be removed. If postponed without a new date, say so rather than guessing a date.
+      placeholder: |
+        Date: 2027-01-30 -> 2027-02-06
+        Time: 10 AM - 2 PM AEDT
+        Venue: New venue name and public address
+        Registration closing date: 2027-02-05
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason and Supporting Evidence
+      description: Explain the change and link to an organiser announcement, updated entry page, or confirmation. You can attach a flyer.
+    validations:
+      required: true
+
+  - type: input
+    id: organiser
+    attributes:
+      label: Meet Director or Public Contact
+      description: Include a public contact channel if it helps verify the change.
