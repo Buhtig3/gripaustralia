@@ -1,23 +1,7 @@
 import rawCompetitions from '../data/competitions.json';
 import rawCompletedCompetitions from '../data/completed_competitions.json';
-
-export interface Competition {
-  id: string;
-  title: string;
-  date: string; // YYYY-MM-DD
-  time?: string;
-  location: string;
-  venue: string;
-  registrationUrl?: string | null;
-  registrationCloseDate?: string | null;
-  statusOverride?: 'cancelled' | 'completed' | 'scheduled' | 'registration_open' | null;
-  sanctioned: boolean;
-  sanctioningBody?: string;
-  description?: string;
-  resultsUrl?: string | null;
-}
-
-export type ComputedCompetitionStatus = 'completed' | 'cancelled' | 'registration_open' | 'scheduled';
+import { getCompetitionStatus, type Competition, type ComputedCompetitionStatus } from './competition-status';
+export { getCompetitionStatus, type Competition, type ComputedCompetitionStatus } from './competition-status';
 
 export interface CompetitionWithStatus extends Competition {
   computedStatus: ComputedCompetitionStatus;
@@ -40,41 +24,6 @@ export function formatCompetitionDate(dateStr: string): string {
   } catch {
     return dateStr;
   }
-}
-
-export function getCompetitionStatus(
-  comp: Competition,
-  referenceDate: Date = new Date()
-): { status: ComputedCompetitionStatus; label: string; isPast: boolean } {
-  if (comp.statusOverride) {
-    const isPast = comp.statusOverride === 'completed';
-    const labelMap: Record<ComputedCompetitionStatus, string> = {
-      completed: 'Completed',
-      cancelled: 'Cancelled',
-      registration_open: 'Registration Open',
-      scheduled: 'Scheduled',
-    };
-    return {
-      status: comp.statusOverride as ComputedCompetitionStatus,
-      label: labelMap[comp.statusOverride as ComputedCompetitionStatus] || 'Scheduled',
-      isPast,
-    };
-  }
-
-  const refIso = referenceDate.toISOString().split('T')[0];
-  const isPast = comp.date < refIso;
-
-  if (isPast) {
-    return { status: 'completed', label: 'Completed', isPast: true };
-  }
-
-  if (comp.registrationUrl && comp.registrationCloseDate) {
-    if (comp.registrationCloseDate >= refIso) {
-      return { status: 'registration_open', label: 'Registration Open', isPast: false };
-    }
-  }
-
-  return { status: 'scheduled', label: 'Scheduled', isPast: false };
 }
 
 export function getCompetitionsWithStatus(referenceDate: Date = new Date()): {

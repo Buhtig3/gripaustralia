@@ -24,6 +24,7 @@ const CSV_HEADERS = [
   'id',
   'title',
   'date',
+  'timeZone',
   'time',
   'location',
   'venue',
@@ -41,6 +42,7 @@ const TEMPLATE_ROWS = [
     id: 'brisbane-grip-classic-2027',
     title: 'Brisbane Grip Classic 2027',
     date: '2027-03-20',
+    timeZone: 'Australia/Brisbane',
     time: '9:30 AM – 3:30 PM AEST',
     location: 'Brisbane, QLD',
     venue: 'Valhalla Strength, Brisbane',
@@ -56,6 +58,7 @@ const TEMPLATE_ROWS = [
     id: 'hobart-hoist-2027',
     title: 'Hobart Hoist 2027',
     date: '2027-01-30',
+    timeZone: 'Australia/Hobart',
     time: '10:00 AM – 2:00 PM AEDT',
     location: 'Hobart, TAS',
     venue: 'Hobart, Tasmania',
@@ -71,6 +74,7 @@ const TEMPLATE_ROWS = [
     id: 'strongfest-iv-2026',
     title: 'StrongFest IV',
     date: '2026-08-22',
+    timeZone: 'Australia/Sydney',
     time: '10:00 AM – 3:00 PM AEST',
     location: 'Canberra, ACT',
     venue: 'Canberra, ACT',
@@ -86,6 +90,7 @@ const TEMPLATE_ROWS = [
     id: 'perth-pinch-championship-2027',
     title: 'Perth Pinch Championship 2027',
     date: '2027-05-15',
+    timeZone: 'Australia/Perth',
     time: '10:00 AM – 2:00 PM AWST',
     location: 'Perth, WA',
     venue: 'Perth Barbell Club',
@@ -176,7 +181,7 @@ function serializeCSV(headers, rows) {
  */
 function validateCompetition(comp, index) {
   const errors = [];
-  const required = ['id', 'title', 'date', 'location', 'venue', 'sanctioned'];
+  const required = ['id', 'title', 'date', 'timeZone', 'location', 'venue', 'sanctioned'];
 
   for (const field of required) {
     if (comp[field] === undefined || comp[field] === null || comp[field] === '') {
@@ -186,6 +191,15 @@ function validateCompetition(comp, index) {
 
   if (comp.date && !/^\d{4}-\d{2}-\d{2}$/.test(comp.date)) {
     errors.push(`Row #${index} (${comp.id}): 'date' must be ISO format YYYY-MM-DD (received '${comp.date}')`);
+  }
+
+  if (comp.timeZone !== undefined && comp.timeZone !== null && comp.timeZone !== '') {
+    try {
+      if (typeof comp.timeZone !== 'string' || /^[+-]/.test(comp.timeZone)) throw new Error();
+      new Intl.DateTimeFormat('en-AU', { timeZone: comp.timeZone });
+    } catch {
+      errors.push(`Row #${index} (${comp.id}): 'timeZone' must be a valid IANA timezone`);
+    }
   }
 
   if (comp.registrationCloseDate && !/^\d{4}-\d{2}-\d{2}$/.test(comp.registrationCloseDate)) {
@@ -293,6 +307,9 @@ function commandImport(csvFilePath, options = {}) {
 
   const parsedCompetitions = [];
   const errors = [];
+  const existingCompetitions = new Map([
+    ...readJSON(COMPETITIONS_PATH, []), ...readJSON(COMPLETED_PATH, []),
+  ].map((comp) => [comp.id, comp]));
 
   for (let i = 1; i < rows.length; i++) {
     const row = rows[i];
@@ -308,6 +325,10 @@ function commandImport(csvFilePath, options = {}) {
         comp[h] = cell;
       }
     });
+
+    if (!comp.timeZone) {
+      comp.timeZone = existingCompetitions.get(comp.id)?.timeZone;
+    }
 
     const rowErrors = validateCompetition(comp, i + 1);
     if (rowErrors.length > 0) {
