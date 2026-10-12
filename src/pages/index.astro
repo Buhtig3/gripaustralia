@@ -5,7 +5,8 @@ import { getCollection } from 'astro:content';
 import { getCompetitionsWithStatus } from '../utils/competitions';
 
 const articles = await getCollection('articles');
-const { activeRegistration, nextScheduled } = getCompetitionsWithStatus();
+const { upcoming } = getCompetitionsWithStatus();
+const homepageCompetitions = upcoming.filter((event) => event.computedStatus !== 'cancelled');
 
 // Featured Guides & Tools (Non-repetitive, high-utility selection)
 const featuredGuides = [
@@ -113,38 +114,35 @@ const featuredGuides = [
   </section>
 
   <!-- Prominent Hero Action Buttons -->
-  <section class="bg-[var(--bg-elevated)] py-10 px-4 border-b border-[var(--border-color)] transition-colors duration-250">
+  <section id="homepage-event-actions" class="bg-[var(--bg-elevated)] py-10 px-4 border-b border-[var(--border-color)] transition-colors duration-250">
     <div class="max-w-xl mx-auto flex flex-col gap-4">
-      {activeRegistration && activeRegistration.registrationUrl ? (
+      {homepageCompetitions.map((event) => (
         <a
-          href={activeRegistration.registrationUrl}
-          target="_blank"
+          hidden
+          data-homepage-competition={event.id}
+          data-competition={JSON.stringify(event)}
+          href={getUrl(`/competition-calendar#${event.id}`)}
           rel="noopener noreferrer"
           class="w-full text-center py-4 px-6 rounded-[var(--btn-radius)] bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-[var(--accent-text)] font-display font-black text-base sm:text-lg uppercase tracking-widest transition-all duration-200 shadow-md hover:shadow-lg border border-[var(--accent-gold)]/40 transform hover:-translate-y-0.5 flex items-center justify-center gap-2 group"
         >
-          <span>{activeRegistration.title} Sign-up</span>
+          <span>{event.title} Details</span>
           <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform text-[var(--accent-gold)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
           </svg>
         </a>
-      ) : (
-        <a
-          href={getUrl('/competition-calendar')}
-          class="w-full text-center py-3.5 px-6 rounded-[var(--btn-radius)] bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-[var(--accent-text)] font-display font-black text-base sm:text-lg uppercase tracking-widest transition-all duration-200 shadow-md hover:shadow-lg border border-[var(--accent-gold)]/40 transform hover:-translate-y-0.5 flex flex-col items-center justify-center gap-0.5 group"
-        >
-          <div class="flex items-center justify-center gap-2">
-            <span>View Competition Calendar</span>
-            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform text-[var(--accent-gold)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-            </svg>
-          </div>
-          {nextScheduled && (
-            <span class="text-[11px] font-mono font-normal tracking-normal text-[var(--accent-text)]/85">
-              Next: {nextScheduled.title} &bull; {nextScheduled.formattedDate}
-            </span>
-          )}
-        </a>
-      )}
+      ))}
+      <a
+        id="homepage-competition-calendar"
+        href={getUrl('/competition-calendar')}
+        class="w-full text-center py-3.5 px-6 rounded-[var(--btn-radius)] bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-[var(--accent-text)] font-display font-black text-base sm:text-lg uppercase tracking-widest transition-all duration-200 shadow-md hover:shadow-lg border border-[var(--accent-gold)]/40 transform hover:-translate-y-0.5 flex flex-col items-center justify-center gap-0.5 group"
+      >
+        <div class="flex items-center justify-center gap-2">
+          <span>View Competition Calendar</span>
+          <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform text-[var(--accent-gold)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </div>
+      </a>
 
       <a
         href={getUrl('/2026-championship')}
@@ -412,7 +410,55 @@ const featuredGuides = [
   </section>
 </BaseLayout>
 
+<style>
+  #homepage-event-actions [hidden] {
+    display: none;
+  }
+</style>
+
 <script>
+  import { getCompetitionStatus, getNextVenueMidnight, type Competition } from '../utils/competition-status';
+
+  const eventButtons = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-homepage-competition]'), (button) => ({
+    button,
+    competition: JSON.parse(button.dataset.competition!) as Competition,
+    detailsUrl: button.getAttribute('href')!,
+  }));
+  const calendarButton = document.getElementById('homepage-competition-calendar');
+  let eventTimer: ReturnType<typeof setTimeout>;
+
+  function updateHomepageCompetitions() {
+    clearTimeout(eventTimer);
+    const now = new Date();
+    let visibleCount = 0;
+    let nextCheck = Infinity;
+
+    for (const { button, competition, detailsUrl } of eventButtons) {
+      const { status, isPast } = getCompetitionStatus(competition, now);
+      button.hidden = isPast || status === 'cancelled';
+      if (button.hidden) continue;
+
+      visibleCount++;
+      const registrationOpen = status === 'registration_open';
+      button.querySelector('span')!.textContent = `${competition.title} ${registrationOpen ? 'Sign-up' : 'Details'}`;
+      button.setAttribute('href', registrationOpen ? competition.registrationUrl! : detailsUrl);
+      if (registrationOpen) button.setAttribute('target', '_blank');
+      else button.removeAttribute('target');
+      nextCheck = Math.min(nextCheck, getNextVenueMidnight(now, competition.timeZone));
+    }
+
+    if (calendarButton) calendarButton.hidden = visibleCount > 0;
+    if (Number.isFinite(nextCheck)) {
+      eventTimer = setTimeout(updateHomepageCompetitions, Math.max(1, nextCheck - now.getTime()));
+    }
+  }
+
+  updateHomepageCompetitions();
+  window.addEventListener('pageshow', updateHomepageCompetitions);
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') updateHomepageCompetitions();
+  });
+
   // Banner dismiss logic
   const banner = document.getElementById('migration-banner');
   const dismissBtn = document.getElementById('dismiss-banner-btn');

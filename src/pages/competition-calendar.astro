@@ -68,7 +68,7 @@ const { upcoming } = getCompetitionsWithStatus();
         ) : (
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             {upcoming.map((event) => (
-              <div class="bg-[var(--bg-surface)] border border-[var(--border-color)] hover:border-[var(--accent-gold)]/50 rounded-2xl p-6 transition-all duration-200 flex flex-col justify-between shadow-lg relative overflow-hidden group">
+              <div id={event.id} class="bg-[var(--bg-surface)] border border-[var(--border-color)] hover:border-[var(--accent-gold)]/50 rounded-2xl p-6 transition-all duration-200 flex flex-col justify-between shadow-lg relative overflow-hidden group">
                 <div class="absolute top-0 right-0 w-24 h-24 bg-[var(--accent-gold)]/5 rounded-bl-full pointer-events-none"></div>
                 <div>
                   <div class="flex items-center justify-between gap-2 mb-4">

@@ -74,7 +74,7 @@ function validateResults(data, sourceName) {
 
 function validateCompetition(comp, index, sourceName) {
   const errors = [];
-  const requiredFields = ['id', 'title', 'date', 'location', 'venue', 'sanctioned'];
+  const requiredFields = ['id', 'title', 'date', 'timeZone', 'location', 'venue', 'sanctioned'];
 
   for (const field of requiredFields) {
     if (comp[field] === undefined || comp[field] === null || comp[field] === '') {
@@ -84,6 +84,15 @@ function validateCompetition(comp, index, sourceName) {
 
   if (comp.date && !/^\d{4}-\d{2}-\d{2}$/.test(comp.date)) {
     errors.push(`Competition #${index} (${comp.id}): 'date' must be ISO format YYYY-MM-DD`);
+  }
+
+  if (comp.timeZone !== undefined && comp.timeZone !== null && comp.timeZone !== '') {
+    try {
+      if (typeof comp.timeZone !== 'string' || /^[+-]/.test(comp.timeZone)) throw new Error();
+      new Intl.DateTimeFormat('en-AU', { timeZone: comp.timeZone });
+    } catch {
+      errors.push(`Competition #${index} (${comp.id}): 'timeZone' must be a valid IANA timezone`);
+    }
   }
 
   if (comp.registrationCloseDate && !/^\d{4}-\d{2}-\d{2}$/.test(comp.registrationCloseDate)) {
