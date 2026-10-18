@@ -59,12 +59,12 @@ function deduplicateAthletes(entries: MandrelEntry[]): { men: MandrelEntry[]; wo
   const men = allDeduplicated
     .filter(e => e.gender === 'men')
     .sort((a, b) => b.weightKg - a.weightKg)
-    .map((e, idx) => ({ ...e, rank: idx + 1 }));
+    .map((e, _, entries) => ({ ...e, rank: entries.findIndex(row => row.weightKg === e.weightKg) + 1 }));
 
   const women = allDeduplicated
     .filter(e => e.gender === 'women')
     .sort((a, b) => b.weightKg - a.weightKg)
-    .map((e, idx) => ({ ...e, rank: idx + 1 }));
+    .map((e, _, entries) => ({ ...e, rank: entries.findIndex(row => row.weightKg === e.weightKg) + 1 }));
 
   return { men, women };
 }

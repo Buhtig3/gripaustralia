@@ -55,7 +55,7 @@
     "aliases": []
   },
   {
-    "rank": 6,
+    "rank": 5,
     "athleteId": 2784,
     "name": "Sean Magnusson",
     "gender": "men",
@@ -77,7 +77,7 @@
     "aliases": []
   },
   {
-    "rank": 8,
+    "rank": 7,
     "athleteId": 1625,
     "name": "Thomas Denmeade",
     "gender": "men",
@@ -132,7 +132,7 @@
     "aliases": []
   },
   {
-    "rank": 13,
+    "rank": 12,
     "athleteId": 3426,
     "name": "Christian Boz",
     "gender": "men",
@@ -176,7 +176,7 @@
     "aliases": []
   },
   {
-    "rank": 17,
+    "rank": 16,
     "athleteId": 2425,
     "name": "Mathew Wayling",
     "gender": "men",
@@ -187,7 +187,7 @@
     "aliases": []
   },
   {
-    "rank": 18,
+    "rank": 16,
     "athleteId": 2783,
     "name": "Andrew Hodge",
     "gender": "men",
