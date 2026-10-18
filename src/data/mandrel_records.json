@@ -15,14 +15,58 @@
     "athleteId": 2083,
     "name": "Isaac Pitt",
     "gender": "men",
-    "weightKg": 113.55,
-    "weightLbs": 250.3,
+    "weightKg": 118.8,
+    "weightLbs": 261.9,
     "isRecord": false,
     "gsiAthleteUrl": "https://www.gripsport.org/athlete/2083",
     "aliases": []
   },
   {
     "rank": 3,
+    "athleteId": 3200,
+    "name": "Declan Wright",
+    "gender": "men",
+    "weightKg": 113.8,
+    "weightLbs": 250.9,
+    "isRecord": false,
+    "gsiAthleteUrl": "https://www.gripsport.org/athlete/3200",
+    "aliases": []
+  },
+  {
+    "rank": 4,
+    "athleteId": 3380,
+    "name": "Martin Zhang",
+    "gender": "men",
+    "weightKg": 103.8,
+    "weightLbs": 228.8,
+    "isRecord": false,
+    "gsiAthleteUrl": "https://www.gripsport.org/athlete/3380",
+    "aliases": []
+  },
+  {
+    "rank": 5,
+    "athleteId": 2786,
+    "name": "Jayden Osmialowski",
+    "gender": "men",
+    "weightKg": 93.8,
+    "weightLbs": 206.8,
+    "isRecord": false,
+    "gsiAthleteUrl": "https://www.gripsport.org/athlete/2786",
+    "aliases": []
+  },
+  {
+    "rank": 6,
+    "athleteId": 2784,
+    "name": "Sean Magnusson",
+    "gender": "men",
+    "weightKg": 93.8,
+    "weightLbs": 206.8,
+    "isRecord": false,
+    "gsiAthleteUrl": "https://www.gripsport.org/athlete/2784",
+    "aliases": []
+  },
+  {
+    "rank": 7,
     "athleteId": 1464,
     "name": "Glenn Hunter",
     "gender": "men",
@@ -33,7 +77,7 @@
     "aliases": []
   },
   {
-    "rank": 4,
+    "rank": 8,
     "athleteId": 1625,
     "name": "Thomas Denmeade",
     "gender": "men",
@@ -44,7 +88,7 @@
     "aliases": []
   },
   {
-    "rank": 5,
+    "rank": 9,
     "athleteId": 1570,
     "name": "Joseph Hodgson",
     "gender": "men",
@@ -55,18 +99,18 @@
     "aliases": []
   },
   {
-    "rank": 6,
-    "athleteId": 2786,
-    "name": "Jayden Osmialowski",
+    "rank": 10,
+    "athleteId": 3427,
+    "name": "Oscar Curtis",
     "gender": "men",
-    "weightKg": 88.55,
-    "weightLbs": 195.2,
+    "weightKg": 88.8,
+    "weightLbs": 195.8,
     "isRecord": false,
-    "gsiAthleteUrl": "https://www.gripsport.org/athlete/2786",
+    "gsiAthleteUrl": "https://www.gripsport.org/athlete/3427",
     "aliases": []
   },
   {
-    "rank": 7,
+    "rank": 11,
     "athleteId": 2424,
     "name": "Samuel Vogt",
     "gender": "men",
@@ -77,7 +121,29 @@
     "aliases": []
   },
   {
-    "rank": 8,
+    "rank": 12,
+    "athleteId": 2423,
+    "name": "Lachlan Simms",
+    "gender": "men",
+    "weightKg": 83.8,
+    "weightLbs": 184.7,
+    "isRecord": false,
+    "gsiAthleteUrl": "https://www.gripsport.org/athlete/2423",
+    "aliases": []
+  },
+  {
+    "rank": 13,
+    "athleteId": 3426,
+    "name": "Christian Boz",
+    "gender": "men",
+    "weightKg": 83.8,
+    "weightLbs": 184.7,
+    "isRecord": false,
+    "gsiAthleteUrl": "https://www.gripsport.org/athlete/3426",
+    "aliases": []
+  },
+  {
+    "rank": 14,
     "athleteId": 2079,
     "name": "Mark Boylin",
     "gender": "men",
@@ -88,7 +154,7 @@
     "aliases": []
   },
   {
-    "rank": 9,
+    "rank": 15,
     "athleteId": 2785,
     "name": "Travis Herbert",
     "gender": "men",
@@ -99,7 +165,7 @@
     "aliases": []
   },
   {
-    "rank": 10,
+    "rank": 16,
     "athleteId": 2329,
     "name": "Dominic Awad",
     "gender": "men",
@@ -110,18 +176,7 @@
     "aliases": []
   },
   {
-    "rank": 11,
-    "athleteId": 2423,
-    "name": "Lachlan Simms",
-    "gender": "men",
-    "weightKg": 73.8,
-    "weightLbs": 162.7,
-    "isRecord": false,
-    "gsiAthleteUrl": "https://www.gripsport.org/athlete/2423",
-    "aliases": []
-  },
-  {
-    "rank": 12,
+    "rank": 17,
     "athleteId": 2425,
     "name": "Mathew Wayling",
     "gender": "men",
@@ -132,7 +187,18 @@
     "aliases": []
   },
   {
-    "rank": 13,
+    "rank": 18,
+    "athleteId": 2783,
+    "name": "Andrew Hodge",
+    "gender": "men",
+    "weightKg": 73.8,
+    "weightLbs": 162.7,
+    "isRecord": false,
+    "gsiAthleteUrl": "https://www.gripsport.org/athlete/2783",
+    "aliases": []
+  },
+  {
+    "rank": 19,
     "athleteId": 2426,
     "name": "James Sue",
     "gender": "men",
@@ -143,7 +209,7 @@
     "aliases": []
   },
   {
-    "rank": 14,
+    "rank": 20,
     "athleteId": 2082,
     "name": "Dean Redzic",
     "gender": "men",
@@ -154,18 +220,7 @@
     "aliases": []
   },
   {
-    "rank": 15,
-    "athleteId": 2784,
-    "name": "Sean Magnusson",
-    "gender": "men",
-    "weightKg": 63.55,
-    "weightLbs": 140.1,
-    "isRecord": false,
-    "gsiAthleteUrl": "https://www.gripsport.org/athlete/2784",
-    "aliases": []
-  },
-  {
-    "rank": 16,
+    "rank": 21,
     "athleteId": 2428,
     "name": "Thomas Claxton",
     "gender": "men",
@@ -176,7 +231,7 @@
     "aliases": []
   },
   {
-    "rank": 17,
+    "rank": 22,
     "athleteId": 2427,
     "name": "Joseph Ameer",
     "gender": "men",
@@ -187,18 +242,7 @@
     "aliases": []
   },
   {
-    "rank": 18,
-    "athleteId": 2783,
-    "name": "Andrew Hodge",
-    "gender": "men",
-    "weightKg": 38.55,
-    "weightLbs": 85.0,
-    "isRecord": false,
-    "gsiAthleteUrl": "https://www.gripsport.org/athlete/2783",
-    "aliases": []
-  },
-  {
-    "rank": 19,
+    "rank": 23,
     "athleteId": 2788,
     "name": "James Burns",
     "gender": "men",
@@ -210,27 +254,27 @@
   },
   {
     "rank": 1,
+    "athleteId": 2778,
+    "name": "Megan Galvin",
+    "gender": "women",
+    "weightKg": 73.8,
+    "weightLbs": 162.7,
+    "isRecord": true,
+    "gsiAthleteUrl": "https://www.gripsport.org/athlete/2778",
+    "aliases": [
+      "Mouse"
+    ]
+  },
+  {
+    "rank": 2,
     "athleteId": 2078,
     "name": "Sarah Rodwell",
     "gender": "women",
     "weightKg": 53.8,
     "weightLbs": 118.6,
-    "isRecord": true,
+    "isRecord": false,
     "gsiAthleteUrl": "https://www.gripsport.org/athlete/2078",
     "aliases": []
-  },
-  {
-    "rank": 2,
-    "athleteId": 2778,
-    "name": "Megan Galvin",
-    "gender": "women",
-    "weightKg": 53.55,
-    "weightLbs": 118.1,
-    "isRecord": false,
-    "gsiAthleteUrl": "https://www.gripsport.org/athlete/2778",
-    "aliases": [
-      "Mouse"
-    ]
   },
   {
     "rank": 3,
@@ -241,6 +285,17 @@
     "weightLbs": 107.0,
     "isRecord": false,
     "gsiAthleteUrl": "https://www.gripsport.org/athlete/2781",
+    "aliases": []
+  },
+  {
+    "rank": 4,
+    "athleteId": 3386,
+    "name": "Cressida Liu",
+    "gender": "women",
+    "weightKg": 38.8,
+    "weightLbs": 85.5,
+    "isRecord": false,
+    "gsiAthleteUrl": "https://www.gripsport.org/athlete/3386",
     "aliases": []
   }
 ]
