@@ -67,17 +67,18 @@ The following Australian athletes have lifted a 78.3 kg Thomas Inch Dumbbell rep
 | Athlete | Bells Lifted | Video / Documentation |
 | :--- | :--- |:--- |
 | **Bruce White** | First Thomas Inch Dumbbell Replica| [Bruce White's Inch Dumbbell Story](https://www.oldtimestrongman.com/blog/2015/09/03/bruce-whites-inch-dumbbell/) |
-| **Joseph Hodgson** | 78kg Holle, 78kg Sorinex, 83kg HK, 104kg Holle, SoS 95kg Circus Bell | [83kg HK Lift](https://www.instagram.com/reel/CuUPVHmAgrm/) • [SoS 95kg Circus Bell](https://www.instagram.com/reel/CeQJ_U7gXLO/) • [Wallace Challenge Bells](https://www.oldmanofthestones.com/blog/wallace-challenge-dumbells) • [The Grip Show Interview](https://www.youtube.com/watch?v=fOT-4Gl1FrI&t=4819s) |
+| **Joseph Hodgson** | 78kg Holle, 80kg Sorinex, 83kg HK, 104kg Holle | [83kg HK Lift](https://www.instagram.com/reel/CuUPVHmAgrm/) • [The Grip Show Interview](https://www.youtube.com/watch?v=fOT-4Gl1FrI&t=4819s) |
 | **Ben Cossey** | 78kg Holle, 83kg HK | [78kg Holle Lift Video](https://vimeo.com/862290524) • [83kg HK Lift Reel](https://www.instagram.com/reel/CuUPVHmAgrm/) |
 | **Luke Reynolds** | 78kg Holle, 83kg HK | [78kg & 83kg HK Lift Reel](https://www.instagram.com/reel/CsFDEgmub9n/) |
 | **William Fuggle** | 78kg Holle, 83kg HK | [78kg Holle Lift Video](https://vimeo.com/862274273) • [83kg HK Lift Reel](https://www.instagram.com/reel/CuUPVHmAgrm/) |
-| **Isaac Pitt** | 78kg Holle, 83kg HK | [78kg Holle Lift Reel](https://www.instagram.com/reel/CwbeSoqBXQ2/) |
+| **Isaac Pitt** | 78kg Holle, 80kg Sorinex, 83kg HK | [78kg Holle Lift Reel](https://www.instagram.com/reel/CwbeSoqBXQ2/) |
 | **Glen Krutli** | 78kg Holle, 83kg HK | Documented lift |
 | **Henry Mullett** | 78kg Holle | Documented lift |
 | **Tom Denmeade** | 78kg Holle |  Documented lift |
-| **Lachlan Simms** | 78kg Holle | Documented lift |
+| **Lachlan Simms** | 78kg Holle | 83kg Holle | Documented lift |
 | **Mathew Chessum** | 78kg Holle | Documented lift |
 | **Christopher Meredith** | 78kg Holle | Documented lift |
+| **Martin Zhang** | 78kg Holle | 83kg Holle | Documented lift |
 
 ---
 
@@ -114,7 +115,7 @@ The following Australian athletes have successfully lifted a 22.7 kg / 50 lb (or
 | **William Fuggle** | 24kg Holle, Original Fatman | [24kg Holle Lift](https://player.vimeo.com/video/862273051?h=06c8ffd409) • [Fatman Blob Lift](https://vimeo.com/900485203) |
 | **Ben Cossey** | 24kg Holle, Original Fatman | Documented lifts |
 | **Luke Reynolds** | Original Fatman | [Luke Reynolds Fatman Lift Reel](https://www.instagram.com/reel/CsFDEgmub9n/) |
-| **Isaac Pitt** | KWN 50, Original Fatman | [Isaac Pitt KWN 50 Shorts](https://youtube.com/shorts/-2kPt6aV4Bo) |
+| **Isaac Pitt** | KWN 50, Original Fatman, 24kg Holle, Legacy 120 | [Isaac Pitt KWN 50 Shorts](https://youtube.com/shorts/-2kPt6aV4Bo) |
 | **Henry Mullett** | 24kg Holle, 30kg Holle | Documented lifts |
 | **Glen Krutli** | Hodgson Blob, 24kg Holle | Documented lifts |
 
