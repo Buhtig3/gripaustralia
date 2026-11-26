@@ -78,7 +78,7 @@ The following Australian athletes have lifted a 78.3 kg Thomas Inch Dumbbell rep
 | **Lachlan Simms** | 78kg Holle, 83kg HK | Documented lift |
 | **Mathew Chessum** | 78kg Holle | Documented lift |
 | **Christopher Meredith** | 78kg Holle | Documented lift |
-| **Martin Zhang** | 78kg Holle, 83kg Holle | Documented lift |
+| **Martin Zhang** | 78kg Holle, 83kg HK | Documented lift |
 
 ---
 
