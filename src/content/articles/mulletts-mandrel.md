@@ -53,6 +53,8 @@ tags:
 
 The Mullett's Mandrel is an Australian made grip tool by Henry Mullett, fashioned after the mandrel - a tapered tool used by blacksmiths to forge, press, stretch or shape an object.
 
+https://fivearms.com.au/?product=mulletts-mandrel
+
 Henry Mullett's current 133.55kg record 
 
 <div class="video-wrapper">
