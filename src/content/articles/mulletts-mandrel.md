@@ -51,7 +51,9 @@ tags:
 
 #### About Mullett's Mandrel
 
-The Mullett's Mandrel is an Australian made grip tool by Henry Mullett, fashioned after the mandrel - a tapered tool used by blacksmiths to forge, press, stretch or shape an object.
+The Mullett's Mandrel is an Australian-made grip tool crafted by 2025 Australian Grip Sport Champion Henry Mullett.
+
+The traditional blacksmith's mandrel is a heavy, tapered steel cone used for forging, stretching, and shaping iron rings and curved pieces. After Joe Hodgson suggested this tool for a local competition Henry created an affordable, reproducible Australian made option. As a vertical bar lift the mandrel is similar in feel to the Little Big Horn but lifters with smaller hands are less disadvantaged as they can fully wrap their hands around.
 
 https://fivearms.com.au/?product=mulletts-mandrel
 

@@ -76,8 +76,8 @@ const womensRecord = womensRankings[0];
 ---
 
 <BaseLayout
-  title="Mullett's Mandrel Records & Specifications | Grip Australia"
-  description="Official leaderboard, Australian records, implement specifications, and history of Mullett's Mandrel, the handcrafted Australian grip challenge implement by Henry Mullett."
+  title="Mullett's Mandrel Records | Grip Australia"
+  description="Official leaderboard, Australian records, and history of Mullett's Mandrel, the handcrafted Australian grip challenge implement by Henry Mullett."
 >
   <article class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     
@@ -412,99 +412,95 @@ const womensRecord = womensRankings[0];
     </section>
 
     <!-- About Mullett's Mandrel Section -->
-    <section class="my-16 pt-12 border-t border-[var(--border-color)]">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        
-        <!-- Text & Specs (Left) -->
-        <div class="lg:col-span-7 space-y-6">
-          <div>
-            <div class="text-xs font-mono uppercase tracking-widest text-[var(--accent-gold)] font-bold mb-1">
-              Engineering &amp; Heritage
-            </div>
-            <h2 class="font-display font-black text-2xl sm:text-3xl uppercase tracking-tight text-[var(--text-main)]">
-              About Mullett's Mandrel
-            </h2>
+    <section class="my-16 pt-12 border-t border-[var(--border-color)] space-y-6">
+      <div class="space-y-4">
+        <div>
+          <div class="text-xs font-mono uppercase tracking-widest text-[var(--accent-gold)] font-bold mb-1">
+            Engineering &amp; Heritage
           </div>
+          <h2 class="font-display font-black text-2xl sm:text-3xl uppercase tracking-tight text-[var(--text-main)]">
+            About Mullett's Mandrel
+          </h2>
+        </div>
 
-          <p class="text-sm sm:text-base text-[var(--text-muted)] leading-relaxed">
-            The <strong>Mullett's Mandrel</strong> is an Australian-made grip sport challenge tool created by national competitor and craftsman <strong>Henry Mullett</strong>. Fashioned after the traditional blacksmith's mandrel—a heavy, tapered steel cone used for forging, stretching, and shaping iron rings and curved pieces—this implement introduces a unique biomechanical challenge to grip sport.
-          </p>
+        <p class="text-sm sm:text-base text-[var(--text-muted)] leading-relaxed">
+          The <strong>Mullett's Mandrel</strong> is an Australian-made grip tool crafted by 2025 Australian Grip Sport Champion <strong>Henry Mullett</strong>.
+        </p>
 
-          <p class="text-sm text-[var(--text-muted)] leading-relaxed">
-            Unlike standard cylindrical handles or flat pinch blocks, the mandrel features a continuous conical taper with no shelf, lip, or catch. Athletes must rely purely on vertical clamping friction, thumb pad compression, and wrist radial stability to prevent the cone from slipping through their grasp as the weight breaks the floor.
-          </p>
+        <p class="text-sm sm:text-base text-[var(--text-muted)] leading-relaxed">
+          The traditional blacksmith's mandrel is a heavy, tapered steel cone used for forging, stretching, and shaping iron rings and curved pieces. After Joe Hodgson suggested this tool for a local competition Henry created an affordable, reproducible Australian made option. As a vertical bar lift the mandrel is similar in feel to the Little Big Horn but lifters with smaller hands are less disadvantaged as they can fully wrap their hands around.
+        </p>
+      </div>
 
-          <!-- Specs Card -->
-          <div class="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] shadow-sm space-y-3">
-            <h3 class="font-display font-bold text-base uppercase text-[var(--text-main)] flex items-center gap-2">
-              <svg class="w-4 h-4 text-[var(--accent-gold)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-              </svg>
-              <span>Implement Specifications</span>
+      <!-- Availability Card (Full Width) -->
+      <div class="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] shadow-sm space-y-2">
+        <div class="text-[10px] font-mono uppercase tracking-widest text-[var(--accent-gold)] font-bold">
+          Availability
+        </div>
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div>
+            <h3 class="font-display font-bold text-base text-[var(--text-main)]">
+              Five Arms Australia
             </h3>
+            <p class="text-xs text-[var(--text-muted)] mt-0.5 leading-relaxed">
+              Mullett's Mandrel is available through Five Arms, an Australian grip equipment distributor.
+            </p>
+          </div>
+          <a
+            href="https://fivearms.com.au/?product=mulletts-mandrel"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-1.5 shrink-0 px-3.5 py-2 rounded-lg text-xs font-mono font-bold bg-[var(--bg-elevated)] text-[var(--text-main)] border border-[var(--border-color)] hover:border-[var(--accent-gold)] hover:text-[var(--accent-gold)] transition-colors"
+          >
+            <span>View on Five Arms</span>
+            <svg class="w-3.5 h-3.5 text-[var(--accent-gold)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+            </svg>
+          </a>
+        </div>
+      </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-              <div class="p-3 rounded-lg bg-[var(--bg-elevated)] border border-[var(--border-color)]">
-                <div class="text-[var(--text-muted)] font-mono uppercase text-[10px]">Origin</div>
-                <div class="font-bold text-[var(--text-main)] mt-0.5">Handcrafted in Australia</div>
-              </div>
-              <div class="p-3 rounded-lg bg-[var(--bg-elevated)] border border-[var(--border-color)]">
-                <div class="text-[var(--text-muted)] font-mono uppercase text-[10px]">Material</div>
-                <div class="font-bold text-[var(--text-main)] mt-0.5">Turned High-Grade Solid Steel</div>
-              </div>
-              <div class="p-3 rounded-lg bg-[var(--bg-elevated)] border border-[var(--border-color)]">
-                <div class="text-[var(--text-muted)] font-mono uppercase text-[10px]">Attachment</div>
-                <div class="font-bold text-[var(--text-main)] mt-0.5">Vertical Eyelet Loading Pin</div>
-              </div>
-              <div class="p-3 rounded-lg bg-[var(--bg-elevated)] border border-[var(--border-color)]">
-                <div class="text-[var(--text-muted)] font-mono uppercase text-[10px]">Lifting Discipline</div>
-                <div class="font-bold text-[var(--text-main)] mt-0.5">One-Hand Taper Pinch</div>
-              </div>
+      <!-- Video & Photo Row -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <!-- Video Card -->
+        <div class="lg:col-span-7 flex flex-col rounded-2xl overflow-hidden border border-[var(--border-color)] bg-[var(--bg-surface)] shadow-md">
+          <div class="p-3 bg-[var(--bg-elevated)] border-b border-[var(--border-color)] flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+              <span class="text-xs font-mono font-bold text-[var(--text-main)]">133.55 kg National Record</span>
             </div>
+            <span class="text-[10px] font-mono text-[var(--accent-gold)]">Henry Mullett</span>
+          </div>
+          
+          <div class="aspect-video w-full bg-black">
+            <iframe
+              src="https://player.vimeo.com/video/1113586899?title=0&byline=0&portrait=0"
+              title="Henry Mullett's current 133.55kg record"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen
+              class="w-full h-full border-0"
+            ></iframe>
+          </div>
+          
+          <div class="p-3 text-[11px] text-[var(--text-muted)] leading-relaxed mt-auto border-t border-[var(--border-color)]">
+            Official video run of Henry Mullett setting the all-time Australian Mandrel Record with a 133.55 kg (294.4 lbs) lift.
           </div>
         </div>
 
-        <!-- Video & Photo (Right) -->
-        <div class="lg:col-span-5 space-y-6">
-          <!-- Video Card -->
-          <div class="rounded-2xl overflow-hidden border border-[var(--border-color)] bg-[var(--bg-surface)] shadow-md">
-            <div class="p-3 bg-[var(--bg-elevated)] border-b border-[var(--border-color)] flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-                <span class="text-xs font-mono font-bold text-[var(--text-main)]">133.55 kg National Record</span>
-              </div>
-              <span class="text-[10px] font-mono text-[var(--accent-gold)]">Henry Mullett</span>
-            </div>
-            
-            <div class="aspect-video w-full bg-black">
-              <iframe
-                src="https://player.vimeo.com/video/1113586899?title=0&byline=0&portrait=0"
-                title="Henry Mullett's current 133.55kg record"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowfullscreen
-                class="w-full h-full border-0"
-              ></iframe>
-            </div>
-            
-            <div class="p-3 text-[11px] text-[var(--text-muted)] leading-relaxed">
-              Official video run of Henry Mullett setting the all-time Australian Mandrel Record with a 133.55 kg (294.4 lbs) lift.
-            </div>
-          </div>
-
-          <!-- Implement Image -->
-          <div class="rounded-2xl overflow-hidden border border-[var(--border-color)] bg-[var(--bg-surface)] shadow-md">
+        <!-- Implement Image -->
+        <div class="lg:col-span-5 flex flex-col rounded-2xl overflow-hidden border border-[var(--border-color)] bg-[var(--bg-surface)] shadow-md">
+          <div class="flex-1 flex items-center justify-center bg-[var(--bg-elevated)]">
             <Image
               src={mandrelImg1}
               alt="Mullett's Mandrel challenge implement"
-              class="w-full h-auto object-cover"
+              class="w-full max-h-96 lg:max-h-[345px] object-contain"
             />
-            <div class="p-3 text-[11px] text-[var(--text-muted)] flex items-center justify-between">
-              <span>Turned steel mandrel on competition loading setup</span>
-              <span class="font-mono text-[10px] text-[var(--accent-gold)]">Melbourne, Australia</span>
-            </div>
+          </div>
+          <div class="p-3 text-[11px] text-[var(--text-muted)] flex items-center justify-between border-t border-[var(--border-color)]">
+            <span>Turned steel mandrel on competition loading setup</span>
+            <span class="font-mono text-[10px] text-[var(--accent-gold)]">Melbourne, Australia</span>
           </div>
         </div>
-
       </div>
     </section>
 
